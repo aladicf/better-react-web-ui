@@ -1,0 +1,19 @@
+better-web-ui License
+
+Copyright (c) 2026 better-web-ui contributors
+
+This license is based on the MIT License, but it adds additional restrictions requiring this project and its forks to remain free, source-available, and not sold as a proprietary product. Because of those added restrictions, this license is not the standard MIT License.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to use, copy, modify, merge, publish, and distribute the Software, subject to the following conditions:
+
+1. The above copyright notice, this permission notice, and the disclaimer below shall be included in all copies or substantial portions of the Software.
+
+2. If you distribute, publish, fork, or otherwise make the Software or a modified version of it available to others, you must also make the complete corresponding source code of that version publicly available, free of charge, under this same license.
+
+3. You may not distribute, sublicense, offer, market, or sell the Software or a modified version of it as a closed-source, proprietary, or paid product.
+
+4. You may not claim the Software, or a modified version of it, as your own exclusive product while restricting others from accessing, copying, modifying, or sharing it under this license.
+
+5. Use of the Software as part of internal workflows, client work, or broader open projects is allowed, provided those uses do not violate the conditions above with respect to the Software itself.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

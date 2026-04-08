@@ -1,0 +1,158 @@
+# better-web-ui
+
+`better-web-ui` is a frontend design skill library for AI coding agents.
+
+It helps agents build, critique, refine, and systematize high-quality UI work without defaulting to generic, low-context design output.
+
+The package follows the [Agent Skills](https://agentskills.io/) format and is designed to be installed through the [`skills` CLI](https://skills.sh/docs/cli).
+
+## What this package is for
+
+Use `better-web-ui` when you want an agent to help with:
+
+- broader frontend design direction
+- visual hierarchy and layout quality
+- typography, color, and spacing systems
+- critique and audit passes
+- onboarding, empty states, and UX writing
+- polish, motion, depth, and standout showcase work
+
+This repository is a **skills package**, not a web app or starter template.
+
+## Installation
+
+### Install from GitHub
+
+```bash
+npx skills add aladicf/better-web-ui
+```
+
+Useful variations:
+
+```bash
+npx skills add aladicf/better-web-ui --list
+npx skills add aladicf/better-web-ui --all
+npx skills add aladicf/better-web-ui --skill frontend-design --skill polish
+npx skills add aladicf/better-web-ui -g
+```
+
+### Install from a local checkout
+
+```bash
+npx skills add .
+```
+
+## Skill catalog
+
+### Meta and setup
+
+- `frontend-design` — core design operating model and shared reference set
+- `setup` — gather and persist project design context
+
+### Execution skills
+
+- `adapt` — responsive and context-aware adaptation
+- `animate` — motion and micro-interactions
+- `arrange` — layout composition, grouping, and spacing rhythm
+- `clarify` — UX writing and copy clarity
+- `colorize` — color systems and semantic color
+- `depth` — elevation, layering, and depth systems
+- `distill` — declutter and simplify noisy UI
+- `empty-state` — design useful zero-data and no-results states
+- `extract` — pull repeated UI into reusable components, patterns, and tokens
+- `harden` — edge cases, i18n, errors, overflow, and resilience
+- `hierarchy` — priority, emphasis, and action clarity
+- `imagery` — screenshots, icons, photos, and media treatment
+- `normalize` — bring drifted UI back into alignment with the design system
+- `onboard` — first-run, activation, and onboarding flow design
+- `typeset` — typography, readability, and type hierarchy
+
+### Review and finishing
+
+- `audit` — technical UI quality checks with scored findings and severity ratings
+- `critique` — UX and design critique with scores and prioritized issues
+- `delight` — tasteful personality and memorable moments
+- `polish` — final pass for alignment, consistency, and micro-detail quality
+- `quieter` — reduce visual intensity without losing hierarchy
+- `bolder` — increase visual confidence, contrast, and impact
+
+### Advanced / specialized
+
+- `optimize` — UI performance and rendering optimization
+- `showcase` — ambitious, standout, technically impressive UI work
+
+The canonical source of truth for every skill lives under `skills/`.
+
+## Package structure
+
+The canonical source of truth lives in:
+
+```text
+skills/
+```
+
+Each skill directory contains its own `SKILL.md`, plus optional supporting files such as references, scripts, or assets.
+
+Shared doctrine currently lives primarily under:
+
+```text
+skills/frontend-design/reference/
+```
+
+## Compatibility wrapper trees
+
+This repo also ships generated wrapper trees for agent-specific layouts so the same canonical skills can be surfaced in multiple environments:
+
+- `.agents/skills`
+- `.github/skills`
+- `.claude/skills`
+- `.codex/skills`
+- `.cursor/skills`
+- `.opencode/skills`
+- `.pi/skills`
+
+Those wrappers are compatibility shims only. If you are editing the library, edit `skills/` first and regenerate wrappers afterward.
+
+## Maintainer workflow
+
+When you add or change a skill:
+
+1. Update the canonical skill in `skills/`
+2. Regenerate wrapper trees
+3. Validate canonical skills with `skills-ref`
+4. Smoke-test local installation with the `skills` CLI
+5. Update this README if discoverability changed
+
+There is no separate `skills.sh` publish command. A public repo plus successful installs is the publish path.
+
+## Validation
+
+This repository is maintained against the Agent Skills spec and validated with `skills-ref`.
+
+Typical validation flow:
+
+```bash
+npx skills-ref validate ./skills/frontend-design
+```
+
+Repeat for the rest of the canonical skills, or script validation across the full `skills/` directory.
+
+## Attribution
+
+`better-web-ui` builds on work and ideas from:
+
+- **Paul Bakaus** and **Impeccable**
+- **Anthropic’s** original `frontend-design` skill
+- **Refactoring UI** by **Adam Wathan** and **Steve Schoger**
+
+See `NOTICE.md` for the attribution chain and source lineage.
+
+## License
+
+This project uses the custom **better-web-ui License** in `LICENSE`.
+
+It is MIT-based but adds source-availability and no-resale restrictions for the library itself, so it should not be described as plain MIT.
+
+## skills.sh listing
+
+`skills.sh` discovery is driven by installs through the `skills` CLI. Based on the current public docs, there is no separate manual registry submission step.

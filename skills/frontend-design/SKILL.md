@@ -1,0 +1,209 @@
+---
+name: frontend-design
+description: Create distinctive, production-grade frontend interfaces with high design quality. Generates creative, polished code that avoids generic AI aesthetics. Use when the user asks to build web components, pages, artifacts, posters, or applications, or when any design skill requires project context.
+license: Apache 2.0. Based on Anthropic's frontend-design skill. See NOTICE.md for attribution.
+---
+
+This skill guides creation of distinctive, production-grade frontend interfaces that avoid generic "AI slop" aesthetics. Implement real working code with exceptional attention to aesthetic details and creative choices.
+
+## Refactoring UI Operating Model
+
+Use this decision order before reaching for effects:
+
+1. **Start with a feature, not a shell**: Design the specific user task first. Navigation, chrome, and decorative structure should follow the needs of the feature, not the other way around.
+2. **Establish hierarchy in grayscale**: First make the interface clear using spacing, size, weight, contrast, and grouping. If it doesn't work in grayscale, color won't save it.
+3. **Define systems before details**: Use constrained scales for spacing, type, color, radius, and elevation. Limit choices to reduce decision fatigue and make the result feel intentional.
+4. **Choose personality through concrete levers**: Express tone through font choice, color temperature, border radius, and language — not random effects.
+5. **Polish last**: Add color, depth, decoration, motion, and finishing touches only after hierarchy and systems are already working.
+
+**CRITICAL**: Hierarchy beats decoration. Systems beat one-off tweaking. Restraint beats trend-chasing.
+
+## Context Gathering Protocol
+
+Design skills produce generic output without project context. You MUST have confirmed design context before doing any design work.
+
+**Required context** — every design skill needs at minimum:
+- **Target audience**: Who uses this product and in what context?
+- **Use cases**: What jobs are they trying to get done?
+- **Brand personality/tone**: How should the interface feel?
+
+Individual skills may require additional context — check the skill's preparation section for specifics.
+
+**CRITICAL**: You cannot infer this context by reading the codebase. Code tells you what was built, not who it's for or what it should feel like. Only the creator can provide this context.
+
+**Gathering order:**
+1. **Check current instructions (instant)**: If your loaded instructions already contain a **Design Context** section, proceed immediately.
+2. **Check .better-web-ui.md (fast)**: If not in instructions, read `.better-web-ui.md` from the project root. If it exists and contains the required context, proceed.
+3. **Check legacy context files (fallback)**: If `.better-web-ui.md` does not exist yet, read `.better-ui.md` and then `.impeccable.md` from the project root. If either exists and contains the required context, proceed, but prefer migrating to `.better-web-ui.md` when possible.
+4. **Run setup (REQUIRED)**: If neither source has context, you MUST run $setup NOW before doing anything else. Do NOT skip this step. Do NOT attempt to infer context from the codebase instead.
+
+---
+
+## Design Direction
+
+Commit to a BOLD aesthetic direction:
+- **Feature first**: Identify the primary workflow or moment this screen must support before designing the shell around it.
+- **Purpose**: What problem does this interface solve? Who uses it?
+- **Tone**: Pick an extreme: brutally minimal, maximalist chaos, organic/natural, luxury/refined, playful/toy-like, editorial/magazine, brutalist/raw, art deco/geometric, soft/pastel, industrial/utilitarian, etc. There are so many flavors to choose from. Use these for inspiration but design one that is true to the aesthetic direction.
+- **Constraints**: Technical requirements (framework, performance, accessibility).
+- **Differentiation**: What makes this UNFORGETTABLE? What's the one thing someone will remember?
+
+Apply a little pessimism up front:
+- Design the smallest useful version first.
+- Do not imply functionality that isn't ready to exist.
+- Use wireframes and rough exploration to make decisions quickly, then build the real thing early and iterate in short cycles.
+
+**CRITICAL**: Choose a clear conceptual direction and execute it with precision. Bold maximalism and refined minimalism both work—the key is intentionality, not intensity.
+
+Then implement working code that is:
+- Production-grade and functional
+- Visually striking and memorable
+- Cohesive with a clear aesthetic point-of-view
+- Meticulously refined in every detail
+
+## Frontend Aesthetics Guidelines
+
+### Typography
+→ *Consult [typography reference](reference/typography.md) for scales, pairing, loading strategies, and font-selection heuristics. Use [text hierarchy and readability](reference/text-hierarchy-and-readability.md) for line length, line-height, baseline alignment, label/value treatment, link emphasis, numeric alignment, and semantic vs visual hierarchy.*
+
+Choose fonts that are beautiful, unique, and interesting. Pair a distinctive display font with a refined body font.
+
+**DO**: Use a constrained, hand-crafted type scale; use modular ratios as inspiration, not as a prison
+**DO**: Build hierarchy with weight, color, and spacing — not size alone
+**DO**: Align mixed font sizes by their baseline when they appear on the same line
+**DO**: Tighten headlines carefully and add letter-spacing to all-caps text when readability benefits
+**DON'T**: Use overused fonts—Inter, Roboto, Arial, Open Sans, system defaults
+**DON'T**: Use monospace typography as lazy shorthand for "technical/developer" vibes
+**DON'T**: Use `em`-based type scales for nested UI — they drift off-system fast
+**DON'T**: Center long-form text; center works for short statements, not dense reading
+**DON'T**: Put large icons with rounded corners above every heading—they rarely add value and make sites look templated
+
+### Color & Theme
+→ *Consult [color reference](reference/color-and-contrast.md) for OKLCH, palettes, and dark mode. Use [color ramp workflow](reference/color-ramp-workflow.md) when building or repairing ramps. Use [semantic color](reference/semantic-color.md) when color is carrying status, alerts, or meaning.*
+
+Commit to a cohesive palette. Dominant colors with sharp accents outperform timid, evenly-distributed palettes.
+
+**DO**: Start in grayscale, then layer color on top of an already-clear hierarchy
+**DO**: Use modern CSS color functions (oklch, color-mix, light-dark) for perceptually uniform, maintainable palettes
+**DO**: Define shades up front — greys need a real scale, primary and accent colors need multiple usable stops
+**DO**: Tint your neutrals toward your brand hue—even a subtle hint creates subconscious cohesion
+**DO**: Prefer dark text on light tinted surfaces when you need accessible, lower-emphasis colored panels
+**DON'T**: Use gray text on colored backgrounds—it looks washed out; use a shade of the background color instead
+**DON'T**: Blindly `lighten()` or `darken()` your way into 35 nearly identical shades
+**DON'T**: Use pure black (#000) or pure white (#fff)—always tint; pure black/white never appears in nature
+**DON'T**: Use the AI color palette: cyan-on-dark, purple-to-blue gradients, neon accents on dark backgrounds
+**DON'T**: Use gradient text for "impact"—especially on metrics or headings; it's decorative rather than meaningful
+**DON'T**: Default to dark mode with glowing accents—it looks "cool" without requiring actual design decisions
+
+### Layout & Space
+→ *Consult [spatial reference](reference/spatial-design.md) for grids, rhythm, and container queries. Use [spacing system](reference/spacing-system.md) and [hierarchy checklist](reference/hierarchy-checklist.md) when composition or grouping is weak.*
+
+Create visual rhythm through varied spacing—not the same padding everywhere. Embrace asymmetry and unexpected compositions. Break the grid intentionally for emphasis.
+
+**DO**: Start with more white space than feels necessary, then remove it until the design feels balanced
+**DO**: Create visual rhythm through varied spacing—tight groupings, generous separations
+**DO**: Use fluid spacing with clamp() that breathes on larger screens
+**DO**: Use asymmetry and unexpected compositions; break the grid intentionally for emphasis
+**DO**: Keep more space around groups than within them to avoid ambiguous spacing
+**DO**: Give components the width they actually need; fixed widths are often better than fluid widths for sidebars, forms, and cards
+**DON'T**: Wrap everything in cards—not everything needs a container
+**DON'T**: Nest cards inside cards—visual noise, flatten the hierarchy
+**DON'T**: Use identical card grids—same-sized cards with icon + heading + text, repeated endlessly
+**DON'T**: Use the hero metric layout template—big number, small label, supporting stats, gradient accent
+**DON'T**: Center everything—left-aligned text with asymmetric layouts feels more designed
+**DON'T**: Stretch every section just because the viewport is wide
+**DON'T**: Use the same spacing everywhere—without rhythm, layouts feel monotonous
+
+### Visual Details
+→ *Consult [elevation system](reference/elevation-system.md) for shadow levels, raised/inset logic, and depth mapping. Use [surface separation](reference/surface-separation.md) when deciding between spacing, borders, shadows, overlap, and background shifts. Use [finishing touches](reference/finishing-touches.md) for tasteful default upgrades, accent borders, and decorative backgrounds. Use [personality levers](reference/personality-levers.md) when the tone feels vague. Use [ai slop detection](reference/ai-slop-detection.md) when the design risks looking generic or trend-chasing.*
+
+**DO**: Use intentional, purposeful decorative elements that reinforce brand
+**DO**: Create a small elevation system; shadows should communicate z-depth, not exist as default garnish
+**DO**: Use background shifts, spacing, and subtle shadows before reaching for borders everywhere
+**DON'T**: Use glassmorphism everywhere—blur effects, glass cards, glow borders used decoratively rather than purposefully
+**DON'T**: Use rounded elements with thick colored border on one side—a lazy accent that almost never looks intentional
+**DON'T**: Use sparklines as decoration—tiny charts that look sophisticated but convey nothing meaningful
+**DON'T**: Use rounded rectangles with generic drop shadows—safe, forgettable, could be any AI output
+**DON'T**: Add realism or depth effects that don't clarify elevation or interaction
+**DON'T**: Use modals unless there's truly no better alternative—modals are lazy
+
+### Images & Media
+→ *Consult [image treatment](reference/image-treatment.md) when working with photos, screenshots, icons, illustrations, user-uploaded media, overlays, and image readability.*
+
+**DO**: Treat image contrast problems as image-treatment problems first, not typography failures
+**DO**: Keep screenshots large or focused enough to communicate something useful
+**DO**: Keep icons close to the scale they were designed for unless they were made to scale illustratively
+**DO**: Force user-uploaded media into controlled shapes and predictable containers
+**DON'T**: Scale screenshots down until they become eye tests
+**DON'T**: Blow tiny icons up into chunky placeholders for real illustration
+**DON'T**: Let user-uploaded images dictate layout shape or bleed into the background
+
+### Motion
+→ *Consult [motion reference](reference/motion-design.md) for timing, easing, and reduced motion.*
+
+Focus on high-impact moments: one well-orchestrated page load with staggered reveals creates more delight than scattered micro-interactions.
+
+**DO**: Use motion to convey state changes—entrances, exits, feedback
+**DO**: Use exponential easing (ease-out-quart/quint/expo) for natural deceleration
+**DO**: For height animations, use grid-template-rows transitions instead of animating height directly
+**DON'T**: Animate layout properties (width, height, padding, margin)—use transform and opacity only
+**DON'T**: Use bounce or elastic easing—they feel dated and tacky; real objects decelerate smoothly
+
+### Interaction
+→ *Consult [interaction reference](reference/interaction-design.md) for forms, focus, and loading patterns. Use [empty-state patterns](reference/empty-state-patterns.md) when a feature has no content yet.*
+
+Use [action hierarchy](reference/action-hierarchy.md) when deciding which controls should lead, recede, disappear, or escalate in destructive confirmations.
+
+Use `empty-state` for zero-data surface design. Use `onboard` for broader activation strategy, aha moments, tours, and first-run education.
+
+Make interactions feel fast. Use optimistic UI—update immediately, sync later.
+
+**DO**: Use progressive disclosure—start simple, reveal sophistication through interaction (basic options first, advanced behind expandable sections; hover states that reveal secondary actions)
+**DO**: Design empty states that teach the interface, not just say "nothing here"
+**DO**: Make every interactive surface feel intentional and responsive
+**DO**: Design actions in a real hierarchy — one primary action, a few secondary actions, and quiet tertiary actions
+**DON'T**: Repeat the same information—redundant headers, intros that restate the heading
+**DON'T**: Make every button primary—use ghost buttons, text links, secondary styles; hierarchy matters
+
+### Responsive
+→ *Consult [responsive reference](reference/responsive-design.md) for mobile-first strategy, fluid design, natural widths, column rebalancing, and container queries.*
+
+**DO**: Use container queries (@container) for component-level responsiveness
+**DO**: Adapt the interface for different contexts—don't just shrink it
+**DON'T**: Hide critical functionality on mobile—adapt the interface, don't amputate it
+
+### UX Writing
+→ *Consult [ux-writing reference](reference/ux-writing.md) for labels, errors, and empty states.*
+
+**DO**: Make every word earn its place
+**DON'T**: Repeat information users can already see
+
+Use `empty-state` for zero-data surface design. Use `onboard` for broader activation strategy, first-run learning, aha moments, tours, and adoption planning.
+
+---
+
+## The AI Slop Test
+
+**Critical quality check**: If you showed this interface to someone and said "AI made this," would they believe you immediately? If yes, that's the problem.
+
+A distinctive interface should make someone ask "how was this made?" not "which AI made this?"
+
+Review the DON'T guidelines above—they are the fingerprints of AI-generated work from 2024-2025.
+
+Consult [ai slop detection](reference/ai-slop-detection.md) for the consolidated anti-pattern list.
+
+---
+
+## Implementation Principles
+
+Match implementation complexity to the aesthetic vision. Maximalist designs need elaborate code with extensive animations and effects. Minimalist or refined designs need restraint, precision, and careful attention to spacing, typography, and subtle details.
+
+Interpret creatively and make unexpected choices that feel genuinely designed for the context. No design should be the same. Vary between light and dark themes, different fonts, different aesthetics. NEVER converge on common choices across generations.
+
+Remember these quality checks while implementing:
+- Can someone identify the primary, secondary, and tertiary elements within two seconds?
+- Are spacing, typography, color, radius, and elevation decisions coming from systems instead of one-off tweaks?
+- Does the personality come through in font, color, radius, and language?
+- Would the design still feel good if color were temporarily removed?
+
+Remember: GPT is capable of extraordinary creative work. Don't hold back—show what can truly be created when thinking outside the box and committing fully to a distinctive vision.
