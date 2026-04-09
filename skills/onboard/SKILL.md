@@ -64,6 +64,12 @@ Follow these core principles:
 - Teach 20% that delivers 80% of value
 - Save advanced features for contextual discovery
 
+### Peak-End Rule
+- Smooth the most stressful moments (waiting, signup friction, permissions, payments, destructive confirmations)
+- Make the first meaningful success feel clearly successful
+- End onboarding steps with confirmation, summary, and an obvious next move
+- Do not let the final step feel vague, stalled, or anticlimactic
+
 ### Context Over Ceremony
 - Teach features when users need them, not upfront
 - Empty states are onboarding opportunities

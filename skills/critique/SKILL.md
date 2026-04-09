@@ -42,6 +42,7 @@ Review the design against ALL the **DON'T** guidelines in the frontend-design sk
 ### 2. Visual Hierarchy
 - Does the eye flow to the most important element first?
 - Is there a clear primary action? Can you spot it in 2 seconds?
+- Does the right thing stand out, or is emphasis spread so evenly that nothing is memorable? (von Restorff effect)
 - Do size, color, and position communicate importance correctly?
 - Is there visual competition between elements that should have different weights?
 - Is the hierarchy clear even if you imagine the screen in grayscale?
@@ -53,6 +54,7 @@ Review the design against ALL the **DON'T** guidelines in the frontend-design sk
 - Is the structure intuitive? Would a new user understand the organization?
 - Is related content grouped logically?
 - Do common patterns behave the way users already expect? Check navigation, search, tables, filters, forms, tabs, dropdowns, pagination, and settings for unnecessary novelty.
+- Is avoidable complexity pushed into the system through defaults, prefills, and guidance, or dumped on the user to manage manually? (Tesler's Law)
 - Are there too many choices at once? Count visible options at each decision point — if >4, flag it
 - Is the navigation clear and predictable?
 - **Progressive disclosure**: Is complexity revealed only when needed, or dumped on the user upfront?
@@ -105,6 +107,7 @@ Review the design against ALL the **DON'T** guidelines in the frontend-design sk
 ### 9. States & Edge Cases
 - Empty states: Do they guide users toward action, or just say "nothing here"?
 - Loading states: Do they reduce perceived wait time?
+- Do forms and searches accept harmless input variation gracefully, or do they reject users for formatting trivia that could be normalized? (Postel's Law)
 - Error states: Are they helpful and non-blaming?
 - Success states: Do they confirm and guide next steps?
 - Are screenshots readable at the size shown?

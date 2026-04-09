@@ -20,6 +20,23 @@ Most screens should present actions in a clear hierarchy:
 
 If multiple actions all feel primary, the interface is flattening decision-making.
 
+## von Restorff Effect
+
+Things that stand out get noticed and remembered. That is useful only when the right thing is the one standing out.
+
+Use distinction deliberately for:
+- the primary call to action
+- the currently selected or active state
+- warnings, destructive confirmations, and critical statuses
+- genuinely new or time-sensitive items that deserve attention
+
+Protect the effect by being selective:
+- let one action or state carry the strongest contrast in a region
+- quiet nearby supporting controls so the focal item can actually stand out
+- reserve loud emphasis for moments that matter instead of making every button compete
+
+If multiple items are all visually loud, the effect disappears and the interface becomes noisier rather than clearer.
+
 ## Destructive Action Treatment
 
 Destructive does not automatically mean visually primary.

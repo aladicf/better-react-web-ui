@@ -4,6 +4,23 @@ Use this reference when the fundamentals are already working and you want to add
 
 Finishing touches should amplify a good design, not rescue a weak one.
 
+## Aesthetic-Usability Effect
+
+Users often perceive attractive interfaces as easier to use, more trustworthy, and more polished before they can articulate why.
+
+That does **not** mean decoration beats clarity. It means visual quality changes how confidently people approach the interface.
+
+Use polish to strengthen comprehension and trust through:
+- cleaner type hierarchy
+- more intentional spacing
+- consistent component states
+- restrained, purposeful color
+- crisp alignment and surface treatment
+
+If the UI feels chaotic, rough, or generic, users will often assume the underlying product is just as unreliable.
+
+If the UI is beautiful but unclear, the effect collapses quickly. Aesthetic quality buys confidence only when it supports understanding.
+
 ## Supercharge the Defaults
 
 A lot of polish comes from upgrading ordinary UI elements instead of inventing new ones.

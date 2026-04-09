@@ -52,6 +52,19 @@ Create a ruthless editing strategy:
 - **Progressive disclosure**: What can be hidden until needed?
 - **Consolidation opportunities**: What can be combined or integrated?
 
+### Tesler's Law (Who Owns the Complexity?)
+
+Some complexity is inherent to the domain. The real design decision is whether the system absorbs it or forces the user to manage it manually.
+
+Prefer shifting unnecessary complexity into the product through:
+- smart defaults
+- prefilled data and remembered preferences
+- inline guidance at the moment of need
+- suggested paths and recommended settings
+- automation for repetitive setup and formatting work
+
+Keep advanced power available, but do not make every user confront the full complexity before they can do the basic job.
+
 ### Minimum Shippable Scope
 - Define the smallest version that delivers real user value
 - Separate the shippable core from nice-to-haves and future ambitions
@@ -95,6 +108,7 @@ Systematically remove complexity across these dimensions:
 ### Interaction Simplification
 - **Reduce choices**: Fewer buttons, fewer options, clearer path forward (paradox of choice is real)
 - **Smart defaults**: Make common choices automatic, only ask when necessary
+- **Absorb system complexity**: Prefer inference, remembered state, and sensible automation over making users learn hidden rules
 - **Inline actions**: Replace modal flows with inline editing where possible
 - **Remove steps**: Can signup be one step instead of three? Can checkout be simplified?
 - **Clear CTAs**: ONE obvious next step, not five competing actions
@@ -123,6 +137,7 @@ Systematically remove complexity across these dimensions:
 - Simplify after overbuilding if you could have shipped the smaller useful version first
 - Let nice-to-have features block the shippable core
 - Design every theoretical edge case before you've built and used the basic flow
+- Offload avoidable configuration and rule-tracking onto users when the product could handle it instead
 
 ## Verify Simplification
 

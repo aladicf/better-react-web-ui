@@ -245,6 +245,19 @@ t('items', { count }) // Handles complex plural rules
 
 ### Input Validation & Sanitization
 
+#### Postel's Law in Forms and Inputs
+
+Be conservative in what the interface outputs, and forgiving about harmless input variation when the system can normalize it safely.
+
+Good resilience moves:
+- accept phone numbers with or without spaces, dashes, or country-code punctuation when the meaning is still clear
+- trim leading/trailing whitespace automatically instead of failing a required field on a pasted value
+- treat case-insensitive identifiers, tags, and search queries consistently when case does not matter
+- normalize pasted content gracefully instead of punishing users for bringing data from another tool
+- preserve the user's raw input on failure so correction is easy
+
+Be strict only where ambiguity, security, or irreversible errors actually matter. The goal is not permissiveness for its own sake — it is reducing needless precision work.
+
 **Client-side validation**:
 - Required fields
 - Format validation (email, phone, URL)
@@ -272,6 +285,11 @@ t('items', { count }) // Handles complex plural rules
   Letters and numbers only, up to 100 characters
 </small>
 ```
+
+**Prefer normalization before rejection when safe**:
+- normalize whitespace, punctuation, and casing before declaring input invalid
+- show users the standardized result when formatting changes affect meaning or confidence
+- reject inputs that are unsafe, ambiguous, or materially wrong — but explain why and how to fix them
 
 ### Accessibility Resilience
 
