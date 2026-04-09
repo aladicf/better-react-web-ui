@@ -1,13 +1,21 @@
 # Cognitive Load
 
-## Working-Memory Limits
+## Miller's Law (Practical Takeaway)
 
 Users can only juggle a small number of things at once. The more decisions, controls, and concepts visible at the same time, the harder it becomes to understand the interface quickly.
 
 Practical rule:
 - If a user has to parse more than a few competing options at a single decision point, cognitive load is rising fast.
 
-## Too-Many-Options Thresholds
+The important takeaway is not a magic number. It is that the interface should carry the burden instead of forcing users to remember state, compare scattered information, or mentally track unfinished work.
+
+Reduce working-memory pressure by:
+- keeping related controls and information together
+- showing the current step, selection, or summary instead of expecting recall
+- preserving entered state when users move between views or steps
+- using defaults, previews, inline context, and confirmation summaries
+
+## Hick's Law in Practice
 
 Use these as warning signs, not hard laws:
 
@@ -19,6 +27,8 @@ When options multiply:
 - group them
 - sequence them
 - hide secondary ones until needed
+
+If several options must remain visible, make the structure obvious enough that users can recognize the correct branch quickly instead of comparing every item one by one.
 
 ## Progressive Disclosure Rules
 
@@ -42,11 +52,14 @@ Useful chunking tools:
 - cards only when truly distinct
 - steps or sequences
 - collapsible advanced regions
+- summaries that reflect prior choices so users do not have to remember them
+- defaults and recommended paths that reduce comparison overhead
 
 Chunking fails when:
 - groups are weak or ambiguous
 - spacing between groups matches spacing within them
 - headings are louder than the content they label
+- users must look somewhere else to remember what this group is acting on
 
 ## What to Hide vs What to Show Now
 

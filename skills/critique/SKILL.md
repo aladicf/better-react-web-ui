@@ -16,6 +16,7 @@ Conduct a holistic design critique, evaluating whether the interface actually wo
 Consult the [hierarchy checklist](../frontend-design/reference/hierarchy-checklist.md) for grayscale tests, action prioritization, and label/value treatment.
 Consult the [text hierarchy and readability](../frontend-design/reference/text-hierarchy-and-readability.md) for line length, line-height, baseline, alignment, and title restraint.
 Consult the [cognitive load](../frontend-design/reference/cognitive-load.md) for working-memory limits and the 8-item checklist.
+Consult the [interaction design](../frontend-design/reference/interaction-design.md) when evaluating familiar patterns, target sizing, focus treatment, and overlay behavior.
 Consult the [ai slop detection](../frontend-design/reference/ai-slop-detection.md) for the consolidated anti-pattern list.
 Consult the [action hierarchy](../frontend-design/reference/action-hierarchy.md) when evaluating primary/secondary/tertiary actions.
 Consult the [semantic color](../frontend-design/reference/semantic-color.md) when color is carrying meaning.
@@ -51,6 +52,7 @@ Review the design against ALL the **DON'T** guidelines in the frontend-design sk
 > *Consult [cognitive-load](../frontend-design/reference/cognitive-load.md) for the working memory rule and 8-item checklist*
 - Is the structure intuitive? Would a new user understand the organization?
 - Is related content grouped logically?
+- Do common patterns behave the way users already expect? Check navigation, search, tables, filters, forms, tabs, dropdowns, pagination, and settings for unnecessary novelty.
 - Are there too many choices at once? Count visible options at each decision point — if >4, flag it
 - Is the navigation clear and predictable?
 - **Progressive disclosure**: Is complexity revealed only when needed, or dumped on the user upfront?
@@ -68,6 +70,7 @@ Review the design against ALL the **DON'T** guidelines in the frontend-design sk
 ### 5. Discoverability & Affordance
 - Are interactive elements obviously interactive?
 - Would a user know what to do without instructions?
+- Are primary and frequent targets large enough and close enough to use confidently, especially on touch devices?
 - Are hover/focus states providing useful feedback?
 - Are there hidden features that should be more visible?
 

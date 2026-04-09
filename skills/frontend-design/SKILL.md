@@ -150,7 +150,7 @@ Focus on high-impact moments: one well-orchestrated page load with staggered rev
 **DON'T**: Use bounce or elastic easing—they feel dated and tacky; real objects decelerate smoothly
 
 ### Interaction
-→ *Consult [interaction reference](reference/interaction-design.md) for forms, focus, and loading patterns. Use [empty-state patterns](reference/empty-state-patterns.md) when a feature has no content yet.*
+→ *Consult [interaction reference](reference/interaction-design.md) for forms, focus, loading patterns, Jakob's Law, and Fitts's Law. Use [cognitive load](reference/cognitive-load.md) for Hick's Law and Miller's Law in practice. Use [empty-state patterns](reference/empty-state-patterns.md) when a feature has no content yet.*
 
 Use [action hierarchy](reference/action-hierarchy.md) when deciding which controls should lead, recede, disappear, or escalate in destructive confirmations.
 
@@ -159,10 +159,13 @@ Use `empty-state` for zero-data surface design. Use `onboard` for broader activa
 Make interactions feel fast. Use optimistic UI—update immediately, sync later.
 
 **DO**: Use progressive disclosure—start simple, reveal sophistication through interaction (basic options first, advanced behind expandable sections; hover states that reveal secondary actions)
+**DO**: Use familiar patterns for familiar tasks—navigation, search, tabs, dropdowns, tables, filters, forms, pagination, and settings should behave the way strong products already taught users to expect
 **DO**: Design empty states that teach the interface, not just say "nothing here"
 **DO**: Make every interactive surface feel intentional and responsive
 **DO**: Design actions in a real hierarchy — one primary action, a few secondary actions, and quiet tertiary actions
+**DO**: Make common actions easy to hit — generous targets, whole-row labels where appropriate, and close placement to the content being acted on
 **DON'T**: Repeat the same information—redundant headers, intros that restate the heading
+**DON'T**: Invent custom interaction models for standard controls unless the gain is obvious and significant
 **DON'T**: Make every button primary—use ghost buttons, text links, secondary styles; hierarchy matters
 
 ### Responsive

@@ -1,5 +1,31 @@
 # Interaction Design
 
+## Familiarity Beats Novelty (Jakob's Law)
+
+Users spend most of their time in other products, so common interactions should feel familiar before they feel clever.
+
+Use established patterns for common primitives:
+- navigation where users expect it
+- search that behaves like search
+- tabs that look and act like tabs
+- filters, tables, forms, dropdowns, pagination, and settings that follow recognizable conventions
+
+When in doubt, innovate in workflow efficiency, defaults, or information density — not by reinventing how basic controls work.
+
+### Apply Jakob's Law by default
+
+- Keep icons conventional unless the label makes the meaning unmistakable
+- Match category expectations for things like dashboard navigation, inline table actions, destructive confirmations, and account settings
+- Use native platform behavior or strong platform conventions when they already solve the problem well
+- Prefer familiar patterns first, then add personality through typography, tone, color, motion, and layout
+
+### Suspicious moves
+
+- Custom controls for standard tasks without a strong usability reason
+- Hiding common actions behind surprising gestures or non-obvious entry points
+- Inventing novel icon meanings for search, settings, notifications, share, or close
+- Requiring users to learn a bespoke interaction model just to complete routine tasks
+
 ## The Eight Interactive States
 
 Every interactive element needs these states designed:
@@ -39,6 +65,33 @@ button:focus-visible {
 - 2-3px thick
 - Offset from element (not inside it)
 - Consistent across all interactive elements
+
+## Target Acquisition (Fitts's Law)
+
+The faster an interface asks users to act, the less precision it should demand.
+
+Primary and frequent actions should be large enough, close enough, and separated enough to hit confidently.
+
+### Practical rules
+
+- Keep touch targets at **44x44px minimum** on touch devices
+- Expand the hit area for icon buttons, close controls, tiny toggles, and row actions even if the visible glyph stays small
+- Place the next likely action near the content or cursor/focus location that leads to it
+- Separate destructive actions from high-frequency safe actions so slips are less likely
+- On mobile, keep important actions within comfortable thumb reach instead of pinning everything to the top edge
+
+### Good tradeoffs
+
+- A visually quiet icon button can still have a generous invisible hit area
+- Dense data UIs can stay compact while preserving usable click targets through padding and row height
+- Sticky action bars are often better than tiny floating controls when the action matters repeatedly
+
+### Anti-patterns
+
+- Tiny close buttons in modal corners
+- Checkbox and radio layouts that require precision clicking on the control instead of the whole label row
+- Multiple cramped icon actions jammed together without spacing or confirmation strategy
+- Primary actions placed far from the context where the user decides to act
 
 ## Form Design: The Non-Obvious
 

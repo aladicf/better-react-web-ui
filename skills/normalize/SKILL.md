@@ -10,6 +10,7 @@ Analyze and redesign the feature to perfectly match our design system standards,
 Normalization is not just visual cleanup. It is restoring the feature to the system so spacing, type, color, interaction, and hierarchy all speak the same language again.
 
 Consult the [design-system alignment](../frontend-design/reference/design-system-alignment.md) reference for tokens vs components vs patterns, drift, and when to normalize locally versus escalate to system work.
+Consult the [interaction design](../frontend-design/reference/interaction-design.md) reference when normalization includes restoring familiar patterns, improving target sizing, or removing bespoke interaction behavior from standard controls.
 
 ## MANDATORY PREPARATION
 
@@ -38,6 +39,7 @@ Before making changes, deeply understand the context:
    - Which components can be replaced with design system equivalents?
    - Which styles need to use design tokens instead of hard-coded values?
    - How can UX patterns match established user flows?
+   - Where have standard interactions drifted away from familiar product conventions without a compelling reason?
    - Which areas feel off because hierarchy is weak, actions are flattened, or spacing is arbitrary rather than systematic?
    
    **IMPORTANT**: Great design is effective design. Prioritize UX consistency and usability over visual polish alone. Think through the best possible experience for your use case and personas first.
@@ -52,8 +54,10 @@ Systematically address all inconsistencies across these dimensions:
 - **Hierarchy**: Restore primary, secondary, and tertiary emphasis. A normalized feature should make it obvious what matters first.
 - **Components**: Replace custom implementations with design system components. Ensure props and variants match established patterns.
 - **Motion & Interaction**: Match animation timing, easing, and interaction patterns to other features.
+- **Conventional UX patterns**: Realign forms, tables, filters, dialogs, menus, tabs, and settings to recognizable platform/category conventions unless the custom behavior clearly improves the workflow.
 - **Responsive Behavior**: Ensure breakpoints and responsive patterns align with design system standards.
 - **Accessibility**: Verify contrast ratios, focus states, ARIA labels match design system requirements.
+- **Target sizing & placement**: Restore generous hit areas, whole-row labels where appropriate, and action placement that reduces precision work for common tasks.
 - **Progressive Disclosure**: Match information hierarchy and complexity management to established patterns.
 
 **NEVER**:
