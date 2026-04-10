@@ -22,7 +22,7 @@ Use `better-web-ui` when you want an agent to help with:
 
 This repository is a **skills package**, not a web app or starter template.
 
-If you want safe, generic UI output above all else, this package is probably not trying to be that. It is intentionally biased toward stronger design points of view.
+If you want safe, generic UI output above all else, this package is not trying to be that. It is intentionally biased toward stronger design points of view.
 
 ## What it works with
 
@@ -34,6 +34,7 @@ It can be used with most modern frontend setups, including:
 - Vue / Nuxt
 - Svelte / SvelteKit
 - Astro
+- Solidjs / SolidStart
 - plain HTML / CSS / JavaScript
 - custom design systems and in-house component libraries
 
@@ -47,7 +48,7 @@ It can also work across common styling approaches such as:
 
 ## How stack defaults are chosen
 
-When an agent using `better-web-ui` needs to make stack decisions, use this order:
+When an agent using `better-web-ui` needs to make stack decisions, it follows this order:
 
 1. **Existing project setup wins first** — detect the framework, styling system, component library, and design system already present in the codebase and use those before introducing anything new.
 2. **Explicit user preferences win second** — if the user is creating a new project and names a styling system or component library, use that as the default.
@@ -57,19 +58,19 @@ When an agent using `better-web-ui` needs to make stack decisions, use this orde
 
 This library does **not** require Tailwind or a specific component system.
 
-However, when a project has no established styling or component direction yet, prefer these defaults:
+However, when a project has no established styling or component direction yet, it prefers these defaults:
 
 | Framework / runtime | Styling default | Component / block default |
 | --- | --- | --- |
 | React-based frameworks and meta-frameworks (`Next.js`, `TanStack Start`, `React Router`, Vite React) | **Tailwind CSS** | **shadcn/ui** components in the Base UI direction, plus **shadcn/ui Blocks** and **re-ui** components / blocks when helpful |
-| Astro | **Tailwind CSS** | **shadcn/ui** components in the Base UI direction, plus **shadcn/ui Blocks** |
-| Laravel + Inertia / React | **Tailwind CSS** | **shadcn/ui** components in the Base UI direction, plus **shadcn/ui Blocks** |
+| Astro | **Tailwind CSS** | **shadcn/ui** components with the Base UI components, plus **shadcn/ui Blocks** |
+| Laravel + Inertia / React | **Tailwind CSS** | **shadcn/ui** components with the Base UI components, plus **shadcn/ui Blocks** |
 | Vue / Nuxt | **Tailwind CSS** | **Nuxt UI** or **shadcn-vue** |
 | Svelte / SvelteKit | **Tailwind CSS** | **shadcn-svelte** |
 | Angular | **Tailwind CSS** | **Angular Material** or **ZardUI** |
-| SolidJS / SoliStart based meta-frameworks | **Tailwind CSS** | **SolidUI** |
+| SolidJS / SolidStart based meta-frameworks | **Tailwind CSS** | **SolidUI** |
 
-These are gentle defaults, not hard requirements. If a project already uses a different framework, design system, or styling approach, match the existing stack instead of forcing a migration just because it is fashionable this week.
+These are gentle defaults, not hard requirements. If a project already uses a different framework, design system, or styling approach, it matches the existing stack instead of forcing a migration just because it is fashionable this week.
 
 ## Runtime requirements
 
