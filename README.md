@@ -62,7 +62,7 @@ However, when a project has no established styling or component direction yet, i
 
 | Framework / runtime | Styling default | Component / block default |
 | --- | --- | --- |
-| React-based frameworks and meta-frameworks (`Next.js`, `TanStack Start`, `React Router`, Vite React) | **Tailwind CSS** | **shadcn/ui** components in the Base UI direction, plus **shadcn/ui Blocks** and **re-ui** components / blocks when helpful |
+| React-based frameworks and meta-frameworks (`Next.js`, `TanStack Start`, `React Router`, Vite React) | **Tailwind CSS** | **shadcn/ui** components with the Base UI components, plus **shadcn/ui Blocks** and **re-ui** components / blocks when helpful |
 | Astro | **Tailwind CSS** | **shadcn/ui** components with the Base UI components, plus **shadcn/ui Blocks** |
 | Laravel + Inertia / React | **Tailwind CSS** | **shadcn/ui** components with the Base UI components, plus **shadcn/ui Blocks** |
 | Vue / Nuxt | **Tailwind CSS** | **Nuxt UI** or **shadcn-vue** |
