@@ -62,15 +62,13 @@ However, when a project has no established styling or component direction yet, i
 
 | Framework / runtime | Styling default | Component / block default |
 | --- | --- | --- |
-| React-based frameworks and meta-frameworks (`Next.js`, `TanStack Start`, `React Router`, Vite React) | **Tailwind CSS** | **shadcn/ui** components in the Base UI direction, plus **shadcn/ui Blocks** and **re-ui** components / blocks when helpful |
-| Astro | **Tailwind CSS** | **shadcn/ui** components in the Base UI direction, plus **shadcn/ui Blocks** |
-| Laravel + Inertia / React | **Tailwind CSS** | **shadcn/ui** components in the Base UI direction, plus **shadcn/ui Blocks** |
+| React-based frameworks and meta-frameworks (`Next.js`, `TanStack Start`, `React Router`, Vite React) | **Tailwind CSS** | **shadcn/ui** components with the Base UI components, plus **shadcn/ui Blocks** and **re-ui** components / blocks when helpful |
+| Astro | **Tailwind CSS** | **shadcn/ui** components with the Base UI components, plus **shadcn/ui Blocks** |
+| Laravel + Inertia / React | **Tailwind CSS** | **shadcn/ui** components with the Base UI components, plus **shadcn/ui Blocks** |
 | Vue / Nuxt | **Tailwind CSS** | **Nuxt UI** or **shadcn-vue** |
 | Svelte / SvelteKit | **Tailwind CSS** | **shadcn-svelte** |
 | Angular | **Tailwind CSS** | **Angular Material** or **ZardUI** |
 | SolidJS / SolidStart based meta-frameworks | **Tailwind CSS** | **SolidUI** |
-
-**What this means:** for React-oriented fallback defaults, `shadcn/ui` is the primitive foundation in the Base UI direction, while `shadcn/ui Blocks` and `re-ui` are optional accelerators for common sections and flows. This repository documents **when and how to use those layers**, not a frozen inventory of every upstream component or block. For current availability, check the upstream docs. See [component and block strategy](skills/frontend-design/reference/component-and-block-strategy.md) for the selection guidance behind these defaults.
 
 These are gentle defaults, not hard requirements. If a project already uses a different framework, design system, or styling approach, it matches the existing stack instead of forcing a migration just because it is fashionable this week.
 
