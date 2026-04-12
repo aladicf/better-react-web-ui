@@ -24,6 +24,13 @@ This repository is a **skills package**, not a web app or starter template.
 
 If you want safe, generic UI output above all else, this package is not trying to be that. It is intentionally biased toward stronger design points of view.
 
+If you are evaluating the library quickly, the highest-signal shared references to inspect first are:
+
+- [design process](skills/frontend-design/reference/design-process.md) — when the problem is still fuzzy and needs a cleaner path from wireframes to styleguide thinking to polished output
+- [framework official docs](skills/frontend-design/reference/framework-official-docs.md) — when implementation choices depend on the exact frontend framework or meta-framework in use
+- [typography](skills/frontend-design/reference/typography.md) — when text, scale, weight, emphasis, or schema quality is carrying too much of the interface quality burden
+- [color and contrast](skills/frontend-design/reference/color-and-contrast.md) — when palette, contrast, hierarchy, or color meaning feels weak or improvised
+
 ## What it works with
 
 `better-web-ui` is intentionally **framework-agnostic** and **library-agnostic**.
@@ -212,9 +219,37 @@ Reusable guidance and anti-pattern references live primarily in [`skills/fronten
 
 When adding or updating skills, prefer linking to shared doctrine there instead of duplicating long guidance blocks in multiple `SKILL.md` files.
 
+### Start here by need
+
+- **Structure, flow, and rough exploration first**
+	- [design process](skills/frontend-design/reference/design-process.md)
+
+- **Framework-specific implementation decisions**
+	- [framework official docs](skills/frontend-design/reference/framework-official-docs.md)
+
+- **Color systems, palette logic, and contrast**
+	- [color and contrast](skills/frontend-design/reference/color-and-contrast.md)
+	- [color ramp workflow](skills/frontend-design/reference/color-ramp-workflow.md)
+	- [semantic color](skills/frontend-design/reference/semantic-color.md)
+
+- **Typography, reading comfort, and text hierarchy**
+	- [typography](skills/frontend-design/reference/typography.md)
+	- [text hierarchy and readability](skills/frontend-design/reference/text-hierarchy-and-readability.md)
+
+- **React/shadcn fallback acceleration**
+	- [component and block strategy](skills/frontend-design/reference/component-and-block-strategy.md)
+	- [react shadcn accelerators](skills/frontend-design/reference/react-shadcn-accelerators.md)
+	- [component library integration for `add-ui`](skills/add-ui/reference/component-library-integration.md)
+
 Helpful starting points:
 
+- [design process](skills/frontend-design/reference/design-process.md) — how to move from wireframes to styleguide thinking to higher-fidelity prototypes without polishing too early
 - [framework official docs](skills/frontend-design/reference/framework-official-docs.md) — official documentation map for framework-specific frontend work across React, Next.js, React Router, TanStack Start, Astro, Inertia, Vue, Nuxt, Svelte, SvelteKit, Solid, SolidStart, and Angular
+- [typography](skills/frontend-design/reference/typography.md) — detailed doctrine for font choice, scale, weight, emphasis, legibility, and reusable typography schemas
+- [text hierarchy and readability](skills/frontend-design/reference/text-hierarchy-and-readability.md) — shared rules for line length, line-height, labels, links, numeric alignment, and visual vs semantic text hierarchy
+- [color and contrast](skills/frontend-design/reference/color-and-contrast.md) — palette structure, contrast, color-family selection, temperature, and theme behavior
+- [color ramp workflow](skills/frontend-design/reference/color-ramp-workflow.md) — how to build stable tints, tones, shades, and reusable color stops instead of improvising ramps
+- [semantic color](skills/frontend-design/reference/semantic-color.md) — how to keep status and state colors meaningful instead of decorative
 - [component and block strategy](skills/frontend-design/reference/component-and-block-strategy.md) — when to use primitives, reusable patterns, or prebuilt block accelerators in React-oriented fallback setups
 - [react shadcn accelerators](skills/frontend-design/reference/react-shadcn-accelerators.md) — curated community-registry components for React/shadcn fallback setups, with direct links to feature docs and integration guides
 - [component library integration for `add-ui`](skills/add-ui/reference/component-library-integration.md) — how those choices affect the five-direction workflow
@@ -366,9 +401,11 @@ The repository also includes `.github/workflows/validate.yml` to install depende
 
 `better-web-ui` builds on work and ideas from:
 
-- **Paul Bakaus** and **Impeccable**
-- **Anthropic’s** original `frontend-design` skill
-- **Refactoring UI** by **Adam Wathan** and **Steve Schoger**
+- **Paul Bakaus** and **Impeccable** (https://github.com/pbakaus/impeccable)
+- **Anthropic’s** original `frontend-design` skill (https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design/skills/frontend-design)
+- **Refactoring UI** by **Adam Wathan** and **Steve Schoger** (https://refactoringui.com/)
+- **Design for Developers** by **Adrian Twarog** and **George Moller** (https://www.packtpub.com/en-us/product/design-for-developers-9781837027200)
+- **Laws of UX** by **Jon Yablonski** (https://lawsofux.com/book/)
 
 See `NOTICE.md` for the attribution chain and source lineage.
 

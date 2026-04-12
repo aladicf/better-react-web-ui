@@ -47,6 +47,17 @@ This repository is an opinionated Agent Skills library, not a generic starter. C
 - Avoid duplicate doctrine across skills when a shared reference would do.
 - Preserve canonical naming such as `add-ui` when hosts expose friendlier aliases.
 
+Before creating a new shared reference, check whether one of these high-signal docs is the better home:
+
+- [`skills/frontend-design/reference/design-process.md`](skills/frontend-design/reference/design-process.md)
+- [`skills/frontend-design/reference/framework-official-docs.md`](skills/frontend-design/reference/framework-official-docs.md)
+- [`skills/frontend-design/reference/typography.md`](skills/frontend-design/reference/typography.md)
+- [`skills/frontend-design/reference/text-hierarchy-and-readability.md`](skills/frontend-design/reference/text-hierarchy-and-readability.md)
+- [`skills/frontend-design/reference/color-and-contrast.md`](skills/frontend-design/reference/color-and-contrast.md)
+- [`skills/frontend-design/reference/color-ramp-workflow.md`](skills/frontend-design/reference/color-ramp-workflow.md)
+- [`skills/frontend-design/reference/semantic-color.md`](skills/frontend-design/reference/semantic-color.md)
+- [`skills/frontend-design/reference/design-system-alignment.md`](skills/frontend-design/reference/design-system-alignment.md)
+
 ### React fallback defaults
 
 Before adding new React/Tailwind guidance, check the existing source-of-truth docs first:

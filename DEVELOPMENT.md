@@ -36,6 +36,37 @@ Some skills still check legacy files such as `.better-ui.md` and `.impeccable.md
 
 Treat those legacy files as fallback inputs only. New work should write or update `.better-web-ui.md` so future sessions have a single canonical source of design context.
 
+## High-signal doctrine map
+
+When maintaining `better-web-ui`, these are the fastest in-repo references to check first before editing broader guidance:
+
+### Structure and process
+
+- [`skills/frontend-design/reference/design-process.md`](skills/frontend-design/reference/design-process.md)
+
+### Framework-specific implementation choices
+
+- [`skills/frontend-design/reference/framework-official-docs.md`](skills/frontend-design/reference/framework-official-docs.md)
+
+### Typography and text quality
+
+- [`skills/frontend-design/reference/typography.md`](skills/frontend-design/reference/typography.md)
+- [`skills/frontend-design/reference/text-hierarchy-and-readability.md`](skills/frontend-design/reference/text-hierarchy-and-readability.md)
+
+### Color systems and palette logic
+
+- [`skills/frontend-design/reference/color-and-contrast.md`](skills/frontend-design/reference/color-and-contrast.md)
+- [`skills/frontend-design/reference/color-ramp-workflow.md`](skills/frontend-design/reference/color-ramp-workflow.md)
+- [`skills/frontend-design/reference/semantic-color.md`](skills/frontend-design/reference/semantic-color.md)
+
+### System alignment and React fallback work
+
+- [`skills/frontend-design/reference/design-system-alignment.md`](skills/frontend-design/reference/design-system-alignment.md)
+- [`skills/frontend-design/reference/component-and-block-strategy.md`](skills/frontend-design/reference/component-and-block-strategy.md)
+- [`skills/frontend-design/reference/react-shadcn-accelerators.md`](skills/frontend-design/reference/react-shadcn-accelerators.md)
+
+If you are not sure where to place new doctrine, start by checking those files before creating a new reference. In many cases the right change is to strengthen one of them rather than add another document.
+
 ## React fallback reference bridge
 
 When maintaining docs or skills related to the React/Tailwind fallback path, use the official upstream docs as the source of truth for current inventories and implementation details.

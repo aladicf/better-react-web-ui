@@ -41,13 +41,17 @@ If any of these are unclear from the codebase, ask the user directly to clarify 
 
 Create a purposeful color introduction plan:
 
+Consult the [color and contrast](../frontend-design/reference/color-and-contrast.md) reference for palette structure, contrast, color-family selection, temperature, and theme behavior.
+Consult the [color ramp workflow](../frontend-design/reference/color-ramp-workflow.md) reference when you need to build or repair tints, tones, shades, and reusable color stops.
 Consult the [semantic color](../frontend-design/reference/semantic-color.md) reference when color needs to communicate state, alerts, or status—not just brand personality.
 
 - **Color palette**: What colors match the brand/context? (Choose 2-4 colors max beyond neutrals)
+- **Palette relationship**: Is this best treated as monochrome, analogous, complementary, or triadic?
 - **Dominant color**: Which color owns 60% of colored elements?
 - **Accent colors**: Which colors provide contrast and highlights? (30% and 10%)
 - **Application strategy**: Where does each color appear and why?
 - **Shade system**: Which greys, primary shades, and semantic ramps exist before you start applying them?
+- **Schema**: Are the color roles and usable stops documented clearly enough for later screens to stay consistent?
 
 **IMPORTANT**: Color should enhance hierarchy and meaning, not create chaos. Less is more when it matters more.
 
@@ -69,6 +73,7 @@ Think in hue, saturation, and lightness even if you ultimately encode the palett
 - As colors get much lighter or darker, increase saturation enough to keep them from going muddy
 - When a ramp looks dull, don't only change lightness — slightly rotate hue toward a brighter-feeling hue if needed
 - For neutrals and subtle surfaces, temperature matters more than raw saturation
+- Use toned-down variants when pure color feels too harsh, toy-like, or visually noisy
 
 ### Contrast strategy
 - For low-emphasis colored surfaces, prefer **dark text on light color** instead of white text on dark color
@@ -140,6 +145,14 @@ Ensure color addition improves rather than overwhelms:
 - **Secondary color** (30%): Supporting color for variety
 - **Accent color** (10%): High contrast for key moments
 - **Neutrals** (remaining): Gray/black/white for structure
+
+Treat color psychology as a directional tool, not a law:
+- warmer, brighter colors usually attract more attention
+- cooler colors often stabilize and recede
+- darker palettes often feel more serious or corporate
+- brighter palettes often feel more youthful or energetic
+
+Then verify the actual result against the product's audience and tone instead of trusting the color wheel blindly.
 
 ### Accessibility
 - **Contrast ratios**: Ensure WCAG compliance (4.5:1 for text, 3:1 for UI components)

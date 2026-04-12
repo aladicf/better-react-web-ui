@@ -13,7 +13,107 @@
 
 **Key insight**: As you move toward white or black, reduce chroma (saturation). High chroma at extreme lightness looks garish. A light blue at 85% lightness needs ~0.08 chroma, not the 0.15 of your base color.
 
+## Choosing Color Families
+
+Color harmony methods are useful starting tools, not automatic guarantees of taste.
+
+Use them to generate options, then judge the result in context.
+
+### Monochrome
+
+Use one hue with multiple tints, tones, and shades.
+
+Best for:
+- calm, cohesive interfaces
+- products that want restraint over spectacle
+- systems where hierarchy should come mostly from spacing, contrast, and type
+
+Risk:
+- can feel flat if there is no semantic color or accent contrast where the workflow needs it
+
+### Analogous
+
+Use neighboring hues on the color wheel.
+
+Best for:
+- smooth, harmonious palettes
+- interfaces that want warmth, nuance, or atmospheric character
+- brands where multiple related hues should feel like one family
+
+Risk:
+- nearby hues can become muddy if contrast and role separation are weak
+
+### Complementary
+
+Use opposite hues on the wheel.
+
+Best for:
+- high-contrast emphasis
+- strong call-to-action moments
+- designs where one color family needs a clear counterweight
+
+Risk:
+- complements at equal intensity can feel loud or childish fast; one side usually needs to dominate while the other acts as an accent
+
+### Triadic
+
+Use three hues spaced around the wheel.
+
+Best for:
+- expressive systems with multiple clear roles
+- illustration-heavy or brand-rich interfaces
+- products that genuinely benefit from broader category color
+
+Risk:
+- easy to overdo; most product UIs should still keep one dominant family and let the others play supporting roles
+
+### Practical rule
+
+Start with the smallest color family that solves the job:
+
+- monochrome when restraint is enough
+- analogous when you want subtle richness
+- complementary when you need focused contrast
+- triadic only when the product can support a broader, more expressive palette
+
 ## Building Functional Palettes
+
+### Color Temperature
+
+Warm and cool are attention tools as much as aesthetic choices.
+
+- warm hues (reds, oranges, yellows, warm neutrals) come forward faster
+- cool hues (blues, teals, violets, cool neutrals) tend to recede and stabilize the layout
+
+Use warm colors for:
+- warnings
+- urgent actions
+- emotional highlights
+- places where you want the eye to land quickly
+
+Use cool colors for:
+- structural UI
+- secondary interactions
+- trustworthy or calm product tone
+- passive surfaces and background framework
+
+The goal is not to follow a rigid nature chart. It is to control attention and mood deliberately.
+
+### Saturation, Tint, Tone, and Shade
+
+These are practical levers, not art-school trivia:
+
+- **tint**: add lightness so a color can sit back into the background
+- **shade**: darken a color so it can carry stronger emphasis, text, or hover depth
+- **tone**: reduce saturation and intensity so a color feels calmer and less insistent
+- **saturation**: controls how vivid or raw a color feels
+
+In UI work:
+
+- use tints for backgrounds, low-emphasis fills, or supporting surfaces
+- use shades for stronger text, actions, and darker interactive states
+- use toned-down variants to keep palettes from becoming harsh or toy-like
+- be careful with highly saturated colors at large scale; they exhaust the eye quickly
 
 ### The Tinted Neutral Trap
 
@@ -48,6 +148,23 @@ A complete system needs:
 
 **Skip secondary/tertiary unless you need them.** Most apps work fine with one accent color. Adding more creates decision fatigue and visual noise.
 
+### Build a Practical Color Schema
+
+A real color schema should document more than a few pretty swatches.
+
+Capture at least:
+
+- the primary brand or accent family
+- any supporting secondary or tertiary families if they are truly needed
+- a neutral text/background foundation
+- semantic ramps for success, warning, error, and info when the product needs them
+- the usable weights or stops for each family
+- short usage notes for where each color should appear in text, buttons, surfaces, borders, charts, or states
+
+The schema is part of the styleguide layer. Its job is to stop every new screen from improvising colors again.
+
+Whether you name the stops `50-950`, `100-900`, or another consistent scale matters less than having a system that people can actually reuse.
+
 ### The 60-30-10 Rule (Applied Correctly)
 
 This rule is about **visual weight**, not pixel count:
@@ -57,6 +174,31 @@ This rule is about **visual weight**, not pixel count:
 - **10%**: Accent—CTAs, highlights, focus states
 
 The common mistake: using the accent color everywhere because it's "the brand color." Accent colors work *because* they're rare. Overuse kills their power.
+
+## Color Psychology Is Context, Not Law
+
+Color associations are useful, but they are not universal truths.
+
+Common tendencies:
+
+- white reads as clear, clean, simple
+- black reads as authority, precision, seriousness
+- red reads as danger, urgency, or importance
+- orange reads as warning, friendliness, or energy
+- yellow reads as optimism, highlight, or alertness
+- green reads as safety, balance, or success
+- blue reads as trust, stability, security, or finance
+- purple and magenta often read as creativity, luxury, imagination, or youthfulness
+
+But meaning changes with context, saturation, neighboring colors, and product domain.
+
+For example:
+
+- a dark navy product can feel corporate, stable, or premium
+- bright greens and pinks can feel youthful, playful, or disruptive
+- a muted olive or desaturated plum can feel editorial and refined instead of loud
+
+Use psychology as a hypothesis to test against the product's tone, not as a universal mapping table.
 
 ## Contrast & Accessibility
 
@@ -122,6 +264,20 @@ You can't just swap colors. Dark mode requires different design decisions:
 ### Token Hierarchy
 
 Use two layers: primitive tokens (`--blue-500`) and semantic tokens (`--color-primary: var(--blue-500)`). For dark mode, only redefine the semantic layer—primitives stay the same.
+
+### Weight Inversion Across Themes
+
+When a ramp is used across both light and dark themes, the semantic job of each stop often flips.
+
+In light mode:
+- lighter stops often serve backgrounds and soft surfaces
+- darker stops often serve text and strong emphasis
+
+In dark mode:
+- darker stops often become the page and panel foundation
+- lighter stops often become text, overlays, or higher-elevation surfaces
+
+Do not just invert every number mechanically. Check whether each stop still does its job in context.
 
 ## Alpha Is A Design Smell
 

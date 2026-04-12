@@ -117,6 +117,8 @@ Apply a little pessimism up front:
 - Do not imply functionality that isn't ready to exist.
 - Use wireframes and rough exploration to make decisions quickly, then build the real thing early and iterate in short cycles.
 
+Use [design process](reference/design-process.md) when the request is still fuzzy, when layout and flow decisions need to be clarified before polish, or when you need a cleaner progression from wireframe to styleguide to prototype.
+
 **CRITICAL**: Choose a clear conceptual direction and execute it with precision. Bold maximalism and refined minimalism both work—the key is intentionality, not intensity.
 
 Then implement working code that is:

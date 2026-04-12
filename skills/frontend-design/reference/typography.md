@@ -87,6 +87,15 @@ Fonts designed for body use usually have:
 
 Avoid condensed or stylized display faces for body text.
 
+Legibility also depends on how the type is used:
+
+- small text usually needs a little more weight, not less
+- large headlines usually need less weight than small labels or buttons
+- text over patterns, photography, or noisy backgrounds fails faster than text on calm surfaces
+- strong header/body contrast can come from family pairing, but it can also come from size, weight, spacing, and role clarity
+
+One reliable pattern is a more expressive serif or display treatment for titles paired with a calmer sans-serif for body text — but this is a tool, not a rule. Do not force serif/sans contrast when a strong single-family system works better.
+
 ### Trust the Wisdom of the Crowd
 
 Popular fonts are often popular for a reason: they are reliable, legible, and well-crafted.
@@ -124,6 +133,40 @@ When pairing, contrast on multiple axes:
 - Condensed display + Wide body (proportion contrast)
 
 **Never pair fonts that are similar but not identical** (e.g., two geometric sans-serifs). They create visual tension without clear hierarchy.
+
+## Weight, Bold, and Emphasis
+
+Bold text is a scarce resource. Use it to clarify priority, not to create texture everywhere.
+
+### Use bold sparingly
+
+In most UI sections, only one or two items should carry strong bold emphasis at the same time.
+
+Good uses:
+- the primary actionable link in a small text block
+- short warnings or important status text
+- compact buttons, pills, labels, or toasts that need stronger legibility
+
+Bad uses:
+- paragraphs full of bold fragments
+- too many equally loud links in one block of copy
+- bolding large headlines that are already dominant by size alone
+
+### Weight should scale with size
+
+The larger the text, the less weight it usually needs to feel strong.
+
+- small text often benefits from slightly more weight
+- mid-size UI headings can usually carry moderate weight
+- large display text often looks better when the weight backs off a little
+
+Very light weights on small text usually hurt readability. Very heavy weights on already-large headlines often feel blunt and crowded.
+
+### Mix weights intentionally
+
+Within a headline or short statement, strategic weight contrast can create emphasis without needing extra color or decoration.
+
+Do this selectively. If every other word is emphasized, nothing is.
 
 ### Web Font Loading
 
@@ -164,6 +207,22 @@ Fluid typography via `clamp(min, preferred, max)` scales text smoothly with the 
 
 **Use fixed `rem` scales for**: App UIs, dashboards, and data-dense interfaces. No major app design system (Material, Polaris, Primer, Carbon) uses fluid type in product UI — fixed scales with optional breakpoint adjustments give the spatial predictability that container-based layouts need. Body text should also be fixed even on marketing pages, since the size difference across viewports is too small to warrant it.
 
+### Responsive Size Strategy
+
+Body text and headings do not scale the same way.
+
+- body text should usually move conservatively across breakpoints
+- headings can reduce more aggressively to preserve hierarchy without awkward wrapping
+
+Practical defaults:
+
+- treat `16px / 1rem` as the accessibility floor for UI body text
+- use larger body sizes on wide, reading-heavy layouts when the content density supports it
+- let headings step down sooner than paragraphs on tablet and mobile
+- avoid giant headings that wrap into weak, ragged blocks when the viewport narrows
+
+No single universal size works for every product. The right size depends on reading length, audience, device context, and how much visual competition exists on the screen.
+
 ### OpenType Features
 
 Most developers don't know these exist. Use them for polish:
@@ -191,6 +250,25 @@ Check what features your font supports at [Wakamai Fondue](https://wakamaifondue
 
 Name tokens semantically (`--text-body`, `--text-heading`), not by value (`--font-size-16`). Include font stacks, size scale, weights, line-heights, and letter-spacing in your token system.
 
+## Build a Practical Typography Schema
+
+A usable typography system is more than a pile of font sizes.
+
+Document at least:
+
+- the typefaces used for display, body, and any accent roles
+- the core role scale (for example: display, heading, subheading, body, secondary, caption)
+- default weights for each role
+- line-height expectations by role
+- letter-spacing rules for all-caps, metadata, and large display text
+- example usage so the system is visible, not just abstract
+
+If the team has a styleguide or token system, the typography schema should be clear enough that new screens do not invent their own heading sizes or label patterns from scratch.
+
+Good schemas reduce decision fatigue and improve consistency.
+
+Bad schemas are either too vague to guide anything or so mathematically rigid that people ignore them.
+
 ## Keep Your Line Length in Check
 
 Readable paragraphs usually live in the **45–75 character** range.
@@ -212,6 +290,53 @@ That usually feels more polished than forcing everything into one width.
 When different text sizes share a row, align by baseline rather than visual centering.
 
 Centered mixed sizes often look subtly off; baseline alignment feels cleaner and more intentional.
+
+## Italics, Underlines, and Capitalization
+
+These are accent tools, not default body-text settings.
+
+### Italics
+
+Use italics for:
+
+- testimonials and quotes
+- references or citations
+- a single phrase that benefits from quiet emphasis
+
+Avoid italics for:
+
+- full paragraphs
+- buttons and action labels
+- navigation labels
+- links that already need to remain easy to spot
+
+Large blocks of italic text slow reading down fast.
+
+### Underlines
+
+Underlines are most useful when they signal a link or add targeted emphasis to a short key phrase.
+
+Good uses:
+
+- hyperlink affordance when color alone is not enough
+- hover states for links
+- short highlighted statements where the underline adds meaning without overwhelming the type
+
+Avoid:
+
+- underlining large headlines for decoration
+- underlining every link in a dense block until the page becomes noisy
+- using underline as a substitute for fixing weak hierarchy
+
+### Capitalization
+
+Capitalization should be intentional and consistent.
+
+- use sentence case or title case consistently for the same UI role
+- reserve all-caps for short labels, buttons, badges, metadata, or alert-like emphasis
+- add letter-spacing when using all-caps so the text can breathe
+
+Do not set full sentences or long passages in all-caps unless the tone is deliberately stylized and the readability tradeoff is acceptable.
 
 ## Line-Height Is Proportional
 
@@ -246,4 +371,4 @@ Beyond contrast ratios (which are well-documented), consider:
 
 ---
 
-**Avoid**: more than 2-3 font families per project, skipping fallback font definitions, ignoring font loading performance (FOUT/FOIT), using decorative fonts for body text, relying on too few weights for hierarchy, or using Geist Mono/Geist Pixel as gimmicks where their personality does not fit the product.
+**Avoid**: more than 2-3 font families per project, skipping fallback font definitions, ignoring font loading performance (FOUT/FOIT), using decorative fonts for body text, relying on too few weights for hierarchy, over-bolding already-dominant large text, setting long passages in italics or all-caps, underlining text indiscriminately, or using Geist Mono/Geist Pixel as gimmicks where their personality does not fit the product.

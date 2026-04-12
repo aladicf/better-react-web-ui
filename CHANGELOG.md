@@ -6,6 +6,29 @@ The format is inspired by Keep a Changelog and uses a simple `Added` / `Changed`
 
 ## [Unreleased]
 
+### Changed
+
+- README, development docs, and contributing guidance now surface the highest-signal shared references more clearly for design process, framework docs, typography, and color-system work.
+
+## [1.4.0] - 2026-04-12
+
+### Added
+
+- Shared design-process doctrine covering wireframes, styleguide thinking, and when to move into higher-fidelity prototypes.
+- Shared framework-official-docs guidance that directs agents to official framework documentation before making framework-specific implementation decisions.
+
+### Changed
+
+- React fallback guidance now includes a curated shortlist of React/shadcn accelerators with direct feature and integration links for theme controls, consent, motion text, testimonial patterns, wheel pickers, and slide actions.
+- Astro fallback guidance now prefers HTML-first Astro components plus Tailwind by default, only reaching for React plus `shadcn/ui` when that integration is explicitly requested or already present.
+- Typography doctrine now covers emphasis discipline, weight strategy, italics, underlines, capitalization, responsive size strategy, and how to document a reusable typography schema.
+- Color doctrine now better covers palette-family selection, color temperature, tint/tone/shade behavior, color psychology as contextual guidance, and practical color-schema planning.
+- The `colorize` and `typeset` skills now point more explicitly at the shared doctrine needed to apply those refinements consistently.
+
+### Fixed
+
+- Synced root package version metadata in `package-lock.json` with the bumped package version.
+
 ## [1.3.0] - 2026-04-10
 
 ### Added

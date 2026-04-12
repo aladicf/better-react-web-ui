@@ -11,6 +11,16 @@ Pick a temperature on purpose:
 
 Apply the temperature consistently across the ramp so the lightest and darkest neutrals still feel related.
 
+## 1.5 Understand Tint, Tone, and Shade
+
+Before building a ramp, be explicit about how the family should behave:
+
+- **tint** lightens and softens the color for backgrounds and lower-emphasis use
+- **shade** darkens the color for stronger emphasis, text, or hover depth
+- **tone** reduces saturation so the color becomes calmer and easier to live with in larger areas
+
+Most UI ramps need all three behaviors, not just a blind slide toward white or black.
+
 ## 2. Pick the Edge / Base / Fill-Gaps Structure
 
 Build ramps intentionally instead of improvising shades on the fly.
@@ -29,6 +39,12 @@ Build ramps intentionally instead of improvising shades on the fly.
 - Use 5–10 shades per important ramp
 
 This gives you a real system instead of a pile of nearly identical colors.
+
+### Name the stops consistently
+
+Whether the scale is `50-950`, `100-800`, or another stepped system, define it once and keep the naming stable.
+
+The point is not the exact numbering convention. The point is that backgrounds, labels, borders, emphasis, and text can keep reaching for the same stops instead of inventing new ones on every screen.
 
 ## 3. Preserve Saturation
 
@@ -72,6 +88,7 @@ Instead:
 ## Practical Ramp Checklist
 
 - Does the neutral ramp have a deliberate temperature?
+- Do tint, tone, and shade each have a useful job in the ramp?
 - Do primary and accent ramps have clear edges and a usable base?
 - Are there too many improvised one-off shades?
 - Are light tinted surfaces using darker text instead of weak grey?

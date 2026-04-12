@@ -36,11 +36,13 @@ Analyze what's weak or generic about the current type:
    - Are line lengths comfortable? (45-75 characters ideal)
    - Is line-height appropriate for the font and context?
    - Is there enough contrast between text and background?
+   - Are italics, underlines, and all-caps being used deliberately rather than as decoration?
 
 5. **Consistency**:
    - Are the same elements styled the same way throughout?
    - Are font weights used consistently? (Not bold in one section, semibold in another for the same role)
    - Is letter-spacing intentional or default everywhere?
+   - Is capitalization consistent by role? (titles, buttons, labels, toasts, metadata)
 
 **CRITICAL**: The goal isn't to make text "fancier" — it's to make it clearer, more readable, and more intentional. Good typography is invisible; bad typography is distracting.
 
@@ -58,6 +60,7 @@ Create a systematic plan:
 - **Type scale**: Establish a constrained UI scale; use modular scales as inspiration, then hand-craft the actual steps you need
 - **Weight strategy**: Which weights serve which roles? (Regular for body, Semibold for labels, Bold for headings — or whatever fits)
 - **Spacing**: Line-heights, letter-spacing, and margins between typographic elements
+- **Schema**: Are the typography roles documented clearly enough that future screens can stay consistent?
 
 ## Improve Typography Systematically
 
@@ -96,6 +99,9 @@ Build a clear type scale:
 - Align mixed-size text by the baseline when it appears on the same line
 - Apply proper `letter-spacing`: slightly open for small caps and uppercase, default or slightly tighter for large display text
 - Tighten headings selectively when the typeface is naturally loose at larger sizes
+- Use italics sparingly: short emphasis, quotes, and testimonials are fine; long UI copy and controls are not
+- Underline links and short key emphasis deliberately; do not blanket-underline dense text
+- Keep capitalization consistent by role, and add tracking when using all-caps labels or metadata
 - Don’t make every link bright blue by default; match link emphasis to its importance in the reading flow
 - Use semantic token names (`--text-body`, `--text-heading`), not value names (`--font-16`)
 - Set `font-kerning: normal` and consider OpenType features where appropriate
