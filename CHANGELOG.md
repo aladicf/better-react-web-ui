@@ -6,9 +6,33 @@ The format is inspired by Keep a Changelog and uses a simple `Added` / `Changed`
 
 ## [Unreleased]
 
+## [1.8.1] - 2026-04-13
+
+### Changed
+
+- `README.md` now uses a more human, lightly tongue-in-cheek introduction aimed at developers who want help making better UI, UX, and animation decisions.
+- The inspiration and attribution material now appears near the top of `README.md` with clearer spacing, per-source rows, and explicit creator names, while the duplicate attribution section was removed from the bottom of the file.
+- README now states the framework-agnostic positioning more explicitly and documents a recommended upgrade path for older installs that preserves project-specific setup in `.better-web-ui.md`.
+
+## [1.8.0] - 2026-04-13
+
+### Added
+
+- The `animate` skill now has its own `reference/` set covering Emil-inspired easing defaults, timing heuristics, gesture handling patterns, polish and reduced-motion patterns, performance-sensitive property choices, transform techniques, strategy heuristics, on-screen movement, drawer timing/easing, spring usage, and explicit source attribution.
+
 ### Changed
 
 - README, contributing guidance, and development docs now use a clearer documentation map, reduce duplicated reference catalogs, and make the shared doctrine index easier to scan and maintain as the repository grows.
+- Reorganized `README.md` around a shorter, human-first project overview with clearer installation, capability, doctrine, attribution, and contribution sections.
+- README and `NOTICE.md` now point Anthropic attribution to the current upstream `better-web-ui` plugin path instead of stale frontend-design links.
+- Motion attribution now explicitly credits Emil Kowalski's [animations.dev](https://animations.dev/) course and related open-source motion work where it informs the `animate` skill.
+- Shared frontend doctrine now also covers dark-mode-only `color-scheme` guidance, layout-faithful skeleton placeholders, async combobox result stability, Motion adapter guidance for React/Vue/vanilla JS, and SVG path morphing as a refined disclosure-icon animation option.
+- Animation doctrine now more explicitly prefers modern CSS, Tailwind utilities, and WAAPI wherever they can solve the motion cleanly, reserving Motion for interactions that genuinely need a heavier framework-linked animation layer.
+
+### Fixed
+
+- Removed a broken Anthropic attribution link discovered during the documentation link audit.
+- Synced root package version metadata in `package-lock.json` with the bumped package version.
 
 ## [1.7.0] - 2026-04-13
 

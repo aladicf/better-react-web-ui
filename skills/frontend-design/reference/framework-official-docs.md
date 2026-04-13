@@ -267,6 +267,40 @@ Consult Angular docs first for:
 - SSR / CSR / prerender route rendering choices
 - server-compatible component patterns and DI-based platform access
 
+### Motion (React, Vue, and vanilla JavaScript)
+
+Use when the project explicitly asks for **Motion** / **Framer Motion**-style animation primitives, or when an animation-heavy feature needs a framework-matched Motion adapter instead of generic CSS alone.
+
+Important filter before reaching for it:
+
+- if the effect is a simple hover, press, opacity fade, translate entrance, reduced-motion fallback, or other self-contained state transition, prefer modern CSS or Tailwind first
+- use Motion when the interaction truly benefits from layout animation, gestures, motion values, framework-linked orchestration, or richer scroll/state coupling
+
+- [Motion quick start for JavaScript](https://motion.dev/docs/quick-start) — install via `npm install motion`, import from `motion`, or use the ESM/CDN path for plain HTML pages
+- [Motion for React](https://motion.dev/docs/react) — install via `npm install motion`, import React primitives from `motion/react`
+- [Motion for Vue](https://motion.dev/docs/vue) — install via `npm install motion-v`, use `motion-v/nuxt` for Nuxt module integration when relevant
+
+Practical adapter rule:
+
+- **React-based web apps** → `motion` package, imports from `motion/react`
+- **Vue-based web apps** → `motion-v`
+- **Nuxt projects** → prefer `motion-v/nuxt` when module-style integration is appropriate
+- **plain JavaScript / HTML web apps** → `motion` package, imports like `animate` / `scroll` from `motion`, or the documented script-tag path when no bundler is present
+
+Consult Motion docs first for:
+
+- the right package and import path for the current framework
+- gesture APIs vs plain CSS interactions
+- layout animations, scroll animations, and SVG animation support
+- when CSS is the simpler and better choice for self-contained state transitions
+
+Important rule:
+
+- do **not** assume the React adapter for Vue or vanilla JS projects
+- do **not** use old `framer-motion` naming as a reason to skip the current official Motion docs
+- match the adapter to the project instead of forcing React assumptions into every web stack
+- do **not** introduce Motion just because animation exists; many strong UI animations are better as CSS, Tailwind utilities, or WAAPI
+
 ## Practical rule for agents
 
 If the framework is known, do **not** jump straight from generic frontend instincts to code.

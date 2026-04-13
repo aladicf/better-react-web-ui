@@ -279,6 +279,32 @@ In dark mode:
 
 Do not just invert every number mechanically. Check whether each stop still does its job in context.
 
+### Dark-mode-only apps need an explicit `color-scheme`
+
+If a product is **dark mode only**, the document should opt into dark browser chrome as well. Without that, the browser may keep light/system scrollbars and built-in surfaces, which can look especially bad against a dark UI during daytime system themes.
+
+Use a class on the root element:
+
+```html
+<html class="scheme-only-dark">
+```
+
+And define it explicitly:
+
+```css
+.scheme-only-dark {
+  color-scheme: only dark;
+}
+```
+
+For Tailwind-oriented projects, exposing `scheme-only-dark` as a utility-style class on `<html>` is a clean pattern. If the project does not already have that utility, define the class in global CSS instead of assuming the browser will infer the right chrome.
+
+Use this when:
+
+- the product ships only a dark theme
+- the layout root should always render dark-friendly browser UI
+- you want scrollbars and other UA-controlled surfaces to match the app instead of the user's daytime light preference
+
 ## Alpha Is A Design Smell
 
 Heavy use of transparency (rgba, hsla) usually means an incomplete palette. Alpha creates unpredictable contrast, performance overhead, and inconsistency. Define explicit overlay colors for each context instead. Exception: focus rings and interactive states where see-through is needed.

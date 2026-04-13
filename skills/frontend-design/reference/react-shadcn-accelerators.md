@@ -12,6 +12,7 @@ Always match the existing codebase first. If the project already has its own loc
 - Follow the linked upstream dependency docs when the component relies on a deeper framework or platform constraint.
 - Do **not** assume every component fits every React stack equally well. Some are explicitly Next.js-oriented, some depend on Motion, and some depend on browser APIs with limited compatibility.
 - Treat these as accelerators to refine, not stock outputs to ship unchanged.
+- If the request is only asking for a small hover, press, fade, shimmer, or disclosure treatment, prefer native CSS / Tailwind patterns first instead of importing a heavier motion-dependent accelerator prematurely.
 
 ## Curated defaults for React-based web apps
 

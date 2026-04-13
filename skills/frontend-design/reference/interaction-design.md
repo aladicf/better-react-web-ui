@@ -101,6 +101,8 @@ Primary and frequent actions should be large enough, close enough, and separated
 
 **Optimistic updates**: Show success immediately, rollback on failure. Use for low-stakes actions (likes, follows), not payments or destructive actions. **Skeleton screens > spinners**—they preview content shape and feel faster than generic spinners.
 
+When the product has a reusable skeleton primitive, prefer **layout-faithful skeleton wrappers** over manually sizing gray rectangles for every screen. Rendering the real component with mock content inside a skeleton treatment preserves authentic wrapping, media proportions, and spacing.
+
 ## Modals: The Inert Approach
 
 Focus trapping in modals used to require complex JavaScript. Now use the `inert` attribute:
@@ -208,6 +210,28 @@ Check viewport boundaries before rendering. If the dropdown would overflow the b
 - **`position: absolute` inside `overflow: hidden`** - The dropdown will be clipped. Use `position: fixed` or the top layer instead.
 - **Arbitrary z-index values** like `z-index: 9999` - Use a semantic z-index scale: `dropdown (100) -> sticky (200) -> modal-backdrop (300) -> modal (400) -> toast (500) -> tooltip (600)`.
 - **Rendering dropdown markup inline** without an escape hatch from the parent's stacking context. Either use `popover` (top layer), a portal, or `position: fixed`.
+
+## Async Combobox Stability
+
+Async comboboxes can break selection integrity if result updates keep reindexing the list while the user is navigating it.
+
+The common bug looks like this:
+
+- user types
+- fetch starts
+- user arrows through results
+- fetch lands and reorders items
+- the highlighted **index** stays the same, but the **item at that index** changed
+
+### Safer behavior
+
+- track active option by a stable item id/value, not by index
+- once the user starts navigating the menu, freeze automatic highlight updates until they select, dismiss, blur, or explicitly resume input editing
+- if the same item is still present after the fetch, keep that same item highlighted
+- if it is gone, clear the highlight instead of silently moving to a new occupant at the old index
+- for touch-heavy lists where options can move under the finger, consider suppressing list interactions briefly after async result updates when items are newly inserted or repositioned
+
+This is one of those tiny edge cases that makes a combobox feel either trustworthy or haunted.
 
 ## Destructive Actions: Undo > Confirm
 

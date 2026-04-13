@@ -1,133 +1,64 @@
 # better-web-ui
 
-`better-web-ui` is an opinionated frontend design skill library for AI coding agents.
+`better-web-ui` is an opinionated Agent Skills library for developers who can ship code just fine but would prefer the UI not look like it was assembled during a sleep-deprived Figma incident.
 
-It helps agents build, critique, refine, and systematize high-quality UI work without defaulting to generic, low-context design output.
+It helps AI coding agents generate, critique, refine, and systematize production-grade UI, UX, and motion work without defaulting to bland, generic output. In other words: it's for people who know the difference between “works” and “wow” and would like help crossing that gap without pretending they woke up as a principal product designer.
 
-The project is deliberately opinionated about design taste: it optimizes for distinctive, production-grade, high-context interfaces rather than neutral, lowest-common-denominator UI.
+This repository is a **skills package**, not a starter app or deployment template.
 
-The package follows the [Agent Skills](https://agentskills.io/) format and is designed to be installed through the [`skills` CLI](https://skills.sh/docs/cli).
+The project follows the [Agent Skills](https://agentskills.io/) format and is designed to be installed through the [`skills` CLI](https://skills.sh/docs/cli).
+
+## Inspired by
+
+- **[Impeccable](https://github.com/pbakaus/impeccable)** — by **Paul Bakaus**
+
+- **[Anthropic's upstream better-web-ui / frontend-design lineage](https://github.com/anthropics/claude-code/tree/main/plugins/better-web-ui)** — by **Anthropic**
+
+- **[animations.dev](https://animations.dev/)** and related motion-heavy UI work — by **Emil Kowalski**
+
+- **[Refactoring UI](https://refactoringui.com/)** — by **Adam Wathan** and **Steve Schoger**
+
+- **[Design for Developers](https://www.packtpub.com/en-us/product/design-for-developers-9781837027200)** — by **Adrian Twarog** and **George Moller**
+
+- **[Laws of UX](https://lawsofux.com/book/)** — by **Jon Yablonski**
+
+See [`NOTICE.md`](NOTICE.md) for the fuller attribution chain and source lineage.
 
 ## What this package is for
 
 Use `better-web-ui` when you want an agent to help with:
 
-- multi-variation UI generation for new sections, pages, shells, and components
-- broader frontend design direction
-- visual hierarchy and layout quality
-- typography, color, and spacing systems
-- critique and audit passes
-- onboarding, empty states, and UX writing
-- polish, motion, depth, and standout showcase work
+- generating multiple UI directions for new sections, pages, shells, and components
+- improving hierarchy, spacing, typography, color, and overall visual quality
+- reviewing interfaces for UX issues, accessibility, performance, and polish
+- designing empty states, onboarding, motion, depth, and stronger interaction details
+- extracting reusable patterns and bringing drifted UI back in line with a system
 
-This repository is a **skills package**, not a web app or starter template.
-
-If you want safe, generic UI output above all else, this package is not trying to be that. It is intentionally biased toward stronger design points of view.
-
-If you are evaluating the library quickly, the highest-signal shared references to inspect first are:
-
-- [design process](skills/frontend-design/reference/design-process.md) — when the problem is still fuzzy and needs a cleaner path from wireframes to styleguide thinking to polished output
-- [framework official docs](skills/frontend-design/reference/framework-official-docs.md) — when implementation choices depend on the exact frontend framework or meta-framework in use
-- [component anatomy](skills/frontend-design/reference/component-anatomy.md) — when a project is building primitives from scratch instead of leaning on a mature component library
-- [typography](skills/frontend-design/reference/typography.md) — when text, scale, weight, emphasis, or schema quality is carrying too much of the interface quality burden
-- [color and contrast](skills/frontend-design/reference/color-and-contrast.md) — when palette, contrast, hierarchy, or color meaning feels weak or improvised
+This library is intentionally opinionated. It optimizes for distinctive, high-context, production-grade interfaces rather than lowest-common-denominator UI.
 
 ## What it works with
 
-`better-web-ui` is intentionally **framework-agnostic** and **library-agnostic**.
+`better-web-ui` is purposefully framework-agnostic so that everyone can benefit from it.
 
-It can be used with most modern frontend setups, including:
+It is also stack-aware enough to respect what a project already uses.
 
-- React / Tanstack Start / Next.js
-- Vue / Nuxt
-- Svelte / SvelteKit
+It works with:
+
+- React, Next.js, React Router, TanStack Start and Vite.
+- Vue and Nuxt
+- Svelte and SvelteKit
 - Astro
-- Solidjs / SolidStart
-- plain HTML / CSS / JavaScript
+- Solid and SolidStart
+- plain HTML, CSS, and JavaScript
 - custom design systems and in-house component libraries
 
-It can also work across common styling approaches such as:
+It also adapts to common styling approaches such as Tailwind CSS, CSS modules, CSS-in-JS, token-based design systems, and vanilla CSS.
 
-- Tailwind CSS
-- CSS modules
-- styled-components / CSS-in-JS
-- vanilla CSS
-- token-based design systems
-
-When a project is **not** using a mature component library, `better-web-ui` also includes shared anatomy guidance for custom primitive work such as buttons, cards, checkboxes, dropdowns, tabs, textareas, toasts, toggles, tooltips, accordions, avatars, badges, borders, breadcrumbs, iconography, lists, and submit actions in [component anatomy](skills/frontend-design/reference/component-anatomy.md).
-
-## How stack defaults are chosen
-
-When an agent using `better-web-ui` needs to make stack decisions, it follows this order:
-
-1. **Existing project setup wins first** — detect the framework, styling system, component library, and design system already present in the codebase and use those before introducing anything new.
-2. **Explicit user preferences win second** — if the user is creating a new project and names a styling system or component library, use that as the default.
-3. **Framework defaults win third** — if the project is new and the user does not specify styling or component foundations, use the defaults below.
-
-### Framework-specific defaults when the stack is open
-
-This library does **not** require Tailwind or a specific component system.
-
-However, when a project has no established styling or component direction yet, it prefers these defaults:
-
-| Framework / runtime | Styling default | Component / block default |
-| --- | --- | --- |
-| React-based frameworks and meta-frameworks (`Next.js`, `TanStack Start`, `React Router`, Vite React) | **Tailwind CSS** | **shadcn/ui** components with the Base UI components, plus **shadcn/ui Blocks**, **re-ui**, and a curated React/shadcn accelerator shortlist when helpful |
-| Astro | **Tailwind CSS** | **HTML-first Astro components and native elements** by default; only reach for **React** + **shadcn/ui** when the user explicitly wants that integration or the project already uses it |
-| Laravel + Inertia / React | **Tailwind CSS** | **shadcn/ui** components with the Base UI components, plus **shadcn/ui Blocks** |
-| Vue / Nuxt | **Tailwind CSS** | **Nuxt UI** or **shadcn-vue** |
-| Svelte / SvelteKit | **Tailwind CSS** | **shadcn-svelte** |
-| Angular | **Tailwind CSS** | **Angular Material** or **ZardUI** |
-| SolidJS / SolidStart based meta-frameworks | **Tailwind CSS** | **SolidUI** |
-
-These are gentle defaults, not hard requirements. If a project already uses a different framework, design system, or styling approach, it matches the existing stack instead of forcing a migration just because it is fashionable this week.
-
-For form architecture, when a brand-new project is using React, Vue, Angular, Solid, or Svelte and no stronger form choice has been specified yet, `better-web-ui` should prefer [TanStack Form](https://tanstack.com/form/latest/docs/overview). If the project already uses another form stack, that existing choice wins first.
-
-For tables and data grids, when a brand-new project is using React, Vue, Angular, Solid, or Svelte and no stronger table choice has been specified yet, `better-web-ui` should prefer [TanStack Table](https://tanstack.com/table/latest/docs/introduction). If the project already uses another table/grid stack, that existing choice wins first.
-
-For long lists and virtualization, when a brand-new project is using React, Vue, Angular, Solid, or Svelte and no stronger virtualization choice has been specified yet, `better-web-ui` should prefer [TanStack Virtual](https://tanstack.com/virtual/latest/docs/introduction). If the project already uses another virtualization approach, that existing choice wins first.
-
-### Headless defaults by problem when the stack is open
-
-When a brand-new project is still open on tooling choices, use this shorthand:
-
-- **forms** → [TanStack Form](https://tanstack.com/form/latest/docs/overview)
-- **tables / datagrids** → [TanStack Table](https://tanstack.com/table/latest/docs/introduction)
-- **long lists / virtual lists** → [TanStack Virtual](https://tanstack.com/virtual/latest/docs/introduction)
-- **toasts** in React-based web apps → [Sonner](https://sonner.emilkowal.ski/getting-started)
-- **drawers / bottom sheets** in React-based web apps → [Vaul](https://vaul.emilkowal.ski/getting-started)
-- **predictive wrapped-text sizing before DOM measurement** → [`@chenglou/pretext`](https://github.com/chenglou/pretext)
-
-Important qualifier: if the project already uses another form layer, table/grid stack, virtualization layer, toast system, drawer primitive, or text-layout approach, match the existing choice first instead of forcing these defaults.
-
-For Astro specifically, the bias should stay with Astro's low-JavaScript model: prefer native HTML elements, Astro components, and Tailwind styling first; only add React islands and `shadcn/ui` when the user explicitly asks for them or the existing codebase already depends on that integration.
-
-For React-based fallback work that is already in the shadcn/Tailwind orbit, `better-web-ui` also keeps a curated shortlist of community accelerators with direct feature and installation links in [react shadcn accelerators](skills/frontend-design/reference/react-shadcn-accelerators.md). That list currently includes `Theme Toggle Effect`, `Consent Manager`, `Theme Switcher`, `Sonner`, `Vaul`, `Shimmering Text`, `Scroll Fade Effect`, `Text Flip`, `Testimonial`, `Testimonial Spotlight`, `Testimonials Marquee`, `React Wheel Picker`, and `Slide to Unlock`.
-
-When a task is tied to a specific frontend framework or meta-framework, agents should also start with the official docs for that framework before locking in implementation details. The shared [framework official docs](skills/frontend-design/reference/framework-official-docs.md) reference points agents to the official starting pages for React, Next.js, React Router, TanStack Start, Astro, Inertia, Vue, Nuxt, Svelte, SvelteKit, Solid, SolidStart, and Angular.
-
-For **Next.js** specifically, `better-web-ui` should follow the modern Next.js agent workflow:
-
-- if the project includes bundled docs at `node_modules/next/dist/docs/`, agents should read the relevant local doc there before writing Next.js code
-- modern `create-next-app` includes `AGENTS.md` and `CLAUDE.md` by default unless the project opted out with `--no-agents-md`
-- on older Next.js versions, agents should follow the official codemod/setup guidance instead of pretending stale training data is good enough
-
-## Runtime requirements
-
-Maintainer tooling in this repository is pinned to Node `24.14.1`.
-
-The package engine policy allows Node `>=24.14.1 <25` so local maintainer and CI behavior stay within the current LTS line.
-
-The repository includes both `.nvmrc` and `.node-version` so different version managers can resolve the same pinned runtime without extra local setup.
-
-- use `nvm use`, `fnm use`, or your preferred version manager with `.nvmrc` / `.node-version`
-- run `npm install` before using the maintainer scripts
-- use `npm run lint`, `npm run generate:wrappers`, and `npm run validate` from the repository root
+When a project already has an established stack, agents should match it first. When the stack is still open, the library provides pragmatic defaults and reference guidance rather than forcing one universal setup.
 
 ## Installation
 
-### Install from GitHub
+Install from GitHub:
 
 ```bash
 npx skills add aladicf/better-web-ui
@@ -138,161 +69,92 @@ Useful variations:
 ```bash
 npx skills add aladicf/better-web-ui --list
 npx skills add aladicf/better-web-ui --all
-npx skills add aladicf/better-web-ui --skill add-ui
-npx skills add aladicf/better-web-ui --skill add-ui --skill frontend-design
-npx skills add aladicf/better-web-ui --skill frontend-design --skill polish
+npx skills add aladicf/better-web-ui --skill add-ui --skill critique
 npx skills add aladicf/better-web-ui -g
 ```
 
-### Install from a local checkout
+For contributor setup, local installs, and maintainer commands, see [`DEVELOPMENT.md`](DEVELOPMENT.md).
 
-```bash
-npx skills add .
-npx skills add . --skill add-ui
-```
+## First thing to do after installing
 
-## How users invoke installed skills
+Run `/setup` first. Yes, before you go off and build the thing.
 
-Once `better-web-ui` is installed in a project, users typically invoke skills in one of these ways:
+- **Starting a new project?** Run `/setup` so the skill learns your preferred framework, styling library, component library, and visual direction instead of hallucinating a stack with confidence.
+- **Installing into an existing or older project?** Run `/setup` so the skill learns what is already there, or tell it explicitly which framework, styling library, and component library it should preserve.
 
-1. **Slash commands when the host exposes them**
-	- `/add-ui hero section for a B2B security product homepage`
-	- `/setup design context for a B2B operations platform`
-	- `/critique this analytics dashboard for hierarchy and cognitive load`
+`/setup` writes that context to `.better-web-ui.md`, so later sessions can keep your project-specific setup instead of guessing.
 
-2. **Natural-language prompts when the host does not expose slash commands clearly**
-	- `Use add-ui to generate five directions for a pricing section.`
-	- `Use setup before designing this app.`
-	- `Critique this dashboard for information architecture.`
+## Upgrading from older installs
 
-3. **Skill-name prompting as an explicit fallback**
-	- `Use the installed better-web-ui add-ui skill for this request.`
+Upgrading from an older install such as `1.5.x` is simple:
 
-In many hosts, users do **not** need to say `make sure to use better-web-ui skills` if the skills are already installed and the host surfaces them correctly.
+1. Reinstall the library with the same scope you use now (`--all` or the same `--skill ...` set).
+2. Keep project-specific setup in `.better-web-ui.md`, not inside installed skill files.
+3. If you still have legacy `.impeccable.md` context, migrate it into `.better-web-ui.md`.
+4. Re-run `/setup` only if your product context, stack, or preferred libraries changed.
 
-Important distinction:
+That is the whole trick: upgrade the library, keep your project specifics in `.better-web-ui.md`, and newer versions can improve without wiping your setup.
 
-- Slash commands like `/add-ui`, `/setup`, or `/critique` are user-facing when supported by the host.
-- Internal references like `$frontend-design` or `$setup` are for skill-to-skill loading inside the library and are **not** commands users type themselves.
+## How to use it
 
-Exact slash-command visibility depends on the chat host. If typing `/` does not show the installed commands, users can still ask naturally or explicitly mention the skill name.
+Most hosts expose installed skills either as slash commands or through natural-language prompting.
 
-### Special note for shadcn projects
-
-If a project was created with `npx shadcn create`, updated with `npx shadcn@latest apply`, or already contains a `components.json` file with the shadcn schema, agents should match that project's existing customization baseline instead of assuming the classic defaults.
-
-That means respecting the project's current:
-
-- component library choice (Radix or Base UI)
-- preset or visual style baseline
-- theme tokens, colors, spacing, and geometry
-- fonts, icons, and Tailwind configuration
-- `components.json` settings such as `style`, `tailwind.baseColor`, `tailwind.cssVariables`, `tailwind.prefix`, aliases, registries, `rsc`, and `tsx`
-
-When that configuration is already present, the agent should continue from it instead of resetting the project back to a generic `shadcn/ui` look.
-
-## Using `add-ui`
-
-`add-ui` is the canonical skill name in this repository. Some hosts may expose a friendly `/add` alias, but docs, wrappers, and source files should continue to refer to the skill as `add-ui`.
-
-Example requests:
+Example prompts:
 
 - `/add-ui hero section for a B2B security product homepage`
-- `/add-ui pricing section for a developer tool with monthly and annual billing`
-- `/add-ui dashboard shell for an operations analytics platform`
-- `/add-ui onboarding flow for a budgeting app aimed at first-time users`
-- `/add-ui product comparison table for a high-consideration ecommerce category`
+- `/critique this analytics dashboard for hierarchy and cognitive load`
+- `/audit this checkout form for accessibility and performance issues`
+- `/setup design context for a calm, trustworthy budgeting app`
+- `Use animate to improve the motion and feedback in this drawer flow.`
 
-Equivalent host-level alias examples:
+If a host does not surface slash commands clearly, users can still ask for a skill by name in plain language.
 
-- `/add hero section for a B2B security product homepage`
-- `/add dashboard shell for an operations analytics platform`
+## What functionality it includes
 
-Expected behavior:
+At a high level, `better-web-ui` covers four kinds of work:
 
-- generate **5** genuinely distinct directions
-- explain tradeoffs in a compact comparison format
-- recommend one direction when the goals clearly favor it
-- help preview and apply the selected option
+### Generate and shape UI
 
-If you are using the React fallback defaults and want the decision logic behind primitives vs patterns vs block accelerators, start with [component library integration for `add-ui`](skills/add-ui/reference/component-library-integration.md) and the companion [component library integration checklist](skills/add-ui/assets/component-library-integration-checklist.md).
+- create multiple UI directions with `add-ui`
+- improve layout, responsiveness, hierarchy, typography, color, depth, imagery, and motion
+- simplify cluttered surfaces and strengthen action clarity
 
-## More example requests
+### Review and diagnose problems
 
-### Review and diagnosis
+- critique overall UX quality with `critique`
+- run technical checks with `audit`
+- improve performance-sensitive UI with `optimize`
 
-- `/critique this signup flow for trust, hierarchy, and friction`
-- `/critique this analytics dashboard for cognitive load and information architecture`
-- `/audit this checkout form for accessibility, responsive issues, and anti-patterns`
-- `/audit the table component for touch targets, keyboard support, and performance`
+### Handle specific product moments
 
-### Setup and design direction
+- design onboarding with `onboard`
+- improve empty states with `empty-state`
+- tighten UX copy with `clarify`
+- harden edge cases, overflow, i18n, and resilience with `harden`
 
-- `/setup design context for a B2B operations platform used by analysts all day`
-- `/setup design context for a consumer budgeting app that should feel calm and trustworthy`
+### Systematize and finish work
 
-### Focused improvement requests
-
-- `/distill this settings screen that exposes too many options at once`
-- `/hierarchy this pricing page where all three CTAs feel equally loud`
-- `/empty-state no-results search state for a documentation product`
-- `/polish this dashboard before launch`
-- `/optimize laggy filter and autocomplete interactions`
-- `/bolder this landing page that feels too safe`
-- `/quieter this hero section that feels overstimulating`
+- extract reusable patterns with `extract`
+- normalize drifted UI with `normalize`
+- add polish, delight, boldness, or restraint depending on what the interface needs
 
 ## Shared design doctrine
 
-Reusable guidance and anti-pattern references live primarily in [`skills/frontend-design/reference/`](skills/frontend-design/reference/).
+The canonical shared reference set lives under [`skills/frontend-design/reference/`](skills/frontend-design/reference/).
 
-When adding or updating skills, prefer linking to shared doctrine there instead of duplicating long guidance blocks in multiple `SKILL.md` files.
+If you are evaluating the library quickly, these are the best places to start:
 
-### Start here by need
+- [design process](skills/frontend-design/reference/design-process.md) — for rough exploration, styleguide thinking, and moving from vague requirements to sharper direction
+- [framework official docs](skills/frontend-design/reference/framework-official-docs.md) — for framework-specific implementation decisions and current Motion adapter guidance
+- [component anatomy](skills/frontend-design/reference/component-anatomy.md) — for custom primitives, skeletons, comboboxes, disclosure details, and no-library component work
+- [motion design](skills/frontend-design/reference/motion-design.md) — for motion principles, interaction feedback, and animation quality
+- [native motion with CSS and Tailwind](skills/frontend-design/reference/native-motion-with-css-and-tailwind.md) — for modern CSS, Tailwind, and WAAPI-first implementation guidance
+- [typography](skills/frontend-design/reference/typography.md) — for text hierarchy, scale, and readability
+- [color and contrast](skills/frontend-design/reference/color-and-contrast.md) — for palette logic, contrast, semantic color, and dark-mode-only color-scheme guidance
 
-- **Structure, flow, and rough exploration first**
-	- [design process](skills/frontend-design/reference/design-process.md)
-
-- **Framework-specific implementation decisions**
-	- [framework official docs](skills/frontend-design/reference/framework-official-docs.md)
-
-- **Color systems, palette logic, and contrast**
-	- [color and contrast](skills/frontend-design/reference/color-and-contrast.md)
-	- [color ramp workflow](skills/frontend-design/reference/color-ramp-workflow.md)
-	- [semantic color](skills/frontend-design/reference/semantic-color.md)
-
-- **Typography, reading comfort, and text hierarchy**
-	- [typography](skills/frontend-design/reference/typography.md)
-	- [text hierarchy and readability](skills/frontend-design/reference/text-hierarchy-and-readability.md)
-
-- **Hierarchy, spacing, grouping, and visual flow**
-	- [hierarchy checklist](skills/frontend-design/reference/hierarchy-checklist.md)
-	- [spatial design](skills/frontend-design/reference/spatial-design.md)
-	- [spacing system](skills/frontend-design/reference/spacing-system.md)
-
-- **Performance-sensitive text layout and virtualization**
-	- [text layout prediction](skills/frontend-design/reference/text-layout-prediction.md)
-
-- **Custom primitives and no-library component work**
-	- [component anatomy](skills/frontend-design/reference/component-anatomy.md)
-
-- **React/shadcn fallback acceleration**
-	- [component and block strategy](skills/frontend-design/reference/component-and-block-strategy.md)
-	- [react shadcn accelerators](skills/frontend-design/reference/react-shadcn-accelerators.md)
-	- [component library integration for `add-ui`](skills/add-ui/reference/component-library-integration.md)
-
-- **Quick defaults by problem when the stack is open**
-	- forms → [TanStack Form](https://tanstack.com/form/latest/docs/overview)
-	- tables / datagrids → [TanStack Table](https://tanstack.com/table/latest/docs/introduction)
-	- long lists / virtual lists → [TanStack Virtual](https://tanstack.com/virtual/latest/docs/introduction)
-	- React toasts → [Sonner](https://sonner.emilkowal.ski/getting-started)
-	- React drawers / bottom sheets → [Vaul](https://vaul.emilkowal.ski/getting-started)
-	- predictive text sizing before DOM measurement → [text layout prediction](skills/frontend-design/reference/text-layout-prediction.md)
-
-If you need a fuller maintainer-oriented map of the same doctrine set, use the categorized reference map in [`DEVELOPMENT.md`](DEVELOPMENT.md).
+For a maintainer-oriented doctrine map and validation workflow, use [`DEVELOPMENT.md`](DEVELOPMENT.md).
 
 ## Skill catalog
-
-The validator checks that every canonical skill name under `skills/` appears in this section, so keep it in sync when adding, removing, or renaming a skill.
 
 ### Meta and setup
 
@@ -303,7 +165,7 @@ The validator checks that every canonical skill name under `skills/` appears in 
 
 - `add-ui` — generate 5 distinct UI directions for a requested section, page, flow, shell, or component, then help preview and apply one
 - `adapt` — responsive and context-aware adaptation
-- `animate` — motion and micro-interactions
+- `animate` — motion, transitions, gestures, and micro-interactions
 - `arrange` — layout composition, grouping, and spacing rhythm
 - `clarify` — UX writing and copy clarity
 - `colorize` — color systems and semantic color
@@ -321,9 +183,9 @@ The validator checks that every canonical skill name under `skills/` appears in 
 ### Review and finishing
 
 - `audit` — technical UI quality checks with scored findings and severity ratings
-- `critique` — UX and design critique with scores and prioritized issues across the overall interface, not just a single zero-data surface
+- `critique` — UX and design critique with scores and prioritized issues across the overall interface
 - `delight` — add tasteful personality and memorable moments once the fundamentals are already working
-- `polish` — final pass for alignment, consistency, and micro-detail quality, not a full tone shift
+- `polish` — final pass for alignment, consistency, and micro-detail quality
 - `quieter` — reduce visual intensity without losing hierarchy or character
 - `bolder` — increase visual confidence, contrast, and impact when the design feels too safe or generic
 
@@ -334,40 +196,9 @@ The validator checks that every canonical skill name under `skills/` appears in 
 
 The canonical source of truth for every skill lives under `skills/`.
 
-## Package structure
-
-The canonical source of truth lives in:
-
-```text
-skills/
-```
-
-Each skill directory contains its own `SKILL.md`, plus optional supporting files such as references, scripts, or assets.
-
-Shared doctrine currently lives primarily under:
-
-```text
-skills/frontend-design/reference/
-```
-
-## Choosing between similar skills
-
-### `onboard` vs `empty-state` vs `critique`
-
-- Use **`onboard`** when the problem is broader activation strategy: first-run learning, aha moments, progressive teaching, and the path to value.
-- Use **`empty-state`** when the work is the zero-data, no-results, permission, or error surface itself.
-- Use **`critique`** when you want an overall design review that may evaluate onboarding or empty states as part of a larger experience.
-
-### `polish` vs `delight` vs `bolder` vs `quieter`
-
-- Use **`polish`** for detail cleanup, consistency, spacing, alignment, and state refinement.
-- Use **`delight`** for personality, joy, and memorable moments that do not rewrite the whole visual direction.
-- Use **`bolder`** when the design is too timid and needs stronger contrast, confidence, and point of view.
-- Use **`quieter`** when the design is too loud and needs restraint without losing its structure.
-
 ## Compatibility wrapper trees
 
-This repo also ships generated wrapper trees for agent-specific layouts so the same canonical skills can be surfaced in multiple environments:
+This repo also ships generated compatibility wrappers so one canonical skill library can surface in multiple agent layouts.
 
 - `.agents/skills`
 - `.github/skills`
@@ -377,79 +208,16 @@ This repo also ships generated wrapper trees for agent-specific layouts so the s
 - `.opencode/skills`
 - `.pi/skills`
 
-Those wrappers are compatibility shims only. If you are editing the library, edit `skills/` first and regenerate wrappers afterward.
+Those wrapper trees are shims only. Canonical edits belong in `skills/`. Maintainer workflow details live in [`DEVELOPMENT.md`](DEVELOPMENT.md) and repository-specific editing rules live in [`AGENTS.md`](AGENTS.md).
 
-Each wrapper root also includes a generated `README.md` explaining that it is a compatibility shim and pointing back to the canonical `skills/` directory.
+## Contributing
 
-| Wrapper root | Purpose |
-| --- | --- |
-| `.agents/skills` | Generic `.agents` compatibility layout |
-| `.github/skills` | GitHub-oriented compatibility layout |
-| `.claude/skills` | Claude compatibility layout |
-| `.codex/skills` | Codex compatibility layout |
-| `.cursor/skills` | Cursor compatibility layout |
-| `.opencode/skills` | Opencode compatibility layout |
-| `.pi/skills` | Pi compatibility layout |
-
-Exact discovery behavior depends on the host. The purpose of these directories is to keep one canonical skill library while still surfacing thin wrappers in multiple environments.
-
-## Contributor docs
-
-- [`CONTRIBUTING.md`](CONTRIBUTING.md) — pull request expectations, quality bar, and submission checklist
-- [`DEVELOPMENT.md`](DEVELOPMENT.md) — local setup, script reference, wrapper generation, and validation details
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) — pull request expectations and quality bar
+- [`DEVELOPMENT.md`](DEVELOPMENT.md) — maintainer commands, validation, and local setup
 - [`AGENTS.md`](AGENTS.md) — repository-specific rules for coding agents
-
-## Maintainer workflow
-
-When you add or change a skill:
-
-1. Update the canonical skill in `skills/`
-2. Run `npm run lint` if you changed repository scripts or tooling
-3. Regenerate wrapper trees with `npm run generate:wrappers`
-4. Validate canonical skills, docs, and wrapper sync with `npm run validate`
-5. Smoke-test discovery and installation with `npm run smoke:list` and `npm run smoke:install`
-6. Update this README if discoverability changed
-
-There is no separate `skills.sh` publish command. A public repo plus successful installs is the publish path.
-
-## Validation
-
-This repository is maintained against the Agent Skills spec and validated with `skills-ref`.
-
-Typical validation flow:
-
-```bash
-npm run lint
-npm run generate:wrappers
-npm run validate
-npm run smoke:list
-npm run smoke:install
-npm run verify
-npx skills-ref validate ./skills/frontend-design
-```
-
-Repeat for the rest of the canonical skills, or script validation across the full `skills/` directory.
-
-The repository also includes `.github/workflows/validate.yml` to install dependencies, lint repository scripts with OXC, check canonical skill metadata and README sync, validate wrapper root readmes, detect wrapper drift inside the generated wrapper roots, and smoke-test local `skills` CLI discovery on pushes and pull requests.
-
-## Attribution
-
-`better-web-ui` builds on work and ideas from:
-
-- **Paul Bakaus** and **Impeccable** (https://github.com/pbakaus/impeccable)
-- **Anthropic’s** original `frontend-design` skill (https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design/skills/frontend-design)
-- **Refactoring UI** by **Adam Wathan** and **Steve Schoger** (https://refactoringui.com/)
-- **Design for Developers** by **Adrian Twarog** and **George Moller** (https://www.packtpub.com/en-us/product/design-for-developers-9781837027200)
-- **Laws of UX** by **Jon Yablonski** (https://lawsofux.com/book/)
-
-See `NOTICE.md` for the attribution chain and source lineage.
 
 ## License
 
-This project uses the custom **better-web-ui License** in `LICENSE`.
+This project uses the custom **better-web-ui License** in [`LICENSE`](LICENSE).
 
 It is MIT-based but adds source-availability and no-resale restrictions for the library itself, so it should not be described as plain MIT.
-
-## skills.sh listing
-
-`skills.sh` discovery is driven by installs through the `skills` CLI. Based on the current public docs, there is no separate manual registry submission step.

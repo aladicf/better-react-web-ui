@@ -43,7 +43,7 @@ Good component work has to balance four things at once:
 - **functionality** — how it behaves across states, data conditions, and layouts
 - **accessibility** — how reliably people can use it across devices, inputs, and abilities
 
-This reference does not try to freeze every component in existence. It focuses on the kinds of primitive building blocks teams often need when they are not inheriting a mature component library.
+This reference does not try to freeze every component in existence. It focuses on the kinds of primitive building blocks teams often need when they are not inheriting a mature component library, including common custom primitives like comboboxes and skeleton placeholders.
 
 ## Form architecture for new projects
 
@@ -394,6 +394,53 @@ For very small option sets, a dropdown often adds more friction than value. Once
 
 Consult [interaction design](./interaction-design.md) for overlay behavior, top-layer patterns, positioning, and keyboard expectations.
 
+## Comboboxes
+
+A combobox combines text input with a filtered or suggested options list.
+
+Use it when the option set is large enough that users benefit from typing, filtering, or searching instead of scrolling a long menu.
+
+### Typical parts
+
+- **label**
+- **input / trigger field**
+- **current text value**
+- **disclosure or loading indicator** *(optional but often helpful)*
+- **results list**
+- **highlighted option state**
+- **empty / loading / error state**
+
+### Good defaults
+
+- keep the input visually identifiable as an input first, not just as a button
+- make the results list feel attached to the field and easy to scan with both pointer and keyboard
+- use stable labels and grouping when result categories matter
+- make loading and no-results states explicit rather than leaving dead blank space
+- if a disclosure indicator is used, keep it quiet; the input value and results should do more work than the icon
+
+### Async result stability
+
+Async comboboxes need stronger stability rules than ordinary selects.
+
+- track highlighted options by a **stable item id/value**, not by array index
+- once the user has started navigating the list, **freeze menu navigation state** until they select an item, dismiss the list, blur, or explicitly return to editing the input
+- if a fetch lands and the **same item still exists**, keep that same item highlighted
+- if the highlighted item disappears, clear the highlight or return focus emphasis to the input—do **not** silently move the highlight to whichever item inherited the old index
+- on touch-heavy lists, consider suppressing interactions on newly moved items for roughly **300ms** after an async refresh if reordering could otherwise cause accidental taps on the wrong option
+
+### Avoid
+
+- auto-rehighlighting by index after async result churn
+- snapping highlight to the first item while the user is already arrowing through the list
+- mixing pointer and keyboard selection state so aggressively that the user loses track of which item is actually active
+- rotating a generic chevron just because every library demo does it
+
+### Refined disclosure motion
+
+When the disclosure indicator deserves animation, a small SVG path morph often feels smoother and more intentional than simply rotating a chevron glyph.
+
+Consult [interaction design](./interaction-design.md) for keyboard behavior and async interaction constraints.
+
 ## Form Inputs
 
 Text inputs handle short, structured user entry.
@@ -673,6 +720,66 @@ The exact left/right order can follow product or platform conventions, but the *
 
 Consult [action hierarchy](./action-hierarchy.md) and [interaction design](./interaction-design.md) when form actions, loading states, or destructive alternatives need more structure.
 
+## Skeletons / Loading Placeholders
+
+A skeleton placeholder previews the shape of real content while data is loading.
+
+The strongest skeletons preserve the real layout instead of replacing it with a pile of guessed rectangles.
+
+### Practical pattern
+
+Render the real component with mock content and wrap it in a skeleton treatment so the layout, line breaks, and spacing stay authentic.
+
+```tsx
+<Skeleton>
+	<ArticleCard
+		title="Loading title"
+		description="Loading body copy that wraps the way the final content will wrap."
+		imageSrc="/mock-image.jpg"
+	/>
+</Skeleton>
+```
+
+### Why this works well
+
+- text lines inherit the real font size, line length, and wrapping
+- media and spacing follow the actual component anatomy automatically
+- teams avoid manually measuring placeholder rectangles for every variation
+
+### Useful implementation details
+
+- make placeholder text transparent rather than removing it
+- use `box-decoration-break: clone` so multiline text gets per-line skeleton fragments instead of one giant block
+- animate a background gradient for shimmer rather than hand-authoring separate bars for each line
+
+```css
+.skeleton-text {
+	color: transparent;
+	box-decoration-break: clone;
+	-webkit-box-decoration-break: clone;
+	background: linear-gradient(
+		90deg,
+		var(--skeleton-base) 0%,
+		var(--skeleton-highlight) 50%,
+		var(--skeleton-base) 100%
+	);
+	background-size: 200% 100%;
+}
+```
+
+### Synchronised shimmer
+
+If multiple shimmer animations should stay visually locked, the Web Animations API can align them by giving each animation the same timeline start.
+
+```js
+for (const element of document.querySelectorAll('[data-skeleton-shimmer]')) {
+	const animation = element.animate(keyframes, timing)
+	animation.startTime = 0
+}
+```
+
+Setting `startTime` to `0` makes later-starting elements behave as though they began at the same page-relative time, which keeps the shimmer phase synchronized across the screen.
+
 ## Toasts / Alerts
 
 Toasts provide short-lived feedback about recent actions or system status.
@@ -780,7 +887,8 @@ An accordion is a vertically stacked set of headers that reveal or hide associat
 - keep the header height comfortably tappable; around `48px` is a solid baseline
 - keep the caret wrapper large enough to feel deliberate, not cramped
 - keep header content and caret vertically centered
-- rotate the caret when expanded; down/collapsed and up/expanded is the most familiar pattern
+- if the system uses a simple disclosure icon, down/collapsed and up/expanded is still the most familiar baseline
+- when the product wants a more refined motion treatment, prefer a small SVG path morph over a blunt chevron flip
 - keep summary text lower contrast than the main label
 - keep spacing between items consistent
 - if the panel contains actions, place them where the expanded content still reads as one unit

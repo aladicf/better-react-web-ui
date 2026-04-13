@@ -1,5 +1,18 @@
 # Motion Design
 
+## Choose the Lightest Motion Tool First
+
+Do not assume every animation needs a framework-specific motion library.
+
+Use this bias order by default:
+
+1. **modern CSS transitions / keyframes**
+2. **Tailwind utility composition** when the project already uses Tailwind
+3. **Web Animations API** when you need imperative or synchronized timing control
+4. **Motion** when the interaction genuinely needs layout animation, framework-linked orchestration, gesture handling, or motion values
+
+For the fuller decision matrix and native examples, consult [native motion with CSS, Tailwind, and WAAPI](./native-motion-with-css-and-tailwind.md).
+
 ## Duration: The 100/300/500 Rule
 
 Timing matters more than easing. These durations feel right for most UI:
