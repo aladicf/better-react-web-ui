@@ -6,6 +6,19 @@ The format is inspired by Keep a Changelog and uses a simple `Added` / `Changed`
 
 ## [Unreleased]
 
+### Added
+
+- A new in-folder index at `skills/frontend-design/reference/README.md` now maps the shared doctrine library by topic so maintainers and users can browse it without already knowing the exact filename.
+- A new in-folder index at `skills/animate/reference/README.md` now groups the deeper motion guidance by use case instead of leaving the reference set as a flat filename list.
+
+### Changed
+
+- `README.md` now surfaces `interaction-design`, `cognitive-load`, `hierarchy-checklist`, and `ux-writing` more prominently in the quick-start doctrine list, and links to both new reference indexes.
+- README now includes a quick skill-picker table that clarifies common ambiguities such as `critique` vs `audit` vs `polish` and `distill` vs `quieter` vs `bolder`.
+- The `critique`, `audit`, `polish`, `distill`, `bolder`, and `quieter` skill descriptions now use sharper trigger language to make overlap boundaries clearer.
+- `setup` now states more explicitly that `.better-web-ui.md` is the canonical design-context destination, while `.better-ui.md` and `.impeccable.md` are legacy migration inputs only.
+- `animate` now links directly to its new reference index so the deeper motion library is easier to browse.
+
 ## [1.8.2] - 2026-04-14
 
 ### Added

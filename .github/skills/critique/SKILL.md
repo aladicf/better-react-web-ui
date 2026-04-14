@@ -1,6 +1,6 @@
 ---
 name: critique
-description: Evaluate an interface from a UX perspective, assessing hierarchy, information architecture, emotional resonance, cognitive load, and overall quality with quantitative scoring and actionable feedback. Use when the user asks to review or critique a design overall—not when they only need an empty state or onboarding flow designed.
+description: Evaluate an interface from a UX perspective, assessing hierarchy, information architecture, emotional resonance, cognitive load, and overall quality with quantitative scoring and actionable feedback. Use when the user wants an overall design or UX review—not when the main need is measurable accessibility/performance diagnosis, or final micro-detail polish.
 metadata:
   argument-hint: "[area (feature, page, component...)]"
 ---

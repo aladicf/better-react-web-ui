@@ -144,8 +144,8 @@ At a high level, `better-web-ui` covers four kinds of work:
 
 ### Review and diagnose problems
 
-- critique overall UX quality with `critique`
-- run technical checks with `audit`
+- critique overall UX quality, hierarchy, IA, and cognitive load with `critique`
+- run measurable accessibility, performance, responsive, theming, and anti-pattern checks with `audit`
 - improve performance-sensitive UI with `optimize`
 
 ### Handle specific product moments
@@ -165,9 +165,15 @@ At a high level, `better-web-ui` covers four kinds of work:
 
 The canonical shared reference set lives under [`skills/frontend-design/reference/`](skills/frontend-design/reference/).
 
+If you want the map of the map, start with the [frontend-design reference index](skills/frontend-design/reference/README.md).
+
 If you are evaluating the library quickly, these are the best places to start:
 
 - [design process](skills/frontend-design/reference/design-process.md) — for rough exploration, styleguide thinking, and moving from vague requirements to sharper direction
+- [interaction design](skills/frontend-design/reference/interaction-design.md) — for familiar patterns, focus, loading, overlays, feedback, and guardrails
+- [cognitive load](skills/frontend-design/reference/cognitive-load.md) — for reducing decision overload, unnecessary complexity, and memory burden
+- [hierarchy checklist](skills/frontend-design/reference/hierarchy-checklist.md) — for grayscale hierarchy, grouping, action priority, and label/value sanity checks
+- [ux writing](skills/frontend-design/reference/ux-writing.md) — for labels, errors, confirmations, and product microcopy clarity
 - [framework official docs](skills/frontend-design/reference/framework-official-docs.md) — for framework-specific implementation decisions and current Motion adapter guidance
 - [component anatomy](skills/frontend-design/reference/component-anatomy.md) — for custom primitives, skeletons, comboboxes, disclosure details, and no-library component work
 - [marketing copywriting](skills/frontend-design/reference/marketing-copywriting.md) — for headlines, landing pages, onboarding promises, lifecycle messages, and CTA strategy that stay concrete and credible
@@ -175,6 +181,7 @@ If you are evaluating the library quickly, these are the best places to start:
 - [pricing and packaging](skills/frontend-design/reference/pricing-and-packaging.md) — for pricing-page structure, tier logic, billing clarity, and packaging-aware UI
 - [paywalls and upgrade flows](skills/frontend-design/reference/paywalls-and-upgrade-flows.md) — for feature locks, trial endings, usage limits, and ethical upgrade conversion surfaces
 - [motion design](skills/frontend-design/reference/motion-design.md) — for motion principles, interaction feedback, and animation quality
+- [animate reference index](skills/animate/reference/README.md) — for browsing the deeper motion library by use case instead of by filename
 - [native motion with CSS and Tailwind](skills/frontend-design/reference/native-motion-with-css-and-tailwind.md) — for modern CSS, Tailwind, and WAAPI-first implementation guidance
 - [typography](skills/frontend-design/reference/typography.md) — for text hierarchy, scale, and readability
 - [color and contrast](skills/frontend-design/reference/color-and-contrast.md) — for palette logic, contrast, semantic color, and dark-mode-only color-scheme guidance
@@ -220,6 +227,17 @@ For a maintainer-oriented doctrine map and validation workflow, use [`DEVELOPMEN
 
 - `optimize` — UI performance and rendering optimization
 - `showcase` — ambitious, standout, technically impressive UI work
+
+### Quick skill picker for common ambiguities
+
+| If the problem is... | Use this | Not that |
+| --- | --- | --- |
+| overall UX quality, hierarchy, IA, or cognitive load | `critique` | `audit` or `polish` |
+| measurable accessibility, performance, responsive, theming, or anti-pattern checks | `audit` | `critique` |
+| final alignment, consistency, and detail cleanup after the structure already works | `polish` | `critique` or `audit` |
+| too many controls, choices, features, or competing elements | `distill` | `quieter` |
+| structure is sound but the UI is too loud, saturated, or aggressive | `quieter` | `distill` |
+| the UI feels too bland, safe, or underpowered | `bolder` | `distill` or `quieter` |
 
 The canonical source of truth for every skill lives under `skills/`.
 

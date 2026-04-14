@@ -5,6 +5,8 @@ description: Gather design context for your project and save it for future desig
 
 Gather design context for this project, then persist it for all future sessions.
 
+`setup` writes to `.better-web-ui.md` as the canonical destination. Older files such as `.better-ui.md` and `.impeccable.md` are legacy migration inputs only, not the place new work should keep using.
+
 ## Step 1: Explore the Codebase
 
 Before asking questions, thoroughly scan the project to discover what you can:

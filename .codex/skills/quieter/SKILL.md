@@ -1,6 +1,6 @@
 ---
 name: quieter
-description: Reduce visual intensity, saturation, and noise while preserving hierarchy and character. Use when the design feels too loud, bold, garish, aggressive, or overstimulating—not when the main problem is structural clutter or too many features.
+description: Reduce visual intensity, saturation, and noise while preserving hierarchy and character. Use when the structure is basically sound but the design feels too loud, bold, garish, aggressive, or overstimulating—not when the real problem is structural clutter, too many features, or not enough personality.
 metadata:
    argument-hint: "[target]"
 ---

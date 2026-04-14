@@ -12,6 +12,7 @@ Analyze a feature and add motion that improves clarity, feedback, perceived perf
 Users start this workflow with `/animate`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first. Additionally gather: performance constraints.
 
 Consult the [motion reference](../frontend-design/reference/motion-design.md) for timing, easing, choreography, and reduced-motion handling.
+Consult the [animate reference index](reference/README.md) when you need to browse the deeper motion library by use case instead of guessing filenames.
 Consult the [elevation system](../frontend-design/reference/elevation-system.md) when motion should reinforce raised, pressed, inset, dragged, or layered depth.
 Consult the [interaction reference](../frontend-design/reference/interaction-design.md) when animation decisions overlap with focus, loading, transitions, or feedback states.
 Consult the [component anatomy reference](../frontend-design/reference/component-anatomy.md) when motion affects custom primitives such as buttons, tabs, tooltips, toasts, toggles, drawers, or submit actions.
