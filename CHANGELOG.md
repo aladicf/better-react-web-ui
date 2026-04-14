@@ -6,6 +6,19 @@ The format is inspired by Keep a Changelog and uses a simple `Added` / `Changed`
 
 ## [Unreleased]
 
+## [1.8.2] - 2026-04-14
+
+### Added
+
+- Shared marketing-copywriting doctrine now covers context gathering, outcome-first framing, CTA strategy, lifecycle copy, app-store copy, and ethical psychology for software product surfaces.
+- Shared copy-editing doctrine now covers the seven-sweep editing workflow plus quick-pass checks for clarity, proof, specificity, emotional resonance, and zero-risk decision support.
+
+### Changed
+
+- The `clarify` skill now explicitly covers marketing copy as well as UX writing, and points to the new shared copywriting / copy-editing references when the task goes beyond interface microcopy.
+- The core `frontend-design` skill, `ux-writing` reference, `onboard` skill, `add-ui` request mapping, and README now surface the new copy guidance so it is easier to find and reuse.
+- The repository version metadata in `package.json` and `package-lock.json` has been bumped to `1.8.2`.
+
 ## [1.8.1] - 2026-04-13
 
 ### Changed

@@ -13,6 +13,15 @@ Prioritize:
 - believable proof
 - one obvious primary action
 
+Also:
+
+- match the page promise to the user's likely traffic source and awareness level
+- make the headline outcome-specific, not category-foggy
+- keep proof close to the strongest claim
+- use CTA text that says what the user gets next, not generic button filler
+
+Pair this with [../../frontend-design/reference/marketing-copywriting.md](../../frontend-design/reference/marketing-copywriting.md) when the artifact depends on headline quality, section sequencing, CTA strategy, or conversion-aware copy structure.
+
 ### Pricing / comparison / plan selection
 
 Prioritize:

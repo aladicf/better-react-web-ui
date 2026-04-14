@@ -170,6 +170,8 @@ If you are evaluating the library quickly, these are the best places to start:
 - [design process](skills/frontend-design/reference/design-process.md) — for rough exploration, styleguide thinking, and moving from vague requirements to sharper direction
 - [framework official docs](skills/frontend-design/reference/framework-official-docs.md) — for framework-specific implementation decisions and current Motion adapter guidance
 - [component anatomy](skills/frontend-design/reference/component-anatomy.md) — for custom primitives, skeletons, comboboxes, disclosure details, and no-library component work
+- [marketing copywriting](skills/frontend-design/reference/marketing-copywriting.md) — for headlines, landing pages, onboarding promises, lifecycle messages, and CTA strategy that stay concrete and credible
+- [copy editing sweeps](skills/frontend-design/reference/copy-editing-sweeps.md) — for structured passes that improve existing copy without rewriting away the product voice
 - [pricing and packaging](skills/frontend-design/reference/pricing-and-packaging.md) — for pricing-page structure, tier logic, billing clarity, and packaging-aware UI
 - [paywalls and upgrade flows](skills/frontend-design/reference/paywalls-and-upgrade-flows.md) — for feature locks, trial endings, usage limits, and ethical upgrade conversion surfaces
 - [motion design](skills/frontend-design/reference/motion-design.md) — for motion principles, interaction feedback, and animation quality

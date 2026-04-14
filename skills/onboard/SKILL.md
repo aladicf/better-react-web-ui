@@ -12,6 +12,8 @@ Users start this workflow with `/onboard`. Once this skill is active, load $fron
 Consult the [empty-state patterns](../frontend-design/reference/empty-state-patterns.md) when zero-data surfaces are part of the onboarding journey.
 Consult the [cognitive load](../frontend-design/reference/cognitive-load.md) when deciding what to hide, sequence, or progressively disclose for first-time users.
 Consult the [ux-writing reference](../frontend-design/reference/ux-writing.md) when onboarding clarity depends on labels, hints, reassurance copy, or CTA wording.
+Consult [marketing copywriting](../frontend-design/reference/marketing-copywriting.md) when onboarding needs stronger setup promises, first-win framing, permission prompts, or upgrade / invite messaging.
+Consult [copy editing sweeps](../frontend-design/reference/copy-editing-sweeps.md) when revising existing onboarding copy in focused passes.
 
 ---
 

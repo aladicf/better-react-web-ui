@@ -1,15 +1,19 @@
 ---
 name: clarify
-description: Improve UX writing, labels, microcopy, instructions, and error messages so interfaces are easier to understand. Use when the user mentions confusing copy, unclear labels, bad error text, hard-to-follow instructions, or wanting better UX writing.
+description: Improve UX writing, marketing copy, labels, microcopy, instructions, and error messages so interfaces and product messaging are easier to understand and act on. Use when the user mentions confusing copy, unclear labels, bad error text, weak CTAs, hard-to-follow instructions, or wanting better UX writing.
 metadata:
    argument-hint: "[target]"
 ---
 
-Identify and improve unclear, confusing, or poorly written interface text to make the product easier to understand and use.
+Identify and improve unclear, confusing, or poorly written product text to make the product easier to understand, trust, and act on.
 
 ## MANDATORY PREPARATION
 
-Users start this workflow with `/clarify`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first. Additionally gather: audience technical level and users' mental state in context.
+Users start this workflow with `/clarify`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first. Additionally gather: audience technical level, users' mental state in context, and whether you are writing new copy or editing existing copy.
+
+Consult the [ux-writing reference](../frontend-design/reference/ux-writing.md) for labels, errors, empty states, confirmations, and interface microcopy.
+Consult [marketing copywriting](../frontend-design/reference/marketing-copywriting.md) when the work touches headlines, landing pages, feature pages, onboarding promises, lifecycle messaging, app-store copy, or CTA strategy.
+Consult [copy editing sweeps](../frontend-design/reference/copy-editing-sweeps.md) when improving existing copy through focused editing passes instead of rewriting it wholesale.
 
 ---
 
@@ -31,6 +35,8 @@ Identify what makes the text unclear or ineffective:
    - What's the user's mental state? (Stressed during error? Confident during success?)
    - What's the action? (What do we want users to do?)
    - What's the constraint? (Character limits? Space limitations?)
+   - Is this interface microcopy, marketing copy, onboarding copy, or lifecycle copy?
+   - Are we creating net-new copy or editing existing copy?
 
 **CRITICAL**: Clear copy helps users succeed. Unclear copy creates frustration, errors, and support tickets.
 
@@ -41,6 +47,10 @@ Create a strategy for clearer communication:
 Consult the [text hierarchy and readability](../frontend-design/reference/text-hierarchy-and-readability.md) for label/value rules, alignment, link emphasis, and when labels should be removed, combined, secondary, or intentionally emphasized.
 
 Use that shared text reference as the canonical source for label/value structure and reading-oriented text rules, then apply the copy-specific improvements in this skill.
+
+When the task is broader than interface microcopy, use [marketing copywriting](../frontend-design/reference/marketing-copywriting.md) to gather the right positioning context, choose stronger structure, and sharpen CTAs.
+
+When you are improving existing copy, run the [copy editing sweeps](../frontend-design/reference/copy-editing-sweeps.md) so changes happen in focused passes instead of one unfocused rewrite.
 
 - **Primary message**: What's the ONE thing users need to know?
 - **Action needed**: What should users do next (if anything)?

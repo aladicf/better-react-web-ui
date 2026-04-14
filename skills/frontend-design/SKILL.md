@@ -264,7 +264,7 @@ Make interactions feel fast. Use optimistic UI—update immediately, sync later.
 **DON'T**: Hide critical functionality on mobile—adapt the interface, don't amputate it
 
 ### UX Writing
-→ *Consult [ux-writing reference](reference/ux-writing.md) for labels, errors, and empty states. Pair it with [pricing and packaging](reference/pricing-and-packaging.md) and [paywalls and upgrade flows](reference/paywalls-and-upgrade-flows.md) when the copy needs to explain plans, billing, renewals, upgrades, or value without sliding into pressure tactics.*
+→ *Consult [ux-writing reference](reference/ux-writing.md) for labels, errors, and empty states. Use [marketing copywriting](reference/marketing-copywriting.md) when the task involves headlines, landing pages, product positioning, onboarding promises, lifecycle messages, app-store copy, or CTA strategy. Use [copy editing sweeps](reference/copy-editing-sweeps.md) when improving existing copy through focused passes instead of rewriting blindly. Pair those with [pricing and packaging](reference/pricing-and-packaging.md) and [paywalls and upgrade flows](reference/paywalls-and-upgrade-flows.md) when the copy needs to explain plans, billing, renewals, upgrades, or value without sliding into pressure tactics.*
 
 **DO**: Make every word earn its place
 **DON'T**: Repeat information users can already see
