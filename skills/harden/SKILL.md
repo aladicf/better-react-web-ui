@@ -10,6 +10,8 @@ Strengthen interfaces against edge cases, errors, internationalization issues, a
 Consult the [semantic color](../frontend-design/reference/semantic-color.md) reference when designing error, warning, success, and info states so semantic color stays clear and not purely decorative.
 Consult the [status communication](../frontend-design/reference/status-communication.md) reference when hardening notification flows, activity feeds, summaries, or alert settings against fatigue and interruption overload.
 Consult the [image treatment](../frontend-design/reference/image-treatment.md) when hardening user-uploaded media, screenshots, icon scaling, or image bleed behavior.
+Consult the [error-recovery](../frontend-design/reference/error-recovery.md) reference when the task involves validation behavior, summaries, strict validators, recoverable field errors, or abandonment caused by poor recovery design.
+Consult the [authentication and account recovery](../frontend-design/reference/authentication-and-account-recovery.md) reference when hardening sign-in, session expiry, password setup, MFA, lockout, or account-recovery flows.
 Consult the [empty-state patterns](../frontend-design/reference/empty-state-patterns.md) reference when a failure needs a dedicated route-level recovery page for states like 401, 403, 404, 429, 500, or 503.
 Consult the [interaction design](../frontend-design/reference/interaction-design.md) reference when hardening workflows that must stay usable under stress, urgency, operational pressure, or emergency conditions.
 
@@ -34,6 +36,8 @@ Identify weaknesses and edge cases:
    - Network failures (offline, slow, timeout)
    - API errors (400, 401, 403, 404, 500)
    - Validation errors
+  - Overly strict validators or mismatched formatting expectations
+  - Browser back/forward behavior in forms, multi-step flows, and overlays
    - Permission errors
    - Rate limiting
    - Concurrent operations
@@ -185,6 +189,7 @@ t('items', { count }) // Handles complex plural rules
 - Suggest corrections
 - Don't block submission unnecessarily
 - Preserve user input on error
+- Allow override paths for real-world formats like address or phone when blocking would create abandonment and the risk model allows it
 
 **API errors**:
 - Handle each status code appropriately

@@ -173,9 +173,12 @@ If you want the map of the map, start with the [frontend-design reference index]
 If you are evaluating the library quickly, these are the best places to start:
 
 - [ux strategy](skills/frontend-design/reference/ux-strategy.md) — for connecting UX direction to user segments, priorities, feasibility, and project risk
+- [audience-sensitive design](skills/frontend-design/reference/audience-sensitive-design.md) — for age-group, life-stage, parent/gatekeeper, trust-model, and audience-specific UX decisions
 - [design process](skills/frontend-design/reference/design-process.md) — for rough exploration, styleguide thinking, and moving from vague requirements to sharper direction
 - [design principles](skills/frontend-design/reference/design-principles.md) — for turning product values and recurring tradeoffs into usable team defaults
 - [interaction design](skills/frontend-design/reference/interaction-design.md) — for familiar patterns, focus, loading, overlays, feedback, and guardrails
+- [error recovery](skills/frontend-design/reference/error-recovery.md) — for validation behavior, summaries, strict validators, and recoverable error handling
+- [reviews and ratings](skills/frontend-design/reference/reviews-and-ratings.md) — for review trust signals, rating distributions, customer-photo proof, and purchase confidence
 - [search and findability](skills/frontend-design/reference/search-and-findability.md) — for site search, autosuggest, zero-results recovery, and intent-aware content discovery
 - [status communication](skills/frontend-design/reference/status-communication.md) — for notifications, validations, badges, inboxes, activity feeds, and interruption-level decisions
 - [legacy modernization](skills/frontend-design/reference/legacy-modernization.md) — for improving legacy systems, mapping dependencies, choosing migration strategies, and reducing old/new seam pain

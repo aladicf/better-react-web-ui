@@ -26,6 +26,8 @@ For editing existing copy in structured passes rather than rewriting from scratc
 
 Every error message should answer: (1) What happened? (2) Why? (3) How to fix it? Example: "Email address isn't valid. Please include an @ symbol." not "Invalid input".
 
+When format or structure is non-obvious, provide an example of correct input instead of forcing users to infer the pattern from repeated failure.
+
 ### Error Message Templates
 
 | Situation | Template |
@@ -39,6 +41,17 @@ Every error message should answer: (1) What happened? (2) Why? (3) How to fix it
 ### Don't Blame the User
 
 Reframe errors: "Please enter a date in MM/DD/YYYY format" not "You entered an invalid date".
+
+### Prefer specific recovery words over ceremonial filler
+
+Avoid words that add little recovery value on their own, such as:
+
+- raw technical jargon the user cannot act on
+- abstract `valid` / `invalid` wording without specifics
+- empty apologies or filler that do not explain the next step
+- jokey `oops` language in frustrating moments
+
+The goal is not to ban specific words forever. The goal is to prefer language that helps users recover faster.
 
 ## Empty States Are Opportunities
 
@@ -155,6 +168,8 @@ Avoid writing that manipulates:
 ## Form Instructions
 
 Show format with placeholders, not instructions. For non-obvious fields, explain why you're asking.
+
+For broader interaction patterns around error summaries, validation placement, strict validators, and recovery behavior, use [error recovery](./error-recovery.md).
 
 ---
 

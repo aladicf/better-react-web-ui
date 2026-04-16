@@ -6,6 +6,8 @@ The format is inspired by Keep a Changelog and uses a simple `Added` / `Changed`
 
 ## [Unreleased]
 
+## [1.9.1] - 2026-04-16
+
 ### Added
 
 - Shared `design-principles` doctrine now covers how to write practical, decision-making design principles that clarify both preferred defaults and anti-patterns.
@@ -13,6 +15,7 @@ The format is inspired by Keep a Changelog and uses a simple `Added` / `Changed`
 - Shared `component-anatomy` doctrine now also covers practical filter / faceting guidance including async result updates, slider fallbacks, stable panels, long option groups, result-count apply buttons, and mobile filter surfaces.
 - Shared `component-anatomy` doctrine now also covers product/result-list continuation patterns and variant-selector anatomy so catalog-style browsing and option picking can be reasoned about more systematically.
 - Shared `component-anatomy` doctrine now also covers KPI cards / dashboard widgets so real-time metrics, delta cues, freshness states, and trustworthy comparison anatomy are easier to design consistently.
+- Shared `audience-sensitive-design` doctrine now covers designing for Gen Z, children and parents, and older adults without falling into stereotypes, with guidance on device reality, trust, motivation, and accessibility-sensitive interaction choices.
 
 ### Changed
 
@@ -26,6 +29,8 @@ The format is inspired by Keep a Changelog and uses a simple `Added` / `Changed`
 - `add-ui` request mapping now gives stronger commerce-specific guidance for result browsing, product-page above-the-fold summaries, variant selection, and trust-preserving catalog UX.
 - `add-ui` request mapping now also gives stronger guidance for real-time dashboards and 404 / broken-link recovery surfaces.
 - `frontend-design`, `setup`, `critique`, `add-ui` request mapping, the shared reference index, and `README.md` now surface the new principles and search/findability guidance more explicitly.
+- `frontend-design`, `setup`, the shared reference index, and `README.md` now surface the new audience-specific guidance more explicitly so age- and life-stage-aware UX work is easier to discover.
+- The repository version metadata in `package.json` and `package-lock.json` has been bumped to `1.9.1`.
 
 ## [1.9.0] - 2026-04-15
 

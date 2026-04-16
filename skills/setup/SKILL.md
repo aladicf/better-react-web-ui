@@ -35,6 +35,8 @@ ask the user directly to clarify what you cannot infer. Focus only on what you c
 
 ### Users & Purpose
 - Who uses this? What's their context when using it?
+- Is this aimed at a specific age range, life stage, or audience segment whose habits or needs should shape the UX?
+- Is there a secondary audience or gatekeeper we also need to satisfy, such as parents, teachers, admins, or caregivers?
 - What job are they trying to get done?
 - What emotions should the interface evoke? (confidence, delight, calm, urgency, etc.)
 

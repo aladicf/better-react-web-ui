@@ -12,6 +12,7 @@ Identify and improve unclear, confusing, or poorly written product text to make 
 Users start this workflow with `/clarify`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first. Additionally gather: audience technical level, users' mental state in context, and whether you are writing new copy or editing existing copy.
 
 Consult the [ux-writing reference](../frontend-design/reference/ux-writing.md) for labels, errors, empty states, confirmations, and interface microcopy.
+Consult the [error-recovery](../frontend-design/reference/error-recovery.md) reference when copy changes depend on validation behavior, summaries, examples of correct input, or recoverability patterns rather than wording alone.
 Consult the [status communication](../frontend-design/reference/status-communication.md) reference when the wording touches notifications, alerts, badges, digests, reminders, or notification settings.
 Consult [marketing copywriting](../frontend-design/reference/marketing-copywriting.md) when the work touches headlines, landing pages, feature pages, onboarding promises, lifecycle messaging, app-store copy, or CTA strategy.
 Consult [copy editing sweeps](../frontend-design/reference/copy-editing-sweeps.md) when improving existing copy through focused editing passes instead of rewriting it wholesale.

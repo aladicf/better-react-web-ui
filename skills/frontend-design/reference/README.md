@@ -9,10 +9,14 @@ Use it as a map of the map when you know you need guidance but do not yet know w
 If you only open a few files first, make them these:
 
 - [ux strategy](./ux-strategy.md) — connect UX direction to user segments, priorities, feasibility, and risk
+- [audience-sensitive design](./audience-sensitive-design.md) — adapt UX to specific age groups, life stages, gatekeepers, trust models, and accessibility expectations
 - [design process](./design-process.md) — move from vague request to clearer direction
 - [design principles](./design-principles.md) — turn values and tradeoffs into usable team defaults
 - [hierarchy checklist](./hierarchy-checklist.md) — sanity check priority, grouping, and grayscale clarity
 - [interaction design](./interaction-design.md) — patterns, focus, loading, overlays, and guardrails
+- [error recovery](./error-recovery.md) — validation, summaries, recoverability, and fixable error behavior
+- [authentication and account recovery](./authentication-and-account-recovery.md) — sign-in, MFA, session expiry, password UX, and recovery-stack guidance
+- [reviews and ratings](./reviews-and-ratings.md) — product-review trust, rating summaries, and social proof that actually helps decisions
 - [search and findability](./search-and-findability.md) — site search, autosuggest, zero-results recovery, and intent-aware findability
 - [status communication](./status-communication.md) — notifications, validations, badges, inboxes, and attention management
 - [legacy modernization](./legacy-modernization.md) — legacy-system UX upgrades, migration strategy, stakeholder trust, and hybrid old/new seams
@@ -34,7 +38,11 @@ Use these when the UI feels crowded, flat, ambiguously grouped, or visually mono
 ## Interaction and product behavior
 
 - [ux strategy](./ux-strategy.md)
+- [audience-sensitive design](./audience-sensitive-design.md)
 - [interaction design](./interaction-design.md)
+- [error recovery](./error-recovery.md)
+- [authentication and account recovery](./authentication-and-account-recovery.md)
+- [reviews and ratings](./reviews-and-ratings.md)
 - [search and findability](./search-and-findability.md)
 - [status communication](./status-communication.md)
 - [legacy modernization](./legacy-modernization.md)
@@ -51,6 +59,7 @@ Use these when the problem is not just styling, but how the product behaves, gui
 - [typography](./typography.md)
 - [text hierarchy and readability](./text-hierarchy-and-readability.md)
 - [ux writing](./ux-writing.md)
+- [error recovery](./error-recovery.md)
 - [marketing copywriting](./marketing-copywriting.md)
 - [copy editing sweeps](./copy-editing-sweeps.md)
 
@@ -86,12 +95,14 @@ For the deeper motion doctrine library, also see the [animate reference index](.
 
 Use these when the work involves reusable primitives, design-system reuse, screenshots/media, or repeated layout logic.
 
-## Pricing and monetization surfaces
+## Authentication, pricing, and monetization surfaces
 
+- [authentication and account recovery](./authentication-and-account-recovery.md)
 - [pricing and packaging](./pricing-and-packaging.md)
 - [paywalls and upgrade flows](./paywalls-and-upgrade-flows.md)
+- [reviews and ratings](./reviews-and-ratings.md)
 
-Use these when the task touches plan comparison, billing clarity, feature gates, or upgrade prompts.
+Use these when the task touches account access, plan comparison, billing clarity, feature gates, or upgrade prompts.
 
 ## How to use this folder well
 

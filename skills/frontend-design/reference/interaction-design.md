@@ -97,6 +97,38 @@ Primary and frequent actions should be large enough, close enough, and separated
 
 **Placeholders aren't labels**—they disappear on input. Always use visible `<label>` elements. **Validate on blur**, not on every keystroke (exception: password strength). Place errors **below** fields with `aria-describedby` connecting them.
 
+For deeper guidance on summaries, field-level recovery, validator overrides, and table/form error handling, use [error recovery](./error-recovery.md).
+
+## Hidden vs Disabled vs Read-Only
+
+Hiding and disabling both create friction when used carelessly.
+
+Useful rule of thumb:
+
+- **disable** when the feature or value is relevant and users should know it exists, but it is temporarily unavailable
+- **read-only** when the current value matters and should stay visible, but editing is not allowed right now
+- **hide** when the control is irrelevant, unsafe, permission-restricted, or never available to that user in the current context
+
+### Good defaults
+
+- keep important buttons, tabs, and filters stable when users expect them to persist
+- explain why a disabled action is unavailable and how it can be enabled again
+- avoid quietly removing expected actions if that harms learnability or trust
+- if a screen contains many unavailable options, consider a way to hide those unavailable options without making the baseline layout jump unpredictably
+
+### Practical checks
+
+- will this user ever be able to use this control?
+- does the current state still matter even if editing is unavailable?
+- would removing it entirely harm discoverability, learning, or trust?
+
+### Avoid
+
+- disabled actions with no explanation
+- auto-hiding key controls in ways that make users wonder whether the feature vanished
+- layout shifts that make the interface jump when unavailable options are shown or hidden
+- treating `disabled` and `read-only` as interchangeable when one still needs the value to remain legible
+
 ## Loading States
 
 **Optimistic updates**: Show success immediately, rollback on failure. Use for low-stakes actions (likes, follows), not payments or destructive actions. **Skeleton screens > spinners**—they preview content shape and feel faster than generic spinners.
@@ -336,6 +368,64 @@ If users open an item from a dynamically extended list, the back button should r
 - the same applied filters and sort
 
 If the implementation cannot preserve that state reliably — for example through URL state, history entries, or equivalent restoration logic — prefer pagination over a flashy but disorienting dynamic list.
+
+## Back button UX beyond lists
+
+Users often hesitate before using the browser's `Back` button because too many products have trained them to expect broken restoration, lost form data, or a jump to the wrong step.
+
+### Align browser back with what users perceive as a separate page
+
+If a view looks and feels meaningfully different from the previous state, users often expect `Back` to close it or return to the earlier state.
+
+Useful candidates:
+
+- large overlays or full-screen drawers
+- prominent filter/result states
+- multi-step flows that behave like distinct steps
+- long anchor-jump or expanded states when the shift feels page-like
+
+### Do not pollute history with every tiny state change
+
+Not every interaction deserves a history entry.
+
+Avoid pushing history for tiny or high-frequency state changes such as:
+
+- carousel image changes
+- small view toggles
+- checkbox changes
+- ordinary dropdown or tab selections that do not feel page-like
+
+If every minor state lands in history, users have to click back through noise before reaching the page they actually meant to leave.
+
+### Protect user work when going back risks loss
+
+If going back may drop meaningful progress or edits:
+
+- preserve the state when possible
+- if preservation is not possible, warn clearly before the user loses work
+- return to the previous step, not to the beginning of the whole process, unless the flow genuinely restarted
+
+### Custom back buttons can feel safer than browser back
+
+Users often trust a clearly labeled in-product `Back` control more than the browser button because they expect it to understand the flow.
+
+Good defaults:
+
+- provide a custom `Back` action in multi-step flows, wizards, and important forms
+- make it look unmistakably interactive
+- keep its behavior consistent and local to the task
+
+### Placement rules for back vs continue
+
+Back and continue actions should not invite accidental taps.
+
+Good defaults:
+
+- separate opposite-direction actions enough that slips are unlikely
+- keep the primary forward action visually and spatially distinct from `Back`
+- for some forms, placing `Back` above the form or farther from the submit area can be safer than grouping it tightly beside `Continue`
+
+The exact layout can vary, but the principle is stable: opposite actions should not fight for the same motor space.
 
 ### Protect the footer and support paths
 

@@ -46,6 +46,9 @@ Also:
 - make packaging, metric, and price point legible as separate decisions
 - show who each tier is for instead of relying on feature sprawl alone
 - make annual billing, limits, and enterprise escalation easy to understand
+- keep the most decision-shaping differences visible before any long comparison matrix
+- keep plan headers available in dense comparison views so users do not lose orientation
+- avoid raw horizontal-scroll pricing tables on mobile when tabs, stacked comparisons, or two-plan compare patterns would work better
 
 Pair this with [../../frontend-design/reference/pricing-and-packaging.md](../../frontend-design/reference/pricing-and-packaging.md) when the work touches packaging logic, billing clarity, or pricing-page strategy.
 
@@ -75,10 +78,20 @@ Prioritize:
 - error resilience
 - reduced ambiguity over decorative flourish
 
+Also:
+
+- reduce credential friction: support password managers, pasted credentials, and clear password rules
+- explain why extra verification is happening instead of dropping users into mysterious dead ends
+- treat recovery as getting back into the account, not just forcing a password reset ceremony
+- keep social sign-in optional for broad audiences unless the product truly depends on federation
+- preserve destination and progress across session expiry or re-authentication when possible
+
 For redesigns of existing auth surfaces:
 
 - preserve task order, field expectations, and recovery paths unless the current flow is demonstrably broken
 - explore differences through trust tone, copy clarity, typography, color, spacing, and support content more than through novel interaction patterns
+
+Pair this with [../../frontend-design/reference/authentication-and-account-recovery.md](../../frontend-design/reference/authentication-and-account-recovery.md) when the work touches sign-in, sign-up, reset password, magic links, social sign-in, two-factor flows, or access recovery.
 
 ### Notifications / inbox / activity feed / notification settings
 
@@ -174,10 +187,15 @@ Also:
 - keep search visible and predictive when it is a common shortcut through the catalog
 - use breadcrumbs when the hierarchy is deep enough that users need help climbing back up through categories
 - make the product page capable of a convincing 30-second pitch above the fold: product name, price, critical options, primary CTA, and high-trust delivery / returns information should be easy to find immediately
+- show review trust signals with enough context: decimal rating, rating count, and richer distribution or attribute detail when the purchase is high-consideration
+- make negative reviews, customer photos, pros/cons, and recommendation signals work as confidence builders rather than burying them below generic social-proof polish
+- allow filters, helpful sorting, and reviewer-like-me context when the review corpus is large enough to justify discovery tooling
 - collapse secondary product detail into accordions or linked subsections instead of forcing every detail into the first screenful
 - keep auxiliary widgets such as chat, loyalty prompts, or support controls available but visually quiet so they do not derail the buying decision
 - match variant controls to the attribute being chosen: swatches for visual choices, buttons/chips for short textual sets, and richer dropdown/list patterns when options are longer or carry metadata
 - show unavailable or out-of-stock variant options clearly before the user reaches the final action so the flow feels honest rather than bait-and-switch
+
+Pair this with [../../frontend-design/reference/reviews-and-ratings.md](../../frontend-design/reference/reviews-and-ratings.md) when reviews, recommendations, rating distributions, or customer-photo credibility cues materially affect the purchase decision.
 
 ### Content surfaces
 

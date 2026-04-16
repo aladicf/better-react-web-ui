@@ -160,6 +160,12 @@ Use them when people need to compare records, scan repeated fields, sort, filter
 - row checkboxes should only appear when bulk selection actually enables something useful
 - sorting and filtering should exist to reduce access time, not as decorative “enterprise” garnish
 
+### Error handling in tables
+
+- keep row-level errors in or immediately adjacent to the affected row when possible
+- if an error explanation is long, allow the row to expand rather than pushing the message into a distant global container
+- if one error affects many rows, pair row highlighting with one higher-level explanation so users understand the pattern quickly
+
 ### Mobile adaptation
 
 Do not try to force a wide desktop table onto a narrow screen unchanged.
@@ -874,6 +880,12 @@ Use restrained state changes.
 - **invalid** — visibly incorrect with explanatory helper text
 - **disabled** — readable but non-interactive
 
+### Error and guidance placement
+
+- for many fields, nearby below-field help still works well
+- when mobile keyboards, browser autofill, magnification, or autocomplete would hide the guidance below, consider placing important error copy above the field instead
+- if a field needs an example of correct input, show it early instead of waiting for the user to fail repeatedly
+
 ### Avoid
 
 - oversized inputs for short data
@@ -881,7 +893,7 @@ Use restrained state changes.
 - hover/focus changes so dramatic they look like different components
 - styling inputs so similarly to buttons that the roles blur together
 
-Consult [interaction design](./interaction-design.md), [text hierarchy and readability](./text-hierarchy-and-readability.md), and [clarify](../../clarify/SKILL.md) when field guidance, helper text, and validation copy need stronger structure.
+Consult [interaction design](./interaction-design.md), [error recovery](./error-recovery.md), [text hierarchy and readability](./text-hierarchy-and-readability.md), and [clarify](../../clarify/SKILL.md) when field guidance, helper text, and validation copy need stronger structure.
 
 ## Radio Buttons
 
@@ -1181,6 +1193,7 @@ Toasts provide short-lived feedback about recent actions or system status.
 ### Avoid
 
 - using toasts for form-field validation that belongs inline
+- using toasts as the primary explanation for row-level or field-level errors users need to fix in place
 - making toasts permanent unless they are really alerts or banners instead
 - using them for marketing, upsells, or other trust-eroding interruptions
 - escalating routine feed activity into repeated toast spam when an inbox, digest, badge, or status indicator would do
@@ -1239,6 +1252,7 @@ A tooltip reveals short, non-essential supporting information on hover, focus, o
 - putting rich media or complex controls inside the tooltip
 - letting the tooltip crop against viewport edges
 - using it as a dumping ground for information architecture the interface should already communicate
+- using a tooltip as the main place for crucial recovery guidance when the user also needs to see the field and the error while fixing it
 
 ### Visual restraint
 
@@ -1353,6 +1367,36 @@ A badge is a compact, non-interactive status label attached to an object, state,
 - setting everything in all-caps if readability suffers
 
 Consult [semantic color](./semantic-color.md) when choosing state meaning and [color and contrast](./color-and-contrast.md) when tuning readable fills and text contrast.
+
+## Ratings / Reviews
+
+Ratings and review summaries help users judge whether a product is trustworthy and whether it fits their own needs.
+
+### Typical parts
+
+- **average score**
+- **total count of ratings or reviews**
+- **visual rating indicator**
+- **distribution summary** *(when trust and comparison matter)*
+- **attribute-level breakdown** *(optional but often valuable)*
+- **review snippets or highlighted reviews**
+- **helpful votes, filters, or sorting** *(when the review set is large)*
+
+### Good defaults
+
+- show the score and the total count together
+- use a decimal score when precision matters
+- support a review distribution summary when users need to judge trust, not just popularity
+- keep the most helpful positive and negative reviews easy to find
+- include dates and reviewer context when those improve credibility
+
+### Avoid
+
+- stars with no rating count or supporting context
+- suppressing all negative reviews until the section feels suspiciously perfect
+- forcing users through a giant unfilterable wall of reviews when tags, sorting, or search would speed up relevance
+
+Consult [reviews and ratings](./reviews-and-ratings.md) for deeper guidance on trust signals, attribute breakdowns, recommendation percentages, helpful votes, and review filtering behavior.
 
 ## Borders
 

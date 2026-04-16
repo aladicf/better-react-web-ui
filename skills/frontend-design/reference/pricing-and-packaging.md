@@ -238,6 +238,163 @@ Do not hide self-serve pricing behind "contact sales" just to create friction. U
 - make billing cadence, renewals, and cancellation terms easy to find
 - keep plan names meaningful; generic names are fine if the hierarchy is clear, but clever names must not obscure scope
 
+## How People Actually Compare Plans
+
+Users rarely compare pricing plans like careful spreadsheet analysts from the very first second. They usually combine fast scanning, repeated orientation checks, and one or two deeper verification passes.
+
+Design for that behavior.
+
+### Expect row-by-row scanning first
+
+In dense comparison tables, users often scan left-to-right across a row, then drop to the next row and scan back the other way.
+
+Design implication:
+
+- keep row labels stable and obvious
+- keep comparable values aligned within the row
+- avoid repeating the same feature copy inside every card when one clear attribute column would compare faster
+
+### Keep headers available during long scans
+
+People repeatedly look back to the plan name, price, and CTA while comparing.
+
+Design implication:
+
+- use sticky plan headers in long comparison views
+- keep the current price and billing toggle visible when the table is tall enough that users would otherwise lose orientation
+- if the matrix is dense enough, consider preserving the feature-label column context as well
+
+### Left-to-right order carries meaning
+
+In left-to-right interfaces, users typically expect simpler or cheaper plans on the left and more advanced or enterprise-oriented plans on the right.
+
+Do not randomize the order just to create a more “interesting” layout.
+
+### Users usually run two scans
+
+The first pass is broad:
+
+- What are the available tiers?
+- Which one looks closest to my needs?
+
+The second pass is narrower:
+
+- Does the shortlisted plan actually include the few things I care about most?
+
+Design implication:
+
+- make the top-of-page plan framing easy to skim quickly
+- make deeper comparison available without forcing everyone into the full matrix immediately
+
+### The full matrix often acts as a reference, not as the hero
+
+Many users still want a complete list of features, especially for high-consideration software purchases. But they do not always want to start there.
+
+Useful pattern:
+
+- highlight key differentiators first
+- place the full comparison lower on the page, behind an explicit “compare all features” action, or in another deliberate comparison surface
+
+### Not all features deserve equal prominence
+
+Some features matter to almost everyone. Others matter deeply only to a subset of buyers.
+
+Group and prioritize accordingly:
+
+- key differentiators near the top
+- secondary details grouped into sections
+- niche features available on request instead of competing for first attention
+
+## High-Density Pricing Table Patterns
+
+When packaging is nuanced, the page needs more than pretty cards.
+
+### Focus on key differences first
+
+Above the fold, prioritize:
+
+- who each plan is for
+- the pricing metric
+- the price and billing cadence
+- a short list of the most decision-shaping differences
+- a clear next action
+
+Do not force buyers to decode a hundred-row matrix before they can understand the basic offer.
+
+### Show differences inside rows
+
+Comparison gets easier when each row makes differences obvious.
+
+Good moves:
+
+- line up a shared feature row across all plans
+- emphasize availability or limit differences where they change
+- reduce visual weight for “same everywhere” content so the true differences lead
+
+### Consider “differences only” and “similarities only” views
+
+For larger matrices, filtering can reduce fatigue.
+
+- **differences only** helps users spot what changes between plans
+- **similarities only** helps users verify whether a cheaper plan is “close enough” to a pricier shortlist
+
+These controls are especially useful when the matrix is long and the plans share a large common core.
+
+### Group features into collapsible sections
+
+Long lists become more navigable when related features are grouped into labeled sections that users can expand or collapse.
+
+This helps users skip irrelevant categories without losing their place.
+
+### Avoid making hover tooltips do the heavy lifting
+
+Dense pricing pages often lean too hard on tiny info icons.
+
+Prefer:
+
+- inline clarifying copy for major differentiators
+- expandable rows or accordions for richer explanation
+- tap / click surfaces that work for keyboard and touch users as well as pointer users
+
+Use a tooltip only for short, non-essential clarification. If the user needs the explanation to choose a plan confidently, it probably deserves more space than a hover bubble.
+
+## Mobile Comparison Patterns
+
+Raw horizontally scrolling comparison tables are usually a last resort on mobile.
+
+The narrower the screen and the denser the plan structure, the more likely horizontal scroll will destroy orientation.
+
+Prefer patterns such as:
+
+- stacked plan cards with only the most important differences
+- sticky plan tabs that let users switch one plan into focus at a time
+- a two-plan comparison picker when many plans exist
+- per-feature stacked rows that compare one attribute at a time
+- step-by-step evaluators that help users identify the right plan by needs or role
+
+If a full matrix must exist on mobile, keep orientation aids visible and reduce the amount of simultaneous horizontal navigation as much as possible.
+
+Dropdown-based plan switching can work, but it is usually slower and less legible than visible tabs or a deliberate two-plan compare pattern.
+
+## Transparent Pricing Examples and Trust Builders
+
+Complicated pricing feels less risky when the page shows how the bill is actually formed.
+
+Helpful patterns:
+
+- concrete pricing examples using realistic inputs
+- clear explanation of what counts toward the metric
+- honest notes about fees, limits, overages, or contract differences
+- social proof or role framing that helps buyers self-identify quickly
+
+Useful proof can include:
+
+- “best for” labels tied to audience or company stage
+- testimonials or case studies attached to the likely-fit tier
+- trust signals near the plan decision, not buried far below the fold
+
+The job is not to add hype. The job is to reduce doubt.
+
 ## Pricing Psychology, Used Responsibly
 
 These patterns can improve clarity when they reflect reality. They become dark patterns when they manipulate.
@@ -298,15 +455,25 @@ Before calling a pricing surface "done," check:
 - target personas are defined clearly enough to package around
 - the pricing metric aligns with value rather than arbitrary activity
 - tier differences are obvious within a few seconds
+- key plan differences are visible before the full comparison matrix
 - the recommended plan is clear without shouting
+- long comparison tables keep plan context visible while users scan
+- mobile comparison avoids raw horizontal-scroll dependence when the content is dense
+- essential plan understanding does not depend on hover-only tooltip behavior
 - annual billing language is accurate and legible
+- nuanced pricing includes a transparent example or clear explanation of what counts
 - enterprise buyers know when to self-serve vs contact sales
 - billing terms, renewals, and cancellation paths are easy to understand
+- users can quickly tell which plan is likely for them
 - the page uses persuasion without dark patterns
 
 ## Common Failure Modes
 
 - pricing cards that look nice but hide the actual tradeoffs
+- comparison tables that force users to keep scrolling back to the header just to remember which plan they are reading
+- making the full feature matrix the only way to understand the offer
+- forcing dense horizontal scrolling on mobile for serious plan comparison
+- relying on hover-only tooltips for essential differences or pricing caveats
 - tiers differentiated by filler features rather than meaningful value
 - annual savings claims that require math archaeology
 - enterprise buried as an afterthought even when it is a major motion
