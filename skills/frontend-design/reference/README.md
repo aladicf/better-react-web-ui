@@ -8,9 +8,14 @@ Use it as a map of the map when you know you need guidance but do not yet know w
 
 If you only open a few files first, make them these:
 
+- [ux strategy](./ux-strategy.md) — connect UX direction to user segments, priorities, feasibility, and risk
 - [design process](./design-process.md) — move from vague request to clearer direction
+- [design principles](./design-principles.md) — turn values and tradeoffs into usable team defaults
 - [hierarchy checklist](./hierarchy-checklist.md) — sanity check priority, grouping, and grayscale clarity
 - [interaction design](./interaction-design.md) — patterns, focus, loading, overlays, and guardrails
+- [search and findability](./search-and-findability.md) — site search, autosuggest, zero-results recovery, and intent-aware findability
+- [status communication](./status-communication.md) — notifications, validations, badges, inboxes, and attention management
+- [legacy modernization](./legacy-modernization.md) — legacy-system UX upgrades, migration strategy, stakeholder trust, and hybrid old/new seams
 - [cognitive load](./cognitive-load.md) — simplify decisions, memory burden, and complexity exposure
 - [ux writing](./ux-writing.md) — interface microcopy, labels, errors, and confirmations
 - [typography](./typography.md) — type scale, hierarchy, pairing, and readability
@@ -28,7 +33,11 @@ Use these when the UI feels crowded, flat, ambiguously grouped, or visually mono
 
 ## Interaction and product behavior
 
+- [ux strategy](./ux-strategy.md)
 - [interaction design](./interaction-design.md)
+- [search and findability](./search-and-findability.md)
+- [status communication](./status-communication.md)
+- [legacy modernization](./legacy-modernization.md)
 - [cognitive load](./cognitive-load.md)
 - [action hierarchy](./action-hierarchy.md)
 - [empty-state patterns](./empty-state-patterns.md)
@@ -38,6 +47,7 @@ Use these when the problem is not just styling, but how the product behaves, gui
 
 ## Typography and writing
 
+- [design principles](./design-principles.md)
 - [typography](./typography.md)
 - [text hierarchy and readability](./text-hierarchy-and-readability.md)
 - [ux writing](./ux-writing.md)

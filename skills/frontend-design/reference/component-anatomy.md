@@ -296,6 +296,65 @@ If spacing, grouping, and alignment would solve the problem more cleanly, prefer
 
 Consult [spatial design](./spatial-design.md) and [surface separation](./surface-separation.md) when deciding whether a card should exist at all.
 
+## KPI Cards / Dashboard Widgets
+
+KPI cards and dashboard widgets summarize the state of a system, highlight change, and help users decide whether deeper investigation is needed.
+
+They should behave like decision aids, not decorative tiles.
+
+### Typical parts
+
+- **metric label**
+- **current value**
+- **delta or directional indicator** *(when change matters)*
+- **trend sparkline** *(only when it adds real context)*
+- **freshness or sync state** *(when timing matters)*
+- **drill-down or next-step affordance** *(optional)*
+
+### Good defaults
+
+- keep the current value visually dominant over supporting metadata
+- place the most critical KPI cards in the strongest scan path, often near the top-left or first row
+- pair a number with its change signal when the decision depends on movement, not just the absolute value
+- keep support signals like freshness, units, or comparison windows visible but quieter than the value itself
+- use consistent card anatomy so users can compare widgets quickly
+
+### Sparklines are context, not decoration
+
+Sparklines work well when they:
+
+- sit beside a key metric
+- show a focused time window
+- highlight the current or latest point when that matters
+- help compare multiple rows or cards quickly
+
+They fail when they are added only to make the card feel "more dashboard-y."
+
+### Change signaling
+
+- use directional indicators and deltas for rapid scanability
+- pair color with iconography or shape so meaning does not depend on color alone
+- use brief, quiet transitions when values change
+- avoid constant flashing, bouncing, or repeated emphasis on already-seen updates
+
+### Reliability cues
+
+If the widget depends on live or near-live data, include cues such as:
+
+- `Live`
+- `Updated 1m ago`
+- `Paused`
+- `Reconnecting…`
+
+These cues should support trust without overpowering the metric itself.
+
+### Avoid
+
+- stuffing one card with too many competing stats
+- using equal visual weight for every widget in a dense dashboard
+- making the card restyle itself so dramatically on every update that users lose orientation
+- hiding staleness or failed sync state when the timing of the metric matters
+
 ## Checkboxes
 
 A checkbox lets users select one or more items from a set.
@@ -361,6 +420,47 @@ If the ordinary gap between related items is `x`, a divider often needs noticeab
 
 Consult [surface separation](./surface-separation.md) and [spacing system](./spacing-system.md) when deciding whether the right separator is a line, a bigger gap, a background shift, or no divider at all.
 
+## Choosing Among List Selection Patterns
+
+Not every list pattern is the same, and calling everything a "dropdown" makes it harder for designers, engineers, and users to align on behavior.
+
+Useful shorthand:
+
+- **dropdown / select** — hidden list, choose one option
+- **combobox** — type to filter, then choose one option
+- **multiselect** — filter or browse, then choose many options
+- **listbox** — options are visible by default, often scrollable
+- **dual listbox / transfer list** — move items between an available list and a chosen list
+
+### Never hide frequently used options by default
+
+If users rely on the same few choices constantly, burying them inside a hidden list creates friction for very little gain.
+
+Better defaults:
+
+- show the most common `2–3` choices as chips, radios, buttons, or checkboxes when space allows
+- keep a safe, obvious default selected only when it truly helps and does not create silent mistakes
+- reveal the long tail through a dropdown, combobox, or expanded list only when the full set would otherwise become unwieldy
+
+### Quick choosing rules
+
+- for very small **single-select** sets, prefer **radio buttons** or a **segmented control**
+- for very small **multi-select** sets, prefer **checkboxes**
+- use a **dropdown / select** when the list can stay hidden without harming decision quality
+- use a **combobox** when typing is faster than scrolling a long list
+- use a **multiselect** when users must choose many items from a larger set and need search or filtering support
+- use a **listbox** when seeing many options at once improves comprehension, comparison, or speed
+- use a **dual listbox** when users must build and review a chosen set side by side with the source set, especially for assignment or bulk curation tasks
+
+### Keyboard and affordance discipline
+
+All of these patterns should support keyboard navigation cleanly once users start interacting with the list.
+
+Also keep the affordance honest:
+
+- non-interactive labels should not look like clickable buttons
+- interactive rows should not look like dead static text
+
 ## Dropdowns / Selects
 
 A dropdown presents a list of options that the user can reveal, inspect, and choose from.
@@ -394,6 +494,203 @@ For very small option sets, a dropdown often adds more friction than value. Once
 
 Consult [interaction design](./interaction-design.md) for overlay behavior, top-layer patterns, positioning, and keyboard expectations.
 
+## Variant Selectors / Option Pickers
+
+Variant selectors help users choose among required or optional configurations such as size, color, finish, capacity, plan level, or bundle.
+
+The right control depends on what kind of difference the user is evaluating.
+
+### Typical parts
+
+- **option label**
+- **selection control**
+- **selected state**
+- **availability state**
+- **help link or guide** *(when the attribute is ambiguous)*
+- **dependent UI updates** *(price, media, copy, availability, delivery timing, etc.)*
+
+### Match the control to the attribute
+
+- use **swatches, thumbnails, or image buttons** for visual attributes such as color, finish, or pattern
+- use **chips, segmented buttons, or boxed options** for short textual sets such as size, storage tier, or simple plan choices
+- use a **dropdown or richer listbox** when labels vary in length, when the option count is large, or when each option carries extra metadata like dimensions or pricing
+
+Do not force every variant through the same generic control just because the implementation is convenient.
+
+### Good defaults
+
+- make required choices obvious before the main action such as `Add to cart`, `Continue`, or `Save`
+- update dependent UI quickly when the selection changes so the user can see what the choice affects
+- provide a clear guide for ambiguous attributes such as sizing, capacity rules, or fit recommendations
+- make the selected state unmistakable without relying on color alone
+- keep the interaction lightweight; choosing an option should feel faster than filling a form field
+
+### Availability should be visible early
+
+Unavailable options should be visible and clearly disabled rather than silently removed or revealed only after the user has invested effort.
+
+That means:
+
+- disable or strike unavailable options clearly
+- explain scarcity or incompatibility when that reduces confusion
+- avoid letting users fall in love with a combination only to reject it at the final step
+
+### Avoid
+
+- one generic dropdown for every kind of option
+- unlabeled swatches that force users to guess what they selected
+- hiding out-of-stock or incompatible options until late in the flow
+- requiring users to open and close long menus repeatedly for a tiny set of visual choices
+
+## Filters / Facets / Filter Bars
+
+Filters help users reduce a large result set into a more comfortable, more relevant range.
+
+That means the job is not merely "show all possible filters." The job is to help users arrive at a manageable set of relevant results quickly and without friction.
+
+### Typical parts
+
+- **filter trigger or bar**
+- **group labels**
+- **filter options**
+- **selected state**
+- **clear / reset path**
+- **apply action** *(when the pattern is not fully auto-applied)*
+- **result count feedback** *(when available)*
+
+### Good defaults
+
+- expose the most useful filters first instead of hiding everything equally
+- keep selected filters obvious through chips, pills, or in-group state treatment
+- support `Clear all` when multiple filters can accumulate quickly
+- keep the filter UI stable while results update
+- prefer asynchronous result updates so filters remain available while new results stream in
+
+### Long filter groups
+
+Avoid tiny scroll corridors that reveal only a few options at a time.
+
+Better defaults:
+
+- show more options at once when possible
+- use expandable sections / accordions for long groups
+- add search within the group when the option count is large
+- provide alphabetical or grouped access when the domain benefits from it
+
+### Sliders need precise fallbacks
+
+Sliders are good for exploration, but poor for precision on their own.
+
+When the value matters precisely, also provide:
+
+- text input fallback for exact values
+- stepper controls for granular jumps
+- keyboard-accessible interaction
+
+Use sliders for exploration speed, not as the only precision tool.
+
+### Avoid synchronous friction traps
+
+Do not make the user fight the filter UI while trying to narrow results.
+
+Avoid:
+
+- auto-scrolling users after a single input
+- freezing the entire UI while one filter resolves
+- collapsing expanded groups after every change
+- resetting the user's place in the panel after each update
+
+Users often want to apply several filters in quick succession. The interface should support that intent.
+
+### Prevent layout shifts
+
+The filtering area should stay spatially predictable.
+
+Good defaults:
+
+- keep expanded sections expanded unless the user closes them
+- disable unavailable options instead of hiding them unexpectedly
+- keep selected-filter chips outside the area that would push the filter controls around when they grow
+- consider showing selected filters above the results rather than above the entire panel when that keeps the panel steadier
+
+### Apply buttons and result counts
+
+An `Apply` button can still be helpful when it gives users confidence about scope.
+
+Useful pattern:
+
+- show the expected result count on the button when the system can calculate it
+
+Examples:
+
+- `Show 24 results`
+- `Apply filters (8)`
+
+This helps users understand whether they are moving toward or away from a comfortable result range.
+
+### Mobile adaptation
+
+On mobile, a larger overlay or full-page filter surface is often more reliable than a cramped split-screen or narrow side panel.
+
+Good defaults:
+
+- keep the filter trigger easy to reach
+- consider a full-height overlay when the filter set is complex
+- keep the `Apply` action sticky near the bottom when manual confirmation is required
+- show the live result count on the button when possible
+
+### Avoid
+
+- tiny internal scroll panes for long option groups
+- making users wait after every single toggle if they clearly want to continue filtering
+- hiding unavailable options with no explanation
+- making the filter panel jump around as the result state changes
+- using a filter icon alone when a clearer label or visible bar would reduce ambiguity
+
+Consult [interaction design](./interaction-design.md) for overlay behavior and [search-and-findability](./search-and-findability.md) when filters interact with search results or query-driven discovery.
+
+## Result Lists / Collection Browsing
+
+Result lists help users browse a collection, compare options, and decide whether to continue exploring or narrow the set further.
+
+### Typical parts
+
+- **result count or scope label**
+- **sort control**
+- **filter access**
+- **active filter summary** *(when relevant)*
+- **result cards / rows**
+- **continuation control** such as `Load more` or pagination
+
+### Good defaults
+
+- keep sort and filter controls close to the results they affect
+- prefer stable controls above the result area when that preserves more space and translates better to mobile
+- keep the current scope visible so users know whether they are browsing a category, a search result, or a narrowed subset
+- let the list grow in a way that still preserves orientation and comparison
+
+### Choose the continuation pattern honestly
+
+- prefer **`Load more`** for large browsable collections when comparing items across one growing list is helpful
+- combine `Load more` with smaller lazy-loaded batches when breadth matters and the implementation can stay stable
+- use **pagination** when users need clearer positional anchors, stable slices, or more reliable revisitation
+- reserve **infinite scroll** for lighter-weight exploration where deep orientation and footer access matter less
+
+If the list is ranked by relevance, slow users down slightly with a more deliberate continuation pattern rather than pushing them into endless shallow scanning.
+
+### Mobile adaptation
+
+- lower the amount shown before the continuation control appears
+- keep the next-step control large and obvious
+- avoid cramped split-screen patterns that steal too much room from the results themselves
+
+### Avoid
+
+- continuation patterns that make the footer unreachable
+- replacing the entire list when users expected to keep comparing earlier items
+- dynamic loading that breaks back-button return, loaded depth, or scroll restoration
+- treating category browsing, search retrieval, and feed exploration as the same interaction problem
+
 ## Comboboxes
 
 A combobox combines text input with a filtered or suggested options list.
@@ -416,6 +713,7 @@ Use it when the option set is large enough that users benefit from typing, filte
 - make the results list feel attached to the field and easy to scan with both pointer and keyboard
 - use stable labels and grouping when result categories matter
 - make loading and no-results states explicit rather than leaving dead blank space
+- for longer lists, open the list on click/tap as well as on typing so users can discover available options without already knowing the vocabulary
 - if a disclosure indicator is used, keep it quiet; the input value and results should do more work than the icon
 
 ### Async result stability
@@ -440,6 +738,84 @@ Async comboboxes need stronger stability rules than ordinary selects.
 When the disclosure indicator deserves animation, a small SVG path morph often feels smoother and more intentional than simply rotating a chevron glyph.
 
 Consult [interaction design](./interaction-design.md) for keyboard behavior and async interaction constraints.
+
+## Multiselects
+
+A multiselect lets users choose multiple items from one option set, often with check states, chips, or a selected-items summary.
+
+### Typical parts
+
+- **label**
+- **trigger or input**
+- **available options list**
+- **selected state**
+- **selected items summary or chips**
+- **clear / remove controls**
+- **select all / clear all** *(optional but often helpful)*
+
+### Good defaults
+
+- make it obvious that multiple selection is allowed
+- keep selected items visible enough that users do not lose track of what they already chose
+- for larger lists, support filtering or search instead of forcing long scrolling
+- for lists with roughly **7+ options**, consider `Select all` and `Clear all` when bulk actions are common
+- keep removing a selected item as lightweight as adding one
+
+### Avoid
+
+- hiding the selected set so thoroughly that users must reopen the control just to remember what is active
+- forcing users to choose many items from a long list without search, grouping, or bulk actions
+- making every chip removable but offering no faster way to clear a large selection
+
+## Listboxes
+
+A listbox keeps options visible by default instead of hiding them behind a trigger.
+
+Use it when immediate visibility improves speed, comparison, or confidence.
+
+### Good defaults
+
+- use listboxes when users benefit from seeing many options at once, especially for repeated filtering or operational selection work
+- keep rows scannable and consistent so the eye can move quickly
+- use grouping, section labels, or sticky headers when the option set is long or heterogeneous
+- allow the selected state to stay obvious without depending on color alone
+
+### Practical fit
+
+Listboxes are often a better fit than dropdowns when:
+
+- users choose from the same pool repeatedly
+- the option set benefits from side-by-side comparison
+- hiding the set would slow users down more than the visible list costs in space
+
+### Avoid
+
+- using a listbox for tiny option sets where radios or checkboxes would be simpler
+- making the visible list so cramped that users can only inspect a few options at a time through a tiny internal scroll corridor
+
+## Dual Listboxes / Transfer Lists
+
+A dual listbox lets users move items between an available list and a chosen list.
+
+It is especially useful for bulk selection, assignments, permissions, responsibilities, roles, or any task where users need to review the final chosen set before committing.
+
+### Good defaults
+
+- label both sides clearly so users always know which list is source and which is chosen
+- support search or filtering on one or both sides when the lists are large
+- make move actions explicit and keyboard accessible
+- keep the final chosen set reviewable side by side with the source list
+- prefer explicit move controls over drag-and-drop as the primary interaction
+
+### Why this pattern helps
+
+Dual listboxes are often faster and more accurate than drag-and-drop for structured assignment work because they reduce pointer precision demands and keep the final state visible.
+
+### Avoid
+
+- making drag-and-drop the only way to move items
+- hiding the chosen set behind a summary count when review accuracy matters
+- using this pattern for tiny sets where checkboxes or a simpler multiselect would do
 
 ## Form Inputs
 
@@ -800,18 +1176,20 @@ Toasts provide short-lived feedback about recent actions or system status.
 - provide a close control
 - include the next step or resolution path when that actually helps users recover or continue
 - keep only a small number visible at once so they do not turn into a notification wall
+- treat toasts as recent feedback, not as the main home for a busy activity stream
 
 ### Avoid
 
 - using toasts for form-field validation that belongs inline
 - making toasts permanent unless they are really alerts or banners instead
 - using them for marketing, upsells, or other trust-eroding interruptions
+- escalating routine feed activity into repeated toast spam when an inbox, digest, badge, or status indicator would do
 
 ### Useful pattern
 
 When a user creates something successfully, a toast can include a lightweight action that jumps to the new resource or undo path.
 
-Consult [semantic color](./semantic-color.md), [interaction design](./interaction-design.md), and [elevation system](./elevation-system.md) for state meaning, behavior, and layering.
+Consult [semantic color](./semantic-color.md), [interaction design](./interaction-design.md), [status communication](./status-communication.md), and [elevation system](./elevation-system.md) for state meaning, behavior, attention level, and layering.
 
 ## Toggle Switches
 

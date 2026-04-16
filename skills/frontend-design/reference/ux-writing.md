@@ -104,6 +104,37 @@ Be specific: "Saving your draft..." not "Loading...". For long waits, set expect
 
 Most confirmation dialogs are design failures—consider undo instead. When you must confirm: name the action, explain consequences, use specific button labels ("Delete project" / "Keep project", not "Yes" / "No").
 
+## Notification and Alert Copy
+
+Not every message deserves the same tone.
+
+### Match tone to attention
+
+- **High attention**: direct, explicit, consequence-first
+- **Medium attention**: calm, clear, action-oriented
+- **Low attention**: humble, distilled, easy to scan
+
+### Good defaults
+
+- say what happened specifically, not "Something happened"
+- say why the user should care now, if they should care at all
+- name the next step when action is needed
+- keep routine success and info states brief and un-dramatic
+- group repetitive updates into summaries instead of rewriting the same sentence ten times
+
+### Prefer calm specificity
+
+| Bad | Better |
+| --- | --- |
+| You have updates | 3 teammates commented on Q2 planning |
+| Action required | Approve the payment request from Maya |
+| Success! | Invoice sent to 4 clients |
+| Reminder | Weekly summary is ready |
+
+When the event is human-originated, mention the person or source if that improves relevance.
+
+For notification hierarchy, digests, feeds, and interruption level, use [status communication](./status-communication.md).
+
 ## Avoid Dark Patterns in Copy and Consent
 
 Copy should help users make informed decisions, not pressure them into product-favoring ones.

@@ -7,6 +7,9 @@ Gather design context for this project, then persist it for all future sessions.
 
 `setup` writes to `.better-web-ui.md` as the canonical destination. Older files such as `.better-ui.md` and `.impeccable.md` are legacy migration inputs only, not the place new work should keep using.
 
+Consult [design principles](../frontend-design/reference/design-principles.md) when turning product values, tone, and repeated tradeoffs into durable design principles that later work can reuse without reopening the same debates.
+Consult [ux strategy](../frontend-design/reference/ux-strategy.md) when the project needs a clearer strategic frame for target outcomes, user focus, priorities, feasibility, or major risks.
+
 ## Step 1: Explore the Codebase
 
 Before asking questions, thoroughly scan the project to discover what you can:
@@ -99,6 +102,8 @@ Derive the principles from concrete levers, not vague aspirations. Prefer things
 - "Use warm neutrals and restrained accent color"
 - "Favor editorial typography and mostly square corners"
 - "Keep one obvious primary action per screen"
+
+The strongest principles explain both what to do and what to avoid. Treat them as default decisions with judgment, not as decorative slogans.
 
 Write this section to `.better-web-ui.md` in the project root. If that file already exists, update the Design Context section in place. If a legacy `.better-ui.md` or `.impeccable.md` file exists, migrate or mirror the Design Context section into `.better-web-ui.md` so better-web-ui has a single canonical project context file going forward.
 

@@ -1,6 +1,6 @@
 ---
 name: add-ui
-description: Generate 5 distinct, production-grade UI variations for a requested section, component, page, flow, or shell, then help the user preview and apply one. Use when the user asks to add UI like a hero, pricing, navbar, auth flow, dashboard shell, ecommerce surface, or data component.
+description: Generate 5 distinct, production-grade UI variations for a requested new or existing section, component, page, flow, or shell, then help the user preview and apply one. Use when the user asks to add or redesign UI like a hero, pricing, navbar, auth flow, dashboard shell, ecommerce surface, or data component.
 metadata:
   argument-hint: "[request]"
 ---
@@ -16,8 +16,15 @@ Also gather the smallest set of implementation details needed to generate usable
 - framework / runtime (React, Next.js, Vue, plain HTML, etc.)
 - styling system (Tailwind, CSS modules, styled-components, vanilla CSS, etc.)
 - target insertion point (new route, existing page, shared component folder, design system area)
+- whether this is a brand-new artifact or a redesign of an existing one
 - whether the user wants a section, page, flow, shell, or standalone component
 - quality bar (quick draft, production-ready, flagship)
+
+If the request is a redesign of an existing artifact, also identify:
+
+- which parts must remain recognizable (content blocks, section order, interaction model, familiar affordances, brand cues)
+- which parts are flexible (style, colors, copywriting, typography, media treatment, density, detail language)
+- whether the user wants mostly safe evolution, a broad explore-and-compare pass, or one or two stretch directions
 
 Use this precedence order when deciding implementation defaults:
 
@@ -49,6 +56,17 @@ Use these deterministic helper assets when they improve consistency across hosts
 ---
 
 Generate multiple **meaningfully different** UI directions for a requested artifact, help the user compare them, then guide selection and integration.
+
+This includes both **adding new UI** and **redesigning existing UI**.
+
+When the request is to redesign an existing page, section, flow, shell, or component, default to preserving the artifact's recognizable bones unless the user explicitly asks for structural reinvention. In practice that usually means:
+
+- keep the core information architecture, content blocks, and sequence intact when they already support the job to be done
+- keep familiar interactions and affordances unless they are clearly broken or the user asks for a larger UX shift
+- evolve the visual system through typography, color, copy framing, media treatment, detail language, spacing rhythm, and emphasis strategy
+- make it obvious across the options what stayed constant and what changed
+
+If one variant intentionally pushes further on structure, label it clearly as the stretch option instead of quietly bulldozing the existing page.
 
 This skill is for requests like:
 
@@ -86,11 +104,23 @@ The list is illustrative, not exhaustive.
    - If a shared UI system already exists, plug into it instead of creating random one-off primitives.
    - If repeated structure emerges across variants, extract sensible shared pieces.
 
+6. **Honor preserve-the-essence requests**
+   - If the user says to keep the essence, keep the recognizable structure, key parts, and narrative flow unless they explicitly invite a deeper overhaul.
+   - Distinct directions can still be genuinely different through type, color, copy, density, proof treatment, surface styling, media direction, and action emphasis.
+   - Do not mistake “give me options” for permission to discard the existing architecture.
+
 ## Workflow
 
 ### 1. Classify the request
 
 Use the [artifact taxonomy](./reference/artifact-taxonomy.md) to determine whether the user is asking for a section, page, flow, shell, or data/content component.
+
+Also determine whether this is:
+
+- a net-new artifact
+- a redesign of an existing artifact with structure mostly preserved
+- a redesign that allows moderate restructuring
+- a redesign that invites a full rethink
 
 Then identify:
 
@@ -98,12 +128,27 @@ Then identify:
 - core content blocks
 - critical states (loading, empty, error, success, validation, mobile)
 - placement context (new page, inside existing page, inside dashboard, inside marketing site)
+- which structural elements are fixed versus flexible
+- which current qualities should remain recognizable versus which should change
 
 ### 2. Define 5 distinct directions
 
 Generate **5** candidate directions. Fewer than 3 reduces exploration; more than 5 becomes noise.
 
 Use the [variation quality bar](./reference/variation-quality-bar.md) to ensure the five directions are meaningfully different rather than cosmetic recolors.
+
+When the request says to preserve the existing structure or essence, treat the current artifact as the baseline skeleton. The directions should primarily vary through visual system and messaging decisions rather than by deleting or reordering the page without permission.
+
+For that kind of redesign, distinct options can differ through combinations of:
+
+- typography and font pairing
+- palette and contrast strategy
+- copywriting tone and headline framing
+- proof placement and emphasis
+- density and spacing rhythm
+- imagery or illustration treatment
+- surface styling, borders, depth, and detail language
+- action hierarchy and CTA presentation
 
 Each direction must have:
 
@@ -112,6 +157,11 @@ Each direction must have:
 - **Why it works**: how it supports the user's goals
 - **Key traits**: hierarchy, layout, density, personality, media treatment, action strategy
 - **Best fit**: when this direction should be chosen over the others
+
+For redesigns of existing artifacts, also state:
+
+- **Preserved bones**: what remains intentionally recognizable from the current artifact
+- **Primary changes**: what is being pushed hardest in this direction
 
 ### 3. Build real candidate artifacts
 
@@ -123,6 +173,8 @@ Prefer:
 - real route/page files
 - real preview shells that switch between variants
 - real data mocks or placeholders when needed to make the UI legible
+
+When redesigning an existing artifact, fork from the real current implementation when practical instead of rebuilding the whole thing from scratch. Preserve the requested structure first, then layer the design changes on top.
 
 Use the [preview and apply patterns](./reference/preview-apply-patterns.md) to decide how to structure previews, fallback comparison formats, and final integration.
 
@@ -136,6 +188,11 @@ For every variation, include the same practical checkpoints:
 - content placeholders or example copy
 - implementation notes
 - any required supporting components
+
+For redesigns, also include:
+
+- a short note about what remained structurally consistent
+- a short note about what changed visually or editorially
 
 Do not let one option be a sketch while another is production-grade. Compare like with like.
 
@@ -188,6 +245,7 @@ Use the [apply / cleanup checklist](./assets/apply-cleanup-checklist.md) after t
 - generate 5 near-identical variants with cosmetic differences only
 - inject temporary browser DOM as the main implementation strategy
 - ignore the existing codebase structure and styling system
+- bulldoze an existing artifact's structure after the user asked to preserve its essence or recognizable parts
 - default to generic startup aesthetics just because the prompt is broad
 - make every option loud, card-heavy, gradient-heavy, or animation-heavy
 - skip loading/error/empty/mobile states when they materially affect the artifact

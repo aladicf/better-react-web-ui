@@ -28,3 +28,6 @@ Thumbs.db
 *.temp
 *.swp
 *.swo
+
+# Private local planning notes
+upcoming-features.md

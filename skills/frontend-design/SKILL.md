@@ -139,6 +139,8 @@ Apply a little pessimism up front:
 - Use wireframes and rough exploration to make decisions quickly, then build the real thing early and iterate in short cycles.
 
 Use [design process](reference/design-process.md) when the request is still fuzzy, when layout and flow decisions need to be clarified before polish, or when you need a cleaner progression from wireframe to styleguide to prototype.
+Use [design principles](reference/design-principles.md) when the team needs clearer shared defaults, stronger product values, or a more durable decision-making point of view that explains both what to do and what to avoid.
+Use [ux strategy](reference/ux-strategy.md) when the work needs clearer user-segment focus, priorities, high-value UX actions, feasibility framing, or risk-aware alignment with product and business goals before screen-level execution.
 
 **CRITICAL**: Choose a clear conceptual direction and execute it with precision. Bold maximalism and refined minimalism both work—the key is intentionality, not intensity.
 
@@ -237,7 +239,7 @@ Focus on high-impact moments: one well-orchestrated page load with staggered rev
 **DON'T**: Use bounce or elastic easing—they feel dated and tacky; real objects decelerate smoothly
 
 ### Interaction
-→ *Consult [interaction reference](reference/interaction-design.md) for forms, focus, loading patterns, Jakob's Law, and Fitts's Law. Use [cognitive load](reference/cognitive-load.md) for Hick's Law and Miller's Law in practice. Use [empty-state patterns](reference/empty-state-patterns.md) when a feature has no content yet. Use [pricing and packaging](reference/pricing-and-packaging.md) when working on pricing pages, plan comparison, billing settings, or packaging clarity. Use [paywalls and upgrade flows](reference/paywalls-and-upgrade-flows.md) when designing feature locks, usage limits, trials, or in-product upgrade prompts.*
+→ *Consult [interaction reference](reference/interaction-design.md) for forms, focus, loading patterns, Jakob's Law, and Fitts's Law. Use [search and findability](reference/search-and-findability.md) when working on site search, command palettes, autosuggest, results pages, zero-results recovery, or taxonomy-to-user-language gaps. Use [status communication](reference/status-communication.md) when working on validations, notifications, badges, inboxes, activity feeds, digest settings, or interruptive vs passive messaging. Use [legacy modernization](reference/legacy-modernization.md) when improving legacy systems, hybrid old/new flows, public-beta replacements, or migration-roadmap decisions. Use [cognitive load](reference/cognitive-load.md) for Hick's Law and Miller's Law in practice. Use [empty-state patterns](reference/empty-state-patterns.md) when a feature has no content yet. Use [pricing and packaging](reference/pricing-and-packaging.md) when working on pricing pages, plan comparison, billing settings, or packaging clarity. Use [paywalls and upgrade flows](reference/paywalls-and-upgrade-flows.md) when designing feature locks, usage limits, trials, or in-product upgrade prompts.*
 
 Use [action hierarchy](reference/action-hierarchy.md) when deciding which controls should lead, recede, disappear, or escalate in destructive confirmations.
 
@@ -248,13 +250,18 @@ Make interactions feel fast. Use optimistic UI—update immediately, sync later.
 
 **DO**: Use progressive disclosure—start simple, reveal sophistication through interaction (basic options first, advanced behind expandable sections; hover states that reveal secondary actions)
 **DO**: Use familiar patterns for familiar tasks—navigation, search, tabs, dropdowns, tables, filters, forms, pagination, and settings should behave the way strong products already taught users to expect
+**DO**: Use the least interruptive status pattern that still works—inline validation, quiet indicators, inboxes, summaries, and toasts should not all compete for the same urgency
+**DO**: Build on existing workflow knowledge before proposing a big-bang rewrite of a legacy system; hybrid coexistence and staged migration are often the more honest design problem
 **DO**: Design empty states that teach the interface, not just say "nothing here"
 **DO**: Make every interactive surface feel intentional and responsive
 **DO**: Design actions in a real hierarchy — one primary action, a few secondary actions, and quiet tertiary actions
 **DO**: Make common actions easy to hit — generous targets, whole-row labels where appropriate, and close placement to the content being acted on
+**DO**: Give users control over noisy systems with calm defaults, digest modes, mute paths, snooze options, or quiet hours when notification volume could become disruptive
 **DON'T**: Repeat the same information—redundant headers, intros that restate the heading
 **DON'T**: Invent custom interaction models for standard controls unless the gain is obvious and significant
 **DON'T**: Make every button primary—use ghost buttons, text links, secondary styles; hierarchy matters
+**DON'T**: Treat every status update like a warning, toast, push notification, or growth prompt just because the system can send one
+**DON'T**: Assume replacing a legacy surface from scratch is automatically safer than documenting workflows, reducing seam pain, and migrating incrementally with users
 
 ### Responsive
 → *Consult [responsive reference](reference/responsive-design.md) for mobile-first strategy, fluid design, natural widths, column rebalancing, and container queries.*

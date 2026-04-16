@@ -11,6 +11,7 @@ Normalization is not just visual cleanup. It is restoring the feature to the sys
 
 Consult the [design-system alignment](../frontend-design/reference/design-system-alignment.md) reference for tokens vs components vs patterns, drift, and when to normalize locally versus escalate to system work.
 Consult the [interaction design](../frontend-design/reference/interaction-design.md) reference when normalization includes restoring familiar patterns, improving target sizing, or removing bespoke interaction behavior from standard controls.
+Consult the [legacy modernization](../frontend-design/reference/legacy-modernization.md) reference when the feature lives inside a legacy system, mixed old/new flow, or partial migration where low-risk upgrade strategy matters as much as visual alignment.
 
 ## MANDATORY PREPARATION
 
@@ -34,6 +35,8 @@ Before making changes, deeply understand the context:
    - Where does it deviate from design system patterns?
    - Which inconsistencies are cosmetic vs. functional?
    - What's the root cause—missing tokens, one-off implementations, or conceptual misalignment?
+   - If the feature is legacy or hybrid, which workflows and dependencies would make a "simple redesign" risky?
+   - Which pain points can be improved safely now without breaking institutional workflow knowledge?
 
 3. **Create a normalization plan**: Define specific changes that will align the feature with the design system:
    - Which components can be replaced with design system equivalents?
@@ -43,6 +46,8 @@ Before making changes, deeply understand the context:
    - Which areas feel off because hierarchy is weak, actions are flattened, or spacing is arbitrary rather than systematic?
    
    **IMPORTANT**: Great design is effective design. Prioritize UX consistency and usability over visual polish alone. Think through the best possible experience for your use case and personas first.
+
+   When the surface is legacy, normalization often means making the current experience safer, clearer, and more consistent while a larger migration is still in progress. Do not mistake every legacy problem for a mandate to rewrite the workflow wholesale.
 
 ## Execute
 

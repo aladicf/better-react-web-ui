@@ -19,6 +19,23 @@ At minimum, each variation should differ in at least **two** of these dimensions
 
 Changing only palette, radius, or icon style does **not** create a new variation.
 
+## For structure-preserving redesigns
+
+When the user explicitly asks to keep the existing structure, essence, or major parts of the current artifact, do **not** force every variation to reinvent the layout.
+
+In that case, meaningful variation can come from combinations of:
+
+- typography system and font pairing
+- palette and contrast strategy
+- copywriting tone and headline framing
+- density and spacing rhythm
+- proof treatment and emphasis
+- imagery or illustration direction
+- surface styling, borders, and depth language
+- CTA emphasis and action framing
+
+The bar is still distinction, not recoloring. The options should feel like genuinely different futures for the same underlying artifact, not like tiny theme toggles.
+
 ## Useful axes of variation
 
 - editorial vs product-led
@@ -41,6 +58,11 @@ Each generated variation should include:
 - key interaction states
 - realistic placeholders or example copy
 - implementation notes when needed
+
+For redesigns with preserved bones, also include:
+
+- what stayed constant from the current artifact
+- what changed most in this direction
 
 Do not let one option be a sketch while another is polished. Compare like with like.
 

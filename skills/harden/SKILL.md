@@ -8,7 +8,10 @@ metadata:
 Strengthen interfaces against edge cases, errors, internationalization issues, and real-world usage scenarios that break idealized designs.
 
 Consult the [semantic color](../frontend-design/reference/semantic-color.md) reference when designing error, warning, success, and info states so semantic color stays clear and not purely decorative.
+Consult the [status communication](../frontend-design/reference/status-communication.md) reference when hardening notification flows, activity feeds, summaries, or alert settings against fatigue and interruption overload.
 Consult the [image treatment](../frontend-design/reference/image-treatment.md) when hardening user-uploaded media, screenshots, icon scaling, or image bleed behavior.
+Consult the [empty-state patterns](../frontend-design/reference/empty-state-patterns.md) reference when a failure needs a dedicated route-level recovery page for states like 401, 403, 404, 429, 500, or 503.
+Consult the [interaction design](../frontend-design/reference/interaction-design.md) reference when hardening workflows that must stay usable under stress, urgency, operational pressure, or emergency conditions.
 
 ## MANDATORY PREPARATION
 
@@ -42,6 +45,12 @@ Identify weaknesses and edge cases:
    - Date/time formats
    - Number formats (1,000 vs 1.000)
    - Currency symbols
+
+4. **Test stressed-use contexts**:
+  - Small or split-screen workspaces
+  - Noisy, interruption-heavy environments
+  - Urgent decision-making with low patience
+  - Users who need one clear next step instead of a dense control wall
 
 **CRITICAL**: Designs that only work with perfect data aren't production-ready. Harden against reality.
 
@@ -180,11 +189,14 @@ t('items', { count }) // Handles complex plural rules
 **API errors**:
 - Handle each status code appropriately
   - 400: Show validation errors
-  - 401: Redirect to login
-  - 403: Show permission error
-  - 404: Show not found state
-  - 429: Show rate limit message
-  - 500: Show generic error, offer support
+  - 401: Prompt sign-in or session refresh, and preserve the intended destination when possible
+  - 403: Show a permission state with a clear access path
+  - 404: Show a not-found state with strong recovery navigation
+  - 429: Show a temporary rate-limit state with retry timing when known
+  - 500: Show a server-error state with retry plus a safe fallback or support path
+  - 503: Show a maintenance or temporary-outage state with status/ETA when available
+
+When the failure takes over the whole route, design it as a dedicated error page rather than a tiny inline message or toast.
 
 **Graceful degradation**:
 - Core functionality works without JavaScript
@@ -221,6 +233,13 @@ Power should feel controlled, not risky. If a feature can cause large-scale mist
 - No notifications
 - No data to display
 - Provide clear next action
+
+**Notification edge cases**:
+- Volume spikes (too many events in a short window)
+- Duplicate or near-duplicate notifications
+- Stale unread badges after state changes
+- Quiet hours, mute, or snooze states not being respected
+- Users who need summaries instead of real-time interruption
 
 **Loading states**:
 - Initial load
@@ -377,9 +396,11 @@ const throttledScroll = throttle(handleScroll, 100);
 - Test in different languages
 - Test offline
 - Test slow connection (throttle to 3G)
+- Test in a noisy, busy, or split-screen environment when the product is used under operational pressure
 - Test with screen reader
 - Test keyboard-only navigation
 - Test on old browsers
+- Run at least one stress or emergency drill if the workflow includes incidents, deadlines, approvals, or other high-stakes moments
 
 **Automated testing**:
 - Unit tests for edge cases

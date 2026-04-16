@@ -7,11 +7,14 @@ Some hosts may expose a friendly `/add` alias, but documentation, wrappers, and 
 ## Example requests
 
 - `/add-ui hero section for a B2B security product homepage`
+- `/add-ui redesign the existing hero section for a B2B security homepage; keep the same core structure and proof points, but explore new style, colors, copywriting, and typography`
 - `/add-ui pricing section for a developer tool with monthly and annual billing`
 - `/add-ui upgrade paywall for a freemium AI writing app after the user hits the monthly generation limit`
 - `/add-ui dashboard shell for an operations analytics platform`
 - `/add-ui onboarding flow for a budgeting app aimed at first-time users`
 - `/add-ui product comparison table for a high-consideration ecommerce category`
+- `/add-ui redesign our existing login/register screens; keep the flow familiar but show five distinct visual and editorial directions we can compare`
+- `/add-ui redesign this blog landing page while preserving its section order and content blocks; make the options feel meaningfully different without turning it into a different site`
 
 Equivalent host-level alias examples:
 
@@ -23,10 +26,14 @@ Equivalent host-level alias examples:
 The skill should:
 
 1. classify the request
-2. generate **5** genuinely different directions
-3. explain tradeoffs in a compact comparison format
-4. recommend one direction when the goals clearly favor it
-5. help preview and apply the selected option
+2. detect whether the request is net-new UI or a redesign of an existing artifact
+3. preserve the recognizable structure when the user asks to keep the essence or current layout
+4. generate **5** genuinely different directions
+5. explain tradeoffs in a compact comparison format
+6. recommend one direction when the goals clearly favor it
+7. help preview and apply the selected option
+
+For redesign requests that preserve structure, the directions should usually vary typography, color, copy framing, proof treatment, density, and detail language more than the underlying page skeleton.
 
 ## Layering examples
 

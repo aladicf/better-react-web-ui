@@ -24,7 +24,8 @@ Understand what kind of absence you are dealing with:
    - No results from search or filters
    - Previously cleared content
    - Permission/access restriction
-   - Error while loading content
+   - Error while loading content inside an existing surface
+   - Route-level or full-page failure such as 401, 403, 404, 429, 500, or 503
 
 2. **User question**:
    - What is this area for?
@@ -40,7 +41,7 @@ If any of these are unclear from the codebase, ask the user directly to clarify 
 
 ## Plan the Empty State
 
-Consult the [empty-state patterns](../frontend-design/reference/empty-state-patterns.md) for the main empty-state types, CTA rules, and chrome-reduction guidance.
+Consult the [empty-state patterns](../frontend-design/reference/empty-state-patterns.md) for the main empty-state types, full-page error variants, CTA rules, and chrome-reduction guidance.
 
 Design the state around this structure:
 - **What this area is for**
@@ -74,7 +75,7 @@ Design the state around this structure:
 
 ### Error States
 - State what failed in simple language
-- Provide retry
+- Match the recovery path to the failure type: retry for transient failures, sign-in for expired sessions, request access for 403, home/search for 404, and status/support for broader service failures
 - Add support/help path when needed
 
 ### Reduce Dead Chrome
@@ -90,6 +91,7 @@ Design the state around this structure:
 - Keep inactive controls visible just because the full UI normally has them
 - Let the illustration overpower the message and CTA
 - Use the same empty-state tone for first use, permissions, and errors
+- Use a generic catch-all error page when a more specific recovery path is available
 
 ## Verify Empty-State Quality
 

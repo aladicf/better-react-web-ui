@@ -73,6 +73,31 @@ Prefer concrete examples, timeframes, and realistic scenarios over foggy claims.
 
 Mirror how users describe the problem. Avoid product-marketing fog like `platform`, `innovative`, or `streamline` unless the term truly clarifies something.
 
+### Value proposition before page decoration
+
+Landing pages get clearer faster when the team can state the value proposition in one sentence.
+
+Useful formula:
+
+- **what benefit or problem outcome exists**
+- **how the product delivers it**
+
+Example structure:
+
+- `{benefit or solved problem}. {How it happens}.`
+
+Stress-test the value proposition by asking whether the opposite would also sound plausible. If the opposite is obviously absurd, the claim may just be saying nothing.
+
+Weak:
+
+- `High-quality products at an affordable price`
+
+Stronger:
+
+- `Handcrafted products for a discerning buyer`
+
+Good landing-page copy usually starts with a sharper value proposition before it starts decorating sections around it.
+
 ### One idea per section, one job per screen
 
 Especially on mobile, each screen should answer one question and support one next step.
@@ -186,6 +211,63 @@ Useful headline frames:
 | Objection handling | Address trust, migration, or pricing concerns |
 | Final CTA | Restate value and ask clearly |
 
+#### Landing-page message flow
+
+Users often move through a rough sequence of questions:
+
+1. what is this offering?
+2. how does it help me?
+3. how does it work?
+4. why should I trust it?
+5. what should I do next?
+
+The page does not need to feel mechanical, but the copy hierarchy should help answer those questions in roughly that order.
+
+#### Objection handling
+
+Do not leave major objections to a buried FAQ if they predictably block conversion.
+
+Common objections include:
+
+- trust and legitimacy
+- privacy or security
+- delivery or setup friction
+- migration effort
+- price sensitivity
+
+When possible, remove the objection operationally. When that is not possible, address it clearly in the page copy near the point where concern spikes — often close to the CTA, form, pricing detail, or sensitive input.
+
+#### Primary and secondary CTA discipline
+
+Landing pages usually need:
+
+- one obvious **primary CTA**
+- optionally one quieter **secondary CTA** for users not yet ready to commit
+
+The secondary CTA should lower commitment, not steal attention.
+
+Examples:
+
+- primary: `Start free trial`
+- secondary: `See a demo`
+
+or
+
+- primary: `Book a consultation`
+- secondary: `Get the pricing guide`
+
+If the secondary CTA becomes equally loud, the page loses focus.
+
+#### Aesthetic and first-impression alignment
+
+Landing-page copy and design should reinforce the same first-impression words.
+
+Useful team prompt:
+
+- what 3-5 words should users feel in the first seconds? (`trustworthy`, `approachable`, `premium`, `serious`, `playful`, etc.)
+
+Use those words to review both the copy tone and the visual direction.
+
 ### Product onboarding
 
 - promise what the user will achieve in the next 2-5 minutes
@@ -270,6 +352,10 @@ Examples:
 - match the traffic source promise closely
 - keep one message and one primary CTA
 - remove secondary distractions when possible
+- define a value proposition that states both the benefit and how it is delivered
+- keep any secondary CTA visibly quieter and lower-commitment
+- address predictable objections near the relevant CTA, form, or proof point instead of hiding them elsewhere
+- review the page against the intended first-impression words, not just conversion goals
 
 ### Feature page
 

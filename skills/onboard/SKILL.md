@@ -12,6 +12,7 @@ Users start this workflow with `/onboard`. Once this skill is active, load $fron
 Consult the [empty-state patterns](../frontend-design/reference/empty-state-patterns.md) when zero-data surfaces are part of the onboarding journey.
 Consult the [cognitive load](../frontend-design/reference/cognitive-load.md) when deciding what to hide, sequence, or progressively disclose for first-time users.
 Consult the [ux-writing reference](../frontend-design/reference/ux-writing.md) when onboarding clarity depends on labels, hints, reassurance copy, or CTA wording.
+Consult the [status communication](../frontend-design/reference/status-communication.md) when onboarding needs notification preferences, summary modes, quiet hours, reminder settings, or interruption-level decisions.
 Consult [marketing copywriting](../frontend-design/reference/marketing-copywriting.md) when onboarding needs stronger setup promises, first-win framing, permission prompts, or upgrade / invite messaging.
 Consult [copy editing sweeps](../frontend-design/reference/copy-editing-sweeps.md) when revising existing onboarding copy in focused passes.
 
@@ -105,6 +106,13 @@ Create appropriate onboarding for the context:
 - Explain why you're asking for each piece of information
 - Smart defaults where possible
 - Social login when appropriate
+
+**Notification Preferences** *(when the product could become noisy or time-sensitive)*:
+- Ask only once users understand what kinds of events exist
+- Offer recommended modes like calm / regular / power-user before exposing an exhaustive settings wall
+- Let users set quiet hours, work hours, summaries, or preferred channels when relevant
+- Ask when they do **not** want to be interrupted, not only when they do
+- Keep a clear path to change these settings later without hunting through the product
 
 **Core Concept Introduction**:
 - Introduce 1-3 core concepts (not everything)

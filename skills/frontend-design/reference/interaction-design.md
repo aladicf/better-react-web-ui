@@ -103,6 +103,339 @@ Primary and frequent actions should be large enough, close enough, and separated
 
 When the product has a reusable skeleton primitive, prefer **layout-faithful skeleton wrappers** over manually sizing gray rectangles for every screen. Rendering the real component with mock content inside a skeleton treatment preserves authentic wrapping, media proportions, and spacing.
 
+## Design for Stress, Urgency, and Emergency Use
+
+People do not always use products in ideal, calm conditions. They may be split-screening on older hardware, working through background noise, juggling several tools, or dealing with an urgent problem they cannot afford to get wrong.
+
+### What stress changes
+
+Under pressure, users often experience:
+
+- narrower attention and poorer peripheral awareness
+- worse reading comprehension and memory
+- lower patience for exploration or ambiguity
+- weaker fine-motor precision
+- faster, more habit-driven decisions instead of careful reasoning
+
+That means the interface should remove ambiguity, not add cleverness.
+
+### Prefer single-tasking over interface multitasking
+
+In stressful moments, one large complicated page is often worse than a shorter sequence of simple steps.
+
+Good defaults:
+
+- give users one clear next step at a time
+- break big jobs into smaller sub-tasks with visible status
+- use task-list or checklist patterns when the work benefits from ordered progress
+- remove distracting navigation or tertiary actions when they do not help the urgent task
+
+### Build order around the right action
+
+When accuracy matters, ordering matters.
+
+- put the highest-priority action first and make it easiest to find
+- revise defaults, presets, and suggested actions so they reduce decision work instead of adding it
+- summarize the current state clearly so users do not have to remember what already happened
+- add undo, confirmation summaries, or other safeguards where a rushed mistake would be expensive
+
+### Emergency mode is sometimes a real product need
+
+If the product supports urgent coordination, incident handling, safety workflows, or other high-stakes situations, consider designing a dedicated emergency mode instead of pretending the normal interface is enough.
+
+Useful patterns can include:
+
+- instant alerting or escalation paths
+- preassigned tasks or roles
+- critical-contact access
+- a clear communication path
+- checklists or status flows that help teams coordinate quickly
+
+### Keep just enough friction
+
+Not every bit of friction is bad. Removing accidental friction is good; removing all effort can be harmful when users need to understand consequences or recognize value.
+
+Prefer friction that:
+
+- prevents irreversible mistakes
+- reinforces understanding at key setup moments
+- slows users down only where slowing down genuinely improves accuracy or judgment
+
+### Test where people actually work
+
+Stress cases are not edge cases if the product routinely appears in messy real life.
+
+Test in conditions such as:
+
+- noisy or interruption-heavy environments
+- smaller displays and split-screen layouts
+- low-motivation or low-training contexts
+- peak operational times
+- fallback or failure states during urgent use
+
+## Real-Time Dashboards Are Decision Tools, Not Just Data Walls
+
+Designing for real-time use is not the same as designing a static reporting dashboard.
+
+The job is not merely to show the latest number. The job is to help users notice what changed, understand whether it matters, and decide what to do next under pressure.
+
+### Design for comprehension under pressure
+
+Users in real-time environments often have:
+
+- limited attention
+- limited working memory
+- high consequence for delay or misread signals
+
+That means the interface should reduce ambiguity before it adds richness.
+
+Good defaults:
+
+- prioritize the few most decision-critical metrics first
+- keep the main hierarchy obvious even when values update live
+- group related signals so users can scan by cluster instead of re-reading the whole screen
+- use progressive disclosure instead of exposing every metric at once
+
+### Show change clearly, not theatrically
+
+Users often struggle more with interpreting change than with reading the absolute number.
+
+Useful patterns:
+
+- **delta indicators** for quick directional change
+- **sparklines** when they reveal a meaningful trend beside the current KPI
+- **micro-history or snapshot views** when users need a short memory aid
+- **subtle motion cues** when something updates and needs to be noticed
+
+Important restraint:
+
+- do not use sparklines as decorative garnish; they should reveal a useful trend window
+- do not animate every number just because it changed
+- do not let motion compete with the hierarchy of the page
+
+### Use motion to preserve orientation
+
+In live dashboards, small transitions can prevent change blindness — but only when they stay calm.
+
+Good defaults:
+
+- value changes: brief, quiet transitions in roughly the `200–400ms` range
+- lightweight interaction feedback: often closer to `100–150ms`
+- list or ranking reorders: smooth transitions under roughly `300ms` so users keep spatial memory
+
+Avoid dramatic motion, layout jumps, or constant pulsing that turns the whole dashboard into noise.
+
+### Not all data deserves the same refresh rate
+
+Real-time does not mean every region of the interface should update at maximum frequency.
+
+Prefer:
+
+- faster refresh for safety-critical or action-driving signals
+- calmer refresh for supportive or background metrics
+- batching or pacing updates when simultaneous changes would overwhelm the user
+
+If everything updates at once, users lose track of what actually matters.
+
+### Give users control when the stream gets noisy
+
+Useful control patterns include:
+
+- pause live updates
+- snapshot / freeze current state temporarily
+- reveal recent change history
+- filter by severity, recency, or role relevance
+
+These controls let users verify what happened instead of second-guessing the system from memory.
+
+### Personalization is part of cognitive design
+
+Different roles care about different signals.
+
+When the product supports it, let users tailor:
+
+- which KPIs lead
+- which alerts are shown prominently
+- preferred update pacing or summary level
+- which views or filters open by default
+
+Personalization is not just convenience. It reduces cognitive load by letting each role see the dashboard through its own decision lens.
+
+## Infinite Scroll vs Load More vs Pagination
+
+Long result lists do not all want the same continuation pattern.
+
+Before choosing one, ask what job the list is doing:
+
+- **exploration** — browse breadth quickly
+- **evaluation** — compare a growing set more carefully
+- **retrieval** — find the best-ranked or most relevant match quickly
+- **reference** — return to a stable position later
+
+### Use `Load more` as the strongest default for large browsable lists
+
+`Load more` often gives the best balance between continuity and control.
+
+Why it works well:
+
+- the list keeps growing instead of replacing earlier results
+- users can compare items across one continuous surface
+- the interface provides a natural pause point instead of encouraging endless shallow scanning
+- the footer, support links, and cross-navigation remain reachable
+
+When appropriate, combine `Load more` with background lazy-loading in smaller batches so the list feels smooth before the next explicit pause.
+
+### Use infinite scroll sparingly
+
+Infinite scroll is best for low-risk exploratory browsing where breadth matters more than careful comparison.
+
+Good candidates:
+
+- inspiration feeds
+- lightweight discovery surfaces
+- media streams where the cost of losing precise position is low
+
+Avoid infinite scroll when users need to:
+
+- evaluate ranked results carefully
+- compare items across a stable stopping point
+- reach the footer reliably
+- jump back and forth between list and detail views
+- maintain a strong sense of place in a long operational dataset
+
+In practice, infinite scroll is usually a poor fit for search results and often a weak fit for mobile-heavy product grids.
+
+### Use pagination when stable slices matter more than continuity
+
+Pagination is still useful when users benefit from clear position and stable chunks.
+
+Good candidates:
+
+- reference-heavy or operational datasets
+- situations where page position must be shared, bookmarked, or revisited reliably
+- implementations that cannot yet preserve state safely for dynamic continuation
+
+Pagination is often less fluid than `Load more`, but it is more honest than a broken dynamic list.
+
+### Heuristics by context
+
+These are starting points, not fixed laws:
+
+- **broad category / collection browsing on desktop**: show a modest initial set, continue in smaller lazy-loaded batches, then interrupt with `Load more` after roughly a screenful cluster such as `50–100` items
+- **ranked search results**: show a more focused set such as `25–75` results, then use `Load more` or pagination so users examine the strongest matches more carefully
+- **mobile browsing**: lower the threshold further, often around `15–30` items before an explicit continuation control, because screen size and scrolling effort amplify fatigue quickly
+
+The more spec-heavy and comparison-heavy the list is, the lower the threshold should usually be.
+
+### Back button behavior is not optional
+
+If users open an item from a dynamically extended list, the back button should return them to:
+
+- the same scroll position
+- the same loaded result depth
+- the same applied filters and sort
+
+If the implementation cannot preserve that state reliably — for example through URL state, history entries, or equivalent restoration logic — prefer pagination over a flashy but disorienting dynamic list.
+
+### Protect the footer and support paths
+
+Do not make important footer content effectively unreachable by endlessly pushing it away.
+
+If the footer contains help, shipping, returns, account, or legal/support paths, the continuation pattern must preserve access to it instead of turning it into a mirage.
+
+## Overlays, Dialogs, Modals, and Pages
+
+These terms overlap in conversation, but they are not interchangeable.
+
+- **Dialog** — a generic user ↔ system conversation surface
+- **Overlay** — content shown above the current page context
+- **Modal** — an overlay that blocks interaction with the background
+- **Non-modal** — an overlay that leaves the background available
+- **Lightbox / scrim** — the dimmed background treatment that focuses attention on the foreground surface
+
+The most important question is not “Can this fit in a modal?” but “What level of interruption actually helps here?”
+
+### Choose a modal for short, self-contained, high-priority tasks
+
+Modals are best when users should:
+
+- complete one focused task
+- confirm or review something risky
+- avoid data loss or irreversible mistakes
+- return quickly to where they were with the original page state preserved
+
+Strong modal candidates:
+
+- destructive confirmations
+- quick focused selections
+- short edit or review tasks where leaving the page would be more disruptive than the interruption itself
+
+### Prefer non-modal surfaces by default when interruption is optional
+
+If the user benefits from keeping background access, prefer:
+
+- a non-modal dialog
+- a side drawer
+- a bottom sheet
+- an anchored overlay
+
+These usually work better when the user may need to:
+
+- compare information
+- copy and paste from the background
+- keep scanning nearby records
+- maintain awareness of the underlying page while acting
+
+### Choose a page for complex or lengthy workflows
+
+Pages are usually better for:
+
+- multi-step processes
+- long forms or deep setup
+- tasks that need full attention
+- workflows where comparison with the previous screen is not the main benefit
+
+If the content needs tabs, wizard logic, or extended instructions just to fit inside a modal, that is often a sign the task wants a page or at least a drawer.
+
+### Avoid both modals and page navigation for repeated anchored tasks
+
+In high-frequency operational workflows, both a modal and a full page can add unnecessary friction.
+
+Often better choices are:
+
+- in-place editing
+- expandable sections
+- inline confirmations
+- drawers that keep the current dataset visible
+
+Repeated work benefits from staying anchored to the current context.
+
+### Practical decision path
+
+Ask these in order:
+
+1. **Does the user need to preserve the current page context?**
+2. **Is the task short and self-contained, or long and multi-step?**
+3. **Will the user need to reference or copy from the underlying page while working?**
+4. **Does blocking the background add real value, or just friction?**
+
+If the answer to the last question is unclear, lean away from a modal.
+
+### Good defaults
+
+- use modals to slow users down only when slowing down helps
+- prefer non-blocking dialogs or drawers before blocking the whole UI
+- allow escape with close controls, Escape, and outside-click dismissal when the task allows it
+- keep the overlay scope honest: short tasks stay short; long tasks get promoted to a better container
+
+### Avoid
+
+- modals for error messages
+- modals for feature announcements or marketing interruptions
+- modals for onboarding tours
+- nested modal stacks
+- auto-triggered modals unless the interruption is truly worth it
+
 ## Modals: The Inert Approach
 
 Focus trapping in modals used to require complex JavaScript. Now use the `inert` attribute:
@@ -236,6 +569,43 @@ This is one of those tiny edge cases that makes a combobox feel either trustwort
 ## Destructive Actions: Undo > Confirm
 
 **Undo is better than confirmation dialogs**—users click through confirmations mindlessly. Remove from UI immediately, show undo toast, actually delete after toast expires. Use confirmation only for truly irreversible actions (account deletion), high-cost actions, or batch operations.
+
+## Notifications, Validation, and Indicators Are Not the Same Thing
+
+Treat status communication as a family of patterns, not one interchangeable blob.
+
+- **Validation** belongs near the field or control it refers to
+- **Notifications** surface events the user may not already be watching
+- **Indicators and badges** provide passive ambient state
+- **Feeds and inboxes** hold lower-priority history that should not constantly interrupt
+
+If the user is already looking at the object in question, prefer inline validation or inline status before reaching for a toast or push notification.
+
+For the deeper guidance on notification hierarchy, fatigue, channels, settings, summaries, and activity feeds, use [status communication](./status-communication.md).
+
+For deeper search behavior, autosuggest, zero-results recovery, and vocabulary mismatch guidance, use [search-and-findability](./search-and-findability.md).
+
+## Use the Lowest Effective Interruption Level
+
+Escalate from quieter to louder channels only when the message truly earns it.
+
+Good default ladder:
+
+1. inline status or validation
+2. quiet status indicator or badge
+3. toast or local UI notification
+4. persistent banner or alert region
+5. inbox / activity feed / digest
+6. push, SMS, or other external interruption
+
+Do not skip straight to a high-interruption pattern for routine automated chatter.
+
+### Practical rules
+
+- frequent system activity usually belongs in an inbox, digest, or lower-emphasis feed
+- toasts are best for recent action feedback, undo, and short-lived system responses
+- push notifications should be reserved for timely, user-valued, or human-relevant events
+- if volume could spike, provide snooze, mute, summary, or quiet-hours paths
 
 ## Keyboard Navigation Patterns
 

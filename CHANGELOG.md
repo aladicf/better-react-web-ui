@@ -8,16 +8,44 @@ The format is inspired by Keep a Changelog and uses a simple `Added` / `Changed`
 
 ### Added
 
-- A new in-folder index at `skills/frontend-design/reference/README.md` now maps the shared doctrine library by topic so maintainers and users can browse it without already knowing the exact filename.
-- A new in-folder index at `skills/animate/reference/README.md` now groups the deeper motion guidance by use case instead of leaving the reference set as a flat filename list.
+- Shared `design-principles` doctrine now covers how to write practical, decision-making design principles that clarify both preferred defaults and anti-patterns.
+- Shared `search-and-findability` doctrine now covers intent-aware site search, synonym and typo tolerance, zero-result recovery, search audits, autosuggest, metadata, and vocabulary gaps.
+- Shared `component-anatomy` doctrine now also covers practical filter / faceting guidance including async result updates, slider fallbacks, stable panels, long option groups, result-count apply buttons, and mobile filter surfaces.
+- Shared `component-anatomy` doctrine now also covers product/result-list continuation patterns and variant-selector anatomy so catalog-style browsing and option picking can be reasoned about more systematically.
+- Shared `component-anatomy` doctrine now also covers KPI cards / dashboard widgets so real-time metrics, delta cues, freshness states, and trustworthy comparison anatomy are easier to design consistently.
 
 ### Changed
 
-- `README.md` now surfaces `interaction-design`, `cognitive-load`, `hierarchy-checklist`, and `ux-writing` more prominently in the quick-start doctrine list, and links to both new reference indexes.
+- `interaction-design` now includes clearer decision guidance for choosing between modals, non-modal overlays, drawers, pages, and inline approaches based on task scope and interruption cost.
+- `interaction-design` now also covers when to use infinite scroll, `Load more`, or pagination, including guidance for search vs category browsing, mobile thresholds, footer access, and back-button restoration.
+- `interaction-design` now also covers real-time dashboard comprehension, update pacing, role-based prioritization, pause/snapshot controls, and quieter motion strategies for live decision surfaces.
+- `status-communication` now also covers freshness, staleness, paused/offline/reconnecting states, cached snapshots, and accessibility considerations for trustworthy live-data interfaces.
+- `empty-state-patterns` now also covers 404 / not-found recovery, including tone, navigation, and broken-link recovery guidance.
+- `search-and-findability` now more explicitly covers command palettes vs site search vs filter bars, search microcopy, placeholder guidance, recent/related search labeling, and empty-submit / no-results recovery patterns.
+- `marketing-copywriting` now more explicitly covers landing-page value propositions, objection handling, primary vs secondary CTA discipline, and message flow.
+- `add-ui` request mapping now gives stronger commerce-specific guidance for result browsing, product-page above-the-fold summaries, variant selection, and trust-preserving catalog UX.
+- `add-ui` request mapping now also gives stronger guidance for real-time dashboards and 404 / broken-link recovery surfaces.
+- `frontend-design`, `setup`, `critique`, `add-ui` request mapping, the shared reference index, and `README.md` now surface the new principles and search/findability guidance more explicitly.
+
+## [1.9.0] - 2026-04-15
+
+### Added
+
+- A new in-folder index at `skills/frontend-design/reference/README.md` now maps the shared doctrine library by topic so maintainers and users can browse it without already knowing the exact filename.
+- A new in-folder index at `skills/animate/reference/README.md` now groups the deeper motion guidance by use case instead of leaving the reference set as a flat filename list.
+- Shared `status-communication` doctrine now covers the differences between validation, notifications, indicators, badges, inboxes, activity feeds, digest settings, severity hierarchy, and notification-fatigue mitigation.
+- Shared `legacy-modernization` doctrine now covers workflow and dependency mapping, coexistence with modern products, migration-strategy choices, legacy seam pain, public-beta paths, and stakeholder / heavy-user trust building.
+
+### Changed
+
+- `README.md` now surfaces `interaction-design`, `status-communication`, `legacy-modernization`, `cognitive-load`, `hierarchy-checklist`, and `ux-writing` more prominently in the quick-start doctrine list, and links to both reference indexes.
 - README now includes a quick skill-picker table that clarifies common ambiguities such as `critique` vs `audit` vs `polish` and `distill` vs `quieter` vs `bolder`.
 - The `critique`, `audit`, `polish`, `distill`, `bolder`, and `quieter` skill descriptions now use sharper trigger language to make overlap boundaries clearer.
 - `setup` now states more explicitly that `.better-web-ui.md` is the canonical design-context destination, while `.better-ui.md` and `.impeccable.md` are legacy migration inputs only.
 - `animate` now links directly to its new reference index so the deeper motion library is easier to browse.
+- `add-ui` now explicitly supports redesigning existing surfaces while preserving their recognizable structure, and its request mapping now also covers notification settings / feeds and legacy-modernization scenarios more directly.
+- `frontend-design`, `clarify`, `onboard`, `harden`, `normalize`, and `critique` now point more explicitly to the shared doctrine needed for status communication and legacy-system modernization work.
+- The repository version metadata in `package.json` and `package-lock.json` has been bumped to `1.9.0`.
 
 ## [1.8.2] - 2026-04-14
 

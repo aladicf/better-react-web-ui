@@ -17,6 +17,8 @@ Consult the [hierarchy checklist](../frontend-design/reference/hierarchy-checkli
 Consult the [text hierarchy and readability](../frontend-design/reference/text-hierarchy-and-readability.md) for line length, line-height, baseline, alignment, and title restraint.
 Consult the [cognitive load](../frontend-design/reference/cognitive-load.md) for working-memory limits and the 8-item checklist.
 Consult the [interaction design](../frontend-design/reference/interaction-design.md) when evaluating familiar patterns, target sizing, focus treatment, and overlay behavior.
+Consult the [search and findability](../frontend-design/reference/search-and-findability.md) when the interface depends on site search, command palettes, autosuggest, result relevance, or no-results recovery.
+Consult the [legacy modernization](../frontend-design/reference/legacy-modernization.md) when the critique involves legacy systems, old/new seams, migration candidates, or high-risk operational workflows.
 Consult the [ai slop detection](../frontend-design/reference/ai-slop-detection.md) for the consolidated anti-pattern list.
 Consult the [action hierarchy](../frontend-design/reference/action-hierarchy.md) when evaluating primary/secondary/tertiary actions.
 Consult the [semantic color](../frontend-design/reference/semantic-color.md) when color is carrying meaning.
@@ -57,6 +59,8 @@ Review the design against ALL the **DON'T** guidelines in the frontend-design sk
 - Is avoidable complexity pushed into the system through defaults, prefills, and guidance, or dumped on the user to manage manually? (Tesler's Law)
 - Are there too many choices at once? Count visible options at each decision point — if >4, flag it
 - Is the navigation clear and predictable?
+- If search is present, does it understand intent, synonyms, typos, and likely destinations, or does it punish users for not knowing internal vocabulary?
+- In mixed legacy/modern flows, does one fragile step make the entire product feel unreliable or inconsistent?
 - **Progressive disclosure**: Is complexity revealed only when needed, or dumped on the user upfront?
 - **Run the 8-item cognitive load checklist** from the reference. Report failure count: 0–1 = low (good), 2–3 = moderate, 4+ = critical.
 

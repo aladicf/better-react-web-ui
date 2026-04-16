@@ -1,6 +1,6 @@
 ---
 name: add-ui
-description: Generate 5 distinct, production-grade UI variations for a requested section, component, page, flow, or shell, then help the user preview and apply one. Use when the user asks to add UI like a hero, pricing, navbar, auth flow, dashboard shell, ecommerce surface, or data component.
+description: Generate 5 distinct, production-grade UI variations for a requested new or existing section, component, page, flow, or shell, then help the user preview and apply one. Use when the user asks to add or redesign UI like a hero, pricing, navbar, auth flow, dashboard shell, ecommerce surface, or data component.
 metadata:
   argument-hint: "[request]"
 ---

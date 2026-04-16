@@ -60,6 +60,17 @@ Often the cleanest semantic treatment is:
 
 This is often more accessible and less visually aggressive than white text on a very dark colored background.
 
+## Match Semantic Intensity to Attention
+
+Not every status message should look like an alert.
+
+- reserve strong warning and error treatments for risky, blocked, or genuinely cautionary states
+- use calmer informational or passive success treatments for routine updates
+- badges and status indicators should usually feel ambient, not emergency-coded
+- if a message appears frequently, reduce visual aggression before users learn to ignore everything on the screen
+
+Semantic color should reinforce true urgency, not manufacture it.
+
 ## Practical Checks
 
 - Is this color communicating meaning or only decoration?

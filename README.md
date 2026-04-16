@@ -42,7 +42,7 @@ See [`NOTICE.md`](NOTICE.md) for the fuller attribution chain and source lineage
 
 Use `better-web-ui` when you want an agent to help with:
 
-- generating multiple UI directions for new sections, pages, shells, and components
+- generating multiple UI directions for new or existing sections, pages, shells, and components
 - improving hierarchy, spacing, typography, color, and overall visual quality
 - reviewing interfaces for UX issues, accessibility, performance, and polish
 - designing empty states, onboarding, motion, depth, and stronger interaction details
@@ -125,6 +125,8 @@ Most hosts expose installed skills either as slash commands or through natural-l
 Example prompts:
 
 - `/add-ui hero section for a B2B security product homepage`
+- `/add-ui redesign this existing landing page while keeping the current section structure; explore five distinct directions through style, color, copy, and typography`
+- `/add-ui redesign our existing login/register flow, keep the bones familiar, and give me compare-and-contrast options before applying one`
 - `/critique this analytics dashboard for hierarchy and cognitive load`
 - `/audit this checkout form for accessibility and performance issues`
 - `/setup design context for a calm, trustworthy budgeting app`
@@ -138,7 +140,7 @@ At a high level, `better-web-ui` covers four kinds of work:
 
 ### Generate and shape UI
 
-- create multiple UI directions with `add-ui`
+- create multiple UI directions with `add-ui`, including redesigns of existing sections, pages, and flows when the user wants to preserve the recognizable structure but evolve the style and messaging
 - improve layout, responsiveness, hierarchy, typography, color, depth, imagery, and motion
 - simplify cluttered surfaces and strengthen action clarity
 
@@ -159,6 +161,7 @@ At a high level, `better-web-ui` covers four kinds of work:
 
 - extract reusable patterns with `extract`
 - normalize drifted UI with `normalize`
+- improve legacy or partially migrated surfaces with lower-risk modernization guidance
 - add polish, delight, boldness, or restraint depending on what the interface needs
 
 ## Shared design doctrine
@@ -169,8 +172,13 @@ If you want the map of the map, start with the [frontend-design reference index]
 
 If you are evaluating the library quickly, these are the best places to start:
 
+- [ux strategy](skills/frontend-design/reference/ux-strategy.md) — for connecting UX direction to user segments, priorities, feasibility, and project risk
 - [design process](skills/frontend-design/reference/design-process.md) — for rough exploration, styleguide thinking, and moving from vague requirements to sharper direction
+- [design principles](skills/frontend-design/reference/design-principles.md) — for turning product values and recurring tradeoffs into usable team defaults
 - [interaction design](skills/frontend-design/reference/interaction-design.md) — for familiar patterns, focus, loading, overlays, feedback, and guardrails
+- [search and findability](skills/frontend-design/reference/search-and-findability.md) — for site search, autosuggest, zero-results recovery, and intent-aware content discovery
+- [status communication](skills/frontend-design/reference/status-communication.md) — for notifications, validations, badges, inboxes, activity feeds, and interruption-level decisions
+- [legacy modernization](skills/frontend-design/reference/legacy-modernization.md) — for improving legacy systems, mapping dependencies, choosing migration strategies, and reducing old/new seam pain
 - [cognitive load](skills/frontend-design/reference/cognitive-load.md) — for reducing decision overload, unnecessary complexity, and memory burden
 - [hierarchy checklist](skills/frontend-design/reference/hierarchy-checklist.md) — for grayscale hierarchy, grouping, action priority, and label/value sanity checks
 - [ux writing](skills/frontend-design/reference/ux-writing.md) — for labels, errors, confirmations, and product microcopy clarity
@@ -197,7 +205,7 @@ For a maintainer-oriented doctrine map and validation workflow, use [`DEVELOPMEN
 
 ### Execution skills
 
-- `add-ui` — generate 5 distinct UI directions for a requested section, page, flow, shell, or component, then help preview and apply one
+- `add-ui` — generate 5 distinct UI directions for a requested new or existing section, page, flow, shell, or component, then help preview and apply one
 - `adapt` — responsive and context-aware adaptation
 - `animate` — motion, transitions, gestures, and micro-interactions
 - `arrange` — layout composition, grouping, and spacing rhythm
