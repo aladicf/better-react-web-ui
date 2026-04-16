@@ -131,9 +131,18 @@ Useful rule of thumb:
 
 ## Loading States
 
-**Optimistic updates**: Show success immediately, rollback on failure. Use for low-stakes actions (likes, follows), not payments or destructive actions. **Skeleton screens > spinners**—they preview content shape and feel faster than generic spinners.
+**Optimistic updates**: Show success immediately, rollback on failure. Use for low-stakes actions (likes, follows), not payments or destructive actions.
+
+Choose loading UI based on the real wait and the real certainty:
+
+- use small inline busy states when only one region is updating
+- keep previous useful content visible when freshness matters more than blankness
+- use stage-based progress when the system knows stages better than percentages
+- treat skeletons as a specific tool for stable, predictable layouts — not as the default answer to every slow request
 
 When the product has a reusable skeleton primitive, prefer **layout-faithful skeleton wrappers** over manually sizing gray rectangles for every screen. Rendering the real component with mock content inside a skeleton treatment preserves authentic wrapping, media proportions, and spacing.
+
+If the main question is skeletons vs spinners vs streaming vs optimistic UI, use [loading feedback and perceived performance](./loading-feedback-and-perceived-performance.md).
 
 ## Design for Stress, Urgency, and Emergency Use
 
@@ -294,6 +303,8 @@ When the product supports it, let users tailor:
 Personalization is not just convenience. It reduces cognitive load by letting each role see the dashboard through its own decision lens.
 
 ## Infinite Scroll vs Load More vs Pagination
+
+Consult [collection browsing and filtering](./collection-browsing-and-filtering.md) when the continuation pattern depends on filters, result ranking, footer reachability, back-button restoration, mobile overlay behavior, or the tradeoff between exploration and careful evaluation.
 
 Long result lists do not all want the same continuation pattern.
 
@@ -528,7 +539,18 @@ If the answer to the last question is unclear, lean away from a modal.
 
 ## Modals: The Inert Approach
 
-Focus trapping in modals used to require complex JavaScript. Now use the `inert` attribute:
+Consult [component accessibility](./component-accessibility.md) when the hard part is not simply opening a modal, but choosing initial focus, trapping and restoring focus reliably, deciding where focus should go after insert/remove actions, or evaluating whether a modal primitive or library is actually accessible in the real browser / assistive-tech mix.
+
+`inert` can reduce modal-focus complexity, but it does not remove the need for careful testing.
+
+Good defaults still include:
+
+- move focus into the modal deliberately
+- keep focus inside while the modal is active
+- restore focus to the opener when the modal closes unless the flow truly moved on
+- test the actual primitive or library in the real browser and assistive-tech combinations your users rely on
+
+Possible approach:
 
 ```html
 <!-- When modal is open -->
@@ -541,7 +563,9 @@ Focus trapping in modals used to require complex JavaScript. Now use the `inert`
 </dialog>
 ```
 
-Or use the native `<dialog>` element:
+The native `<dialog>` element can help, but do not assume it is the whole answer everywhere. Treat it as a candidate that still needs support and usability validation.
+
+If you use `<dialog>`:
 
 ```javascript
 const dialog = document.querySelector('dialog');
@@ -715,7 +739,26 @@ Arrow keys move `tabindex="0"` between items. Tab moves to the next component en
 
 ### Skip Links
 
-Provide skip links (`<a href="#main-content">Skip to main content</a>`) for keyboard users to jump past navigation. Hide off-screen, show on focus.
+Provide skip links (`<a href="#main-content">Skip to main content</a>`) for keyboard users to jump past navigation. Hide them off-screen, show them on focus, and make the primary skip link the first tab stop.
+
+Useful extensions:
+
+- add more than one skip link when users may need to skip to the footer, workspace, or past a dense interactive region
+- when the target is not normally focusable, consider `tabindex="-1"` on the target so focus can land there reliably in more browsers
+- keep skip links visually obvious when focused; an invisible focused skip link defeats the point
+
+### Programmatic Focus After UI Changes
+
+When the UI adds, removes, opens, or dismisses something, choose the focus destination deliberately instead of letting the browser dump focus somewhere accidental.
+
+Good defaults:
+
+- after opening a modal, focus the heading, container, or first meaningful control
+- after closing a modal, return focus to the opener unless the user has clearly moved to a new context
+- after removing an item, move focus to the next safe logical element rather than another destructive control
+- after adding a new field or row, move focus into the new element when that matches user intent
+
+Avoid using programmatic focus as decorative flourish. Use it to preserve orientation and prevent accidental repeated actions.
 
 ## Gesture Discoverability
 

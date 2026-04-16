@@ -13,6 +13,8 @@ If the project already uses `shadcn/ui`, Radix-based compositions, Base UI, Nuxt
 
 Do not use this reference as an excuse to second-guess strong upstream primitives that already solve accessibility, anatomy, and interaction patterns well.
 
+The more focused component-pattern references in this folder follow the same rule. They are strongest when teams are building or heavily composing the primitive layer themselves; when a mature library already owns the primitive, use those references mainly for pattern choice, content structure, states, density, responsive use, and surrounding workflow decisions rather than for fighting the library's base anatomy.
+
 ## General rule for component anatomy
 
 Every component should be clear about:
@@ -105,6 +107,9 @@ Reference:
 ## Tables and Data Tables
 
 Tables display structured information across rows and columns.
+
+Consult [feature comparison UX](./feature-comparison-ux.md) when the table is a high-consideration side-by-side product comparison rather than an ordinary data table, especially when sticky product headers, difference/similarity modes, shortlist management, or responsive compare behavior matter.
+Consult [complex table UX](./complex-table-ux.md) when the table becomes a dense operational surface with editable cells, pinned columns, header filters, command toolbars, row selection, validation, or desktop-first enterprise workflows.
 
 Use them when people need to compare records, scan repeated fields, sort, filter, resize, paginate, or select many structured items efficiently.
 
@@ -261,6 +266,7 @@ Its treatment should reflect the importance of the action, not just visual taste
 - using color alone to separate action importance when size, weight, spacing, and placement should help too
 
 Consult [action hierarchy](./action-hierarchy.md) when deciding which button should lead, recede, disappear, or wait until a confirmation step.
+Consult [disabled buttons UX](./disabled-buttons-ux.md) when deciding whether a primary action should be disabled, stay enabled and explain errors on submit, or temporarily lock during in-flight processing.
 
 ## Cards
 
@@ -283,7 +289,12 @@ A card is a container for one distinct unit of information, often with optional 
 - preserve clear hierarchy between headline, supporting text, metadata, and actions
 - keep text left-aligned unless there is a strong compositional reason not to
 - adjust layout by breakpoint instead of forcing the same arrangement everywhere
+- choose a dominant orientation for the card family instead of letting every card improvise between stacked and side-by-side layouts
+- use vertical cards for browse-first, image-led, mobile-friendly discovery flows unless the content clearly needs denser text treatment
+- use horizontal cards for wider, text-heavy, metadata-rich lists where users need more evaluation context per item
+- define media ratios by card type so repeated cards feel comparable and calm
 - when media and text need to coexist on larger screens, moving media to the side can work well if the crop still preserves the important content
+- if orientation changes by breakpoint or content type, keep the metadata order, action logic, and interaction cues recognizably consistent
 - if a card has no obvious internal CTA and the whole thing behaves like one destination, making the whole card the primary action can be clearer than scattering tiny links inside it
 - keep cards in a single readable column internally unless the content truly benefits from more complex structure
 
@@ -301,6 +312,7 @@ Cards are useful, but they are not the default answer to layout.
 If spacing, grouping, and alignment would solve the problem more cleanly, prefer that.
 
 Consult [spatial design](./spatial-design.md) and [surface separation](./surface-separation.md) when deciding whether a card should exist at all.
+Consult [aspect ratio and card orientation](./aspect-ratio-and-card-orientation.md) when the card family depends on media ratios, browse-vs-evaluate layout shifts, vertical-vs-horizontal decisions, or responsive orientation changes.
 
 ## KPI Cards / Dashboard Widgets
 
@@ -552,6 +564,8 @@ That means:
 
 Filters help users reduce a large result set into a more comfortable, more relevant range.
 
+Consult [collection browsing and filtering](./collection-browsing-and-filtering.md) for deeper guidance on comfortable-range decisions, async filter/result coordination, mobile filter surfaces, and continuation-pattern tradeoffs.
+
 That means the job is not merely "show all possible filters." The job is to help users arrive at a manageable set of relevant results quickly and without friction.
 
 ### Typical parts
@@ -586,6 +600,8 @@ Better defaults:
 ### Sliders need precise fallbacks
 
 Sliders are good for exploration, but poor for precision on their own.
+
+Consult [slider UX](./slider-ux.md) when the work depends on scale design, tick marks, histogram-backed ranges, dual-handle behavior, inline value editing, or deciding whether a slider belongs here at all.
 
 When the value matters precisely, also provide:
 
@@ -658,6 +674,8 @@ Consult [interaction design](./interaction-design.md) for overlay behavior and [
 ## Result Lists / Collection Browsing
 
 Result lists help users browse a collection, compare options, and decide whether to continue exploring or narrow the set further.
+
+Consult [collection browsing and filtering](./collection-browsing-and-filtering.md) for deeper guidance on `Load more` thresholds, infinite-scroll guardrails, back-button restoration, footer access, and browse-vs-search continuation choices.
 
 ### Typical parts
 
@@ -1107,6 +1125,7 @@ The exact left/right order can follow product or platform conventions, but the *
 - redundant phrasing that adds noise without clarity
 
 Consult [action hierarchy](./action-hierarchy.md) and [interaction design](./interaction-design.md) when form actions, loading states, or destructive alternatives need more structure.
+Consult [disabled buttons UX](./disabled-buttons-ux.md) when submit or continue actions risk becoming mystery-disabled or need clearer in-progress and unavailable-state treatment.
 
 ## Skeletons / Loading Placeholders
 
@@ -1297,6 +1316,7 @@ An accordion is a vertically stacked set of headers that reveal or hide associat
 - putting the icon on the start side unless the product has a strong established convention for it
 
 Consult [motion design](./motion-design.md) when animating the reveal so expansion feels smooth without layout jank.
+Consult [accordion UX](./accordion-ux.md) when the problem is not just anatomy, but when to use accordions, how the header should behave, whether sections should stay open, or how category links and expansion should be separated.
 
 ## Avatars
 
@@ -1429,6 +1449,8 @@ Consult [surface separation](./surface-separation.md) for the broader doctrine o
 
 Breadcrumbs show the user's current location inside a nested structure and help them move back up the hierarchy.
 
+Consult [breadcrumb UX](./breadcrumb-ux.md) for deeper guidance on placement, current-page handling, mobile reduction, sideways breadcrumbs, and when a stronger navigation pattern is a better answer.
+
 ### Typical parts
 
 - **page links** — parent-level locations
@@ -1444,7 +1466,7 @@ Breadcrumbs show the user's current location inside a nested structure and help 
 
 - keep text short and easy to scan
 - style breadcrumbs as secondary navigation, not as the main navigation system
-- include the current page as the last item, but keep it non-clickable by default
+- keep the current page visually distinct when shown, but include it only when it adds clarity relative to the nearby heading
 - use familiar separators and restrained typography so the pattern feels conventional
 
 ### Avoid
@@ -1456,7 +1478,7 @@ Breadcrumbs show the user's current location inside a nested structure and help 
 
 ### Mobile adaptation
 
-- show the most useful parent path, not necessarily the full lineage
+- keep the most useful parent path visible even when the full lineage is condensed
 - keep the trail compact enough that it supports orientation without crowding the top of the screen
 
 ## Consistency rule across components

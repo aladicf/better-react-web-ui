@@ -49,6 +49,8 @@ Use when the user can see the surface but lacks access to the content or control
 - who can grant access or what role is needed
 - contact/request access CTA when appropriate
 
+For deeper guidance on role models, request-access paths, capability boundaries, and risky permission changes, also use [permissions and roles UX](./permissions-and-roles-ux.md).
+
 ## Error Empty State
 
 Use when content should exist but a section of the interface failed to load or complete, while the surrounding page can still orient the user.

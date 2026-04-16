@@ -4,6 +4,8 @@ Use this reference when the UI touches sign-in, sign-up, password setup, passwor
 
 This is an interface and product-behavior guide, not a full identity architecture spec. Use it to reduce abandonment, avoid avoidable friction, and make stronger security feel understandable instead of hostile.
 
+If the main problem is authorization rather than authentication — role models, request-access paths, access-denied recovery, permission editing, or admin-vs-member capability boundaries — also use [permissions and roles UX](./permissions-and-roles-ux.md).
+
 ## Start With the Risk Model and the User's Situation
 
 Ask only the missing questions.

@@ -55,6 +55,44 @@ Timing matters more than easing. These durations feel right for most UI:
 
 **transform** and **opacity** only—everything else causes layout recalculation. For height animations (accordions), use `grid-template-rows: 0fr → 1fr` instead of animating `height` directly.
 
+## Micro-Interactions Need Four Things
+
+Useful micro-interactions usually have:
+
+1. **trigger** — what starts the interaction
+2. **rule** — what the system does in response
+3. **feedback** — what the user sees, hears, or feels
+4. **loop / mode** — whether it repeats, escalates, or changes after repetition
+
+This does **not** mean every tiny action needs a mini spectacle.
+
+It means the interaction should be understandable, responsive, and consistent.
+
+Good fits:
+
+- pressed and hover feedback
+- progress and success acknowledgement
+- form focus and validation cues
+- save / upload / purchase status
+- small achievement celebrations when the product tone supports them
+
+Bad fits:
+
+- animating routine controls just because motion is available
+- using loops that push users back into the product without clear value
+- decorative button motion that competes with the task itself
+
+## Micro-interactions should stay short and purposeful
+
+The `micro` part matters.
+
+Good defaults:
+
+- use them to acknowledge, orient, or lightly reward
+- keep them faster than larger transitions
+- make the user feel more in control, not more observed
+- favor one signature moment plus disciplined recurring feedback over motion everywhere
+
 ## Staggered Animations
 
 Use CSS custom properties for cleaner stagger: `animation-delay: calc(var(--i, 0) * 50ms)` with `style="--i: 0"` on each item. **Cap total stagger time**—10 items at 50ms = 500ms total. For many items, reduce per-item delay or cap staggered count.

@@ -6,6 +6,8 @@ This is a **curated shortlist**, not a frozen global inventory. Treat these as o
 
 Always match the existing codebase first. If the project already has its own local components, wrappers, registry, or design system for the same job, keep following that baseline instead of introducing a second competing default.
 
+If the project uses a named `shadcn` style baseline — for example a typography-first preset such as `Sera` with serif headings, square corners, uppercase tracking, and underlined controls — keep that geometry and type direction intact when applying accelerators instead of drifting back toward generic rounded-card defaults.
+
 ## How to use this list
 
 - Use the linked component page first for the current install path, usage shape, examples, and API.

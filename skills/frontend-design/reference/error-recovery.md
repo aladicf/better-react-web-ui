@@ -205,3 +205,5 @@ Avoid:
 - help content that obscures the very field users need to edit
 
 Error recovery is good UX when it helps users continue with confidence instead of making them feel corrected by the machine.
+
+For deeper guidance on **when** validation should happen — including late validation, empty-field timing, reward-early/punish-late logic, copy-paste-friendly validation, just-in-time verification, and override strategy — use [live validation UX](./live-validation-ux.md).

@@ -2,6 +2,8 @@
 
 Use this reference when the work involves product reviews, rating summaries, recommendation signals, reviewer credibility, or any commerce surface where social proof helps users decide whether a product is trustworthy and right for them.
 
+For broader testimonial, logo, certification, case-study, and trust-signal placement patterns outside product-review systems, also use [social proof patterns](./social-proof-patterns.md).
+
 Reviews do more than prove that a product is popular.
 
 They help users answer a more important question: **will this work for someone like me, with acceptable risk?**

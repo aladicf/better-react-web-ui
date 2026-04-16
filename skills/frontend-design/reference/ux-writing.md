@@ -2,6 +2,8 @@
 
 Use this reference for interface-level UX writing: labels, errors, empty states, confirmations, helper text, and short product microcopy.
 
+For moments where the real problem is evasive, manipulative, faux-friendly, or overly apologetic interface language — especially in consent, cancellation, upgrades, progress states, and critical system messages — use [interface honesty](./interface-honesty.md).
+
 For broader conversion or positioning work — headlines, landing pages, lifecycle messages, app-store copy, or CTA strategy — use [marketing copywriting](./marketing-copywriting.md).
 
 For editing existing copy in structured passes rather than rewriting from scratch, use [copy editing sweeps](./copy-editing-sweeps.md).
@@ -71,6 +73,64 @@ Empty states are onboarding moments: (1) Acknowledge briefly, (2) Explain the va
 
 **Never use humor for errors.** Users are already frustrated. Be helpful, not cute.
 
+## Prefer active voice and strong verbs
+
+Active voice usually makes interface writing faster to parse and easier to act on.
+
+Prefer:
+
+- `Save changes`
+- `Reset password`
+- `We sent the invoice`
+
+Over:
+
+- `Changes were saved`
+- `Password reset has been completed`
+- `The invoice has been sent`
+
+Strong verbs usually do more work than extra adjectives.
+
+## Second-person language helps when it clarifies ownership
+
+`You`, `your`, and related phrasing often help users understand who the action or consequence applies to.
+
+Examples:
+
+- `Review your order`
+- `Choose your delivery option`
+- `You can change this later`
+
+Do not force second-person phrasing everywhere, but do use it when it reduces ambiguity and makes the next step feel clearer.
+
+## Assertive beats apologetic when clarity matters
+
+Users usually need the interface to sound:
+
+- calm
+- direct
+- competent
+
+Not:
+
+- evasive
+- over-cheerful
+- excessively apologetic
+
+Prefer:
+
+- `Incorrect password.`
+- `Upload failed. Try again.`
+- `Delete project permanently?`
+
+Over:
+
+- `Oops! That doesn’t look quite right.`
+- `Sorry, we had a little hiccup.`
+- `Are you sure you want to maybe delete this?`
+
+Warmth is fine. Clarity comes first.
+
 ## Writing for Accessibility
 
 **Link text** must have standalone meaning—"View pricing plans" not "Click here". **Alt text** describes information, not the image—"Revenue increased 40% in Q4" not "Chart". Use `alt=""` for decorative images. **Icon buttons** need `aria-label` for screen reader context.
@@ -109,9 +169,13 @@ Build a terminology glossary and enforce it. Variety creates confusion.
 
 If the heading explains it, the intro is redundant. If the button is clear, don't explain it again. Say it once, say it well.
 
+If a sentence exists only to point out a UI element users should already understand visually, the design may need work more than the copy does.
+
 ## Loading States
 
 Be specific: "Saving your draft..." not "Loading...". For long waits, set expectations ("This usually takes 30 seconds") or show progress.
+
+Progress language should also be truthful. Avoid fake certainty like `Almost there` or `Just a few seconds left` unless the system genuinely knows that.
 
 ## Confirmation Dialogs: Use Sparingly
 
@@ -164,6 +228,8 @@ Avoid writing that manipulates:
 - fake urgency or fake scarcity claims
 - hiding important conditions in low-emphasis helper text
 - making the safe option linguistically vague while the product-favoring option is clear and prominent
+
+For broader guidance on assertive language, honest consent wording, progress truthfulness, and avoiding manipulative friendliness in interface copy, use [interface honesty](./interface-honesty.md).
 
 ## Form Instructions
 

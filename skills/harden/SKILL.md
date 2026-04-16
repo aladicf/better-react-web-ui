@@ -7,13 +7,20 @@ metadata:
 
 Strengthen interfaces against edge cases, errors, internationalization issues, and real-world usage scenarios that break idealized designs.
 
+Treat edge cases as design input, not as cleanup after the happy path already shipped.
+
 Consult the [semantic color](../frontend-design/reference/semantic-color.md) reference when designing error, warning, success, and info states so semantic color stays clear and not purely decorative.
 Consult the [status communication](../frontend-design/reference/status-communication.md) reference when hardening notification flows, activity feeds, summaries, or alert settings against fatigue and interruption overload.
 Consult the [image treatment](../frontend-design/reference/image-treatment.md) when hardening user-uploaded media, screenshots, icon scaling, or image bleed behavior.
 Consult the [error-recovery](../frontend-design/reference/error-recovery.md) reference when the task involves validation behavior, summaries, strict validators, recoverable field errors, or abandonment caused by poor recovery design.
 Consult the [authentication and account recovery](../frontend-design/reference/authentication-and-account-recovery.md) reference when hardening sign-in, session expiry, password setup, MFA, lockout, or account-recovery flows.
+Consult the [permissions and roles UX](../frontend-design/reference/permissions-and-roles-ux.md) reference when hardening role editors, request-access flows, 403 recovery, admin-vs-member surfaces, capability boundaries, or risky permission changes.
+Consult the [language and locale selection](../frontend-design/reference/language-and-locale-selection.md) reference when hardening language selectors, regional overrides, currency or shipping preferences, or locale-switching flows that can fail under travel, VPN, or multilingual conditions.
+Consult the [component accessibility](../frontend-design/reference/component-accessibility.md) reference when hardening keyboard support, focus indicators, skip links, hidden-content behavior, modal focus management, or accessibility claims in custom and third-party components.
 Consult the [empty-state patterns](../frontend-design/reference/empty-state-patterns.md) reference when a failure needs a dedicated route-level recovery page for states like 401, 403, 404, 429, 500, or 503.
 Consult the [interaction design](../frontend-design/reference/interaction-design.md) reference when hardening workflows that must stay usable under stress, urgency, operational pressure, or emergency conditions.
+Consult the [loading feedback and perceived performance](../frontend-design/reference/loading-feedback-and-perceived-performance.md) reference when hardening loading states, stale-data cues, skeleton usage, or performance-looking states that may be masking brittle real behavior.
+Consult the [micro failures and perceived quality](../frontend-design/reference/micro-failures-and-perceived-quality.md) reference when the interface technically works but feels flaky, unstable, or trust-eroding because of tiny repeated jank, state loss, hover traps, weak feedback, or similar papercuts.
 
 ## MANDATORY PREPARATION
 

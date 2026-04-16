@@ -177,6 +177,7 @@ Include:
 - cap prompts per session for interruptive surfaces
 - use cooldowns after dismissal
 - treat repeated closes, ignores, or bounce behavior as annoyance signals
+- do not stack upgrade nags on top of other early-session asks unless the paywall is the actual task boundary
 
 If a user keeps dismissing a prompt, the answer is usually not "show it louder."
 
@@ -227,6 +228,8 @@ Track more than click-through:
 - making free continuation hard to find when it still exists
 - guilt or shame copy
 - confusing plan labels or misleading button text
+- degrading the baseline experience mainly to manufacture upgrade pressure
+- making downgrade, cancellation, or decline paths harder than entry paths
 
 ### Conversion killers
 
@@ -257,3 +260,5 @@ Before shipping a paywall or upgrade flow, check:
 - post-upgrade access and confirmation are smooth
 
 Good upgrade UI feels like a logical next step, not a hostage note.
+
+For broader guidance on assertive, non-evasive monetization language and product behavior that resists slow interface betrayal, use [interface honesty](./interface-honesty.md).

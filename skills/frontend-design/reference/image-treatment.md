@@ -2,6 +2,9 @@
 
 Use this reference when photos, screenshots, icons, illustrations, or user-uploaded media need to support clarity instead of fight it.
 
+Consult [aspect ratio and card orientation](./aspect-ratio-and-card-orientation.md) when the problem is not just image legibility, but also which media proportions should exist in the system, how cards should adapt across breakpoints, or how cropping rules affect rhythm and comparison.
+Consult [hero sections UX](./hero-sections-ux.md) when the question is whether a large above-the-fold image should exist at all, how much explanatory work the top of the page should do before a visual appears, or whether product clarity is being sacrificed for decorative first impressions.
+
 ## Text Needs Consistent Contrast
 
 When text is unreadable on an image, the problem is usually the image treatment, not the typography.

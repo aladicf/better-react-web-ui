@@ -236,6 +236,8 @@ Don't trust your eyes. Use tools:
 - Browser DevTools → Rendering → Emulate vision deficiencies
 - [Polypane](https://polypane.app/) for real-time testing
 
+Contrast is necessary, not sufficient. For semantic states, charts, and active/selected cues that must survive color-vision deficiencies, also consult [colorblindness UX](./colorblindness-ux.md).
+
 ## Theming: Light & Dark Mode
 
 ### Dark Mode Is Not Inverted Light Mode

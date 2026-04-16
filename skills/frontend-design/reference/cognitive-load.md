@@ -15,6 +15,29 @@ Reduce working-memory pressure by:
 - preserving entered state when users move between views or steps
 - using defaults, previews, inline context, and confirmation summaries
 
+## Design for users under strain, not ideal attention
+
+Many interfaces are tested mentally against a calm, fully focused user.
+
+Real users are often:
+
+- interrupted
+- rushed
+- tired
+- anxious about making a mistake
+- multitasking across tabs, apps, or devices
+- seeing the flow for the first time on a small screen
+
+An interface that only feels easy under ideal attention is fragile.
+
+Good defaults:
+
+- keep the next step obvious even when the user is not reading every detail
+- preserve state and progress so interruptions do not restart the task mentally
+- use explicit labels instead of relying on icon guessing or memory
+- keep current selection, step, or object visible near the action it affects
+- reduce the need to reinterpret the same screen every time the user returns to it
+
 ## Hick's Law in Practice
 
 Use these as warning signs, not hard laws:
@@ -61,6 +84,112 @@ Chunking fails when:
 - headings are louder than the content they label
 - users must look somewhere else to remember what this group is acting on
 
+## Reduce load without turning the UI into a ghost town
+
+Reducing cognitive load is not the same as deleting useful information.
+
+The goal is not emptiness.
+
+The goal is clearer structure.
+
+Good ways to simplify without starving the interface:
+
+- keep helpful labels next to ambiguous icons
+- use whitespace as separation, not as performative emptiness
+- keep relevant metadata when it improves decisions, but group it clearly
+- prefer one obvious path over several equally loud ones
+- remove noise, repetition, and weak decoration before removing meaning
+
+If users cannot tell what the controls do, what changed, or what happens next, the interface may be visually sparse but still cognitively heavy.
+
+## Density can be efficient when the structure is legible
+
+Density is not automatically the enemy of clarity.
+
+For expert or repeat-use workflows, visible tools, metadata, and shortcuts can reduce effort when they are:
+
+- consistently grouped
+- visually prioritized
+- predictable in location
+- easy to scan by pattern
+
+The failure mode is not density alone.
+
+The failure mode is **uncurated density** where everything competes at once.
+
+Good defaults:
+
+- keep frequently used controls visible when hiding them would force repeated recall or extra clicks
+- use grouping, spacing, and quieter secondary styling so dense areas can still breathe
+- let interfaces grow with user literacy through progressive disclosure, not through permanent concealment
+- prefer honest scrolling and sectioning over collapsing every tool into mystery menus just to reduce visible count
+
+If users need the controls regularly, hiding them can increase cognitive load more than showing them well.
+
+## Recognition beats recall
+
+Users should not have to remember what the system meant a moment ago.
+
+Prefer:
+
+- visible labels over mystery icons
+- familiar placements for common actions such as search, profile, back, and save
+- summaries of prior choices instead of forcing users to remember them
+- inline hints near the decision rather than explanations buried elsewhere
+- controls whose visual form suggests how they work
+
+Every moment of “wait, what does that mean again?” is cognitive load.
+
+## Uncertainty is cognitive load too
+
+Silence from the interface forces users to invent explanations.
+
+That is mentally expensive.
+
+Good feedback reduces doubt:
+
+- pressed / hover / focus states confirm interaction
+- loading states explain that the system is working
+- success or error states explain what happened
+- blocked states explain why and how to recover
+- freshness, paused, or offline cues clarify live-data trust
+
+If users are wondering whether the click worked, whether the page is frozen, or whether their data was saved, the interface is consuming attention that should stay on the task.
+
+## Smart defaults reduce unnecessary decisions
+
+Every choice has a cost.
+
+Meaningful defaults help when they:
+
+- match the common case honestly
+- reduce busywork rather than hide commitments
+- stay easy to review and change
+- guide uncertain users toward a safe starting point
+
+Use defaults to remove low-value decisions, not to smuggle in product-favoring outcomes.
+
+## Meaningful friction is rare and must earn its place
+
+Not every fast flow is good, but not every extra step is wise either.
+
+Add friction only when it clearly helps users make a better decision, avoid costly mistakes, or understand a high-stakes commitment.
+
+Good candidates:
+
+- confirming an irreversible action
+- reviewing a sensitive transfer, deletion, or purchase
+- asking a small number of setup questions that materially improve the result
+
+Weak candidates:
+
+- slowing ordinary tasks just to feel premium
+- moving controls to “wake users up”
+- hiding obvious navigation so users must work harder
+- manufacturing suspense with fake delays or vague progress theater
+
+The right goal is thoughtful clarity, not theatrical difficulty.
+
 ## What to Hide vs What to Show Now
 
 ### Show now
@@ -99,4 +228,4 @@ Count a failure each time the answer is “yes”:
 
 ---
 
-**Avoid**: treating every possible option as equally important, exposing advanced settings too early, and forcing users to hold too much in memory while navigating the screen.
+**Avoid**: treating every possible option as equally important, exposing advanced settings too early, forcing users to hold too much in memory while navigating the screen, and mistaking visual emptiness or manufactured friction for real clarity.

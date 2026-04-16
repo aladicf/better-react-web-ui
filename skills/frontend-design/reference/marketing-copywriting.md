@@ -141,6 +141,21 @@ Prefer:
 - for permissions, explain the benefit first, then ask
 - for errors, say what happened, why, and how to fix it
 
+## Formatting affects conversion too
+
+Strong wording can still underperform when the page formats it badly.
+
+Good defaults:
+
+- keep headlines and subheads scannable before making them poetic
+- use short paragraphs on decision-heavy pages
+- break up long sections with clear subheadings
+- use bullets for proof, benefits, requirements, or step sequences that users will scan before reading deeply
+- use bold emphasis sparingly to surface the decision-shaping words, not to turn every sentence into a billboard
+- give important copy enough surrounding space that the structure is obvious at a glance
+
+Formatting should help users grasp the message faster, not perform intensity.
+
 ## Quick Quality Check
 
 Before shipping copy, ask:
@@ -190,6 +205,8 @@ Only when it fits the brand and does not reduce clarity, trust, or seriousness.
 - **headline**: the primary outcome for a specific user
 - **subheadline**: who it is for, what it replaces, what happens next
 - **primary CTA**: concrete and action-oriented
+- do not let a decorative hero image or vague brand mood replace the explanation of what the product is, who it is for, and why it matters
+- if a visual appears above the fold, it should support the message through product clarity, proof, or real context rather than abstraction alone
 
 Useful headline frames:
 
@@ -352,10 +369,21 @@ Examples:
 - match the traffic source promise closely
 - keep one message and one primary CTA
 - remove secondary distractions when possible
+- keep forms as short as possible; defer lower-priority data collection until after commitment or into onboarding
 - define a value proposition that states both the benefit and how it is delivered
 - keep any secondary CTA visibly quieter and lower-commitment
 - address predictable objections near the relevant CTA, form, or proof point instead of hiding them elsewhere
 - review the page against the intended first-impression words, not just conversion goals
+- keep continuity between ad, email, social post, or PPC promise and the landing-page headline, tone, and offer
+- on dedicated campaign pages, reduce or quiet the main site navigation when it dilutes the task; keep only the escape hatches that preserve trust, legality, or basic orientation
+
+### Social proof on conversion pages
+
+- choose the proof type that matches the doubt: testimonials, ratings, certifications, customer logos, or case studies
+- keep proof near the relevant claim or CTA rather than isolating it into one decorative wall
+- avoid suspicious perfection; a little believable nuance often improves trust
+
+For broader placement patterns across testimonials, badges, case studies, and trust surfaces, use [social proof patterns](./social-proof-patterns.md).
 
 ### Feature page
 

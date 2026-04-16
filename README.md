@@ -170,32 +170,6 @@ The canonical shared reference set lives under [`skills/frontend-design/referenc
 
 If you want the map of the map, start with the [frontend-design reference index](skills/frontend-design/reference/README.md).
 
-If you are evaluating the library quickly, these are the best places to start:
-
-- [ux strategy](skills/frontend-design/reference/ux-strategy.md) — for connecting UX direction to user segments, priorities, feasibility, and project risk
-- [audience-sensitive design](skills/frontend-design/reference/audience-sensitive-design.md) — for age-group, life-stage, parent/gatekeeper, trust-model, and audience-specific UX decisions
-- [design process](skills/frontend-design/reference/design-process.md) — for rough exploration, styleguide thinking, and moving from vague requirements to sharper direction
-- [design principles](skills/frontend-design/reference/design-principles.md) — for turning product values and recurring tradeoffs into usable team defaults
-- [interaction design](skills/frontend-design/reference/interaction-design.md) — for familiar patterns, focus, loading, overlays, feedback, and guardrails
-- [error recovery](skills/frontend-design/reference/error-recovery.md) — for validation behavior, summaries, strict validators, and recoverable error handling
-- [reviews and ratings](skills/frontend-design/reference/reviews-and-ratings.md) — for review trust signals, rating distributions, customer-photo proof, and purchase confidence
-- [search and findability](skills/frontend-design/reference/search-and-findability.md) — for site search, autosuggest, zero-results recovery, and intent-aware content discovery
-- [status communication](skills/frontend-design/reference/status-communication.md) — for notifications, validations, badges, inboxes, activity feeds, and interruption-level decisions
-- [legacy modernization](skills/frontend-design/reference/legacy-modernization.md) — for improving legacy systems, mapping dependencies, choosing migration strategies, and reducing old/new seam pain
-- [cognitive load](skills/frontend-design/reference/cognitive-load.md) — for reducing decision overload, unnecessary complexity, and memory burden
-- [hierarchy checklist](skills/frontend-design/reference/hierarchy-checklist.md) — for grayscale hierarchy, grouping, action priority, and label/value sanity checks
-- [ux writing](skills/frontend-design/reference/ux-writing.md) — for labels, errors, confirmations, and product microcopy clarity
-- [framework official docs](skills/frontend-design/reference/framework-official-docs.md) — for framework-specific implementation decisions and current Motion adapter guidance
-- [component anatomy](skills/frontend-design/reference/component-anatomy.md) — for custom primitives, skeletons, comboboxes, disclosure details, and no-library component work
-- [marketing copywriting](skills/frontend-design/reference/marketing-copywriting.md) — for headlines, landing pages, onboarding promises, lifecycle messages, and CTA strategy that stay concrete and credible
-- [copy editing sweeps](skills/frontend-design/reference/copy-editing-sweeps.md) — for structured passes that improve existing copy without rewriting away the product voice
-- [pricing and packaging](skills/frontend-design/reference/pricing-and-packaging.md) — for pricing-page structure, tier logic, billing clarity, and packaging-aware UI
-- [paywalls and upgrade flows](skills/frontend-design/reference/paywalls-and-upgrade-flows.md) — for feature locks, trial endings, usage limits, and ethical upgrade conversion surfaces
-- [motion design](skills/frontend-design/reference/motion-design.md) — for motion principles, interaction feedback, and animation quality
-- [animate reference index](skills/animate/reference/README.md) — for browsing the deeper motion library by use case instead of by filename
-- [native motion with CSS and Tailwind](skills/frontend-design/reference/native-motion-with-css-and-tailwind.md) — for modern CSS, Tailwind, and WAAPI-first implementation guidance
-- [typography](skills/frontend-design/reference/typography.md) — for text hierarchy, scale, and readability
-- [color and contrast](skills/frontend-design/reference/color-and-contrast.md) — for palette logic, contrast, semantic color, and dark-mode-only color-scheme guidance
 
 For a maintainer-oriented doctrine map and validation workflow, use [`DEVELOPMENT.md`](DEVELOPMENT.md).
 

@@ -119,6 +119,12 @@ Good questions:
 
 Designing for everybody too early often weakens both the experience and the message.
 
+That includes the temptation to optimize only for the smoothest majority path.
+
+People on slow networks, assistive tech, older hardware, translated interfaces, or unusual-but-real workflows are not just QA leftovers.
+
+They are part of the strategic risk picture.
+
 ### 3. Priorities
 
 State what the team will do and what it will not do.
@@ -171,6 +177,7 @@ Useful categories include:
 - unrealistic estimates
 - implementation quality risk
 - legacy constraints and unknown dependencies
+- edge-case or excluded-user failure modes that only appear outside the happy path
 - stakeholder, communication, or staffing blockers
 - resource gaps, launch-day failures, or lack of mitigation planning
 

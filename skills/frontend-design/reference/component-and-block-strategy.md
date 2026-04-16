@@ -63,6 +63,7 @@ Important implications from the official docs:
 
 - `shadcn create` is designed to customize the project from the start — component library, icons, base color, theme, fonts, and overall style are part of the chosen baseline.
 - The named styles and presets are not just palette swaps; they can change spacing, structure, geometry, and the feel of the generated component code.
+- Typography-led styles matter as real product baselines. For example, a style such as `Sera` can bring serif display type, sans-serif body copy, square corners, uppercase tracked headings, and underlined controls that change the editorial feel of the entire app rather than merely tinting the palette.
 - `shadcn apply` can switch presets in an existing project and update theme, colors, CSS variables, fonts, icons, and reinstall existing components to match the new preset.
 - `components.json` tells the CLI how the project is configured and can include important signals like `style`, `tailwind.baseColor`, `tailwind.cssVariables`, `tailwind.prefix`, aliases, registries, `rsc`, and `tsx`.
 - shadcn now supports both Radix and Base UI ecosystems, and the CLI can auto-detect and transform components or blocks to match the selected library.
@@ -71,7 +72,7 @@ Practical rule for agents:
 
 1. Check for `components.json` and treat it as a configuration source, not a random file.
 2. Inspect the current theme tokens, CSS variables, fonts, icons, and installed component code before assuming a default shadcn look.
-3. If the project has already been customized through `shadcn create` or `shadcn apply`, preserve that baseline.
+3. If the project has already been customized through `shadcn create` or `shadcn apply`, preserve that baseline — including named style choices like typography-first editorial presets.
 4. Do **not** "normalize" a customized project back to Vega/new-york/default-looking output just because the task is broad.
 5. When the project is already committed to Radix or Base UI, match that ecosystem consistently across primitives, composed components, and blocks.
 

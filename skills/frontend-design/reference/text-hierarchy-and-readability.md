@@ -38,6 +38,70 @@ As a rule of thumb:
 - body: around `1.5–1.7`
 - headings: often `1.0–1.25`
 
+## Sentence Length and Chunking
+
+Formatting is part of readability, not just typography.
+
+Web users scan before they commit to reading. Long, clause-heavy sentences make that scan feel like work.
+
+Good defaults:
+
+- keep most interface and marketing sentences concise
+- if a sentence runs past roughly **20–25 words**, check whether it should be split
+- keep paragraphs short on web surfaces that ask users to decide, sign up, compare, or continue
+- use one main idea per paragraph when speed of comprehension matters
+
+Shorter does not automatically mean better, but easier first-pass parsing usually does.
+
+## Subheadings Are Navigation
+
+Subheadings are not decoration.
+
+They are signposts that help readers:
+
+- predict what comes next
+- skip to the section they care about
+- recover their place after interruption
+
+Prefer descriptive subheadings over clever, vague ones.
+
+## Use Emphasis Sparingly and Purposefully
+
+Bold text works best when it highlights decision-shaping information.
+
+Useful candidates:
+
+- the key noun or verb in a sentence
+- an important limit, timeframe, or price
+- the clause users are most likely to scan for first
+
+Avoid:
+
+- bolding whole paragraphs
+- bolding several fragments in every sentence
+- using emphasis so often that nothing feels meaningfully prioritized
+
+Emphasis should speed up scanning, not simulate urgency.
+
+## Bullets Often Beat Dense Prose
+
+Use bullets when readers need to:
+
+- compare options
+- scan requirements
+- review steps
+- understand grouped proof points or benefits quickly
+
+Bullets are usually stronger when each item follows a similar structure and length.
+
+## White Space Supports Reading Rhythm
+
+Generous space around headings, paragraphs, lists, and CTAs helps readers separate ideas without rereading.
+
+The goal is not empty minimalism.
+
+The goal is to give copy enough room that users can recognize the structure at a glance.
+
 ## Baseline Alignment
 
 When mixed font sizes appear on the same row, align them by baseline rather than vertical center.
@@ -207,7 +271,10 @@ This matters especially for:
 - Does the scale feel deliberate or accidental?
 - Are paragraphs within readable width?
 - Does line-height match line length?
+- Are long ideas broken into scannable sentences, paragraphs, or bullets?
+- Do subheadings help readers navigate instead of merely styling the page?
 - Are mixed sizes baseline-aligned?
+- Is emphasis used to clarify priority instead of shouting?
 - Are all-caps tracked appropriately?
 - Are labels quieter than the values they support when appropriate?
 - Are labels emphasized only when users are actually scanning for them?

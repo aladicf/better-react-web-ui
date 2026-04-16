@@ -184,6 +184,8 @@ DevTools device emulation is useful for layout but misses:
 
 **Test on at least**: One real iPhone, one real Android, a tablet if relevant. Cheap Android phones reveal performance issues you'll never see on simulators.
 
+For decisions about whether side content should live in a rail, move inline, or drop into a footer/support surface at different breakpoints, also use [sidebar and footer UX](./sidebar-and-footer-ux.md).
+
 ---
 
 **Avoid**: desktop-first design, filling the whole screen just because you can, making every element fluid by default, proportionally shrinking everything across breakpoints, separate mobile/desktop codebases, ignoring tablet and landscape, and assuming all mobile devices are powerful.

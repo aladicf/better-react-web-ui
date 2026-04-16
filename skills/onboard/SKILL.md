@@ -9,10 +9,14 @@ metadata:
 
 Users start this workflow with `/onboard`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first. Additionally gather: the "aha moment" you want users to reach, and users' experience level.
 
+Consult the [onboarding UX](../frontend-design/reference/onboarding-ux.md) when deciding first-run sequencing, activation milestones, setup-wizard scope, tours vs checklists vs contextual onboarding, progressive permission requests, or how returning users should re-enter an unfinished flow.
 Consult the [empty-state patterns](../frontend-design/reference/empty-state-patterns.md) when zero-data surfaces are part of the onboarding journey.
 Consult the [cognitive load](../frontend-design/reference/cognitive-load.md) when deciding what to hide, sequence, or progressively disclose for first-time users.
+Consult the [behavioral design](../frontend-design/reference/behavioral-design.md) when onboarding depends on priming, framing, honest progress cues, or completion momentum.
+Consult the [permissions and roles UX](../frontend-design/reference/permissions-and-roles-ux.md) when onboarding depends on request-access flows, role selection, admin-vs-member setup differences, or capability boundaries that users need explained early.
 Consult the [ux-writing reference](../frontend-design/reference/ux-writing.md) when onboarding clarity depends on labels, hints, reassurance copy, or CTA wording.
 Consult the [status communication](../frontend-design/reference/status-communication.md) when onboarding needs notification preferences, summary modes, quiet hours, reminder settings, or interruption-level decisions.
+Consult the [loading feedback and perceived performance](../frontend-design/reference/loading-feedback-and-perceived-performance.md) when setup, imports, or first-run data preparation create waits that need honest progress and trust-preserving feedback.
 Consult [marketing copywriting](../frontend-design/reference/marketing-copywriting.md) when onboarding needs stronger setup promises, first-win framing, permission prompts, or upgrade / invite messaging.
 Consult [copy editing sweeps](../frontend-design/reference/copy-editing-sweeps.md) when revising existing onboarding copy in focused passes.
 
@@ -99,6 +103,7 @@ Create appropriate onboarding for the context:
 - Clear value proposition (what is this product?)
 - What users will learn/accomplish
 - Time estimate (honest about commitment)
+- Why this setup is worth doing now
 - Option to skip (for experienced users)
 
 **Account Setup**:
@@ -119,12 +124,18 @@ Create appropriate onboarding for the context:
 - Use simple language and examples
 - Interactive when possible (do, don't just read)
 - Progress indication (step 1 of 3)
+- Explain why each step exists before asking for the work
 
 **First Success**:
 - Guide users to accomplish something real
 - Pre-populated examples or templates
 - Celebrate completion (but don't overdo it)
 - Clear next steps
+
+**Progress and Completion Cues**:
+- Use checklists, step counters, or progress bars when the journey spans multiple screens
+- Keep progress honest; fuzzy journeys need fuzzy indicators rather than fake precision
+- Show what remains so users can judge effort realistically
 
 ### Feature Discovery & Adoption
 

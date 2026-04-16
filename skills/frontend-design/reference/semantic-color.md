@@ -78,6 +78,8 @@ Semantic color should reinforce true urgency, not manufacture it.
 - Is the semantic ramp defined and reused consistently?
 - Are accent colors being mistaken for state colors?
 
+For state colors, legends, chart series, and active/selected cues that must survive color-vision deficiencies, also consult [colorblindness UX](./colorblindness-ux.md).
+
 ---
 
 **Avoid**: using semantic colors as random decoration, making users infer meaning from color alone, or mixing brand accent and state meaning until the interface becomes ambiguous.

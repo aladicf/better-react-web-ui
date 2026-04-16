@@ -71,6 +71,49 @@ Escalate only when the message truly earns it.
 
 Routine automated chatter should usually land in a feed, digest, or low-emphasis inbox entry before it graduates to a push notification.
 
+## Error alerts should inform, guide, and calm
+
+An error alert has four jobs:
+
+- explain what went wrong
+- explain why it matters now
+- give the user a next step when one exists
+- keep the problem feeling manageable instead of chaotic
+
+Good defaults:
+
+- use plain language instead of raw technical codes as the primary message
+- put the alert as close as possible to the affected field, region, or task
+- reserve modals for blocking, high-consequence failures rather than ordinary recoverable issues
+- include retry, undo, help, or support paths when they meaningfully improve recovery
+- group related failures instead of stacking multiple alerts in a short burst
+
+Container choices often follow this pattern:
+
+- **inline error** for a local field or control problem
+- **section alert / banner** for a broader regional issue that still leaves the page usable
+- **route-level error state** when the task or page cannot continue safely
+- **modal** only when the error truly requires immediate acknowledgment before anything else can proceed
+
+The best error alert is specific enough that the user knows what to do next without re-reading it twice.
+
+## Guard the attention budget
+
+UX fatigue often comes from accumulation rather than from one terrible message.
+
+Cookie prompts, newsletter asks, tours, review requests, push-permission prompts, chatbot nudges, upgrade banners, and surveys can each be defensible on their own.
+
+Together, they can become an obstacle course.
+
+Good defaults:
+
+- do not stack multiple interruptive asks in one short session unless something is truly critical
+- prefer contextual asks over generic first-load ambushes
+- respect dismissal with cooldowns instead of instant re-prompting
+- use quieter channels such as inbox entries, digests, or end-of-task prompts for lower-priority asks
+
+If the interface keeps interrupting before the user gets value, the product is spending attention it has not yet earned.
+
 ## Human Messages Beat Automated Chatter
 
 Users value messages from real people more than automated system noise.
@@ -179,6 +222,33 @@ Prefer:
 
 Avoid turning routine updates into alarmist copy just to win a click.
 
+## Assertive status language usually outperforms faux empathy
+
+For status, alert, and notification copy, directness is usually kinder than cheerleading.
+
+Prefer:
+
+- factual explanation
+- real next steps
+- calm confidence
+
+Over:
+
+- `Oops!`
+- `Hang tight!`
+- `We’re doing some magic behind the scenes`
+- vague reassurance with no operational meaning
+
+Examples:
+
+- `Sync paused. Reconnect to resume updates.`
+- `Invoice sent to 4 clients.`
+- `Upload failed. Try again.`
+
+If the system needs user trust, sounding composed usually helps more than sounding cute.
+
+For broader guidance on honest progress messaging, consent language, and manipulative friendliness in interface copy, use [interface honesty](./interface-honesty.md).
+
 ## Visual and Semantic Discipline
 
 Do not style every message as an alert.
@@ -244,6 +314,7 @@ Avoid:
 - dropping users into a giant notification-settings wall without guidance
 - forcing real-time interruption when a digest would work better
 - making mute or unsubscribe hard to find
+- layering multiple interruptive prompts in the same early session
 - using notifications mainly to manufacture engagement instead of serving a real user need
 
 When in doubt, send less, interrupt less, and make it easier for users to tune the stream.

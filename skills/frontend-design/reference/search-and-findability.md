@@ -56,6 +56,22 @@ Good search should be able to handle:
 
 Search should feel forgiving. The user should not be punished for being human.
 
+## Search can be predictive without becoming opaque
+
+Intent-aware search is helpful when it reduces work without removing control.
+
+Useful additions include:
+
+- recent searches
+- likely destinations
+- common tasks
+- context-aware suggestions
+- `continue where you left off` style shortcuts
+
+But prediction should sit on top of visible search and browse structure, not replace it entirely.
+
+If the main risk is that recommendations, assistants, or suggestions are hiding the map of the product, use [predictive and intent-driven UI](./predictive-and-intent-ui.md).
+
 ## Command palettes vs site search vs filter bars
 
 These tools can all look like a box plus some results, but they solve different problems.

@@ -71,12 +71,33 @@ Secondary actions should step back when:
 
 Let actions appear when they become useful.
 
+## Disabled primary actions are risky by default
+
+Disabling the main call to action often removes the clearest next step while giving users very little explanation.
+
+Prefer a disabled primary action only when:
+
+- the action is genuinely unavailable
+- the system is preventing duplicate submission while work is in progress
+- a hard technical constraint makes early activation genuinely unsafe
+
+For many forms, a better baseline is:
+
+- keep the primary action enabled
+- validate on submit
+- explain what is wrong and point users to recovery
+
+If a primary action must stay disabled, the reason and the way out should be obvious nearby.
+
+Consult [disabled buttons UX](./disabled-buttons-ux.md) for deeper guidance on blocked CTAs, action availability, and accessible disabled-state behavior.
+
 ## Practical Checks
 
 - Is there one obvious next step?
 - Are supportive actions clearly quieter?
 - Are destructive actions properly escalated only when needed?
 - Are there controls visible that should not compete yet?
+- Is the primary action disabled for a real reason, or just hiding unresolved validation and explanation work?
 
 ---
 
