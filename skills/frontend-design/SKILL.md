@@ -41,82 +41,17 @@ Individual skills may require additional context — check the skill's preparati
 
 This skill library is intentionally framework-agnostic and library-agnostic.
 
-When implementation details matter, use this precedence order:
+When implementation details matter, follow this precedence:
 
 1. **Detect and match the existing project stack first**
-	 - infer the framework / runtime already in use
-	 - infer the current styling approach
-	 - infer the current component library, design system, and token setup
-	 - continue with the existing stack unless the user explicitly asks to change it
-
 2. **Respect explicit user choices for new projects second**
-	 - if the user says to use Tailwind, CSS modules, Nuxt UI, shadcn-vue, Angular Material, etc., treat that as the default
-	 - if the user runs `setup`, persist those implementation defaults so later design work reuses them
+3. **Use the default matrix only when the project is new and unspecified**
 
-3. **If the project is new and unspecified, use these framework defaults**
+The full precedence order, framework-default matrix, problem shorthand, and caveats live in [framework defaults](reference/framework-defaults.md). Use that reference whenever you need to decide styling, component libraries, form architecture, table architecture, or virtualization defaults.
 
-	 - **React-based frameworks and meta-frameworks** (`Next.js`, `TanStack Start`, `React Router`, Vite React)
-		 - styling: **Tailwind CSS**
-		 - components: **shadcn/ui** in the Base UI direction
-		 - accelerators: **shadcn/ui Blocks**, **re-ui** components / blocks, and the curated React/shadcn accelerator shortlist in [react shadcn accelerators](reference/react-shadcn-accelerators.md) when the feature request matches
+When the project uses a specific frontend framework or meta-framework, consult [framework official docs](reference/framework-official-docs.md) before making framework-specific implementation decisions.
 
-	 - **Astro**
-		 - styling: **Tailwind CSS**
-		 - components: **HTML-first Astro components and native elements by default**
-		 - integration rule: only reach for **React** + **shadcn/ui** when the user explicitly asks for React-compatible component integration or the existing Astro project already uses that stack
-
-	 - **Laravel + Inertia / React**
-		 - styling: **Tailwind CSS**
-		 - components: **shadcn/ui** in the Base UI direction
-		 - accelerators: **shadcn/ui Blocks**
-
-	 - **Vue / Nuxt**
-		 - styling: **Tailwind CSS**
-		 - components: **Nuxt UI** or **shadcn-vue**
-
-	 - **Svelte / SvelteKit**
-		 - styling: **Tailwind CSS**
-		 - components: **shadcn-svelte**
-
-	 - **Angular**
-		 - styling: **Tailwind CSS**
-		 - components: **Angular Material** or **ZardUI**
-
-	 - **SolidJS / Solid-based meta-frameworks**
-		 - styling: **Tailwind CSS**
-		 - components: **SolidUI**
-
-Treat those as preferred defaults, not universal truths:
-
-- do **not** force React-only component libraries into non-React stacks
-- do **not** add React islands to Astro by default when plain Astro components and HTML solve the task cleanly
-- do **not** replace an existing design system unless the task explicitly calls for it
-- do **not** describe `better-web-ui` itself as Tailwind-only or React-only
-
-When `setup` has already recorded implementation defaults for the project, follow those stored defaults before inventing new ones.
-
-When a project is new and the form architecture is still open, prefer **TanStack Form** across the supported React, Vue, Angular, Solid, and Svelte ecosystems. If the existing project already uses another form library or validation stack, preserve that baseline first instead of forcing a migration.
-
-When a project is new and the table or data-grid architecture is still open, prefer **TanStack Table** across the supported React, Vue, Angular, Solid, and Svelte ecosystems. If the existing project already uses another table/grid stack, preserve that baseline first instead of forcing a migration.
-
-When a project is new and the long-list or virtualization architecture is still open, prefer **TanStack Virtual** across the supported React, Vue, Angular, Solid, and Svelte ecosystems. If the existing project already uses another virtualization approach, preserve that baseline first instead of forcing a migration.
-
-When the stack is still open, keep this shorthand in mind:
-
-- **forms** → **TanStack Form**
-- **tables / datagrids** → **TanStack Table**
-- **long lists / virtual lists** → **TanStack Virtual**
-- **React toasts** → **Sonner**
-- **React drawers / bottom sheets** → **Vaul**
-- **predictive wrapped-text sizing before DOM measurement** → **Pretext**
-
-Those are defaults, not mandates. Existing project choices still win first.
-
-The goal is pragmatic consistency: framework-agnostic at the library level, with helpful implementation defaults when no stronger project convention exists.
-
-When the project uses a specific frontend framework or meta-framework, consult [framework official docs](reference/framework-official-docs.md) before making framework-specific implementation decisions. Use the official docs to confirm architecture, routing, rendering boundaries, data loading, forms, styling, and deployment expectations instead of guessing from generic cross-framework habits.
-
-For **Next.js** specifically, if the project includes bundled version-matched docs at `node_modules/next/dist/docs/`, read the relevant local Next.js doc there before coding. Treat those bundled docs as the source of truth for the installed version instead of relying on stale memory. If the project is on an older Next.js version that does not bundle docs there yet, follow the official AI-agents setup guidance and codemod path described in [framework official docs](reference/framework-official-docs.md).
+For **Next.js** specifically, if the project includes bundled version-matched docs at `node_modules/next/dist/docs/`, read the relevant local Next.js doc there before coding. Treat those bundled docs as the source of truth for the installed version instead of relying on stale memory.
 
 When React-based fallback defaults are relevant, use [component and block strategy](reference/component-and-block-strategy.md) to decide when to compose from `shadcn/ui` primitives, when blocks are an appropriate accelerator, and how to avoid shipping generic library output unchanged. Use [react shadcn accelerators](reference/react-shadcn-accelerators.md) when the request maps to a curated community component such as theme controls, consent, text motion, testimonial patterns, wheel pickers, or slide actions.
 
@@ -263,7 +198,54 @@ Focus on high-impact moments: one well-orchestrated page load with staggered rev
 **DON'T**: Use bounce or elastic easing—they feel dated and tacky; real objects decelerate smoothly
 
 ### Interaction
-→ *Consult [interaction reference](reference/interaction-design.md) for forms, focus, loading patterns, Jakob's Law, and Fitts's Law. Use [micro failures and perceived quality](reference/micro-failures-and-perceived-quality.md) when the interface technically works but feels flaky because of tiny repeated jank, weak feedback, vanishing menus, state loss, or haunted-looking behavior. Use [loading feedback and perceived performance](reference/loading-feedback-and-perceived-performance.md) when the work depends on skeletons, stale-data cues, optimistic UI, streaming content, or honest waiting states instead of performance theater. Use [component accessibility](reference/component-accessibility.md) when working on cross-cutting keyboard support, focus indicators, skip links, modal focus handling, hidden content, current-page states, or evaluating accessibility claims in custom and third-party components. Use [disabled buttons UX](reference/disabled-buttons-ux.md) when working on blocked primary actions, disabled submit/continue buttons, in-progress button locking, unavailable actions, or deciding whether a CTA should stay enabled and explain errors on submit instead. Use [destructive action UX](reference/destructive-action-ux.md) when working on delete/archive/remove/revoke flows, soft-delete vs hard-delete decisions, undo-vs-confirm tradeoffs, bulk destructive actions, or recovery after risky failures. Use [accordion UX](reference/accordion-ux.md) when working on FAQs, disclosure groups, product-detail accordions, settings sections, stacked filters, schedule sections, or deciding whether an accordion should stay single-open, multi-open, or be avoided entirely. Use [live validation UX](reference/live-validation-ux.md) when working on inline validation timing, blur-vs-real-time tradeoffs, reward-early/punish-late behavior, just-in-time verification, copy-paste-heavy structured inputs, or validator override strategy. Use [error recovery](reference/error-recovery.md) when working on validation behavior, field errors, error summaries, strict validators, or recoverable failure handling. Use [authentication and account recovery](reference/authentication-and-account-recovery.md) when working on sign-in, sign-up, password setup, session expiry, social sign-in, magic links, two-factor flows, lockouts, or recovering account access. Use [permissions and roles UX](reference/permissions-and-roles-ux.md) when the work involves role models, request-access flows, capability boundaries, admin-vs-member behavior, access-denied recovery, or risky permission changes. Use [language and locale selection](reference/language-and-locale-selection.md) when working on language selectors, country selectors, market overrides, currency or shipping preferences, regional nudges, or locale-setting UX. Use [information architecture UX](reference/information-architecture-ux.md) when the work involves large product suites, settings architecture, cross-product navigation models, enterprise product organization, or grouping content across broad surfaces. Use [sidebar and footer UX](reference/sidebar-and-footer-ux.md) when the work involves right rails, support panels, support-heavy footers, or deciding whether secondary content belongs in a peripheral surface at all. Use [navigation menu UX](reference/navigation-menu-ux.md) when working on mega-dropdowns, header navigation, hover vs click menus, deep compact navigation, section index alternatives, or large-site menu predictability. Use [breadcrumb UX](reference/breadcrumb-ux.md) when working on nested navigation, breadcrumb trails, current-location cues, sibling jumps, docs hierarchies, or category structures that need better wayfinding. Use [collection browsing and filtering](reference/collection-browsing-and-filtering.md) when working on long result lists, faceted browsing, filter overlays, continuation patterns, result comparison, or browse-vs-search list behavior. Use [complex table UX](reference/complex-table-ux.md) when working on read-only/search/editable data grids, pinned columns, header filters, row selection, command toolbars, validation inside tables, desktop-first enterprise tables, or deciding whether a giant table should become a different pattern. Use [feature comparison UX](reference/feature-comparison-ux.md) when working on considered-purchase comparison tables, side-by-side product specs, shortlist compare flows, compare bars, difference/similarity modes, or responsive product-comparison behavior. Use [configurator UX](reference/configurator-ux.md) when working on product builders, customizers, step-based configuration, responsive configurators, real-time option previews, dependency-heavy selection flows, or save-and-resume configuration UX. Use [slider UX](reference/slider-ux.md) when working on range sliders, loan or pricing calculators, time-range controls, dual-handle filters, histogram-backed sliders, or deciding when buttons or inputs should replace a slider altogether. Use [carousel UX](reference/carousel-ux.md) when working on carousels, gallery rails, testimonial sliders, feature rails, onboarding walkthroughs, or auto-advancing multi-panel content. Use [date input UX](reference/date-input-ux.md) when working on date of birth, memorable-date forms, or deciding between typed dates and calendar selection for known dates. Use [date-time picker UX](reference/date-time-picker-ux.md) when working on booking calendars, date-range pickers, flexible dates, time-slot selection, mini-stepper date jumps, calendar overlays, or combined date-and-time scheduling flows. Use [behavioral design](reference/behavioral-design.md) when the work depends on progressive disclosure, priming, framing, completion cues, decision support, pricing choice architecture, reminders, or ethical engagement loops. Use [onboarding UX](reference/onboarding-ux.md) when the work involves first-run sequencing, activation, aha moments, tours vs checklists vs contextual onboarding, setup wizards, progressive permission requests, or returning-user re-entry behavior. Use [ecommerce UX](reference/ecommerce-ux.md) when working on category pages, product pages, shopping flows, carts, checkout, merchandising, and commerce-specific trust or friction reduction. Use [reviews and ratings](reference/reviews-and-ratings.md) when working on product reviews, recommendation signals, customer-photo proof, or purchase-trust surfaces in commerce flows. Use [social proof patterns](reference/social-proof-patterns.md) when the work depends on testimonials, customer logos, review badges, certifications, case studies, or trust-signal placement across landing, pricing, product, and about surfaces. Use [search and findability](reference/search-and-findability.md) when working on site search, command palettes, autosuggest, results pages, zero-results recovery, or taxonomy-to-user-language gaps. Use [predictive and intent-driven UI](reference/predictive-and-intent-ui.md) when the work depends on recommendations, smart defaults, resume flows, or intent-aware suggestions that should help users move faster without hiding the map. Use [status communication](reference/status-communication.md) when working on validations, notifications, badges, inboxes, activity feeds, digest settings, or interruptive vs passive messaging. Use [legacy modernization](reference/legacy-modernization.md) when improving legacy systems, hybrid old/new flows, public-beta replacements, or migration-roadmap decisions. Use [cognitive load](reference/cognitive-load.md) for Hick's Law and Miller's Law in practice. Use [empty-state patterns](reference/empty-state-patterns.md) when a feature has no content yet. Use [pricing and packaging](reference/pricing-and-packaging.md) when working on pricing pages, plan comparison, billing settings, or packaging clarity. Use [paywalls and upgrade flows](reference/paywalls-and-upgrade-flows.md) when designing feature locks, usage limits, trials, or in-product upgrade prompts.*
+
+→ *Consult [interaction design](reference/interaction-design.md) for forms, focus, loading patterns, Jakob's Law, and Fitts's Law.*
+
+**Forms and validation**
+- [disabled buttons UX](reference/disabled-buttons-ux.md) — blocked primary actions, in-progress locking, unavailable actions
+- [destructive action UX](reference/destructive-action-ux.md) — delete, archive, remove, revoke, undo-vs-confirm, bulk destructive actions
+- [accordion UX](reference/accordion-ux.md) — FAQs, disclosure groups, product-detail accordions, settings sections
+- [live validation UX](reference/live-validation-ux.md) — inline validation timing, blur-vs-real-time, reward-early/punish-late
+- [error recovery](reference/error-recovery.md) — field errors, error summaries, strict validators, recoverable failure handling
+- [date input UX](reference/date-input-ux.md) — date of birth, memorable-date forms
+- [date-time picker UX](reference/date-time-picker-ux.md) — booking calendars, date-range pickers, time-slot selection
+
+**Navigation and wayfinding**
+- [information architecture UX](reference/information-architecture-ux.md) — large product suites, settings architecture, cross-product navigation
+- [sidebar and footer UX](reference/sidebar-and-footer-ux.md) — right rails, support panels, support-heavy footers
+- [navigation menu UX](reference/navigation-menu-ux.md) — mega-dropdowns, header navigation, hover vs click menus
+- [breadcrumb UX](reference/breadcrumb-ux.md) — nested navigation, breadcrumb trails, current-location cues, docs hierarchies
+- [search and findability](reference/search-and-findability.md) — site search, command palettes, autosuggest, zero-results recovery
+
+**Commerce and content**
+- [collection browsing and filtering](reference/collection-browsing-and-filtering.md) — long result lists, faceted browsing, filter overlays
+- [complex table UX](reference/complex-table-ux.md) — data grids, pinned columns, header filters, row selection, validation inside tables
+- [feature comparison UX](reference/feature-comparison-ux.md) — comparison tables, side-by-side specs, shortlist compare flows
+- [configurator UX](reference/configurator-ux.md) — product builders, step-based configuration, real-time option previews
+- [slider UX](reference/slider-ux.md) — range sliders, loan or pricing calculators, dual-handle filters
+- [carousel UX](reference/carousel-ux.md) — carousels, gallery rails, testimonial sliders, feature rails
+- [ecommerce UX](reference/ecommerce-ux.md) — category pages, product pages, shopping flows, carts, checkout
+- [reviews and ratings](reference/reviews-and-ratings.md) — product reviews, recommendation signals, customer-photo proof
+- [social proof patterns](reference/social-proof-patterns.md) — testimonials, customer logos, review badges, case studies
+- [pricing and packaging](reference/pricing-and-packaging.md) — pricing pages, plan comparison, billing settings
+- [paywalls and upgrade flows](reference/paywalls-and-upgrade-flows.md) — feature locks, usage limits, trials, upgrade prompts
+
+**Feedback and status**
+- [micro failures and perceived quality](reference/micro-failures-and-perceived-quality.md) — flaky feeling from tiny jank, weak feedback, vanishing menus, or haunted-looking behavior
+- [loading feedback and perceived performance](reference/loading-feedback-and-perceived-performance.md) — skeletons, stale-data cues, optimistic UI, streaming content, honest waiting states
+- [status communication](reference/status-communication.md) — validations, notifications, badges, inboxes, activity feeds
+- [empty-state patterns](reference/empty-state-patterns.md) — zero-data surfaces
+- [component accessibility](reference/component-accessibility.md) — keyboard support, focus indicators, skip links, modal focus handling, hidden content, current-page states
+
+**Legacy and resilience**
+- [behavioral design](reference/behavioral-design.md) — progressive disclosure, priming, framing, completion cues, pricing choice architecture
+- [onboarding UX](reference/onboarding-ux.md) — first-run sequencing, activation, aha moments, tours vs checklists
+- [predictive and intent-driven UI](reference/predictive-and-intent-ui.md) — recommendations, smart defaults, resume flows
+- [legacy modernization](reference/legacy-modernization.md) — legacy systems, hybrid old/new flows, migration-roadmap decisions
+- [cognitive load](reference/cognitive-load.md) — Hick's Law and Miller's Law in practice
+- [authentication and account recovery](reference/authentication-and-account-recovery.md) — sign-in, sign-up, password setup, session expiry, two-factor flows, lockouts
+- [permissions and roles UX](reference/permissions-and-roles-ux.md) — role models, request-access flows, capability boundaries, admin-vs-member behavior
+- [language and locale selection](reference/language-and-locale-selection.md) — language selectors, market overrides, currency or shipping preferences
 
 Use [action hierarchy](reference/action-hierarchy.md) when deciding which controls should lead, recede, disappear, or escalate in destructive confirmations.
 

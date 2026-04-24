@@ -150,6 +150,76 @@ Examples:
 
 This is especially useful when the product contains repeated analysis tasks rather than one-off status messages.
 
+## Palette simulation workflow
+
+Do not wait until the end of a project to check color accessibility. Build simulation into the design and dev workflow so problems surface when they are still cheap to fix.
+
+### Step 1: Design with grayscale first
+
+Before applying semantic colors, check the UI in grayscale. If hierarchy, states, and grouping are already clear without hue, the color layer will only make it stronger. If the grayscale version is ambiguous, fix the structure before adding color.
+
+Ways to preview grayscale:
+- apply a grayscale filter in Figma or your design tool
+- use browser DevTools rendering emulation (Chrome: Rendering > Emulate vision deficiencies > Achromatopsia)
+- apply `filter: grayscale(100%)` to the root element temporarily in dev
+
+### Step 2: Simulate the most common deficiencies
+
+The most common color-vision deficiencies to simulate are:
+
+- **Deuteranopia** (no green cones) — red/green distinctions collapse most severely
+- **Protanopia** (no red cones) — similar to deuteranopia but with slightly different hue shifts
+- **Tritanopia** (no blue cones) — blue/yellow distinctions collapse, rarer but still relevant
+
+Run the full UI through each simulation. Do not just test the palette swatches in isolation.
+
+**Browser DevTools** (Chrome, Edge, Firefox):
+- open DevTools > More tools > Rendering > Emulate vision deficiencies
+- cycle through deuteranopia, protanopia, and tritanopia while navigating the actual product
+
+**Figma plugins**:
+- Stark, Color Blind, or A11y - Color Contrast Checker
+- apply the simulation to the full frame, not just individual components
+
+**macOS / iOS**:
+- System Settings > Accessibility > Display > Color Filters
+- this simulates at the OS level and can be used while testing the actual app in a browser or simulator
+
+### Step 3: Check semantic state ramps under simulation
+
+Semantic colors (success, warning, error, info) are the highest-risk areas. Under deuteranopia simulation:
+
+- does error still look like a problem, or does it blend into neutral?
+- does success still look different from info?
+- do warning badges remain noticeable against their background?
+
+If two semantic states become indistinguishable, the fix is usually one of:
+- increase lightness separation between the states
+- add icons or shape differences to the state indicators
+- use tinted backgrounds with darker text rather than thin colored lines
+
+### Step 4: Test data visualizations with patterns
+
+Charts are where color-only design fails most visibly. Under simulation:
+
+- can you still tell which line is which on a multi-series chart?
+- do pie or bar segments remain distinct?
+- does a heatmap still show the gradient progression?
+
+When simulation reveals ambiguity, add pattern alternatives:
+- solid vs striped vs dotted fills for bars or areas
+- different line dash patterns for line charts
+- different point shapes for scatter plots
+- direct data labels so users do not need to read the legend
+
+### Step 5: Document and tokenize safe patterns
+
+When you find a color combination and pattern that survives simulation, document it:
+
+- add the safe pairs to your design-system documentation
+- tokenize semantic states with their non-color companions (icon + label + color)
+- include the simulation results as part of component acceptance criteria
+
 ## Testing should include simulation and real people
 
 Simulation helps catch obvious failures, but it is not the whole story.
@@ -168,14 +238,16 @@ Useful checks:
 
 ## Useful tools and references to keep nearby
 
-The article points to several useful resources and tools worth keeping in the workflow, including:
+Worth keeping in the workflow:
 
-- `WhoCanUse` for combination checks
-- Coblis and similar simulators
-- browser rendering emulation for vision deficiencies
-- colorblindness-oriented Figma and browser plugins
+- **WhoCanUse** — for contrast and color-combination checks with simulation preview
+- **Stark** (Figma plugin) — simulation, contrast checks, and focus order
+- **Color Blind (Figma plugin)** — fast simulation across all deficiency types
+- **Chrome DevTools > Rendering > Emulate vision deficiencies** — free, built-in, tests the real product
+- **Coblis** — upload an image and see it through different simulations
+- **axe DevTools** — catches missing labels and contrast issues automatically
 
-You do not need to trust one simulator blindly; use them as a fast warning system.
+You do not need to trust one simulator blindly; use them as a fast warning system. Test the full UI, not just isolated swatches.
 
 ## Practical checklist
 

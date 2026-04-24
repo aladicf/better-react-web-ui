@@ -21,6 +21,7 @@ Consult the [action hierarchy](../frontend-design/reference/action-hierarchy.md)
 Consult the [semantic color](../frontend-design/reference/semantic-color.md) when checking whether color is communicating state or just decoration.
 Consult the [surface separation](../frontend-design/reference/surface-separation.md) when checking whether borders, shadows, cards, overlap, and background shifts are being used intentionally.
 Consult the [image treatment](../frontend-design/reference/image-treatment.md) when screenshots, icons, or media handling affect usability or polish.
+Consult the [accessibility testing](../frontend-design/reference/accessibility-testing.md) when integrating automated checks (axe, WAVE, Pa11y) into the audit workflow or CI pipeline.
 
 Still, when the implementation clearly violates the shared design system or obvious Refactoring UI principles — weak hierarchy, arbitrary spacing, gray text on color, every button styled as primary — call it out as an implementation issue, not a matter of taste.
 
@@ -39,6 +40,13 @@ Run comprehensive checks across 5 dimensions. Score each dimension 0-4 using the
 - **Form issues**: Inputs without labels, poor error messaging, missing required indicators
 
 **Score 0-4**: 0=Inaccessible (fails WCAG A), 1=Major gaps (few ARIA labels, no keyboard nav), 2=Partial (some a11y effort, significant gaps), 3=Good (WCAG AA mostly met, minor gaps), 4=Excellent (WCAG AA fully met, approaches AAA)
+
+**Automated testing integration**:
+- run axe-core, WAVE, or Pa11y against critical pages before manual review
+- treat automated results as a fast warning system, not a pass/fail verdict
+- verify that automated contrast failures are real (sometimes anti-aliasing or overlay layers cause false positives)
+- use automated tools to catch missing labels, incorrect ARIA, and focus issues that are easy to miss in manual inspection
+- document which automated rules are enabled and which are intentionally disabled with justification
 
 ### 2. Performance
 
@@ -109,7 +117,7 @@ Also run these implementation-level hierarchy checks:
 
 | # | Dimension | Score | Key Finding |
 |---|-----------|-------|-------------|
-| 1 | Accessibility | ? | [most critical a11y issue or "--"] |
+| 1 | Accessibility | ? | [most critical a11y issue or none] |
 | 2 | Performance | ? | |
 | 3 | Responsive Design | ? | |
 | 4 | Theming | ? | |

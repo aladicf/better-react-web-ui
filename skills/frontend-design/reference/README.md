@@ -135,6 +135,7 @@ Use these when the problem is not just wording polish, but whether the interface
 ## Color, tone, and visual personality
 
 - [design directions](./design-directions.md)
+- [expressive directions](./expressive-directions.md)
 - [color and contrast](./color-and-contrast.md)
 - [colorblindness UX](./colorblindness-ux.md)
 - [color ramp workflow](./color-ramp-workflow.md)
@@ -153,12 +154,16 @@ Use these when the UI needs a clearer website style direction, stronger mood, mo
 
 Use these when color is carrying meaning in states, charts, legends, selections, or validation feedback and must remain understandable under color-vision deficiencies.
 
-## Motion and implementation
+## Framework, motion, and implementation
 
+- [framework defaults](./framework-defaults.md)
+- [framework official docs](./framework-official-docs.md)
 - [motion design](./motion-design.md)
 - [CSS, Tailwind, and WAAPI motion](./css-tailwind-and-waapi-motion.md)
-- [framework official docs](./framework-official-docs.md)
 - [react shadcn accelerators](./react-shadcn-accelerators.md)
+- [scroll-driven animations](./scroll-driven-animations.md)
+- [view transitions](./view-transitions.md)
+- [core web vitals](./core-web-vitals.md)
 
 For the deeper motion doctrine library, also see the [animate reference index](../../animate/reference/README.md).
 
@@ -166,8 +171,9 @@ For the deeper motion doctrine library, also see the [animate reference index](.
 
 - [responsive design](./responsive-design.md)
 - [sidebar and footer UX](./sidebar-and-footer-ux.md)
+- [container queries](./container-queries.md)
 
-Use these when the work depends on narrow-first layout strategy, component reflow across contexts, sidebars or right rails, footer utility/recovery paths, or deciding whether secondary content belongs in a peripheral support surface at all.
+Use these when the work depends on narrow-first layout strategy, component reflow across contexts, sidebars or right rails, footer utility/recovery paths, container-level responsive behavior, or deciding whether secondary content belongs in a peripheral support surface at all.
 
 ## Components and systems
 
@@ -225,6 +231,7 @@ Use these when the work touches FAQ sections, product-detail accordions, setting
 - [component accessibility](./component-accessibility.md)
 - [interaction design](./interaction-design.md)
 - [error recovery](./error-recovery.md)
+- [accessibility testing](./accessibility-testing.md)
 
 Use these when the work depends on keyboard parity, focus movement, hidden-content strategy, component semantics, accessible states, or testing whether a component is actually usable with assistive technology.
 

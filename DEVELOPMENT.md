@@ -69,6 +69,7 @@ Treat [`README.md` → Shared design doctrine](README.md#shared-design-doctrine)
 
 ### Framework-specific implementation choices
 
+- [`skills/frontend-design/reference/framework-defaults.md`](skills/frontend-design/reference/framework-defaults.md)
 - [`skills/frontend-design/reference/framework-official-docs.md`](skills/frontend-design/reference/framework-official-docs.md)
 
 For Next.js maintenance work specifically, remember that modern Next.js can ship version-matched docs inside `node_modules/next/dist/docs/`, and `create-next-app` now includes `AGENTS.md` / `CLAUDE.md` support by default. Prefer those bundled local docs over memory when the project has them.

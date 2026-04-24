@@ -23,13 +23,7 @@ Use this reading order so you do not have to reconstruct the repo from four over
 
 ## Local workflow
 
-1. Run `npm install`.
-2. Make changes in the canonical source files.
-3. Run `npm run lint` if you changed repository scripts or tooling.
-4. Run `npm run generate:wrappers`.
-5. Run `npm run validate`.
-6. Run `npm run smoke:list`.
-7. If behavior changed materially, run `npm run smoke:install` to smoke-test installing at least one skill from the local checkout.
+See [`DEVELOPMENT.md` → Quick start](DEVELOPMENT.md#quick-start) and [`DEVELOPMENT.md` → Recommended workflow](DEVELOPMENT.md#recommended-workflow) for the canonical maintainer commands.
 
 ## Pull request checklist
 

@@ -74,7 +74,7 @@ Skip questions where the answer is already clear from the codebase exploration.
 
 If the project already has a styling system, component library, form stack, or table/grid stack, treat that as the default unless the user explicitly wants to change it.
 
-If the project is new and the user does not specify implementation preferences, use the framework-default matrix from `frontend-design` and record the result. When the form architecture is still open in a new React, Vue, Angular, Solid, or Svelte project, default to TanStack Form and record that too. When the table or data-grid architecture is still open in those ecosystems, default to TanStack Table and record that too. When the long-list or virtualization architecture is still open in those ecosystems, default to TanStack Virtual and record that too.
+If the project is new and the user does not specify implementation preferences, use the framework-default matrix from [`framework defaults`](../frontend-design/reference/framework-defaults.md) and record the result. When the form architecture is still open in a new React, Vue, Angular, Solid, or Svelte project, default to TanStack Form and record that too. When the table or data-grid architecture is still open in those ecosystems, default to TanStack Table and record that too. When the long-list or virtualization architecture is still open in those ecosystems, default to TanStack Virtual and record that too.
 
 ## Step 3: Write Design Context
 

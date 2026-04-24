@@ -1,8 +1,10 @@
 # better-web-ui
 
-`better-web-ui` is an opinionated Agent Skills library for developers who can ship code just fine but would prefer the UI not look like it was assembled during a sleep-deprived Figma incident.
+`better-web-ui` is an opinionated Agent Skills library for developers who ship code that works and would like the UI to stop looking like a Midjourney prompt of "modern SaaS dashboard."
 
-It helps AI coding agents generate, critique, refine, and systematize production-grade UI, UX, and motion work without defaulting to bland, generic output. In other words: it's for people who know the difference between “works” and “wow” and would like help crossing that gap without pretending they woke up as a principal product designer.
+It gives AI agents taste. Not decoration. Not more purple gradients. Actual design judgment: hierarchy that guides the eye, color that means something, motion that serves a purpose, and interfaces distinctive enough that users do not immediately ask "which AI made this?"
+
+Use it to generate real UI directions, critique what you have, refine typography and spacing, harden edge cases, and extract reusable patterns. It is for people who know the difference between “works” and “wow” and would like help crossing that gap without pretending they woke up as a principal product designer.
 
 This repository is a **skills package**, not a starter app or deployment template.
 
@@ -44,7 +46,7 @@ It is also stack-aware enough to respect what a project already uses.
 
 It works with:
 
-- React, Next.js, React Router, TanStack Start and Vite.
+- React, Next.js, React Router, TanStack Start, and Vite
 - Vue and Nuxt
 - Svelte and SvelteKit
 - Astro
@@ -54,7 +56,7 @@ It works with:
 
 It also adapts to common styling approaches such as Tailwind CSS, CSS modules, CSS-in-JS, token-based design systems, and vanilla CSS.
 
-When a project already has an established stack, agents should match it first. When the stack is still open, the library provides pragmatic defaults and reference guidance rather than forcing one universal setup.
+When a project already has an established stack, agents should match it first. When the stack is still open, the library provides pragmatic defaults and reference guidance rather than forcing one universal setup. See [`skills/frontend-design/reference/framework-defaults.md`](skills/frontend-design/reference/framework-defaults.md) for the full precedence order and default matrix.
 
 ## Installation
 
@@ -244,6 +246,7 @@ For a maintainer-oriented doctrine map and validation workflow, use [`DEVELOPMEN
 - `distill` — declutter and simplify noisy UI
 - `empty-state` — design useful zero-data and no-results states
 - `extract` — pull repeated UI into reusable components, patterns, and tokens
+- `a11y` — systematic accessibility remediation: keyboard, screen readers, contrast, semantics, ARIA, motion sensitivity
 - `harden` — edge cases, i18n, errors, overflow, and resilience
 - `hierarchy` — priority, emphasis, and action clarity
 - `imagery` — screenshots, icons, photos, and media treatment
@@ -271,6 +274,7 @@ For a maintainer-oriented doctrine map and validation workflow, use [`DEVELOPMEN
 | --- | --- | --- |
 | overall UX quality, hierarchy, IA, or cognitive load | `critique` | `audit` or `polish` |
 | measurable accessibility, performance, responsive, theming, or anti-pattern checks | `audit` | `critique` |
+| focused accessibility remediation (keyboard, screen reader, ARIA, contrast) | `a11y` | `audit` |
 | final alignment, consistency, and detail cleanup after the structure already works | `polish` | `critique` or `audit` |
 | too many controls, choices, features, or competing elements | `distill` | `quieter` |
 | structure is sound but the UI is too loud, saturated, or aggressive | `quieter` | `distill` |

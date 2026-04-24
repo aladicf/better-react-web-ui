@@ -64,7 +64,7 @@ LICENSE
 
 ## Working rules
 
-## Tooling baseline
+### Tooling baseline
 
 - Use Node `24.14.1` for local maintainer work.
 - Treat `>=24.14.1 <25` as the supported engine range for repository tooling and CI.
@@ -126,24 +126,12 @@ Do not add host-detection logic or editor-specific installation rules to this re
 - When a project is building primitives without a mature component library, use `skills/frontend-design/reference/component-anatomy.md` for anatomy guidance on custom components such as buttons, cards, checkboxes, dropdowns, tabs, textareas, toasts, toggles, tooltips, accordions, avatars, badges, borders, breadcrumbs, iconography, lists, and submit actions
 - When implementation work is specific to a known frontend framework or meta-framework, consult the official docs for that framework first using `skills/frontend-design/reference/framework-official-docs.md`, then follow the relevant architecture / routing / rendering / data-loading / forms / styling / deployment pages before making framework-specific decisions
 - For Next.js specifically, if the project includes bundled version-matched docs at `node_modules/next/dist/docs/`, read the relevant local Next.js doc there before coding; treat those bundled docs as the source of truth for the installed version, and use the official AI-agents setup/codemod path for older Next.js projects
-- If the user is creating a brand-new project and explicitly names a styling or component library, treat that as the default
-- If the user is creating a brand-new project and the form architecture is still open across React, Vue, Angular, Solid, or Svelte, prefer TanStack Form as the default unless the user explicitly asks for another form stack
-- If the user is creating a brand-new project and the table or data-grid architecture is still open across React, Vue, Angular, Solid, or Svelte, prefer TanStack Table as the default unless the user explicitly asks for another table/grid stack
-- If the user is creating a brand-new project and the long-list or virtualization architecture is still open across React, Vue, Angular, Solid, or Svelte, prefer TanStack Virtual as the default unless the user explicitly asks for another virtualization approach
-- When the stack is still open, keep this shorthand in mind: forms → TanStack Form; tables/datagrids → TanStack Table; long lists/virtual lists → TanStack Virtual; React toasts → Sonner; React drawers/bottom sheets → Vaul; predictive wrapped-text sizing before DOM measurement → Pretext
-- If the user is creating a brand-new project and does not specify implementation preferences, use these fallbacks:
-  - React-based frameworks / meta-frameworks (`Next.js`, `TanStack Start`, `React Router`, Vite React) → **Tailwind CSS** + **shadcn/ui** in the Base UI direction, with **shadcn/ui Blocks**, **re-ui**, and the curated shortlist in `skills/frontend-design/reference/react-shadcn-accelerators.md` as preferred accelerators when the feature request matches
-  - Astro → **Tailwind CSS** + **HTML-first Astro components / native elements** by default to preserve Astro's low-JS model; only use **React** + **shadcn/ui** when the user explicitly asks for that integration or the existing Astro project already uses it
-  - Laravel + Inertia / React → **Tailwind CSS** + **shadcn/ui** in the Base UI direction, with **shadcn/ui Blocks**
-  - Vue / Nuxt → **Tailwind CSS** + **Nuxt UI** or **shadcn-vue**
-  - Svelte / SvelteKit → **Tailwind CSS** + **shadcn-svelte**
-  - Angular → **Tailwind CSS** + **Angular Material** or **ZardUI**
-  - SolidJS / SolidStart → **Tailwind CSS** + **SolidUI**
 - For React/shadcn fallback work, use `skills/frontend-design/reference/react-shadcn-accelerators.md` when you need direct links to the curated Theme Toggle Effect, Consent Manager, Theme Switcher, Sonner, Vaul, Shimmering Text, Scroll Fade Effect, Text Flip, Testimonial, Testimonial Spotlight, Testimonials Marquee, React Wheel Picker, and Slide to Unlock docs.
 - If the official docs still leave gaps after that framework-specific pass, do a focused web search and verify the answer against the official docs before relying on it
 - Avoid introducing framework islands or client JavaScript in Astro unless the feature genuinely needs interactivity that Astro-native HTML/CSS cannot cover cleanly
 - Do not present those preferences as hard requirements or force them into incompatible or already-established stacks
 - When a project already has a framework, design system, or component library, match the existing setup first
+- When the project is new and the stack is still open, follow the precedence order and default matrix in [`skills/frontend-design/reference/framework-defaults.md`](skills/frontend-design/reference/framework-defaults.md)
 
 ## Adding or updating a skill
 

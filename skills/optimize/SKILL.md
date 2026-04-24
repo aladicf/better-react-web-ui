@@ -9,6 +9,7 @@ Identify and fix performance issues to create faster, smoother user experiences.
 
 Consult the [image treatment](../frontend-design/reference/image-treatment.md) when image performance problems intersect with screenshot sizing, icon scaling, cropping strategy, or user-uploaded media handling.
 Consult the [text layout prediction](../frontend-design/reference/text-layout-prediction.md) when performance issues come from measuring many wrapped text blocks, variable-height virtualization, repeated resize relayouts, or hot-path DOM reads like `offsetHeight` / `getBoundingClientRect()` for text-heavy UI.
+Consult the [core web vitals reference](../frontend-design/reference/core-web-vitals.md) when the optimization work focuses on LCP, INP, or CLS specifically and needs deeper subpart breakdowns or field-vs-lab measurement guidance.
 When a project needs virtualization for very long lists and the stack is still open, prefer TanStack Virtual as the default headless virtualization layer across the supported React, Vue, Angular, Solid, and Svelte ecosystems. If the project already uses another virtualization layer, preserve that first.
 
 ## MANDATORY PREPARATION
@@ -62,7 +63,7 @@ When work will exceed that window:
 - Use CDN for faster delivery
 
 ```html
-<img 
+<img
   src="hero.webp"
   srcset="hero-400.webp 400w, hero-800.webp 800w, hero-1200.webp 1200w"
   sizes="(max-width: 400px) 400px, (max-width: 800px) 800px, 1200px"
@@ -70,6 +71,25 @@ When work will exceed that window:
   alt="Hero image"
 />
 ```
+
+**Modern image format strategy (AVIF and WebP)**:
+
+AVIF typically delivers 30-50% smaller files than WebP at equivalent visual quality. WebP has broader baseline support. Use both with fallback:
+
+```html
+<picture>
+  <source srcset="hero.avif" type="image/avif">
+  <source srcset="hero.webp" type="image/webp">
+  <img src="hero.jpg" alt="Hero image" loading="lazy">
+</picture>
+```
+
+Practical rules:
+- generate AVIF for hero images, large backgrounds, and photo-heavy galleries where the size savings matter most
+- keep WebP as the fallback for broader browser coverage
+- do not serve AVIF for tiny icons or simple graphics where encoding overhead outweighs savings
+- use an image CDN that handles format negotiation automatically when possible
+- test AVIF decode speed on low-end devices; the format is smaller but can be slower to decode than WebP
 
 **Reduce JavaScript Bundle**:
 - Code splitting (route-based, component-based)
@@ -105,12 +125,90 @@ const HeavyChart = lazy(() => import('./HeavyChart'));
 }
 ```
 
+**Font subsetting strategy**:
+
+Subsetting removes unused glyphs and dramatically reduces file size. A full Latin font may be 200KB; the same font subsetted to Basic Latin can be 20-30KB.
+
+Approaches:
+- **Static subsetting**: generate separate font files per language or script (Latin, Cyrillic, CJK) and serve only what the page needs via `unicode-range`
+- **Dynamic subsetting**: use a service like Google Fonts or a self-hosted subsetter that generates slices on demand
+- **Critical glyph subsetting**: for above-the-fold hero text, subset to only the characters used in the headline and preload that file
+
+```css
+/* Latin-only subset for body text */
+@font-face {
+  font-family: 'CustomFont';
+  src: url('/fonts/custom-latin.woff2') format('woff2');
+  font-display: swap;
+  unicode-range: U+0020-007F, U+00A0-00FF;
+}
+
+/* Extended subset for other scripts, loaded only when needed */
+@font-face {
+  font-family: 'CustomFont';
+  src: url('/fonts/custom-cyrillic.woff2') format('woff2');
+  font-display: swap;
+  unicode-range: U+0400-04FF;
+}
+```
+
+Tools for subsetting:
+- `pyftsubset` (fonttools) for precise manual subsetting
+- `subfont` for automatic subsetting at build time
+- `glyphhanger` for extracting only the glyphs used in your HTML/CSS
+
+**Critical CSS extraction**:
+
+Extract the CSS needed for above-the-fold content and inline it in the HTML `<head>`. Load the remaining CSS asynchronously.
+
+Why it matters:
+- render-blocking CSS is often the biggest contributor to slow First Contentful Paint
+- inlining critical CSS eliminates the network request for the initial view
+- non-critical CSS can load after the page is interactive
+
+How to implement:
+- use `critical` (npm package) or `Penthouse` to extract above-the-fold CSS automatically
+- or identify critical CSS manually: header styles, hero layout, initial typography, and above-the-fold component styles
+- inline the critical CSS in a `<style>` tag in the `<head>`
+- load the full stylesheet asynchronously:
+
+```html
+<head>
+  <style>
+    /* Critical CSS inlined here */
+  </style>
+  <link rel="preload" href="/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/styles.css"></noscript>
+</head>
+```
+
+Caveats:
+- do not inline more than ~14KB of CSS (gzippped) to stay within single TCP round-trip budgets
+- critical CSS must be kept in sync with the actual above-the-fold content; regenerate it when layouts change
+- for SPAs, consider route-level critical CSS rather than page-level
+
 **Optimize Loading Strategy**:
 - Critical resources first (async/defer non-critical)
 - Preload critical assets
 - Prefetch likely next pages
 - Service worker for offline/caching
 - HTTP/2 or HTTP/3 for multiplexing
+
+**Container queries for component-level responsiveness**:
+
+Container queries let components adapt to their own container size rather than the viewport. This reduces the need for page-wide breakpoint overrides and makes components more reusable.
+
+When to use:
+- a component appears in multiple contexts (sidebar, main column, modal)
+- the component layout should depend on the space it has, not the device width
+- you want to reduce breakpoint proliferation at the page level
+
+Consult the [container queries reference](../frontend-design/reference/container-queries.md) for syntax, practical patterns, and browser support.
+
+Performance note:
+- container queries add minimal runtime cost; they run on the compositor like media queries
+- prefer `container-type: inline-size` over `size` unless you genuinely need both dimensions
+- avoid creating containment contexts on every element; only where the component needs to query its container
 
 ### Rendering Performance
 
