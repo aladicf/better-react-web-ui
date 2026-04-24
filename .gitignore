@@ -21,6 +21,7 @@ coverage/
 .DS_Store
 Thumbs.db
 .idea/
+.vscode/
 .vscode-test/
 
 # Temporary files

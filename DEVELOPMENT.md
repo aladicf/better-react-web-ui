@@ -150,8 +150,10 @@ Do not turn those upstream inventories into a frozen in-repo catalog. When the d
 - `npm run lint` — lint repository scripts with OXC (`oxlint`)
 - `npm run generate:wrappers` — regenerate all wrapper trees and wrapper-root readmes from canonical skills
 - `npm run check:wrapper-drift` — fail if tracked generated wrapper outputs differ from the checked-in wrapper roots
+- `npm run check:skill-descriptions` — validate skill descriptions against length limits, check for literal `--` sequences, and flag missing `argument-hint` metadata
 - `npm run validate` — validate canonical skill metadata, local markdown links, README skill catalog sync, wrapper root readmes, and wrapper drift
 - `npm run validate:wrappers` — validate wrapper trees and wrapper-root readmes only
+- `npm run generate:compatibility-matrix` — generate `SKILL_COMPATIBILITY_MATRIX.md` from canonical skill content analysis
 - `npm run smoke:list` — smoke-test local `skills` CLI discovery from the repository root; verifies that `npx skills add . --list` discovers and lists the canonical skills as expected
 - `npm run smoke:install` — perform a disposable local install smoke test for the `add-ui` skill in a temporary directory, report which wrapper root or roots the CLI wrote to, and verify that the installed skill is listed successfully
 - `npm run verify` — run the main maintainer checks in sequence: lint, wrapper generation, validation, discovery smoke test, and install smoke test
@@ -249,6 +251,7 @@ If you need to assert that a specific install root is present while reproducing 
 - `metadata` remains a YAML mapping with non-empty string values
 - canonical `SKILL.md` files warn if they exceed the spec's 500-line progressive-disclosure recommendation
 - `metadata.argument-hint` is non-empty if present
+- literal `--` sequences in skill bodies are flagged (em dash anti-pattern)
 - top-level docs required for contributors exist
 - local markdown links in canonical docs resolve
 - the README skill catalog stays in sync with canonical `skills/`

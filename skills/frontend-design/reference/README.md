@@ -49,6 +49,7 @@ If you only open a few files first, make them these:
 - [reviews and ratings](./reviews-and-ratings.md) — product-review trust, rating summaries, and social proof that actually helps decisions
 - [social proof patterns](./social-proof-patterns.md) — testimonials, trust badges, customer logos, case studies, and proof placement across marketing and commerce surfaces
 - [search and findability](./search-and-findability.md) — site search, autosuggest, zero-results recovery, and intent-aware findability
+- [data visualization](./data-visualization.md) — chart type selection, responsive patterns, accessible data tables, color-vision-friendly palettes, tooltips, and annotations
 - [status communication](./status-communication.md) — notifications, validations, badges, inboxes, and attention management
 - [legacy modernization](./legacy-modernization.md) — legacy-system UX upgrades, migration strategy, stakeholder trust, and hybrid old/new seams
 - [cognitive load](./cognitive-load.md) — simplify decisions, memory burden, and complexity exposure
@@ -104,6 +105,10 @@ Use these when the UI feels crowded, flat, ambiguously grouped, or visually mono
 - [cognitive load](./cognitive-load.md)
 - [action hierarchy](./action-hierarchy.md)
 - [empty-state patterns](./empty-state-patterns.md)
+- [form validation patterns](form-validation-patterns.md) — when to validate, error placement, multi-field dependencies, async validation, recovery design
+- [search and filtering UX](search-and-filtering-ux.md) — autocomplete, filter architecture, result presentation, zero-results recovery
+- [notification and permissions](notification-and-permissions.md) — browser permission prompts, push strategy, notification centers, denied recovery
+- [offline and resilience](offline-and-resilience.md) — service worker UX, stale-while-revalidate, sync queues, conflict resolution
 
 Use these when the problem is not just styling, but how the product behaves, guides, or protects the user.
 
@@ -361,6 +366,14 @@ Use this when the work touches language switching, regional overrides, country o
 Use these when the work involves product discovery, product pages, carts, checkout, trust cues, testimonials, ratings, case studies, or conversion-sensitive proof placement.
 
 Use these when the task touches account access, plan comparison, billing clarity, feature gates, or upgrade prompts.
+
+## Data presentation and visualization
+
+- [data visualization](./data-visualization.md) — chart type selection, responsive patterns, accessible data tables, color-vision-friendly palettes, tooltips, and annotations
+- [colorblindness UX](./colorblindness-ux.md) — semantic states, chart palettes, non-color-only cues, and lightness-aware color choices for color-vision deficiencies
+- [complex table UX](./complex-table-ux.md) — read-only/search/editable table architecture, pinned columns, header filters, and desktop-first operational grid design
+
+Use these when the product must present data visually, whether through charts, dense tables, or comparative visualizations, and when accessibility under color-vision deficiencies matters.
 
 ## How to use this folder well
 

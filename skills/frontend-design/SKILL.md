@@ -1,7 +1,9 @@
 ---
 name: frontend-design
-description: Create distinctive, production-grade frontend interfaces with strong hierarchy, thoughtful systems, and polished implementation that avoid generic AI aesthetics. Use when the user wants to build or redesign web pages, flows, components, or full app surfaces, or when another better-web-ui skill needs shared project design context before specialized work begins.
+description: Create distinctive, production-grade frontend interfaces with strong hierarchy, thoughtful systems, and polished implementation that avoid generic AI aesthetics. Use when the user wants to build or redesign web pages, flows, components, or full app surfaces, or when another better-web-ui skill needs shared project design context before other better-web-ui skills.
 license: Apache 2.0. Based on Anthropic's frontend-design skill. See NOTICE.md for attribution.
+metadata:
+  argument-hint: "[page, flow, or component]"
 ---
 
 This skill guides creation of distinctive, production-grade frontend interfaces that avoid generic "AI slop" aesthetics. Implement real working code with exceptional attention to aesthetic details and creative choices.
@@ -123,7 +125,7 @@ Choose fonts that are beautiful, unique, and interesting. Pair a distinctive dis
 **DON'T**: Put large icons with rounded corners above every heading—they rarely add value and make sites look templated
 
 ### Color & Theme
-→ *Consult [color reference](reference/color-and-contrast.md) for OKLCH, palettes, and dark mode. Use [colorblindness UX](reference/colorblindness-ux.md) when semantic states, charts, active states, or category colors must remain distinguishable under color-vision deficiencies. Use [color ramp workflow](reference/color-ramp-workflow.md) when building or repairing ramps. Use [semantic color](reference/semantic-color.md) when color is carrying status, alerts, or meaning.*
+→ *Consult [color reference](reference/color-and-contrast.md) for OKLCH, palettes, and dark mode. Use [colorblindness UX](reference/colorblindness-ux.md) when semantic states, charts, active states, or category colors must remain distinguishable under color-vision deficiencies. Use [color ramp workflow](reference/color-ramp-workflow.md) when building or repairing ramps. Use [semantic color](reference/semantic-color.md) when color is carrying status, alerts, or meaning. Use [data visualization](reference/data-visualization.md) when presenting data through charts, graphs, or plots.*
 
 Commit to a cohesive palette. Dominant colors with sharp accents outperform timid, evenly-distributed palettes.
 
@@ -216,10 +218,12 @@ Focus on high-impact moments: one well-orchestrated page load with staggered rev
 - [navigation menu UX](reference/navigation-menu-ux.md) — mega-dropdowns, header navigation, hover vs click menus
 - [breadcrumb UX](reference/breadcrumb-ux.md) — nested navigation, breadcrumb trails, current-location cues, docs hierarchies
 - [search and findability](reference/search-and-findability.md) — site search, command palettes, autosuggest, zero-results recovery
+- [search and filtering UX](reference/search-and-filtering-ux.md) — autocomplete, filter architecture, result presentation, zero-results recovery
 
 **Commerce and content**
 - [collection browsing and filtering](reference/collection-browsing-and-filtering.md) — long result lists, faceted browsing, filter overlays
 - [complex table UX](reference/complex-table-ux.md) — data grids, pinned columns, header filters, row selection, validation inside tables
+- [data visualization](reference/data-visualization.md) — chart type selection, responsive patterns, accessible data tables, tooltips, and annotations
 - [feature comparison UX](reference/feature-comparison-ux.md) — comparison tables, side-by-side specs, shortlist compare flows
 - [configurator UX](reference/configurator-ux.md) — product builders, step-based configuration, real-time option previews
 - [slider UX](reference/slider-ux.md) — range sliders, loan or pricing calculators, dual-handle filters
@@ -234,6 +238,8 @@ Focus on high-impact moments: one well-orchestrated page load with staggered rev
 - [micro failures and perceived quality](reference/micro-failures-and-perceived-quality.md) — flaky feeling from tiny jank, weak feedback, vanishing menus, or haunted-looking behavior
 - [loading feedback and perceived performance](reference/loading-feedback-and-perceived-performance.md) — skeletons, stale-data cues, optimistic UI, streaming content, honest waiting states
 - [status communication](reference/status-communication.md) — validations, notifications, badges, inboxes, activity feeds
+- [form validation patterns](reference/form-validation-patterns.md) — when to validate, error placement, multi-field dependencies, async validation, recovery design
+- [notification and permissions](reference/notification-and-permissions.md) — browser permission prompts, push strategy, notification centers, denied recovery
 - [empty-state patterns](reference/empty-state-patterns.md) — zero-data surfaces
 - [component accessibility](reference/component-accessibility.md) — keyboard support, focus indicators, skip links, modal focus handling, hidden content, current-page states
 
@@ -242,6 +248,7 @@ Focus on high-impact moments: one well-orchestrated page load with staggered rev
 - [onboarding UX](reference/onboarding-ux.md) — first-run sequencing, activation, aha moments, tours vs checklists
 - [predictive and intent-driven UI](reference/predictive-and-intent-ui.md) — recommendations, smart defaults, resume flows
 - [legacy modernization](reference/legacy-modernization.md) — legacy systems, hybrid old/new flows, migration-roadmap decisions
+- [offline and resilience](reference/offline-and-resilience.md) — service worker UX, stale-while-revalidate, sync queues, conflict resolution
 - [cognitive load](reference/cognitive-load.md) — Hick's Law and Miller's Law in practice
 - [authentication and account recovery](reference/authentication-and-account-recovery.md) — sign-in, sign-up, password setup, session expiry, two-factor flows, lockouts
 - [permissions and roles UX](reference/permissions-and-roles-ux.md) — role models, request-access flows, capability boundaries, admin-vs-member behavior

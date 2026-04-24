@@ -1,6 +1,8 @@
 ---
 name: setup
 description: Gather and persist project design context such as audience, brand personality, UX goals, and implementation defaults for future better-web-ui work. Use when starting a project, defining UI direction, or establishing reusable design guidance before other better-web-ui skills.
+metadata:
+  argument-hint: "[project]"
 ---
 
 Gather design context for this project, then persist it for all future sessions.

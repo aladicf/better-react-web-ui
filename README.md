@@ -243,9 +243,11 @@ For a maintainer-oriented doctrine map and validation workflow, use [`DEVELOPMEN
 - `clarify` — UX writing and copy clarity
 - `colorize` — color systems and semantic color
 - `depth` — elevation, layering, and depth systems
+- `data-viz` — chart selection, dashboard design, and accessible data presentation
 - `distill` — declutter and simplify noisy UI
 - `empty-state` — design useful zero-data and no-results states
 - `extract` — pull repeated UI into reusable components, patterns, and tokens
+- `forms` — form structure, field design, validation UX, and multi-step flows
 - `a11y` — systematic accessibility remediation: keyboard, screen readers, contrast, semantics, ARIA, motion sensitivity
 - `harden` — edge cases, i18n, errors, overflow, and resilience
 - `test` — UI testing strategy: visual regression, interaction testing, and accessibility assertions
@@ -254,6 +256,8 @@ For a maintainer-oriented doctrine map and validation workflow, use [`DEVELOPMEN
 - `localize` — i18n and localization strategy for multilingual products
 - `normalize` — bring drifted UI back into alignment with the design system
 - `onboard` — first-run, activation, and onboarding strategy that gets users to value quickly
+- `search` — search experience design: autocomplete, filters, results, zero-results recovery
+- `security-ux` — security-conscious UI: MFA, password UX, breach notifications, trust indicators
 - `typeset` — typography, readability, and type hierarchy
 
 ### Review and finishing
@@ -282,7 +286,11 @@ For a maintainer-oriented doctrine map and validation workflow, use [`DEVELOPMEN
 | structure is sound but the UI is too loud, saturated, or aggressive | `quieter` | `distill` |
 | the UI feels too bland, safe, or underpowered | `bolder` | `distill` or `quieter` |
 | building test coverage, catching visual bugs, or validating UI behavior | `test` | `audit` or `harden` |
+| adding charts, dashboards, or data visualizations | `data-viz` | `colorize` |
 | adding multilingual support, locale switching, or regional formatting | `localize` | `harden` |
+| building or redesigning forms, validation, or form flows | `forms` | `harden` or `clarify` |
+| improving search, filters, autocomplete, or findability | `search` | `add-ui` |
+| security flows: MFA, passwords, breach notifications, trust | `security-ux` | `audit` or `harden` |
 
 The canonical source of truth for every skill lives under `skills/`.
 
