@@ -128,24 +128,40 @@ The more focused component-pattern references in this folder — such as accordi
 
 ## Design Direction
 
-Commit to a BOLD aesthetic direction:
+Treat design direction as a deliberate constraint system, not a vague tone adjective.
+
 - **Feature first**: Identify the primary workflow or moment this screen must support before designing the shell around it.
 - **Purpose**: What problem does this interface solve? Who uses it?
-- **Tone**: Pick an extreme: brutally minimal, maximalist chaos, organic/natural, luxury/refined, playful/toy-like, editorial/magazine, brutalist/raw, art deco/geometric, soft/pastel, industrial/utilitarian, etc. There are so many flavors to choose from. Use these for inspiration but design one that is true to the aesthetic direction.
-- **Constraints**: Technical requirements (framework, performance, accessibility).
-- **Differentiation**: What makes this UNFORGETTABLE? What's the one thing someone will remember?
+- **Brand fit**: What should this feel like for this specific company, product, audience, and promise?
+- **Content fit**: How much copy, proof, imagery, navigation, and product detail must this layout support?
+- **Constraints**: Technical requirements, performance budget, accessibility, and maintenance cost.
+- **Differentiation**: What makes this memorable without making it harder to use?
+
+Follow [design directions](reference/design-directions.md) when choosing or preserving a style.
+
+That reference defines the approved website directions for this library, how to choose among them, where louder styles should stay selective, and which styles this library should not generate.
+
+Use these rules by default:
+
+- **Existing project first**: if the project already has a visual system, preserve its typography, palette, spacing rhythm, surface language, and interaction tone unless the user explicitly asks for a rebrand or larger style shift.
+- **Broad new-project requests choose from approved directions**: if the user asks for a new landing page, marketing page, or several distinct directions without naming a style, select from the approved design directions based on the product idea and brand fit instead of inventing random vibe labels.
+- **Choose structure before effects**: establish one primary structural direction first, then optionally add one supporting surface, typographic, motion, or expressive modifier.
+- **Keep core flows clearer than the shell**: even when the marketing layer is more expressive, forms, tables, settings, auth, pricing comparisons, and error states should usually stay closer to minimalist, Swiss, flat, or similarly clarity-first behavior.
+- **Never default to retro / cyber / synthwave / terminal aesthetics**: do not volunteer those directions from broad prompts in this library.
 
 Apply a little pessimism up front:
-- Design the smallest useful version first.
-- Do not imply functionality that isn't ready to exist.
-- Use wireframes and rough exploration to make decisions quickly, then build the real thing early and iterate in short cycles.
+
+- design the smallest useful version first
+- do not imply functionality that is not ready to exist
+- use rough exploration to make decisions quickly, then build the real thing early and iterate in short cycles
+- lock typography, spacing, hierarchy, and CTA structure before layering on heavier style treatments
 
 Use [design process](reference/design-process.md) when the request is still fuzzy, when layout and flow decisions need to be clarified before polish, or when you need a cleaner progression from wireframe to styleguide to prototype.
 Use [design principles](reference/design-principles.md) when the team needs clearer shared defaults, stronger product values, or a more durable decision-making point of view that explains both what to do and what to avoid.
 Use [ux strategy](reference/ux-strategy.md) when the work needs clearer user-segment focus, priorities, high-value UX actions, feasibility framing, or risk-aware alignment with product and business goals before screen-level execution.
 Use [audience-sensitive design](reference/audience-sensitive-design.md) when the audience itself changes the UX — for example when designing for Gen Z, children, parents, older adults, or any audience with distinct device habits, trust patterns, or accessibility needs.
 
-**CRITICAL**: Choose a clear conceptual direction and execute it with precision. Bold maximalism and refined minimalism both work—the key is intentionality, not intensity.
+**CRITICAL**: Choose a clear conceptual direction and execute it with precision. Intentionality beats intensity. Typography, spacing, hierarchy, and content structure should still work even if decorative effects are temporarily removed.
 
 Then implement working code that is:
 - Production-grade and functional
@@ -164,6 +180,7 @@ Choose fonts that are beautiful, unique, and interesting. Pair a distinctive dis
 **DO**: Build hierarchy with weight, color, and spacing — not size alone
 **DO**: Align mixed font sizes by their baseline when they appear on the same line
 **DO**: Tighten headlines carefully and add letter-spacing to all-caps text when readability benefits
+**DO**: When a hero or display headline wraps to multiple lines, reduce the size before crushing the leading; keep enough line-height and block padding that ascenders and descenders never clip
 **DON'T**: Use overused fonts—Inter, Roboto, Arial, Open Sans, system defaults
 **DON'T**: Use monospace typography as lazy shorthand for "technical/developer" vibes
 **DON'T**: Use `em`-based type scales for nested UI — they drift off-system fast
@@ -197,6 +214,7 @@ Create visual rhythm through varied spacing—not the same padding everywhere. E
 **DO**: Use fluid spacing with clamp() that breathes on larger screens
 **DO**: Use asymmetry and unexpected compositions; break the grid intentionally for emphasis
 **DO**: Keep more space around groups than within them to avoid ambiguous spacing
+**DO**: Break long pages into clear logical blocks; equal-weight sections should usually keep consistent outer spacing and shared backgrounds should wrap the whole related block, not just a narrow heading strip
 **DO**: Give components the width they actually need; fixed widths are often better than fluid widths for sidebars, forms, and cards
 **DON'T**: Wrap everything in cards—not everything needs a container
 **DON'T**: Nest cards inside cards—visual noise, flatten the hierarchy
@@ -212,11 +230,13 @@ Create visual rhythm through varied spacing—not the same padding everywhere. E
 **DO**: Use intentional, purposeful decorative elements that reinforce brand
 **DO**: Create a small elevation system; shadows should communicate z-depth, not exist as default garnish
 **DO**: Use background shifts, spacing, and subtle shadows before reaching for borders everywhere
+**DO**: Treat louder style treatments such as glass, soft UI, clay, brutalist accents, or 3D elements as selective tools unless the chosen direction genuinely supports broad use
 **DON'T**: Use glassmorphism everywhere—blur effects, glass cards, glow borders used decoratively rather than purposefully
 **DON'T**: Use rounded elements with thick colored border on one side—a lazy accent that almost never looks intentional
 **DON'T**: Use sparklines as decoration—tiny charts that look sophisticated but convey nothing meaningful
 **DON'T**: Use rounded rectangles with generic drop shadows—safe, forgettable, could be any AI output
 **DON'T**: Add realism or depth effects that don't clarify elevation or interaction
+**DON'T**: Mix multiple loud style families at once without a clear hierarchy of what is primary versus supporting
 **DON'T**: Use modals unless there's truly no better alternative—modals are lazy
 
 ### Images & Media
@@ -225,6 +245,7 @@ Create visual rhythm through varied spacing—not the same padding everywhere. E
 **DO**: Treat image contrast problems as image-treatment problems first, not typography failures
 **DO**: Keep screenshots large or focused enough to communicate something useful
 **DO**: Keep icons close to the scale they were designed for unless they were made to scale illustratively
+**DO**: Place hero copy in a visually quiet part of the image and keep it off faces, product details, or other meaningful focal points
 **DO**: Force user-uploaded media into controlled shapes and predictable containers
 **DON'T**: Scale screenshots down until they become eye tests
 **DON'T**: Blow tiny icons up into chunky placeholders for real illustration
@@ -326,7 +347,7 @@ Consult [ai slop detection](reference/ai-slop-detection.md) for the consolidated
 
 ## Implementation Principles
 
-Match implementation complexity to the aesthetic vision. Maximalist designs need elaborate code with extensive animations and effects. Minimalist or refined designs need restraint, precision, and careful attention to spacing, typography, and subtle details.
+Match implementation complexity to the aesthetic vision. Heavier styles such as glass, soft UI, clay, 3D, or other custom-surface treatments increase CSS complexity, state design work, accessibility risk, and performance tuning cost. Restrained directions still need precision, not less effort.
 
 Interpret creatively and make unexpected choices that feel genuinely designed for the context. No design should be the same. Vary between light and dark themes, different fonts, different aesthetics. NEVER converge on common choices across generations.
 

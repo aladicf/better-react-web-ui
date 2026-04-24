@@ -6,6 +6,21 @@ The format is inspired by Keep a Changelog and uses a simple `Added` / `Changed`
 
 ## [Unreleased]
 
+## [2.2.0] - 2026-04-24
+
+### Changed
+
+- `frontend-design` now replaces the old vague “pick an extreme tone” prompt with an approved website-style direction system that distinguishes structural directions from selective surface treatments, preserves existing project visual systems by default, disallows retro/cyber/synthwave/terminal defaults, and pushes agents to judge style choices by brand fit, content fit, trust, performance, and implementation cost.
+- The shared frontend doctrine now includes `design-directions`, a new reference covering approved styles such as Minimalism, Swiss, Editorial, Bento, Constructivism, Flat, Japandi, Bauhaus, Utilitarian, Wabi Sabi, Mid-Century, Glassmorphism, Frost UI, Neumorphism, Claymorphism, Mesh Gradients, Outline / Skeletal UI, 3D / Isometric, Organic, Hand-Drawn, Conceptual Sketch, Graffiti, Tenebrism, and Neo-Brutalism, plus guidance on where louder treatments should stay selective.
+- `design-directions` now also defines Bold Typography, Luxury Typography, Modular Typography, and Motion Design and Animation as approved typographic or motion-led modifiers, and it expands Glassmorphism and Neumorphism with clearer product-fit and restraint guidance from the requested source articles.
+- `add-ui`, `personality-levers`, and the shared reference index now align with the new design-direction workflow so broad new-project marketing requests choose from approved style families while existing-project work preserves the current look and feel first.
+- The shared frontend doctrine now more explicitly guards against common landing-page and editorial mistakes: weak logical block separation, inconsistent section spacing, overloaded top-level navigation, hero copy placed on busy image focal points, and oversized wrapped hero headlines with clipped text boxes.
+- The `add-ui` hero / landing heuristics and preview/apply checklists now explicitly require wrapped hero text to keep safe line-height and top/bottom padding across breakpoints so generated hero sections and full pages do not ship with clipped multi-line copy.
+- `design-principles` now more explicitly explains when to apply visual principles intentionally instead of all at once, and it translates proximity, emphasis, white space, consistency, modularity, anchor placement, scan patterns, and Fitts's Law into product-usable principle language.
+- `marketing-copywriting`, `sidebar-and-footer-ux`, and the `add-ui` landing-page heuristics now more explicitly cover landing-page preparation, audience focus, USP framing, headline/subheadline/CTA roles, credibility-vs-proof-vs-testimonial sequencing, short how-it-works sections, optional-content restraint, and footer legitimacy/contact guidance.
+- `typography` and `image-treatment` now also cover message-sensitive weight strategies, reading-density body-size guidance, calmer-image-first cover selection, and brand-tinted overlay choices so font and hero-image decisions stay readable without collapsing into either thin-on-noise fragility or muddy black-overlay defaults.
+- The repository version metadata in `package.json` and `package-lock.json` has been bumped to `2.2.0`.
+
 ## [2.1.0] - 2026-04-24
 
 ### Changed

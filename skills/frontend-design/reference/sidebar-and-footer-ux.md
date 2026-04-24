@@ -75,6 +75,23 @@ Typical footer jobs:
 
 The footer should help users recover, continue, or verify — not merely absorb leftovers.
 
+## Landing and service pages need legitimacy at the bottom
+
+On landing pages, portfolio pages, and service sites, the footer often carries a quiet trust job.
+
+Useful footer defaults there include:
+
+- clear contact methods
+- support or inquiry paths that feel real and maintained
+- legal or policy links where they matter
+- enough company or operator presence that the page does not feel anonymous
+
+If the whole page asks users to trust a business, a footer with one lonely profile link and no dependable contact path can undermine that trust fast.
+
+That does not mean stuffing the footer with everything.
+
+It means making the fallback surface feel legitimate.
+
 ## Keep footer content prioritized
 
 A good footer is structured around importance, not around `everything that did not fit above`.
@@ -85,6 +102,7 @@ Good defaults:
 - keep legal content accessible but visually quieter than support or navigation content
 - reduce duplicate navigation if the header already covers it well
 - include only categories or destinations that users actually need near the end of the page
+- keep contact details and support routes current; stale links or outdated details make the whole page feel neglected
 
 If the footer becomes a mini sitemap with no hierarchy, it stops helping.
 

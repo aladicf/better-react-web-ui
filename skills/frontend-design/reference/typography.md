@@ -92,6 +92,7 @@ Legibility also depends on how the type is used:
 - small text usually needs a little more weight, not less
 - large headlines usually need less weight than small labels or buttons
 - text over patterns, photography, or noisy backgrounds fails faster than text on calm surfaces
+- very light text over busy imagery fails especially fast; fix the image first, then add weight if the text still feels fragile
 - strong header/body contrast can come from family pairing, but it can also come from size, weight, spacing, and role clarity
 
 One reliable pattern is a more expressive serif or display treatment for titles paired with a calmer sans-serif for body text — but this is a tool, not a rule. Do not force serif/sans contrast when a strong single-family system works better.
@@ -133,6 +134,23 @@ When pairing, contrast on multiple axes:
 - Condensed display + Wide body (proportion contrast)
 
 **Never pair fonts that are similar but not identical** (e.g., two geometric sans-serifs). They create visual tension without clear hierarchy.
+
+### Weight Strategy Changes the message
+
+Font weight is not only a hierarchy tool.
+
+It also changes the tone of the page.
+
+Useful defaults:
+
+- **semibold heading + regular body** is a safe, broadly useful starting point for many product and marketing pages
+- **bold heading + regular body** feels more energetic and promotion-friendly
+- **bold heading + lighter body** can create stronger drama when the overall composition is calm enough to support it
+- **light heading + light body** is a high-risk choice that usually needs generous white space, careful imagery, and very controlled contrast to stay readable
+
+Those are not rigid formulas.
+
+They are reminders that type weight is part of the product voice, not just a styling checkbox.
 
 ## Weight, Bold, and Emphasis
 
@@ -218,6 +236,8 @@ Practical defaults:
 
 - treat `16px / 1rem` as the accessibility floor for UI body text
 - use larger body sizes on wide, reading-heavy layouts when the content density supports it
+- reading-heavy editorial surfaces often benefit from a body size around `18px / 1.125rem` when the measure and spacing support it
+- caption-led or image-led surfaces with little text can tolerate larger body sizes when the goal is emphasis rather than dense reading
 - let headings step down sooner than paragraphs in medium and narrow layouts
 - avoid giant headings that wrap into weak, ragged blocks when the viewport narrows
 

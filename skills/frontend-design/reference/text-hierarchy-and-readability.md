@@ -38,6 +38,23 @@ As a rule of thumb:
 - body: around `1.5–1.7`
 - headings: often `1.0–1.25`
 
+## Multi-Line Display and Hero Text
+
+Once large text wraps, it stops behaving like a single bold statement and starts behaving like a real text block.
+
+That means the spacing rules have to change with it.
+
+Good defaults:
+
+- reduce the display size before forcing an ultra-tight line-height just to preserve a dramatic one-line scale
+- give wrapped display text enough leading that ascenders and descenders stay fully visible
+- keep enough top and bottom padding in hero and callout text containers that the text does not feel shaved by the box edge
+- test the actual rendered font at multiple widths; line breaks that appear safe in design tools can clip once the browser applies the real metrics
+
+If a hero heading needs two or three lines, that is normal.
+
+Clipping those lines to preserve the fantasy of a one-line poster is not.
+
 ## Sentence Length and Chunking
 
 Formatting is part of readability, not just typography.
@@ -64,6 +81,18 @@ They are signposts that help readers:
 - recover their place after interruption
 
 Prefer descriptive subheadings over clever, vague ones.
+
+## Headings Should Attach to What Follows
+
+Headings, subheadings, captions, and key phrases should visually belong to the content they introduce.
+
+Useful rule of thumb:
+
+- give headings more space above than below when they start a new section
+- keep the space below the heading close to the paragraph, list, media, or control group that follows
+- avoid letting a heading float halfway between two blocks with equal spacing above and below; that makes the structure ambiguous
+
+The same logic applies to captions and short stand-out phrases: they can have breathing room, but they should still read as attached to the content they explain.
 
 ## Use Emphasis Sparingly and Purposefully
 
@@ -271,8 +300,10 @@ This matters especially for:
 - Does the scale feel deliberate or accidental?
 - Are paragraphs within readable width?
 - Does line-height match line length?
+- Do wrapped hero or display lines still have enough leading and top/bottom breathing room to avoid clipping?
 - Are long ideas broken into scannable sentences, paragraphs, or bullets?
 - Do subheadings help readers navigate instead of merely styling the page?
+- Do headings visually belong to the content that follows instead of hanging between sections?
 - Are mixed sizes baseline-aligned?
 - Is emphasis used to clarify priority instead of shouting?
 - Are all-caps tracked appropriately?

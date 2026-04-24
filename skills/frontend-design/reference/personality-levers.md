@@ -1,5 +1,7 @@
 # Personality Levers
 
+Choose the broader design direction first using [design directions](./design-directions.md), then use these levers to express that direction consistently.
+
 Personality should come from a few deliberate choices, not a random pile of effects.
 
 ## Font Choice

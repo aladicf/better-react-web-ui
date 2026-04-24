@@ -12,6 +12,25 @@ The real problem is usually a mismatch between:
 - the interaction model used to reveal it,
 - and the user’s need for predictable, interruptible navigation.
 
+## Keep the top level concise
+
+Most sites do not benefit from a header stuffed with top-level options.
+
+As a practical default, keep the primary navigation to roughly **4–7** top-level items.
+
+Once the count climbs past that, question the structure before polishing the menu chrome.
+
+Better moves often include:
+
+- grouping lower-priority links under stronger parent categories
+- using overview pages or `Browse all` destinations instead of exposing every sibling in the header
+- moving utility links to a utility bar, footer, account menu, or local section navigation
+- strengthening search, section indexes, or task-based entry points instead of treating the header as a sitemap
+
+An overloaded header does not prove the site is rich.
+
+It usually proves the hierarchy was delegated to the navbar.
+
 ## Start by questioning the mega-dropdown
 
 Mega-dropdowns are not automatically wrong, but they are easy to overuse.

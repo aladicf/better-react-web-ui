@@ -44,6 +44,29 @@ Good first-screen defaults:
 
 The first screen should reduce interpretation work, not add it.
 
+## Hero copy needs a safe text box
+
+Hero text often looks fine in a static mock and then breaks the moment the real font loads, the viewport narrows, or the headline wraps onto an extra line.
+
+Treat wrapped hero copy as a real text block, not as a single-line poster that got unlucky.
+
+Practical rules:
+
+- if a headline or subhead wraps to multiple lines, reduce the type size before forcing the line-height so tight that letters collide or clip
+- keep enough top and bottom padding around the text block that ascenders, descenders, and nearby CTA spacing still breathe
+- avoid relying on `overflow: hidden` around live hero text unless the effect truly needs it and the actual font rendering has been tested carefully
+- re-check the hero at wide, medium, and narrow widths; a headline that was safe on desktop can clip or crowd instantly once it becomes two or three lines
+
+Common failure mode:
+
+- choosing a single-line display size
+- letting the headline wrap anyway
+- tightening the leading until the first line kisses the container edge or the descenders get shaved off
+
+That is not bold typography.
+
+That is a broken text box wearing a nice font.
+
 ## Stronger alternatives to the generic hero image
 
 When the top of the page needs visual support, better options often include:
@@ -56,6 +79,22 @@ When the top of the page needs visual support, better options often include:
 - a small illustration or artifact that supports the message instead of dominating it
 
 Choose visuals that explain, not visuals that merely decorate.
+
+## Put text in the quiet part of the image
+
+If hero copy sits on photography or illustration, it needs a calm zone.
+
+Prefer:
+
+- open sky, wall, background gradient, or other quieter negative space
+- crops where text sits away from faces, hands, product details, or other high-attention areas
+- overlays or filters that improve readability without turning the whole hero muddy
+
+Avoid:
+
+- centering text over the most important part of the image just because the template centers everything
+- placing copy on top of faces, product interfaces, or fine-detail regions that users actually need to inspect
+- keeping a busy image when no believable text-safe zone exists; use a different crop, a different asset, or a non-image hero instead
 
 ## Performance is part of the hero decision
 
@@ -113,7 +152,9 @@ If the visual only adds atmosphere, question whether atmosphere is worth the cos
 
 - Can users tell what the product is within a few seconds?
 - Does the first screen make the primary action obvious?
+- If the headline or subhead wraps, does it still have enough line-height and text-box padding to avoid clipping at every breakpoint?
 - Does the visual clarify the message instead of replacing it?
+- Is the copy placed over a visually quiet region rather than over the image's key focal point?
 - Is the hero still useful in narrow layouts, not just in a wide-layout mock?
 - Does the above-the-fold media earn its performance budget?
 - Is the content readable, accessible, and semantically structured?
@@ -124,8 +165,10 @@ Avoid:
 
 - defaulting to a full-bleed hero image because the template expects one
 - abstract slogans paired with abstract imagery
+- keeping a single-line headline size after the copy wraps into two or three lines, then crushing the leading until the text clips
 - pushing the real explanation below the fold while the top of the page performs brand mood
 - making the visual so dominant that the product, proof, and CTA become secondary
+- placing hero copy on top of faces, product details, or busy focal points that should stay visible
 - using above-the-fold media that slows the page and says little
 
 The best hero is often the one that makes the product instantly understandable rather than merely photogenic.

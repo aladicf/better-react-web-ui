@@ -18,6 +18,22 @@ Good principles help teams:
 
 Without them, decisions become sporadic, ad hoc, and inconsistent. The product still communicates values — just accidentally.
 
+## Use principles intentionally, not all at once
+
+Good design principles are not a checklist that must all fire at maximum strength in every screen.
+
+Different surfaces need different emphases.
+
+Examples:
+
+- a dense operational table may need stronger consistency, modularity, and scanning support than dramatic white space
+- a landing page hero may depend more on emphasis, anchor placement, and message clarity than on feature density
+- a narrow settings flow may need Fitts's Law and proximity discipline more than expressive composition
+
+The goal is intentional use, not ritual obedience.
+
+If a team starts applying every principle equally, the principles stop acting like judgment and start acting like cargo cult decor.
+
 ## A useful principle is not a slogan
 
 Weak principle:
@@ -59,6 +75,33 @@ Examples:
   **Do not** chase novelty that makes the interface harder to understand.
 
 If a principle never rules anything out, it is probably too vague.
+
+## Visual principles are useful raw material for product principles
+
+Many teams already use perceptual rules without naming them.
+
+Naming them helps.
+
+Especially useful source principles include:
+
+- **proximity** — related things sit closer together than unrelated things
+- **emphasis** — every screen needs a clear point of visual priority
+- **white space** — empty space should direct attention, not perform taste for its own sake
+- **consistency** — same-role elements should follow the same rules
+- **modularity** — layouts should align to clear blocks and grid logic
+- **anchor placement** — the strongest objects should occupy stable, noticeable positions instead of floating ambiguously
+- **scan patterns** — dense or sequential reading often wants F-pattern logic, while lighter, action-led pages often benefit from Z-pattern logic
+- **Fitts's Law** — important targets should be easy to notice and easy to hit
+
+Those do not need to appear as abstract lecture notes in the final principle set.
+
+They should be translated into product-facing defaults the team can actually use.
+
+For example:
+
+- instead of `Use proximity`, write `Keep more space around groups than inside them so users can see structure at a glance.`
+- instead of `Use emphasis`, write `Every screen should make the primary action or primary information obvious within a glance.`
+- instead of `Use modularity`, write `Align repeated content to a stable grid so related blocks feel deliberate instead of improvised.`
 
 ## A practical quality bar for principles
 
@@ -108,6 +151,9 @@ Ask:
 - What must this product help people do well?
 - What kind of mistakes are most costly?
 - What experience qualities matter most here: calm, speed, clarity, trust, precision?
+- What kind of page or workflow is this: dense and sequential, or lightweight and action-led?
+
+Those answers change which visual and interaction principles deserve the most weight.
 
 ### 3. Derive a small set
 
@@ -135,6 +181,30 @@ Examples:
 - We do not hide critical information behind marketing tone.
 - We do not make users learn internal taxonomy just to find content.
 - We do not escalate routine updates into high-severity interruptions.
+
+## Practical principle families teams often need
+
+When principles feel too abstract, group them by the kind of product tension they need to settle.
+
+Common families:
+
+- **structure and grouping** — proximity, modularity, alignment, logical block separation
+- **priority and scanning** — emphasis, anchor placement, F-pattern vs Z-pattern decisions, CTA hierarchy
+- **interaction effort** — Fitts's Law, target sizing, control placement, friction around key actions
+- **consistency and system quality** — repeated spacing, typography, button rules, media treatment, token discipline
+- **trust and persuasion** — honest claims, proof near the claim, specific USP framing, restrained CTA pressure
+
+This helps teams avoid writing seven principles that all secretly mean `be clearer somehow`.
+
+## Self-check prompts for principle quality
+
+Before keeping a principle, ask:
+
+- does it help us decide where emphasis belongs?
+- does it clarify how related elements should group or separate?
+- does it improve how users scan, compare, or act?
+- does it prevent a recurring quality failure such as weak hierarchy, random spacing, inconsistent controls, or vague promises?
+- does it translate into something reviewable in a mock, prototype, or shipped UI?
 
 ## Useful templates
 

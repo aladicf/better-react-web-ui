@@ -11,6 +11,10 @@ Users start this workflow with `/add-ui`. `add-ui` is the canonical skill name i
 
 Once this skill is active, load $frontend-design — it contains the design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding. If no design context exists yet, you MUST load $setup first.
 
+When the request is for a brand-new landing page, marketing page, or several distinct directions and the aesthetic is still open, use the approved style-selection rules in `frontend-design`'s [design directions](../frontend-design/reference/design-directions.md). Choose directions that fit the product idea and brand context instead of inventing vague vibe labels.
+
+When working inside an existing project with an established visual system, preserve that system first and make the options feel distinct without quietly rebranding the product.
+
 Also gather the smallest set of implementation details needed to generate usable code:
 
 - framework / runtime (React, Next.js, Vue, plain HTML, etc.)
@@ -89,6 +93,7 @@ The list is illustrative, not exhaustive.
    - A login screen is not just inputs.
    - A dashboard shell is not just chrome.
    - Anchor every variant in the user's primary task and the product's tone.
+   - For broad new-project marketing requests, choose approved design directions that fit the company / product idea and explain the fit.
 
 3. **Prefer source-based previews over ephemeral DOM tricks**
    - If the host supports previews, generate real components/pages/routes the user can inspect and choose from.
@@ -153,10 +158,12 @@ For that kind of redesign, distinct options can differ through combinations of:
 Each direction must have:
 
 - **Name**: short, memorable, concept-led
+- **Approved direction**: the primary structural direction and any supporting treatment when relevant
 - **Design thesis**: one sentence explaining the idea
 - **Why it works**: how it supports the user's goals
 - **Key traits**: hierarchy, layout, density, personality, media treatment, action strategy
 - **Best fit**: when this direction should be chosen over the others
+- **Style cost**: the main implementation, performance, or state-management cost to watch
 
 For redesigns of existing artifacts, also state:
 
@@ -247,6 +254,7 @@ Use the [apply / cleanup checklist](./assets/apply-cleanup-checklist.md) after t
 - ignore the existing codebase structure and styling system
 - bulldoze an existing artifact's structure after the user asked to preserve its essence or recognizable parts
 - default to generic startup aesthetics just because the prompt is broad
+- default to retro, cyber, synthwave, terminal, or generic futuristic-neon directions in this library
 - make every option loud, card-heavy, gradient-heavy, or animation-heavy
 - skip loading/error/empty/responsive-layout states when they materially affect the artifact
 - apply a chosen variant without making it clear what changed

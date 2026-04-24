@@ -14,6 +14,7 @@ If you only open a few files first, make them these:
 - [audience-sensitive design](./audience-sensitive-design.md) — adapt UX to specific age groups, life stages, gatekeepers, trust models, and accessibility expectations
 - [design process](./design-process.md) — move from vague request to clearer direction
 - [design principles](./design-principles.md) — turn values and tradeoffs into usable team defaults
+- [design directions](./design-directions.md) — choose or preserve a website style using approved direction families, fit/cost checks, and restraint rules for louder treatments
 - [hierarchy checklist](./hierarchy-checklist.md) — sanity check priority, grouping, and grayscale clarity
 - [interaction design](./interaction-design.md) — patterns, focus, loading, overlays, and guardrails
 - [micro failures and perceived quality](./micro-failures-and-perceived-quality.md) — tiny repeated jank, weak feedback, state loss, and other trust-eroding papercuts that make products feel broken before they actually crash
@@ -133,6 +134,7 @@ Use these when the problem is not just wording polish, but whether the interface
 
 ## Color, tone, and visual personality
 
+- [design directions](./design-directions.md)
 - [color and contrast](./color-and-contrast.md)
 - [colorblindness UX](./colorblindness-ux.md)
 - [color ramp workflow](./color-ramp-workflow.md)
@@ -141,7 +143,7 @@ Use these when the problem is not just wording polish, but whether the interface
 - [finishing touches](./finishing-touches.md)
 - [ai slop detection](./ai-slop-detection.md)
 
-Use these when the UI needs stronger mood, more systematic ramps, or protection from generic AI aesthetics.
+Use these when the UI needs a clearer website style direction, stronger mood, more systematic ramps, or protection from generic AI aesthetics.
 
 ## Color accessibility and semantic-state resilience
 

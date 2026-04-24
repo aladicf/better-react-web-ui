@@ -7,6 +7,7 @@ Use this checklist when building a preview shell or picker for the five generate
 - [ ] The picker can switch among all five options without ambiguity
 - [ ] Preview content uses realistic placeholder data or copy
 - [ ] Responsive behavior is easy to inspect
+- [ ] Any hero or cover with wrapped text has been checked at narrow, medium, and wide widths for clipping, overlap, and safe top/bottom text padding
 - [ ] Primary and secondary actions are clickable or visually complete
 - [ ] Empty / loading / validation states are represented when the artifact needs them
 - [ ] The preview surface makes it obvious which option is currently active

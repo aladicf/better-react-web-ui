@@ -22,6 +22,19 @@ A busy photo can make both dark text and light text fail in different regions.
 
 If the image carries too much local contrast, fix the image first.
 
+## Choose a calmer image before stacking fixes
+
+If there is no believable text-safe zone, choose a different crop or a different asset before piling on heavier treatments.
+
+Useful signs of a friendlier image:
+
+- larger, simpler shapes
+- quieter negative space where copy can sit
+- fewer tiny repeating details behind text
+- focal points that stay visible instead of being covered by the message
+
+Avoid placing headline copy on top of faces, product details, or other focal points users actually need to inspect.
+
 ## Add an Overlay
 
 Use an overlay when you need to compress the dynamic range of an image quickly.
@@ -31,6 +44,10 @@ Typical uses:
 - light overlay behind dark text
 
 Overlays are blunt, but effective.
+
+Pure black is not the only option.
+
+A brand-tinted overlay or gradient can sometimes preserve the mood better than flattening the whole image into generic darkness.
 
 ## Lower the Image Contrast
 

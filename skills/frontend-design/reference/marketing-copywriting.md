@@ -2,7 +2,9 @@
 
 Use this reference when writing or restructuring copy for software products across marketing sites, landing pages, feature pages, onboarding, upgrade prompts, lifecycle messages, marketplace listings, and other conversion-sensitive surfaces.
 
-This library is not trying to turn every design task into a growth-hacker carnival. The goal is clear, credible, action-oriented product copy that helps the right user understand the value and take the next step.
+This library is not trying to turn every design task into a growth-hacker carnival.
+
+The goal is clear, credible, action-oriented product copy that helps the right user understand the value and take the next step.
 
 ## Ask Only for Missing Context
 
@@ -37,6 +39,7 @@ Before writing, gather only what the prompt or workspace does not already make c
 - What is the first meaningful win in the first 5-10 minutes?
 - What are the most concrete 1-3 differentiators?
 - What real proof exists: metrics, quotes, logos, case studies, ratings, awards?
+- What raw materials exist already: screenshots, photos, short videos, testimonials, certifications, use cases, or measurable results?
 
 ### 4. Traffic and context
 
@@ -50,20 +53,46 @@ Before writing, gather only what the prompt or workspace does not already make c
 - Claims that cannot be made
 - Legal/compliance requirements
 
-If the most important positioning inputs are unknown, say so. Strong copy depends on a real offer, real audience, and real proof.
+If the most important positioning inputs are unknown, say so.
+
+Strong copy depends on a real offer, real audience, and real proof.
+
+## Preparation usually matters more than drafting
+
+Landing pages often go wrong before the first sentence is written.
+
+Common root causes:
+
+- the page is trying to speak to everyone
+- the proof and materials were never gathered
+- the USP is still vague
+- the page is being filled section-by-section without a clear outcome or next step
+
+Good prep usually includes:
+
+- choosing one primary audience or buying situation
+- gathering the strongest available visuals and proof before drafting the page around placeholders
+- listing what you offer, why it matters, why it is credible, and what action should happen next
+- deciding which sections are essential versus which are just template leftovers
+
+If the team cannot explain the offer, audience, proof, and next step clearly in notes, the landing page will usually sound mushy no matter how polished the final wording becomes.
 
 ## Core Principles
 
 ### Clarity over cleverness
 
-Software already asks users to think hard. Copy should reduce interpretation work, not add a second puzzle.
+Software already asks users to think hard.
+
+Copy should reduce interpretation work, not add a second puzzle.
 
 ### Outcomes over features
 
 - **feature**: what it does
 - **outcome**: what changes for the user
 
-Translate features into practical results. `Sync calendars` matters because it prevents scheduling conflicts and manual updates.
+Translate features into practical results.
+
+`Sync calendars` matters because it prevents scheduling conflicts and manual updates.
 
 ### Specificity over vagueness
 
@@ -71,7 +100,9 @@ Prefer concrete examples, timeframes, and realistic scenarios over foggy claims.
 
 ### Customer language over internal language
 
-Mirror how users describe the problem. Avoid product-marketing fog like `platform`, `innovative`, or `streamline` unless the term truly clarifies something.
+Mirror how users describe the problem.
+
+Avoid product-marketing fog like `platform`, `innovative`, or `streamline` unless the term truly clarifies something.
 
 ### Value proposition before page decoration
 
@@ -86,7 +117,9 @@ Example structure:
 
 - `{benefit or solved problem}. {How it happens}.`
 
-Stress-test the value proposition by asking whether the opposite would also sound plausible. If the opposite is obviously absurd, the claim may just be saying nothing.
+Stress-test the value proposition by asking whether the opposite would also sound plausible.
+
+If the opposite is obviously absurd, the claim may just be saying nothing.
 
 Weak:
 
@@ -98,13 +131,43 @@ Stronger:
 
 Good landing-page copy usually starts with a sharper value proposition before it starts decorating sections around it.
 
+### USP is not a slogan contest
+
+A useful USP is the clear customer-facing reason to choose this offer instead of the alternatives.
+
+It is not:
+
+- a temporary discount
+- a vague quality claim
+- a catchy line that says little
+- a list of every nice thing the product might do
+
+Good USP work usually follows this path:
+
+1. describe the product or service in plain language
+2. translate features into customer benefits
+3. narrow the message to the benefits this audience actually cares about
+4. remove points competitors also say loudly unless you can prove a meaningful difference
+5. turn the best candidate into 2–3 testable headline or subheadline directions
+
+Useful exercise:
+
+| Product fact | Customer benefit | Supporting proof |
+| --- | --- | --- |
+| Built-in CRM | Fewer leads get lost | `Responds instantly from one shared inbox` |
+| Setup video tutorials | Users can start without support calls | `Average workspace setup in 12 minutes` |
+
+That table is often more valuable than a room-temperature brainstorming session about `brand messaging`.
+
 ### One idea per section, one job per screen
 
 Especially in narrow layouts, each screen should answer one question and support one next step.
 
 ### Proof near the claim
 
-Do not ask for trust from thin air. Put evidence close to the promise it supports.
+Do not ask for trust from thin air.
+
+Put evidence close to the promise it supports.
 
 ## Writing Style Rules for Software Products
 
@@ -156,6 +219,22 @@ Good defaults:
 
 Formatting should help users grasp the message faster, not perform intensity.
 
+## Section headings should guide, not posture
+
+Good section headings usually do three jobs:
+
+- stay brief
+- stay clear
+- focus on one idea at a time
+
+Weak section headings often fail in one of three ways:
+
+- aggressive sales-manager energy that lowers trust
+- playful cleverness that obscures the meaning
+- stiff professional jargon that sounds important but says very little
+
+If a section heading cannot be understood quickly, it is not helping users navigate the page.
+
 ## Quick Quality Check
 
 Before shipping copy, ask:
@@ -182,7 +261,9 @@ Start from the moment the user feels the problem.
 
 ### Use before → after contrast
 
-Show the current mess, then the better state. Keep it concrete, not melodramatic.
+Show the current mess, then the better state.
+
+Keep it concrete, not melodramatic.
 
 ### Use rhetorical questions sparingly
 
@@ -205,6 +286,7 @@ Only when it fits the brand and does not reduce clarity, trust, or seriousness.
 - **headline**: the primary outcome for a specific user
 - **subheadline**: who it is for, what it replaces, what happens next
 - **primary CTA**: concrete and action-oriented
+- treat headline, subheadline, and CTA as one working unit; if one of them is vague, the whole first screen weakens
 - do not let a decorative hero image or vague brand mood replace the explanation of what the product is, who it is for, and why it matters
 - if a visual appears above the fold, it should support the message through product clarity, proof, or real context rather than abstraction alone
 
@@ -214,6 +296,24 @@ Useful headline frames:
 - `The {category} for {audience}`
 - `Stop {painful task} in {timeframe}`
 - `{question that names the pain}`
+
+#### Headline and subheadline roles
+
+Useful split:
+
+- **headline** hooks attention and states the main promise, problem, or outcome
+- **subheadline** adds the specificity the headline should not carry alone: who it is for, how it works, why it is credible, or what happens next
+
+Good rule of thumb:
+
+- if the headline is catchy but vague, the subheadline must rescue clarity immediately
+- if the subheadline is doing all the real work, the headline is probably too ornamental
+
+Simple frame for service-heavy landing pages:
+
+- `I help {who} {do what} {how or under what condition}.`
+
+It is not the only good formula, but it is a strong antidote to category fog.
 
 #### Common section order
 
@@ -228,6 +328,22 @@ Useful headline frames:
 | Objection handling | Address trust, migration, or pricing concerns |
 | Final CTA | Restate value and ask clearly |
 
+#### Landing-page credibility sequence
+
+Many effective landing pages also benefit from separating different trust jobs instead of dumping all proof into one noisy block.
+
+Useful distinction:
+
+- **credibility block** — why this business, team, or offer should be trusted at all
+- **results / proof block** — measurable outcomes, case evidence, or concrete examples
+- **testimonials block** — lived customer voice and experience
+
+Those are related, but not interchangeable.
+
+A certificate is not a testimonial.
+
+A warm quote is not the same as measurable proof.
+
 #### Landing-page message flow
 
 Users often move through a rough sequence of questions:
@@ -239,6 +355,16 @@ Users often move through a rough sequence of questions:
 5. what should I do next?
 
 The page does not need to feel mechanical, but the copy hierarchy should help answer those questions in roughly that order.
+
+For many first-pass landing pages, a practical block flow looks like this:
+
+1. hero: what this is, who it is for, why it matters, what to do next
+2. credibility: why believe this offer or team
+3. proof: what measurable result or example supports the claim
+4. testimonials: what real people say changed for them
+5. conversion: one clear CTA with low ambiguity
+6. optional extras: FAQ, resources, blog, or downloads only if they solve a real question and can be maintained
+7. footer: contact, support, legal, and legitimacy cues
 
 #### Objection handling
 
@@ -252,7 +378,9 @@ Common objections include:
 - migration effort
 - price sensitivity
 
-When possible, remove the objection operationally. When that is not possible, address it clearly in the page copy near the point where concern spikes — often close to the CTA, form, pricing detail, or sensitive input.
+When possible, remove the objection operationally.
+
+When that is not possible, address it clearly in the page copy near the point where concern spikes — often close to the CTA, form, pricing detail, or sensitive input.
 
 #### Primary and secondary CTA discipline
 
@@ -274,6 +402,21 @@ or
 - secondary: `Get the pricing guide`
 
 If the secondary CTA becomes equally loud, the page loses focus.
+
+#### How-it-works sections are usually better in 3–4 steps
+
+Even simple offers often benefit from a short step sequence.
+
+Do not assume users will infer the process just because the team understands it already.
+
+Good defaults:
+
+- keep the steps short
+- use imperative verbs when the user must act
+- make the first step feel low-friction
+- stop before the sequence turns into documentation theater
+
+If the product or service is easy, explain that ease with a short sequence instead of making users reverse-engineer it from scattered paragraphs.
 
 #### Aesthetic and first-impression alignment
 
@@ -345,6 +488,13 @@ Prefer:
 - `Request access`
 - `Book a demo`
 
+### Landing-page CTA defaults
+
+- start with a direct verb
+- make the benefit or next step obvious
+- keep the wording short enough to scan instantly
+- avoid fake urgency unless the time pressure is real
+
 ### CTA formula
 
 `{action verb} + {immediate value} + {qualifier when needed}`
@@ -355,6 +505,10 @@ Examples:
 - `Import a project`
 - `Open the dashboard`
 - `Request early access`
+
+When a page has a final CTA section, test multiple legitimate variations if the stakes are high.
+
+The best-performing CTA is often not the one with the most punctuation or hype, but the one that makes the exchange feel clearest.
 
 ## Surface-Specific Notes
 
@@ -371,11 +525,14 @@ Examples:
 - remove secondary distractions when possible
 - keep forms as short as possible; defer lower-priority data collection until after commitment or into onboarding
 - define a value proposition that states both the benefit and how it is delivered
+- define a USP that explains why this offer is preferable to the alternatives, not just what category it belongs to
 - keep any secondary CTA visibly quieter and lower-commitment
 - address predictable objections near the relevant CTA, form, or proof point instead of hiding them elsewhere
 - review the page against the intended first-impression words, not just conversion goals
 - keep continuity between ad, email, social post, or PPC promise and the landing-page headline, tone, and offer
 - on dedicated campaign pages, reduce or quiet the main site navigation when it dilutes the task; keep only the escape hatches that preserve trust, legality, or basic orientation
+- use additional sections such as FAQs, resources, and blog highlights only when they answer real user questions or strengthen the offer; do not add them just because a template had empty space
+- keep the footer useful and trust-preserving: real contact methods, support paths, and legal essentials beat decorative leftovers
 
 ### Social proof on conversion pages
 

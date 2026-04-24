@@ -66,6 +66,19 @@ Spacing should communicate structure.
 
 If the space between items inside a group matches the space between groups, the grouping will feel ambiguous.
 
+## Logical Block Separation
+
+Long pages should read as a sequence of clear blocks, not as one uninterrupted slab.
+
+Useful defaults:
+
+- keep consistent outer spacing around sections that carry similar weight
+- use noticeably larger separation between major page blocks than between the elements inside each block
+- let related heading, body copy, media, and CTA share the same container or surface treatment when they belong together
+- if you introduce a colored or tinted background, apply it to the whole logical block rather than to a narrow heading strip that makes the title look detached from its supporting content
+
+When one section has a huge gap above it, another has a tiny gap, and a third gets a background only behind the heading, the page starts to feel accidental instead of composed.
+
 ## Start With Too Much Whitespace
 
 When composing a layout, begin with more space than you think you need. Then remove space until the result feels balanced.
@@ -127,6 +140,7 @@ Uniform spacing everywhere creates monotony and weak hierarchy.
 
 - Does every gap come from a defined scale?
 - Is there more space around groups than inside them?
+- Can users tell where one logical block ends and the next begins without rereading the page?
 - Are forms and reading widths capped appropriately?
 - Is the layout roomy first, then tightened intentionally?
 - Are grid gutters and column gaps coming from the same system instead of one-off values?
