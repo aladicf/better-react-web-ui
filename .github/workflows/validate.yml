@@ -37,3 +37,6 @@ jobs:
 
       - name: Smoke test local skills discovery
         run: npm run smoke:list
+
+      - name: Smoke test local skill install
+        run: npm run smoke:install

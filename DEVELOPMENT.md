@@ -154,9 +154,13 @@ Do not turn those upstream inventories into a frozen in-repo catalog. When the d
 - `npm run validate` — validate canonical skill metadata, local markdown links, README skill catalog sync, wrapper root readmes, and wrapper drift
 - `npm run validate:wrappers` — validate wrapper trees and wrapper-root readmes only
 - `npm run generate:compatibility-matrix` — generate `SKILL_COMPATIBILITY_MATRIX.md` from canonical skill content analysis
+- `npm run check:compatibility-matrix`: fail when `SKILL_COMPATIBILITY_MATRIX.md` is stale
+- `npm run check:reference-index`: fail when shared reference files are missing from their README indexes
+- `npm run check:skill-routing-fixtures`: validate realistic should-trigger and should-not-trigger prompt fixtures for every skill
 - `npm run smoke:list` — smoke-test local `skills` CLI discovery from the repository root; verifies that `npx skills add . --list` discovers and lists the canonical skills as expected
 - `npm run smoke:install` — perform a disposable local install smoke test for the `add-ui` skill in a temporary directory, report which wrapper root or roots the CLI wrote to, and verify that the installed skill is listed successfully
-- `npm run verify` — run the main maintainer checks in sequence: lint, wrapper generation, validation, discovery smoke test, and install smoke test
+- `npm run verify`: run the main maintainer checks in sequence: lint, wrapper generation, validation, generated artifact checks, routing fixtures, discovery smoke test, and install smoke test
+- `npm run release:check`: alias the full release readiness check so release notes and CI can refer to one command
 
 ## Choosing the right skill
 
@@ -210,15 +214,15 @@ If a description gets longer because it tries to explain every edge case, that i
 2. Add any supporting `reference/`, `references/`, `assets/`, or `scripts/` files.
 3. Update [`README.md`](README.md) so the new skill is discoverable.
 4. Run `npm run generate:wrappers`.
-5. Run `npm run validate`.
-6. Run `npm run smoke:list`.
-7. Run `npm run smoke:install` when you changed skill inventory, installation guidance, or discovery-related metadata.
+5. Add routing prompt fixtures for the new skill in `test-fixtures/skill-routing-prompts.yml`.
+6. Run `npm run release:check`.
 
 ### Updating a skill
 
 1. Edit the canonical file in `skills/`.
 2. Regenerate wrappers if frontmatter or skill inventory changed.
-3. Re-run validation and smoke tests.
+3. Update routing prompt fixtures when trigger behavior changes.
+4. Run `npm run release:check`.
 
 ### Updating tooling or docs
 
@@ -261,6 +265,6 @@ If you need to assert that a specific install root is present while reproducing 
 
 ## CI
 
-GitHub Actions in [`.github/workflows/validate.yml`](.github/workflows/validate.yml) installs dependencies, lints repository scripts, validates canonical skills and wrapper sync, checks wrapper generation idempotency, and runs the local discovery smoke test.
+GitHub Actions in [`.github/workflows/validate.yml`](.github/workflows/validate.yml) installs dependencies, lints repository scripts, validates canonical skills and wrapper sync, checks wrapper generation idempotency, and runs local discovery plus install smoke tests.
 
 The wrapper-idempotency check is intentionally scoped to the generated wrapper roots rather than the whole repository, so unrelated files such as local package-manager artifacts cannot cause false negatives.
