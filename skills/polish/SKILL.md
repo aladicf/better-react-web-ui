@@ -158,7 +158,7 @@ Make sure action hierarchy remains intact across states: the primary action shou
 ### Responsiveness
 
 - **All breakpoints**: Test narrow, medium, and wide layouts
-- **Touch targets**: 44x44px minimum on touch devices
+- **Pointer targets**: 44x44px minimum for coarse-pointer contexts
 - **Readable text**: No text smaller than 14px in compact layouts
 - **No horizontal scroll**: Content fits viewport
 - **Appropriate reflow**: Content adapts logically
@@ -195,7 +195,7 @@ Go through systematically:
 - [ ] Error states are helpful
 - [ ] Loading states are clear
 - [ ] Empty states are welcoming
-- [ ] Touch targets are 44x44px minimum
+- [ ] Coarse-pointer targets are 44x44px minimum
 - [ ] Contrast ratios meet WCAG AA
 - [ ] Keyboard navigation works
 - [ ] Focus indicators visible

@@ -1,8 +1,8 @@
 # Component and Block Strategy
 
-Use this reference when a project uses React-based framework defaults and the component direction is still open.
+Use this reference when a React and Tailwind project uses supported component-library defaults and the component direction is still open.
 
-This library does **not** maintain a frozen catalog of every upstream `shadcn/ui`, `shadcn/ui Blocks`, or `re-ui` offering. Those inventories change quickly. Use the official upstream docs for current availability. Use this reference for **selection strategy**: what each layer is for, when to use it, and how to avoid generic output.
+This library does **not** maintain a frozen catalog of every upstream `shadcn/ui`, shadcn block kit, motion library, map component kit, consent UI, background pattern source, specialized auth/billing UI, or Base UI-based primitive system. Those inventories change quickly. Use the official upstream docs for current availability. Use this reference for **selection strategy**: what each layer is for, when to use it, and how to avoid generic output.
 
 ## Official upstream references
 
@@ -14,7 +14,30 @@ Use these as the primary source for current component availability, integration 
 - [`shadcn/ui` registry directory](https://ui.shadcn.com/docs/directory) — discover community registries when the core catalog is not enough
 - [ReUI components](https://reui.io/components) — browse composed components and in-house workflow-heavy pieces
 - [ReUI docs](https://reui.io/docs) — understand registry, Base UI / Radix compatibility, and usage model
-- [React shadcn accelerators](./react-shadcn-accelerators.md) — curated shortlist of ChanhDai community-registry components that better-web-ui treats as optional React fallback accelerators
+- [shadcncraft](https://shadcncraft.com/) - production-ready shadcn/ui components, blocks, pages, and matching Figma design-system assets
+- [Kibo UI components](https://www.kibo-ui.com/components) - composable shadcn/ui-oriented React, TypeScript, Tailwind, Lucide, and Radix components
+- [Kibo UI blocks](https://www.kibo-ui.com/blocks) - precomposed and animated blocks for React interfaces
+- [Basecn](https://basecn.dev/) - shadcn/ui components powered by Base UI
+- [Tailark](https://tailark.com/) - shadcn marketing blocks, pages, and illustrations for modern marketing websites
+- [shadcnblocks](https://www.shadcnblocks.com/) - shadcn/ui blocks and components for common sections and product surfaces
+- [React Bits](https://reactbits.dev/) - animated React components and effects
+- [Animate UI](https://animate-ui.com/) - animated React components for shadcn/ui and Tailwind projects
+- [Animata](https://animata.design/docs) - open-source React and Tailwind animations, effects, and interactions
+- [Magic UI](https://magicui.design/) - React, TypeScript, Tailwind, and Motion components and effects that pair with shadcn/ui
+- [Motion Primitives](https://motion-primitives.com/docs) - reusable animated components built with Motion and Tailwind CSS
+- [Efferd](https://efferd.com/) - shadcn/ui blocks for React frameworks, with Radix and Base UI support
+- [Billing SDK](https://billingsdk.com/) - billing and monetization UI components
+- [blocks.so](https://blocks.so/) - free shadcn/ui components and blocks for React
+- [coss/ui](https://coss.com/ui) - Base UI-based component library with a broad primitive catalog
+- [Better Auth UI](https://better-auth-ui.com/) - ready-to-use authentication components for Better Auth, built with shadcn/ui and HeroUI
+- [Smooth UI](https://smoothui.dev/) - animated React components and blocks for shadcn/ui, Motion, and Tailwind
+- [TripleD UI](https://ui.tripled.work/) - UI components, blocks, and pages for React interfaces
+- [shadcn-map](https://shadcn-map.vercel.app/) - shadcn/ui map components built with Leaflet and React Leaflet
+- [mapcn](https://mapcn.vercel.app/) - React map components and blocks built on MapLibre and styled with Tailwind
+- [Consent Manager](https://chanhdai.com/components/consent-manager) - c15t-based cookie and tracking consent banner for Next.js and shadcn/ui
+- [c15t](https://c15t.com/) - developer-first consent management and script-loading system
+- [PatternCraft](https://patterncraft.fun/) - modern background pattern and gradient snippets
+- [React shadcn accelerators](./react-shadcn-accelerators.md) - curated shortlist of ChanhDai community-registry components that better-react-web-ui treats as optional React accelerators
 - [Sonner docs](https://sonner.emilkowal.ski/getting-started) — toast layer guidance when feedback/notification primitives are the feature in question
 - [Vaul docs](https://vaul.emilkowal.ski/getting-started) — drawer and bottom-sheet guidance when overlay patterns are the feature in question
 - [TanStack Form overview](https://tanstack.com/form/latest/docs/overview) — default headless form-state recommendation when the React form stack is still open
@@ -38,7 +61,7 @@ If the official docs still do not answer the question, do a focused web search a
 
 ## Curated community accelerators for React fallback defaults
 
-When a React/Tailwind/shadcn project is new or still open-ended, `better-web-ui` may also consider the curated shortlist in [React shadcn accelerators](./react-shadcn-accelerators.md).
+When a React/Tailwind/shadcn project is new or still open-ended, `better-react-web-ui` may also consider the curated shortlist in [React shadcn accelerators](./react-shadcn-accelerators.md).
 
 Use that shortlist when:
 
@@ -64,14 +87,14 @@ Important implications from the official docs:
 - `shadcn create` is designed to customize the project from the start — component library, icons, base color, theme, fonts, and overall style are part of the chosen baseline.
 - The named styles and presets are not just palette swaps; they can change spacing, structure, geometry, and the feel of the generated component code.
 - Typography-led styles matter as real product baselines. For example, a style such as `Sera` can bring serif display type, sans-serif body copy, square corners, uppercase tracked headings, and underlined controls that change the editorial feel of the entire app rather than merely tinting the palette.
-- `shadcn apply` can switch presets in an existing project and update theme, colors, CSS variables, fonts, icons, and reinstall existing components to match the new preset.
+- `shadcn apply` can switch presets in an existing project and update Tailwind theme variables, colors, fonts, icons, and reinstall existing components to match the new preset.
 - `components.json` tells the CLI how the project is configured and can include important signals like `style`, `tailwind.baseColor`, `tailwind.cssVariables`, `tailwind.prefix`, aliases, registries, `rsc`, and `tsx`.
 - shadcn now supports both Radix and Base UI ecosystems, and the CLI can auto-detect and transform components or blocks to match the selected library.
 
 Practical rule for agents:
 
 1. Check for `components.json` and treat it as a configuration source, not a random file.
-2. Inspect the current theme tokens, CSS variables, fonts, icons, and installed component code before assuming a default shadcn look.
+2. Inspect the current Tailwind theme tokens, Tailwind variables, fonts, icons, and installed component code before assuming a default shadcn look.
 3. If the project has already been customized through `shadcn create` or `shadcn apply`, preserve that baseline — including named style choices like typography-first editorial presets.
 4. Do **not** "normalize" a customized project back to Vega/new-york/default-looking output just because the task is broad.
 5. When the project is already committed to Radix or Base UI, match that ecosystem consistently across primitives, composed components, and blocks.
@@ -122,7 +145,7 @@ When this library says `shadcn/ui` in the Base UI direction, it means:
 
 This is about **how to use the primitives**, not about copying a default demo aesthetic.
 
-## Positioning: `shadcn/ui` vs `shadcn/ui Blocks` vs `re-ui`
+## Positioning: primitives, block kits, motion libraries, and specialist kits
 
 ### `shadcn/ui`
 
@@ -148,7 +171,7 @@ Best fit:
 - auth scaffolds
 - common landing page structures
 
-### `re-ui`
+### ReUI
 
 Use as an accelerator when the project benefits from more prebuilt React/Tailwind composition options around common sections or polished UI structures.
 
@@ -158,7 +181,97 @@ Best fit:
 - marketing/product sections where time-to-first-good-version matters
 - situations where a prebuilt structure can be refined into a more distinctive direction
 
-Do not treat either block source as mandatory. If the project already has a strong design system, or the request needs a very product-specific structure, compose directly from primitives and local patterns instead.
+### shadcncraft
+
+Use when the project benefits from production-ready shadcn-based components, blocks, pages, or a matching Figma-to-React design layer.
+
+Best fit:
+
+- teams aligning design assets and React implementation
+- landing pages and application screens that can start from a polished page or block structure
+- projects where a paid design/code system is acceptable
+
+### Kibo UI
+
+Use when the request maps to composable React components, functional widgets, or animated blocks that fit a shadcn-style Tailwind project.
+
+Best fit:
+
+- advanced components such as color pickers, code blocks, dropzones, QR code, marquee, or image zoom
+- precomposed blocks where motion or richer interaction is part of the value
+- projects that already use Radix, Lucide, Tailwind, and shadcn-style composition
+
+### Marketing and page block kits
+
+Use Tailark, shadcnblocks, Efferd, blocks.so, shadcncraft, or TripleD UI when the request is a recognizable marketing, landing, auth, pricing, testimonial, FAQ, feature, footer, or page-section job and speed to a credible first pass matters.
+
+Best fit:
+
+- landing pages and marketing sites
+- common SaaS sections such as hero, logo cloud, features, pricing, testimonials, FAQs, contact, and footer
+- quick variant exploration where the block will be rewritten and adapted to the product
+
+### Motion and effects libraries
+
+Use React Bits, Animate UI, Animata, Magic UI, Motion Primitives, Smooth UI, or Kibo UI when the request clearly needs polished motion, animated text, visual effects, gestural details, or interactive blocks that would be costly to craft from scratch.
+
+Best fit:
+
+- animated hero details
+- interactive reveal effects
+- motion-heavy landing surfaces
+- expressive but bounded product moments
+
+Do not reach for these libraries for routine hover, focus, opacity, or translate transitions that Tailwind utilities can handle cleanly.
+
+### Specialist auth and billing UI
+
+Use Better Auth UI when the project uses Better Auth and needs sign-in, sign-up, password recovery, magic-link, or social-login surfaces.
+
+Use Billing SDK when the project needs billing, monetization, subscription, plan, checkout, or customer-portal UI.
+
+Use Consent Manager or c15t when the project needs cookie consent, privacy settings, script loading control, or tracking consent flows.
+
+Best fit:
+
+- domain-specific flows where the library matches the backend/service model
+- flows with many predictable states that benefit from a purpose-built component set
+- projects where the dependency and service assumptions already align
+
+### Base UI-based component systems
+
+Use Basecn or coss/ui when the project wants a Base UI-based primitive catalog rather than a Radix-flavored shadcn stack.
+
+Best fit:
+
+- teams standardizing on Base UI primitives
+- broad custom app UI needing many accessible primitives
+- projects where the selected shadcn ecosystem already points toward Base UI
+
+### Maps and geospatial UI
+
+Use shadcn-map when the project wants Leaflet or React Leaflet maps that fit a shadcn/ui project.
+
+Use mapcn when the project wants MapLibre-based React map components, blocks, and Tailwind-styled map UI.
+
+Best fit:
+
+- location search and discovery
+- delivery, routing, field-service, travel, logistics, or real-estate surfaces
+- dashboards where geospatial context is a primary content type
+
+### Background patterns
+
+Use PatternCraft when the request needs background patterns, gradients, grid textures, dot fields, or subtle decorative surfaces.
+
+Best fit:
+
+- hero backgrounds
+- section separation
+- empty states or lightweight brand texture
+- subtle product personality without committing to heavy illustration
+
+Do not treat any block source as mandatory. If the project already has a strong design system, or the request needs a very product-specific structure, compose directly from primitives and local patterns instead.
 
 ## Decision order
 

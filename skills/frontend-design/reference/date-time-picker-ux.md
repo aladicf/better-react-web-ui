@@ -154,7 +154,7 @@ Strong uses:
 
 Mini-steppers are an enhancement, not usually a full replacement for calendar selection.
 
-They become frustrating when users must tap too many times to get where they want.
+They become frustrating when users must activate too many controls to get where they want.
 
 ## Date-Range Selection Should Feel Like One Flow
 
@@ -250,8 +250,8 @@ Good fits:
 Strong defaults:
 
 - keep dates easy to scan horizontally or in a compact calendar
-- keep times list-like and tappable
-- preserve reachable placement in compact touch-capable layouts
+- keep times list-like and easy to activate
+- preserve reachable placement in compact coarse-pointer layouts
 
 If the time picker becomes a wall of tiny exact-minute buttons, the combination has gone too far.
 

@@ -4,12 +4,11 @@ Use this reference when a project needs UI components built or refined **without
 
 This is the fallback doctrine for:
 
-- plain HTML / CSS / JavaScript projects
-- Tailwind projects without a component library
-- custom in-house primitives
-- framework projects where the team is intentionally building their own component layer
+- React and Tailwind projects without a mature component library
+- custom in-house React primitives
+- supported React framework projects where the team is intentionally building their own component layer
 
-If the project already uses `shadcn/ui`, Radix-based compositions, Base UI, Nuxt UI, `shadcn-vue`, `shadcn-svelte`, Angular Material, or another mature component system, **match and extend that existing system first**.
+If the project already uses `shadcn/ui`, ReUI, shadcncraft, Kibo UI, Radix-based compositions, Base UI, or another mature React component system, **match and extend that existing system first**.
 
 Do not use this reference as an excuse to second-guess strong upstream primitives that already solve accessibility, anatomy, and interaction patterns well.
 
@@ -49,19 +48,13 @@ This reference does not try to freeze every component in existence. It focuses o
 
 ## Form architecture for new projects
 
-When a supported project is new and the form architecture is still open, prefer **TanStack Form** as the default form-state layer for:
-
-- React
-- Vue
-- Angular
-- Solid
-- Svelte
+When a supported project is new and the form architecture is still open, prefer **TanStack Form** as the default form-state layer for React.
 
 Why it is a strong default from the official docs:
 
 - headless and composable
 - first-class TypeScript support
-- framework adapters across the ecosystems this library already supports
+- a first-class React adapter
 - designed for scalability, composition, and long-term maintainability
 - strong validation, submission, and field-state primitives without forcing a visual system
 
@@ -73,19 +66,11 @@ Practical rule:
 Reference:
 
 - [TanStack Form overview](https://tanstack.com/form/latest/docs/overview)
-- [Supported frameworks](https://tanstack.com/form/latest/docs/framework)
 - [React quick start](https://tanstack.com/form/latest/docs/framework/react/quick-start)
 
 ## Table architecture for new projects
 
-When a supported project is new and the table or data-grid architecture is still open, prefer **TanStack Table** as the default table-state layer for:
-
-- React
-- Vue
-- Angular
-- Solid
-- Svelte
-- other JS/TS environments where a headless table core is the right fit
+When a supported project is new and the table or data-grid architecture is still open, prefer **TanStack Table** as the default table-state layer for React.
 
 Why it is a strong default from the official docs:
 
@@ -109,7 +94,7 @@ Reference:
 Tables display structured information across rows and columns.
 
 Consult [feature comparison UX](./feature-comparison-ux.md) when the table is a high-consideration side-by-side product comparison rather than an ordinary data table, especially when sticky product headers, difference/similarity modes, shortlist management, or responsive compare behavior matter.
-Consult [complex table UX](./complex-table-ux.md) when the table becomes a dense operational surface with editable cells, pinned columns, header filters, command toolbars, row selection, validation, or desktop-first enterprise workflows.
+Consult [complex table UX](./complex-table-ux.md) when the table becomes a dense operational surface with editable cells, pinned columns, header filters, command toolbars, row selection, validation, or wide-viewport enterprise workflows.
 
 Use them when people need to compare records, scan repeated fields, sort, filter, resize, paginate, or select many structured items efficiently.
 
@@ -175,7 +160,7 @@ Use them when people need to compare records, scan repeated fields, sort, filter
 
 ### Compact-layout adaptation
 
-Do not try to force a wide desktop table onto a narrow screen unchanged.
+Do not try to force a wide table layout into a narrow viewport unchanged.
 
 For many narrow-layout cases, the better move is to transform rows into cards or compact item summaries that show only the most important fields.
 
@@ -194,7 +179,7 @@ Drop or defer:
 
 If users are comparing many rows precisely, a table is usually right.
 
-If users mostly need to inspect one item at a time on a small screen, a cardified or summary view is often clearer.
+If users mostly need to inspect one item at a time in a compact viewport, a cardified or summary view is often clearer.
 
 Consult [text hierarchy and readability](./text-hierarchy-and-readability.md) for numeric alignment, [spacing system](./spacing-system.md) for row/cell rhythm, and [interaction design](./interaction-design.md) when table controls, bulk actions, and filtering behaviors need stronger structure.
 
@@ -210,7 +195,7 @@ They work best when they are simple, familiar, and consistent.
 
 - build or select icons on a square `1:1` canvas
 - start from a common working size around `24px`, then scale up or down consistently
-- keep icon styles consistent within a set — outline with outline, solid with solid, two-tone with two-tone unless state meaning justifies a change
+- keep icon styles consistent within a set, outline with outline, filled with filled, two-tone with two-tone unless state meaning justifies a change
 - use SVG or icon fonts instead of bitmap images so the result stays sharp and scalable
 - when icons sit beside text, keep their color aligned with the text by default and align them optically with the label
 
@@ -222,7 +207,7 @@ They work best when they are simple, familiar, and consistent.
 
 ### Interaction and accessibility
 
-- a small visible icon still needs a generous touch target
+- a small visible icon still needs a generous coarse-pointer target
 - icon-only controls should have accessible naming and, when possible, visible labels or tooltips for extra clarity
 - do not replace well-understood platform metaphors with clever but unfamiliar shapes
 
@@ -263,7 +248,7 @@ Its treatment should reflect the importance of the action, not just visual taste
 
 ### Avoid
 
-- shrinking buttons until they are awkward in compact touch-capable layouts or fiddly in precise pointer contexts
+- shrinking buttons until they are awkward in compact coarse-pointer layouts or fiddly in precise-pointer contexts
 - making primary, secondary, and tertiary actions so similar that priority becomes guesswork
 - using color alone to separate action importance when size, weight, spacing, and placement should help too
 
@@ -393,10 +378,10 @@ A checkbox lets users select one or more items from a set.
 
 ### Good defaults
 
-- make the label and checkbox read as one click/tap target whenever possible
+- make the label and checkbox read as one activation target whenever possible
 - keep labels written positively and clearly
 - keep checkbox labels aligned consistently and easy to scan in a vertical list
-- increase the hit target in compact touch-capable layouts so the control feels forgiving instead of pixel-hunt-y
+- increase the hit target in compact coarse-pointer layouts so the control feels forgiving instead of pixel-hunt-y
 - use the indeterminate state intentionally where it clarifies partial selection
 
 ### Avoid
@@ -407,9 +392,9 @@ A checkbox lets users select one or more items from a set.
 
 ### Helpful adaptation
 
-In touch-heavy or token-like interfaces, a checkbox can sometimes become a check-token or chip-style control if that makes the selection target clearer and easier to hit.
+In coarse-pointer or token-like interfaces, a checkbox can sometimes become a check-token or chip-style control if that makes the selection target clearer and easier to hit.
 
-Consult [interaction design](./interaction-design.md) when deciding how large the target should be and how grouped controls should behave with keyboard and touch input.
+Consult [interaction design](./interaction-design.md) when deciding how large the target should be and how grouped controls should behave with keyboard and pointer input.
 
 ## Dividers
 
@@ -498,7 +483,7 @@ A dropdown presents a list of options that the user can reveal, inspect, and cho
 
 - use a select-like pattern when the choice set is large enough that radio buttons would become cluttered
 - keep option ordering alphabetical or otherwise logically predictable
-- keep the closed trigger height comfortably tappable
+- keep the closed trigger height comfortable to activate
 - keep error state treatment clear with border, message, and optionally an icon
 - keep the placeholder instructional and neutral when no value is selected
 
@@ -739,7 +724,7 @@ Use it when the option set is large enough that users benefit from typing, filte
 - make the results list feel attached to the field and easy to scan with both pointer and keyboard
 - use stable labels and grouping when result categories matter
 - make loading and no-results states explicit rather than leaving dead blank space
-- for longer lists, open the list on click/tap as well as on typing so users can discover available options without already knowing the vocabulary
+- for longer lists, open the list on explicit activation as well as on typing so users can discover available options without already knowing the vocabulary
 - if a disclosure indicator is used, keep it quiet; the input value and results should do more work than the icon
 
 ### Async result stability
@@ -750,7 +735,7 @@ Async comboboxes need stronger stability rules than ordinary selects.
 - once the user has started navigating the list, **freeze menu navigation state** until they select an item, dismiss the list, blur, or explicitly return to editing the input
 - if a fetch lands and the **same item still exists**, keep that same item highlighted
 - if the highlighted item disappears, clear the highlight or return focus emphasis to the input—do **not** silently move the highlight to whichever item inherited the old index
-- on touch-heavy lists, consider suppressing interactions on newly moved items for roughly **300ms** after an async refresh if reordering could otherwise cause accidental taps on the wrong option
+- on coarse-pointer-heavy lists, consider suppressing interactions on newly moved items for roughly **300ms** after an async refresh if reordering could otherwise cause accidental activation on the wrong option
 
 ### Avoid
 
@@ -936,7 +921,7 @@ Radio buttons allow users to choose exactly one option from a mutually exclusive
 - wrap or associate the label so the clickable area is larger than the circle alone
 - keep labels clear, distinct, and mutually exclusive
 - let longer text wrap cleanly without breaking the association between control and label
-- scale the target size up in compact touch-capable layouts so selection is forgiving
+- scale the target size up in compact coarse-pointer layouts so selection is forgiving
 
 ### Avoid
 
@@ -980,7 +965,7 @@ Tabs let users switch between related views that share the same context.
 - keep labels visible; icons can support, but should not replace, the label in most product UIs
 - make the active tab clearly higher contrast than inactive tabs
 - keep inactive tabs quieter but still readable
-- keep targets comfortably tappable, especially in compact touch-capable layouts
+- keep targets comfortable to activate, especially in compact coarse-pointer layouts
 - keep the tab set parallel — each tab should represent a comparable type of destination or view
 - if icons are used, keep them aligned consistently and restrained relative to the label
 
@@ -992,7 +977,7 @@ Tabs let users switch between related views that share the same context.
 
 ### Compact-layout adaptation
 
-- preserve tap comfort
+- preserve activation comfort
 - horizontal gesture support can help when the pattern genuinely benefits from compact layouts, but only if the active state remains obvious and the interaction is not hidden from users
 
 ## Textareas
@@ -1252,7 +1237,7 @@ Consult [interaction design](./interaction-design.md) when deciding whether the 
 
 ## Tooltips
 
-A tooltip reveals short, non-essential supporting information on hover, focus, or touch-triggered affordance.
+A tooltip reveals short, non-essential supporting information on hover, focus, or explicit pointer-triggered affordance.
 
 ### Typical parts
 
@@ -1264,7 +1249,7 @@ A tooltip reveals short, non-essential supporting information on hover, focus, o
 
 - keep the text short and descriptive
 - place the tooltip close to the element it explains
-- allow it to appear for hover, focus, and touch-friendly contexts where appropriate
+- allow it to appear for hover, focus, and coarse-pointer-friendly contexts where appropriate
 - use it for clarification, shortcuts, or small bits of helpful extra context
 
 ### Avoid
@@ -1297,7 +1282,7 @@ An accordion is a vertically stacked set of headers that reveal or hide associat
 
 - make the **entire header row** the interaction target, not just the icon
 - place the caret on the **end side** of the header, where users expect the reveal control
-- keep the header height comfortably tappable; around `48px` is a solid baseline
+- keep the header height comfortable to activate; around `48px` is a reliable baseline
 - keep the caret wrapper large enough to feel deliberate, not cramped
 - keep header content and caret vertically centered
 - if the system uses a simple disclosure icon, down/collapsed and up/expanded is still the most familiar baseline
@@ -1502,11 +1487,11 @@ Users notice inconsistency faster than teams expect.
 ## Practical checks
 
 - Is the primary interaction target obvious?
-- Is the whole tappable/clickable area generous enough?
+- Is the whole activation area generous enough?
 - Are the component's states visually clear without extra explanation?
 - Is the component smaller, quieter, or louder than it should be relative to nearby UI?
 - Does it match the existing product system before inventing a new pattern?
 
 ---
 
-**Avoid**: rebuilding mature component-library primitives without a real reason, using decorative variants that weaken recognizability, shrinking controls below comfortable touch sizes, or letting component-level styling drift until the same concept looks different everywhere.
+**Avoid**: rebuilding mature component-library primitives without a real reason, using decorative variants that weaken recognizability, shrinking controls below comfortable activation sizes, or letting component-level styling drift until the same concept looks different everywhere.

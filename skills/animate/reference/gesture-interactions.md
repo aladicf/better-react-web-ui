@@ -1,6 +1,6 @@
 # Gesture Interactions
 
-Use this reference when implementing drag, swipe, snap, dismiss, or any touch- and pointer-driven motion. This covers sheets, drawers, swipeable cards, draggable lists, carousels, and any surface where user input should feel physically connected to the UI response.
+Use this reference when implementing drag, swipe, snap, dismiss, or any pointer-driven motion. This covers sheets, drawers, swipeable cards, draggable lists, carousels, and any surface where user input should feel physically connected to the UI response.
 
 ## Core Principles
 
@@ -105,14 +105,14 @@ Use springs when you want motion to feel organic, interruptible, attached to inp
 - Avoid `will-change` on elements that are not about to animate; on dragged elements, it is usually justified
 - Use hardware-friendly transforms when the main thread is busy
 
-See [avoid CSS variables in drag loops](avoid-css-variables-drag.md) and [hardware-accelerated motion under load](hardware-accelerated-busy-main-thread.md).
+See [avoid inherited token mutation in drag loops](avoid-css-variables-drag.md) and [hardware-accelerated motion under load](hardware-accelerated-busy-main-thread.md).
 
 ## Accessibility
 
 - Respect `prefers-reduced-motion`: replace gesture physics with instant state changes or short fades
 - Provide non-gesture alternatives: every swipe action should also be reachable by button, menu, or keyboard
 - Do not rely on gestures as the only way to perform actions
-- Ensure drag targets are large enough for touch (minimum 44×44px)
+- Ensure drag targets are large enough for coarse pointers (minimum 44×44px)
 
 ## Anti-Patterns
 
@@ -134,5 +134,5 @@ See [avoid CSS variables in drag loops](avoid-css-variables-drag.md) and [hardwa
 - [pointer capture](pointer-capture.md) — robust gesture ownership
 - [interruptible animations](interruptible-animations.md) — canceling in-flight motion
 - [spring motion](spring-motion.md) — physically connected movement
-- [avoid css variables drag](avoid-css-variables-drag.md) — performance-safe drag loops
+- [avoid inherited token mutation in drag loops](avoid-css-variables-drag.md): performance-safe drag loops
 - [respect reduced motion](respect-reduced-motion.md) — accessibility for gesture users

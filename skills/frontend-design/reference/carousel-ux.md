@@ -94,7 +94,7 @@ Do not use a vertical-feeling control for horizontal movement, or a horizontal-f
 
 ## Replace Dots With Richer Context When Possible
 
-Progress dots communicate very little and are easy to miss or mis-tap.
+Progress dots communicate very little and are easy to miss or misactivate.
 
 When space allows, prefer:
 
@@ -214,7 +214,7 @@ Avoid auto-advance in gesture-heavy or compact-layout experiences whenever possi
 
 ## Compact-layout rules are different
 
-Touch changes the tradeoffs.
+Coarse pointers and swipe gestures change the tradeoffs.
 
 ### Strong defaults for compact layouts
 
@@ -224,7 +224,7 @@ Touch changes the tradeoffs.
 - ensure artwork and any overlaid text are genuinely readable at compact sizes
 - optimize media weight and loading behavior
 
-Do not simply scale down desktop carousel artwork and call it responsive.
+Do not simply scale down wide-viewport carousel artwork and call it responsive.
 
 ## Tabs, Filters, and Carousels Can Work Together
 

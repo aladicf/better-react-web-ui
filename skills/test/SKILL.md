@@ -137,7 +137,7 @@ Match the tool to the team's stack and the testing layer:
 
 | Need | Strong options | Considerations |
 |------|----------------|----------------|
-| Component unit/integration | Vitest + Testing Library, Jest + Testing Library | Framework-agnostic; prefer Testing Library queries that mirror user behavior |
+| Component unit/integration | Vitest + React Testing Library, Jest + React Testing Library | Prefer Testing Library queries that mirror user behavior |
 | End-to-end critical flows | Playwright, Cypress | Playwright for speed and cross-browser parallelism; Cypress for simpler setup |
 | Visual regression | Chromatic, Loki, Playwright screenshots, Percy | Chromatic for Storybook integration; Playwright for in-house baseline management |
 | Accessibility automation | axe-core, @axe-core/react, Playwright + axe | Integrate into CI; treat as warnings, not blockers, until baseline is clean |

@@ -9,7 +9,7 @@ Prioritize:
 
 Also:
 
-- prefer explicit tap/click opening over hover-triggered surprise when the navigation is deep or important
+- prefer explicit activation over hover-triggered surprise when the navigation is deep or important
 - avoid making the same category label both a destination and a disclosure trigger unless the split is unmistakable
 - keep search, cart, and other frequent header targets away from accidental-menu territory
 - reduce nesting before polishing animations or tunnel math

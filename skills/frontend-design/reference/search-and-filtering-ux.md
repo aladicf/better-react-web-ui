@@ -10,7 +10,7 @@ If the project already uses a mature search or filter component, keep its baseli
 
 **Simple search** is a single query field that matches against all relevant content.
 
-- Best for: small datasets, clear user intent, mobile-first interfaces
+- Best for: small datasets, clear user intent, compact viewports, and focused search tasks
 - Keep it fast and forgiving — typos, partial matches, and synonym handling improve success rates
 - Show recent searches and suggestions to reduce typing
 
@@ -23,7 +23,7 @@ If the project already uses a mature search or filter component, keep its baseli
 ### Query input design
 
 - **Placeholder text**: Use a concrete example ("Search for "project alpha""), not generic filler ("Search...")
-- **Clear button**: Show once the user has typed, allowing one-tap reset
+- **Clear button**: Show once the user has typed, allowing one-action reset
 - **Submit on Enter**: Always support Enter to submit; do not rely solely on live results
 - **Search button**: Visible and accessible, not just a decorative icon
 - **Scope selector**: If search can be scoped (e.g., "All", "Products", "Help"), make the scope obvious and changeable
@@ -36,7 +36,7 @@ Suggestions reduce typing and guide users toward valid queries.
 - **Categories**: Group suggestions by type (recent searches, popular queries, products, help articles)
 - **Highlighting**: Bold the matching substring in each suggestion
 - **Keyboard support**: Allow arrow-key navigation, Enter to select, Escape to close
-- **Mobile**: Ensure suggestion lists are scrollable and do not overflow the viewport
+- **Compact viewports**: Ensure suggestion lists are scrollable and do not overflow the viewport
 - **No suggestions state**: If nothing matches, show a helpful message instead of an empty list
 
 ## Filter Architecture
@@ -149,7 +149,7 @@ Help users understand why results appear in a given order:
 Before shipping:
 
 - [ ] Search handles typos, partial matches, and common synonyms
-- [ ] Autocomplete is keyboard-navigable and mobile-friendly
+- [ ] Autocomplete is keyboard-navigable, pointer-friendly, and resilient in compact viewports
 - [ ] Active filters are visible and removable individually
 - [ ] Filter state is reflected in the URL
 - [ ] Zero-results pages offer alternatives and recovery paths

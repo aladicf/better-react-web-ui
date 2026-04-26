@@ -85,7 +85,7 @@ On small screens, interaction can compensate for reduced visible detail:
 
 - Pinch-to-zoom for time-series charts
 - Panning for wide datasets
-- Tap to reveal exact values instead of showing all labels
+- Use explicit activation to reveal exact values instead of showing all labels
 - Summary view by default with "explore" expansion to full detail
 
 ## Accessible Data Presentation
@@ -176,7 +176,7 @@ Annotations call attention to specific data points or events.
 
 ### Filtering and highlighting
 
-- Click or tap a legend item to toggle series visibility
+- Activate a legend item to toggle series visibility
 - Hover or focus to highlight a single series and dim others
 - Brush or drag to select a time range for zooming
 - Always provide a "reset view" option after filtering or zooming
@@ -203,7 +203,7 @@ Annotations call attention to specific data points or events.
 - **Missing data without explanation**: Gaps in lines or bars should be visually distinct from zero values
 - **Color without pattern backup**: Colorblind users cannot distinguish purely color-coded series
 - **Animated charts without static fallback**: Auto-playing animations frustrate users who need stable reference points
-- **Tooltips as the only data source**: Users on touch devices or with motor impairments may struggle to trigger them
+- **Tooltips as the only data source**: Users in coarse-pointer contexts or with motor impairments may struggle to trigger them
 - **Charts without context**: A number without comparison, baseline, or unit is meaningless. Always frame data with context
 
 ## Verify Data Visualization Quality
@@ -216,7 +216,7 @@ Before shipping a chart:
 - [ ] An accessible data table is available as a fallback
 - [ ] Text summary of the main insight is provided for screen readers
 - [ ] The chart is legible at narrow viewport widths
-- [ ] Interactive features work with keyboard and touch
+- [ ] Interactive features work with keyboard, coarse pointers, and precise pointers
 - [ ] Tooltips add precision, not just repetition
 - [ ] Annotations are meaningful and sparse
 - [ ] The chart answers a specific user question, not just displaying data for decoration

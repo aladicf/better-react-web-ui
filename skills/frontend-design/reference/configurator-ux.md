@@ -234,7 +234,7 @@ Good defaults:
 
 - use pins for direct component selection when the object supports it
 - allow hotspots to be toggled on/off if visual noise grows
-- ensure pins are keyboard-accessible and large enough for touch
+- ensure pins are keyboard-accessible and large enough for coarse pointers
 - keep a fallback list or step structure when pins alone would become too noisy
 
 Pins are usually an enhancement, not a complete replacement for a usable step model.
@@ -351,15 +351,15 @@ If the summary is hidden behind ambiguous iconography, many users will miss it.
 
 ## Responsive behavior needs rethinking, not shrinking
 
-Responsive configurators are not desktop layouts scaled down.
+Responsive configurators are not wide layouts scaled down.
 
 ### Compact-layout guidance
 
-- make pins and touch targets larger on narrow screens
+- make pins and pointer targets larger in narrow viewports
 - prefer bottom or near-thumb controls for repeated actions
 - keep critical controls away from the very top edge when repeated reach and visibility matter
 - if a pin opens options, showing them above the pin is often better than below it because the thumb otherwise covers them
-- when space is tight, switch secondary controls into sliding panels, bottom sheets, or tabs rather than preserving desktop spacing logic
+- when space is tight, switch secondary controls into sliding panels, bottom sheets, or tabs rather than preserving wide-viewport spacing logic
 
 The product should remain the focus, but the interaction model may need to change substantially across breakpoints.
 

@@ -95,8 +95,8 @@ Treat those as starting heuristics, not holy scripture.
 On narrow screens:
 
 - reduce the number of critical stops you expose at once
-- consider a different scale from desktop when necessary
-- cap max width on desktop so the travel distance does not become absurdly large
+- consider a different scale from wide-viewport layouts when necessary
+- cap max width in wide viewports so the travel distance does not become absurdly large
 
 ## Make the Scale Match Reality
 
@@ -150,7 +150,7 @@ To make the range nature clear:
 - use `from` and `to` labels when ambiguity remains
 - show the resulting range as text right away
 
-When users tap inside the selected range, consider whether the closer boundary should move or whether the whole range should shift. If you support tap-to-adjust, keep the behavior consistent and provide an easy reset.
+When users activate inside the selected range, consider whether the closer boundary should move or whether the whole range should shift. If you support activate-to-adjust, keep the behavior consistent and provide an easy reset.
 
 ## The Outcome Must Update Immediately
 
@@ -176,7 +176,7 @@ Make the track interactive enough to reward that behavior.
 Good defaults:
 
 - allow taps and clicks on the track to jump to a nearby value
-- give the track enough padding to be comfortably tappable
+- give the track enough padding to be comfortable to activate
 - keep hover and active feedback across the whole control area, not just the thumb
 
 For dual sliders:
@@ -199,7 +199,7 @@ When exact values matter, also provide:
 Common strong pattern:
 
 - show the current value prominently
-- let users tap the value to edit it inline
+- let users activate the value to edit it inline
 - keep the cursor at the end of the input so tiny adjustments are easy
 
 This is especially important for finance, filtering, and any range where users may want to land on a very specific value after exploring.

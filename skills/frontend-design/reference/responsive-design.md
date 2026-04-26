@@ -10,7 +10,7 @@ Don't chase device sizes—let content tell you where to break. Start narrow, st
 
 ## Detect Input Method, Not Just Screen Size
 
-**Screen size doesn't tell you input method.** A laptop with touchscreen, a small window on desktop, a touch-capable convertible—use pointer and hover queries:
+**Screen size doesn't tell you input method.** A wide browser can still have a coarse pointer, and a compact browser can still have a precise pointer. Use pointer and hover queries:
 
 ```css
 /* Fine pointer (mouse, trackpad) */
@@ -18,9 +18,9 @@ Don't chase device sizes—let content tell you where to break. Start narrow, st
   .button { padding: 8px 16px; }
 }
 
-/* Coarse pointer (touch, stylus) */
+/* Coarse pointer */
 @media (pointer: coarse) {
-  .button { padding: 12px 20px; }  /* Larger touch target */
+.button { padding: 12px 20px; }  /* Larger coarse-pointer target */
 }
 
 /* Device supports hover */
@@ -153,7 +153,7 @@ This avoids awkward ranges where a component becomes narrower on larger screens 
 
 ## Relative Sizing Doesn’t Scale
 
-Relationships that work on desktop often need different ratios on smaller screens.
+Relationships that work in wide viewports often need different ratios in compact viewports.
 
 As a rule:
 - larger elements should usually shrink faster than smaller ones
@@ -176,13 +176,13 @@ Often:
 
 DevTools device emulation is useful for layout but misses:
 
-- Actual touch interactions
+- Actual coarse-pointer interactions
 - Real CPU/memory constraints
 - Network latency patterns
 - Font rendering differences
 - Browser chrome/keyboard appearances
 
-**Test on at least**: One real low-power touch-capable browser, one mainstream laptop/desktop browser, and a constrained mid-width window if relevant. Lower-powered devices reveal performance issues you'll never see on simulators.
+**Test on at least**: One real low-power coarse-pointer browser, one mainstream precise-pointer browser, and a constrained mid-width window if relevant. Lower-powered devices reveal performance issues you will not see in ideal local conditions.
 
 For decisions about whether side content should live in a rail, move inline, or drop into a footer/support surface at different breakpoints, also use [sidebar and footer UX](./sidebar-and-footer-ux.md).
 

@@ -43,11 +43,11 @@ The biggest usability win is usually simple:
 
 - make the **entire header row** the expansion target
 - keep the icon, label, and surrounding space all part of the same generous hit area
-- keep the target comfortably tappable; `44×44px` minimum remains a reliable baseline
+- keep the target comfortable to activate; `44×44px` minimum remains a reliable coarse-pointer baseline
 
 Users often aim for the icon because other products have trained them to distrust the rest of the row. A full-row trigger reduces that uncertainty and makes recovery easier.
 
-## Prefer one clear job per tap
+## Prefer one clear job per activation
 
 The most fragile accordion pattern is making the same label do two jobs at once.
 
@@ -230,7 +230,7 @@ That will not be perfect for every context, but it is a sturdy starting point.
 - Does the full header row act as a generous hit target?
 - Is the disclosure icon clear, consistent, and not overloaded with another meaning?
 - Does the icon position stay predictable across rows and states?
-- Does the control do one obvious job per tap?
+- Does the control do one obvious job per activation?
 - If the section also has a destination page, is that path exposed clearly inside the panel?
 - Should multiple sections stay open for comparison or reference?
 - Are open/closed states communicated beyond the icon alone?

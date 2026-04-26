@@ -1,6 +1,6 @@
-# better-web-ui
+# better-react-web-ui
 
-`better-web-ui` is an opinionated Agent Skills library for developers who ship code that works and would like the UI to stop looking like a Midjourney prompt of "modern SaaS dashboard."
+`better-react-web-ui` is an opinionated Agent Skills library for developers building React and Tailwind CSS interfaces that should stop looking like a Midjourney prompt of "modern SaaS dashboard."
 
 It gives AI agents taste. Not decoration. Not more purple gradients. Actual design judgment: hierarchy that guides the eye, color that means something, motion that serves a purpose, and interfaces distinctive enough that users do not immediately ask "which AI made this?"
 
@@ -28,7 +28,7 @@ See [`NOTICE.md`](NOTICE.md) for the fuller attribution chain and source lineage
 
 ## What is this package for
 
-Use `better-web-ui` when you want an agent to help with:
+Use `better-react-web-ui` when you want an agent to help with:
 
 - generating multiple UI directions for new or existing sections, pages, shells, and components
 - improving hierarchy, spacing, typography, color, and overall visual quality
@@ -40,39 +40,64 @@ This library is intentionally opinionated. It optimizes for distinctive, high-co
 
 ## What it works with
 
-`better-web-ui` is purposefully framework-agnostic so that everyone can benefit from it.
+`better-react-web-ui` is intentionally scoped to React-based projects and Tailwind CSS.
 
-It is also stack-aware enough to respect what a project already uses.
+It is stack-aware within that boundary, so it should respect the React framework, routing model, Tailwind setup, and component system a project already uses.
 
 It works with:
 
-- React, Next.js, React Router, TanStack Start, and Vite
-- Vue and Nuxt
-- Svelte and SvelteKit
-- Astro
-- Solid and SolidStart
-- plain HTML, CSS, and JavaScript
-- custom design systems and in-house component libraries
+- React
+- Next.js
+- React Router
+- TanStack Start
+- Vite with React
+- Astro when React is enabled through Astro Islands for interactive UI
 
-It also adapts to common styling approaches such as Tailwind CSS, CSS modules, CSS-in-JS, token-based design systems, and vanilla CSS.
+Styling guidance is Tailwind-only. When custom styling is unavoidable, express it through Tailwind utilities, Tailwind theme tokens, Tailwind directives, or project-local Tailwind-compatible utilities.
 
-When a project already has an established stack, agents should match it first. When the stack is still open, the library provides pragmatic defaults and reference guidance rather than forcing one universal setup. See [`skills/frontend-design/reference/framework-defaults.md`](skills/frontend-design/reference/framework-defaults.md) for the full precedence order and default matrix.
+Supported component systems are:
+
+- [`shadcn/ui`](https://ui.shadcn.com/)
+- [`ReUI`](https://reui.io/)
+- [`shadcncraft`](https://shadcncraft.com/)
+- [`Kibo UI`](https://www.kibo-ui.com/)
+- [`Basecn`](https://basecn.dev/)
+- [`Tailark`](https://tailark.com/)
+- [`shadcnblocks`](https://www.shadcnblocks.com/)
+- [`React Bits`](https://reactbits.dev/)
+- [`Animate UI`](https://animate-ui.com/)
+- [`Animata`](https://animata.design/docs)
+- [`Magic UI`](https://magicui.design/)
+- [`Motion Primitives`](https://motion-primitives.com/docs)
+- [`Efferd`](https://efferd.com/)
+- [`Billing SDK`](https://billingsdk.com/)
+- [`blocks.so`](https://blocks.so/)
+- [`coss/ui`](https://coss.com/ui)
+- [`Better Auth UI`](https://better-auth-ui.com/)
+- [`Smooth UI`](https://smoothui.dev/)
+- [`TripleD UI`](https://ui.tripled.work/)
+- [`shadcn-map`](https://shadcn-map.vercel.app/)
+- [`mapcn`](https://mapcn.vercel.app/)
+- [`c15t`](https://c15t.com/)
+- [`PatternCraft`](https://patterncraft.fun/)
+
+When a React project already has an established setup, agents should match it first inside the React and Tailwind boundary. When the stack is still open, the library provides pragmatic defaults and reference guidance. See [`skills/frontend-design/reference/framework-defaults.md`](skills/frontend-design/reference/framework-defaults.md) for the precedence order and default matrix.
 
 ## Installation
 
 Install from GitHub:
 
 ```bash
-npx skills add aladicf/better-web-ui --agent codex --agent cursor --agent github-copilot --agent opencode
+npx skills add aladicf/better-react-web-ui --agent codex --agent cursor --agent github-copilot --agent opencode
 ```
 
 Useful variations:
 
 ```bash
-npx skills add aladicf/better-web-ui --list
-npx skills add aladicf/better-web-ui --agent codex --agent cursor --agent github-copilot --agent opencode
-npx skills add aladicf/better-web-ui --agent codex --agent cursor --agent github-copilot --agent opencode --skill add-ui --skill critique
-npx skills add aladicf/better-web-ui --agent codex --agent cursor --agent github-copilot --agent opencode -g
+npx skills add aladicf/better-react-web-ui --list
+npx skills add aladicf/better-react-web-ui --agent codex --agent cursor --agent github-copilot --agent opencode
+npx skills add aladicf/better-react-web-ui --agent codex --agent cursor --agent github-copilot --agent opencode --skill add-ui --skill critique
+npx skills add aladicf/better-react-web-ui --agent codex --agent cursor --agent github-copilot --agent opencode -g
 ```
 
 Do **not** use `--all` unless you explicitly want **all skills installed to all agents**. 
@@ -82,7 +107,7 @@ Do **not** use `--all` unless you explicitly want **all skills installed to all 
 For the supported default audience, install directly to Codex, Cursor, GitHub Copilot, and OpenCode:
 
 ```bash
-npx skills add aladicf/better-web-ui --agent codex --agent cursor --agent github-copilot --agent opencode
+npx skills add aladicf/better-react-web-ui --agent codex --agent cursor --agent github-copilot --agent opencode
 ```
 
 Those four upstream agents currently share the same project-scope path, `.agents/skills/`, so the CLI writes one shared copy of each skill there.
@@ -91,25 +116,25 @@ If you want one predictable install target, use one explicit upstream `--agent` 
 
 | Supported target | Upstream `--agent` value | Project path the upstream CLI uses | Exact install command |
 | --- | --- | --- | --- |
-| GitHub Copilot / VS Code | `github-copilot` | `.agents/skills/` | `npx skills add aladicf/better-web-ui --agent github-copilot` |
-| Codex | `codex` | `.agents/skills/` | `npx skills add aladicf/better-web-ui --agent codex` |
-| Cursor | `cursor` | `.agents/skills/` | `npx skills add aladicf/better-web-ui --agent cursor` |
-| OpenCode | `opencode` | `.agents/skills/` | `npx skills add aladicf/better-web-ui --agent opencode` |
+| GitHub Copilot / VS Code | `github-copilot` | `.agents/skills/` | `npx skills add aladicf/better-react-web-ui --agent github-copilot` |
+| Codex | `codex` | `.agents/skills/` | `npx skills add aladicf/better-react-web-ui --agent codex` |
+| Cursor | `cursor` | `.agents/skills/` | `npx skills add aladicf/better-react-web-ui --agent cursor` |
+| OpenCode | `opencode` | `.agents/skills/` | `npx skills add aladicf/better-react-web-ui --agent opencode` |
 
 If you only want a subset of skills for one supported target, keep the same `--agent` flag and add `--skill` selectors:
 
 ```bash
-npx skills add aladicf/better-web-ui --agent github-copilot --skill add-ui --skill critique
-npx skills add aladicf/better-web-ui --agent codex --skill add-ui --skill audit
-npx skills add aladicf/better-web-ui --agent opencode --skill setup
+npx skills add aladicf/better-react-web-ui --agent github-copilot --skill add-ui --skill critique
+npx skills add aladicf/better-react-web-ui --agent codex --skill add-ui --skill audit
+npx skills add aladicf/better-react-web-ui --agent opencode --skill setup
 ```
 
 If you want a global install instead of a project-scoped install, add `-g` to the same command:
 
 ```bash
-npx skills add aladicf/better-web-ui --agent github-copilot -g
-npx skills add aladicf/better-web-ui --agent codex -g
-npx skills add aladicf/better-web-ui --agent opencode -g
+npx skills add aladicf/better-react-web-ui --agent github-copilot -g
+npx skills add aladicf/better-react-web-ui --agent codex -g
+npx skills add aladicf/better-react-web-ui --agent opencode -g
 ```
 
 ### Troubleshooting installation surprises
@@ -125,12 +150,12 @@ If you want a single target only, reinstall with one explicit `--agent` value fr
 
 #### Why does the installer show Amp, Antigravity, Cline, Deep Agents, Firebender, Gemini CLI, Kimi Code CLI, or Warp as "Universal"?
 
-The upstream `skills` CLI groups every agent whose project path is `.agents/skills/` into a locked "Universal" section during interactive installs. That list is defined by the CLI, not by this repository's skill metadata, so `better-web-ui` cannot mark only some `.agents/skills/` consumers as universal.
+The upstream `skills` CLI groups every agent whose project path is `.agents/skills/` into a locked "Universal" section during interactive installs. That list is defined by the CLI, not by this repository's skill metadata, so `better-react-web-ui` cannot mark only some `.agents/skills/` consumers as universal.
 
 To avoid that locked universal prompt, use explicit agents:
 
 ```bash
-npx skills add aladicf/better-web-ui --agent codex --agent cursor --agent github-copilot --agent opencode
+npx skills add aladicf/better-react-web-ui --agent codex --agent cursor --agent github-copilot --agent opencode
 ```
 
 #### Why did GitHub Copilot, Codex, Cursor, or OpenCode land in `.agents/skills`?
@@ -141,10 +166,10 @@ Because that is the upstream project-scope path those agents currently use. In t
 
 Run `/setup` first. Yes, before you go off and build the thing.
 
-- **Starting a new project?** Run `/setup` so the skill learns your preferred framework, styling library, component library, and visual direction instead of hallucinating a stack with confidence.
-- **Installing into an existing or older project?** Run `/setup` so the skill learns what is already there, or tell it explicitly which framework, styling library, and component library it should preserve.
+- **Starting a new project?** Run `/setup` so the skill learns your React framework, Tailwind setup, component library, and visual direction instead of hallucinating a stack with confidence.
+- **Installing into an existing or older project?** Run `/setup` so the skill learns what is already there, or tell it explicitly which React framework, Tailwind setup, and component library it should preserve.
 
-`/setup` writes that context to `.better-web-ui.md`, so later sessions can keep your project-specific setup instead of guessing.
+`/setup` writes that context to `.better-react-web-ui.md`, so later sessions can keep your project-specific setup instead of guessing.
 
 ## Upgrading from older installs
 
@@ -160,7 +185,7 @@ npx skills update -y
 
 Use `npx skills update` to update everything, or pass one or more skill names to update only those skills. Add `-g` for global installs, `-p` for project installs, and `-y` to skip the scope prompt.
 
-If you are upgrading from an older `better-web-ui` install, keep your project-specific context in `.better-web-ui.md`, and re-run `/setup` only if your stack or preferences changed.
+If you are upgrading from an older install, keep your project-specific context and re-run `/setup` if your React framework, Tailwind setup, or component preferences changed. The current canonical context file is `.better-react-web-ui.md`.
 
 ## Removing skills
 
@@ -202,7 +227,7 @@ If a host does not surface slash commands clearly, users can still ask for a ski
 
 ## What functionality it includes
 
-At a high level, `better-web-ui` covers four kinds of work:
+At a high level, `better-react-web-ui` covers four kinds of work:
 
 ### Generate and shape UI
 
@@ -330,6 +355,6 @@ They are also a repository compatibility surface, not a guarantee that the upstr
 
 ## License
 
-This project uses the custom **better-web-ui License** in [`LICENSE`](LICENSE).
+This project uses the custom **better-react-web-ui License** in [`LICENSE`](LICENSE).
 
 It is MIT-based but adds source-availability and no-resale restrictions for the library itself, so it should not be described as plain MIT.

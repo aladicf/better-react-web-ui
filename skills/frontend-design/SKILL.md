@@ -1,6 +1,6 @@
 ---
 name: frontend-design
-description: Create distinctive, production-grade frontend interfaces with strong hierarchy, thoughtful systems, and polished implementation that avoid generic AI aesthetics. Use when the user wants to build or redesign web pages, flows, components, or full app surfaces, or when another better-web-ui skill needs shared project design context before other better-web-ui skills.
+description: Create distinctive, production-grade React and Tailwind interfaces with strong hierarchy, thoughtful systems, and polished implementation that avoid generic AI aesthetics. Use when the user wants to build or redesign web pages, flows, components, or full app surfaces, or when another better-react-web-ui skill needs shared project design context before other better-react-web-ui skills.
 license: Apache 2.0. Based on Anthropic's frontend-design skill. See NOTICE.md for attribution.
 metadata:
   argument-hint: "[page, flow, or component]"
@@ -35,31 +35,31 @@ Individual skills may require additional context — check the skill's preparati
 
 **Gathering order:**
 1. **Check current instructions (instant)**: If your loaded instructions already contain a **Design Context** section, proceed immediately.
-2. **Check .better-web-ui.md (fast)**: If not in instructions, read `.better-web-ui.md` from the project root. If it exists and contains the required context, proceed.
-3. **Check legacy context files (fallback)**: If `.better-web-ui.md` does not exist yet, read `.better-ui.md` and then `.impeccable.md` from the project root. If either exists and contains the required context, proceed, but prefer migrating to `.better-web-ui.md` when possible.
+2. **Check .better-react-web-ui.md (fast)**: If not in instructions, read `.better-react-web-ui.md` from the project root. If it exists and contains the required context, proceed.
+3. **Check legacy context files (fallback)**: If `.better-react-web-ui.md` does not exist yet, read `.better-web-ui.md`, `.better-ui.md`, and then `.impeccable.md` from the project root. If any exists and contains the required context, proceed, but prefer migrating to `.better-react-web-ui.md` when possible.
 4. **Run setup (REQUIRED)**: If neither source has context, you MUST run $setup NOW before doing anything else. Do NOT skip this step. Do NOT attempt to infer context from the codebase instead.
 
-## Framework & Library Guidance
+## React, Tailwind & Library Guidance
 
-This skill library is intentionally framework-agnostic and library-agnostic.
+This skill library is intentionally scoped to React-based projects with Tailwind CSS.
 
 When implementation details matter, follow this precedence:
 
-1. **Detect and match the existing project stack first**
+1. **Detect and match the existing React project stack first**
 2. **Respect explicit user choices for new projects second**
 3. **Use the default matrix only when the project is new and unspecified**
 
-The full precedence order, framework-default matrix, problem shorthand, and caveats live in [framework defaults](reference/framework-defaults.md). Use that reference whenever you need to decide styling, component libraries, form architecture, table architecture, or virtualization defaults.
+The full precedence order, framework-default matrix, problem shorthand, and caveats live in [framework defaults](reference/framework-defaults.md). Use that reference whenever you need to decide React framework, Tailwind setup, component libraries, form architecture, table architecture, or virtualization defaults.
 
-When the project uses a specific frontend framework or meta-framework, consult [framework official docs](reference/framework-official-docs.md) before making framework-specific implementation decisions.
+When the project uses a specific React framework or Astro with React islands, consult [framework official docs](reference/framework-official-docs.md) before making framework-specific implementation decisions.
 
 For **Next.js** specifically, if the project includes bundled version-matched docs at `node_modules/next/dist/docs/`, read the relevant local Next.js doc there before coding. Treat those bundled docs as the source of truth for the installed version instead of relying on stale memory.
 
-When React-based fallback defaults are relevant, use [component and block strategy](reference/component-and-block-strategy.md) to decide when to compose from `shadcn/ui` primitives, when blocks are an appropriate accelerator, and how to avoid shipping generic library output unchanged. Use [react shadcn accelerators](reference/react-shadcn-accelerators.md) when the request maps to a curated community component such as theme controls, consent, text motion, testimonial patterns, wheel pickers, or slide actions.
+Use [component and block strategy](reference/component-and-block-strategy.md) to decide when to compose from `shadcn/ui` primitives, ReUI, shadcncraft, Kibo UI, or blocks, and how to avoid shipping generic library output unchanged. Use [react shadcn accelerators](reference/react-shadcn-accelerators.md) when the request maps to a curated community component such as theme controls, consent, text motion, testimonial patterns, wheel pickers, or slide actions.
 
-When the project does **not** have a mature component library and you need to build or refine primitives from scratch, use [component anatomy](reference/component-anatomy.md) for practical anatomy guidance on custom components such as buttons, cards, checkboxes, dropdowns, tabs, textareas, toasts, toggles, tooltips, accordions, avatars, badges, borders, breadcrumbs, iconography, lists, and submit actions.
+When the project does **not** have a mature component library and you need to build or refine primitives from scratch, use [component anatomy](reference/component-anatomy.md) for practical anatomy guidance on custom React components such as buttons, cards, checkboxes, dropdowns, tabs, textareas, toasts, toggles, tooltips, accordions, avatars, badges, borders, breadcrumbs, iconography, lists, and submit actions.
 
-The more focused component-pattern references in this folder — such as accordion, breadcrumb, carousel, slider, date input, date-time picker, navigation menu, feature comparison, configurator, and complex table guidance — follow the same default. They are primarily for custom primitives, headless compositions, or plain HTML / CSS / JavaScript implementations. If a mature component library already owns the primitive well, use those references mainly to decide whether the pattern fits, how it should be composed, what defaults and states it needs, and how it should behave responsively around the library component instead of rewriting strong upstream anatomy, semantics, or accessibility behavior.
+The more focused component-pattern references in this folder are primarily for custom React primitives, headless React compositions, or Tailwind-compatible component work. If a mature component library already owns the primitive well, use those references mainly to decide whether the pattern fits, how it should be composed, what defaults and states it needs, and how it should behave responsively around the library component instead of rewriting strong upstream anatomy, semantics, or accessibility behavior.
 
 ---
 
@@ -130,7 +130,7 @@ Choose fonts that are beautiful, unique, and interesting. Pair a distinctive dis
 Commit to a cohesive palette. Dominant colors with sharp accents outperform timid, evenly-distributed palettes.
 
 **DO**: Start in grayscale, then layer color on top of an already-clear hierarchy
-**DO**: Use modern CSS color functions (oklch, color-mix, light-dark) for perceptually uniform, maintainable palettes
+**DO**: Use Tailwind-supported color functions and theme variables such as oklch, color-mix, and light-dark for perceptually uniform, maintainable palettes
 **DO**: Define shades up front — greys need a real scale, primary and accent colors need multiple usable stops
 **DO**: Tint your neutrals toward your brand hue—even a subtle hint creates subconscious cohesion
 **DO**: Prefer dark text on light tinted surfaces when you need accessible, lower-emphasis colored panels

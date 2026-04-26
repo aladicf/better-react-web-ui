@@ -2,7 +2,7 @@
 
 When users pull a surface past its intended limit, do not freeze it at an invisible wall. Let it keep moving, but with strong resistance.
 
-This creates the rubber-band feel users expect from touch-first interfaces and makes the boundary feel physical instead of broken.
+This creates the rubber-band feel users expect from coarse-pointer drag interfaces and makes the boundary feel physical instead of broken.
 
 ```tsx
 function applyBoundaryResistance(offsetY: number) {

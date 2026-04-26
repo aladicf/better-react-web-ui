@@ -1,6 +1,6 @@
 # Provide immediate feedback for every action
 
-An interface should feel like it heard the user. If an action starts with silence, the user starts wondering whether the click, tap, or submit actually registered.
+An interface should feel like it heard the user. If an action starts with silence, the user starts wondering whether the click, keypress, or submit actually registered.
 
 Feedback should appear immediately even when the real work takes longer.
 

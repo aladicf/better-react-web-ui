@@ -1,6 +1,6 @@
 # Component Library Integration for add-ui
 
-Use this reference when `add-ui` is generating directions for React-based projects where `shadcn/ui`, `shadcn/ui Blocks`, or `re-ui` may be part of the implementation path.
+Use this reference when `add-ui` is generating directions for React and Tailwind projects where `shadcn/ui`, shadcn block kits, motion libraries, map component kits, consent UI, background pattern sources, specialized auth/billing UI, or Base UI-based primitives may be part of the implementation path.
 
 This reference does **not** replace [artifact taxonomy](./artifact-taxonomy.md) or [request mapping](./request-mapping.md). It explains how component-library choices should influence the five-direction workflow.
 
@@ -13,6 +13,30 @@ For current upstream inventories and implementation details, use the official do
 - [TanStack Table introduction](https://tanstack.com/table/latest/docs/introduction)
 - [`shadcn/ui` Blocks](https://ui.shadcn.com/blocks#blocks)
 - [ReUI components](https://reui.io/components)
+- [ReUI docs](https://reui.io/docs)
+- [shadcncraft](https://shadcncraft.com/)
+- [Kibo UI components](https://www.kibo-ui.com/components)
+- [Kibo UI blocks](https://www.kibo-ui.com/blocks)
+- [Basecn](https://basecn.dev/)
+- [Tailark](https://tailark.com/)
+- [shadcnblocks](https://www.shadcnblocks.com/)
+- [React Bits](https://reactbits.dev/)
+- [Animate UI](https://animate-ui.com/)
+- [Animata](https://animata.design/docs)
+- [Magic UI](https://magicui.design/)
+- [Motion Primitives](https://motion-primitives.com/docs)
+- [Efferd](https://efferd.com/)
+- [Billing SDK](https://billingsdk.com/)
+- [blocks.so](https://blocks.so/)
+- [coss/ui](https://coss.com/ui)
+- [Better Auth UI](https://better-auth-ui.com/)
+- [Smooth UI](https://smoothui.dev/)
+- [TripleD UI](https://ui.tripled.work/)
+- [shadcn-map](https://shadcn-map.vercel.app/)
+- [mapcn](https://mapcn.vercel.app/)
+- [Consent Manager](https://chanhdai.com/components/consent-manager)
+- [c15t](https://c15t.com/)
+- [PatternCraft](https://patterncraft.fun/)
 - [React shadcn accelerators](../../frontend-design/reference/react-shadcn-accelerators.md)
 - [Tailwind utility classes](https://tailwindcss.com/docs/styling-with-utility-classes)
 - [Tailwind responsive design](https://tailwindcss.com/docs/responsive-design)
@@ -43,7 +67,7 @@ That means matching the existing:
 - library choice (Radix or Base UI)
 - style or preset baseline
 - fonts, icons, and spacing rhythm
-- theme tokens, CSS variables, and Tailwind prefix behavior
+- Tailwind theme tokens, Tailwind variables, and Tailwind prefix behavior
 - alias and registry conventions used by the CLI
 
 Do **not** generate an `add-ui` direction that quietly drifts the project back toward a generic classic shadcn baseline when the current project already has a different preset or geometry.
@@ -101,7 +125,7 @@ A block should not replace variation thinking.
 
 Use blocks to accelerate only part of the workflow:
 
-- one or more directions may start from a block-derived structure
+  - one or more directions may start from a block-derived structure from shadcn/ui Blocks, ReUI, shadcncraft, Kibo UI, Basecn, Tailark, shadcnblocks, Efferd, blocks.so, Smooth UI, TripleD UI, shadcn-map, mapcn, Consent Manager, c15t, or PatternCraft
 - at least some directions should still explore materially different hierarchy or framing
 - do not generate five near-identical block remixes
 - if all five directions would collapse into the same scaffold, reduce block reliance and compose more of the structure manually
@@ -151,6 +175,12 @@ If the project already uses `shadcn/ui` or related local wrappers:
 - avoid introducing a second overlapping component layer without a strong reason
 - prefer matching existing imports, tokens, spacing, and variants over chasing a shinier upstream pattern
 - if `components.json`, `shadcn create`, or `shadcn apply` customizations are present, inherit that project's current preset and ecosystem instead of reverting to the default look
+
+If the project already uses ReUI, shadcncraft, Kibo UI, Basecn, Tailark, shadcnblocks, React Bits, Animate UI, Animata, Magic UI, Motion Primitives, Efferd, Billing SDK, blocks.so, coss/ui, Better Auth UI, Smooth UI, TripleD UI, shadcn-map, mapcn, Consent Manager, c15t, or PatternCraft:
+
+- continue with that library before introducing another overlapping component source
+- preserve the existing install method, registry conventions, token model, and dependency expectations
+- treat imported blocks as starting structures that still need product-specific hierarchy, copy, spacing, and interaction refinement
 
 ## Recommendation behavior inside `add-ui`
 

@@ -33,7 +33,7 @@ Every interactive element needs these states designed:
 | State | When | Visual Treatment |
 |-------|------|------------------|
 | **Default** | At rest | Base styling |
-| **Hover** | Pointer over (not touch) | Subtle lift, color shift |
+| **Hover** | Hover-capable pointer over | Subtle lift, color shift |
 | **Focus** | Keyboard/programmatic focus | Visible ring (see below) |
 | **Active** | Being pressed | Pressed in, darker |
 | **Disabled** | Not interactive | Reduced opacity, no pointer |
@@ -48,14 +48,14 @@ Every interactive element needs these states designed:
 **Never `outline: none` without replacement.** It's an accessibility violation. Instead, use `:focus-visible` to show focus only for keyboard users:
 
 ```css
-/* Hide focus ring for mouse/touch */
+/* Hide focus ring for pointer activation */
 button:focus {
   outline: none;
 }
 
 /* Show focus ring for keyboard */
 button:focus-visible {
-  outline: 2px solid var(--color-accent);
+outline: 2px double var(--color-accent);
   outline-offset: 2px;
 }
 ```
@@ -74,11 +74,11 @@ Primary and frequent actions should be large enough, close enough, and separated
 
 ### Practical rules
 
-- Keep touch targets at **44x44px minimum** on touch devices
+- Keep pointer targets at **44x44px minimum** in coarse-pointer contexts
 - Expand the hit area for icon buttons, close controls, tiny toggles, and row actions even if the visible glyph stays small
 - Place the next likely action near the content or cursor/focus location that leads to it
 - Separate destructive actions from high-frequency safe actions so slips are less likely
-- In compact touch-heavy layouts, keep important actions within comfortable reach instead of pinning everything to the top edge
+- In compact coarse-pointer layouts, keep important actions within comfortable reach instead of pinning everything to the top edge
 
 ### Good tradeoffs
 
@@ -364,7 +364,7 @@ Pagination is often less fluid than `Load more`, but it is more honest than a br
 
 These are starting points, not fixed laws:
 
-- **broad category / collection browsing on desktop**: show a modest initial set, continue in smaller lazy-loaded batches, then interrupt with `Load more` after roughly a screenful cluster such as `50–100` items
+- **broad category / collection browsing in wide viewports**: show a modest initial set, continue in smaller lazy-loaded batches, then interrupt with `Load more` after roughly a screenful cluster such as `50–100` items
 - **ranked search results**: show a more focused set such as `25–75` results, then use `Load more` or pagination so users examine the strongest matches more carefully
 - **compact-layout browsing**: lower the threshold further, often around `15–30` items before an explicit continuation control, because limited viewport depth and scrolling effort amplify fatigue quickly
 
@@ -634,8 +634,6 @@ The `popover` attribute places the element in the **top layer**, which sits abov
 In component frameworks, render the dropdown at the document root and position it with JavaScript:
 
 - **React**: `createPortal(dropdown, document.body)`
-- **Vue**: `<Teleport to="body">`
-- **Svelte**: Use a portal library or mount to `document.body`
 
 Calculate position from the trigger's `getBoundingClientRect()`, then apply `position: fixed` with `top` and `left` values. Recalculate on scroll and resize.
 
@@ -676,7 +674,7 @@ The common bug looks like this:
 - once the user starts navigating the menu, freeze automatic highlight updates until they select, dismiss, blur, or explicitly resume input editing
 - if the same item is still present after the fetch, keep that same item highlighted
 - if it is gone, clear the highlight instead of silently moving to a new occupant at the old index
-- for touch-heavy lists where options can move under the finger, consider suppressing list interactions briefly after async result updates when items are newly inserted or repositioned
+- for coarse-pointer lists where options can move under the pointer, consider suppressing list interactions briefly after async result updates when items are newly inserted or repositioned
 
 This is one of those tiny edge cases that makes a combobox feel either trustworthy or haunted.
 
@@ -772,4 +770,4 @@ Don't rely on gestures as the only way to perform actions.
 
 ---
 
-**Avoid**: Removing focus indicators without alternatives. Using placeholder text as labels. Touch targets <44x44px. Generic error messages. Custom controls without ARIA/keyboard support.
+**Avoid**: Removing focus indicators without alternatives. Using placeholder text as labels. Coarse-pointer targets <44x44px. Generic error messages. Custom controls without ARIA/keyboard support.

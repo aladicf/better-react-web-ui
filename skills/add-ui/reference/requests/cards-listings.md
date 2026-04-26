@@ -10,7 +10,7 @@ Prioritize:
 Also:
 
 - choose vertical cards for browse-first, image-led discovery unless users clearly need denser per-item text
-- choose horizontal cards when the item needs stronger metadata, summary text, or desktop-efficient list scanning
+- choose horizontal cards when the item needs stronger metadata, summary text, or wide-viewport list scanning
 - treat aspect ratio as part of the system, not a one-off styling accident
 - vary ratio or orientation only when it adds meaning, emphasis, or a clearer content distinction
 - keep action placement, metadata order, and interaction language consistent when the card family changes orientation across contexts

@@ -23,7 +23,7 @@ Understand the form's purpose and context:
 
 1. **User goal**: What does the user get by completing this form? The clearer the payoff, the higher the completion rate.
 2. **Field necessity**: Every field you add drops completion rates. Challenge each field: is it required now, or can it be collected later?
-3. **Context of use**: Is the user rushed, distracted, on mobile, or in a stressful situation? Stressful contexts need simpler forms.
+3. **Context of use**: Is the user rushed, distracted, using a compact viewport or coarse pointer, or in a stressful situation? Stressful contexts need simpler forms.
 4. **Failure points**: Where do users currently drop off? Long forms, unclear labels, and unexpected validation are common culprits.
 
 ## Form Structure
@@ -45,7 +45,7 @@ Understand the form's purpose and context:
 ### Input design
 
 - Match input width to expected content (postal code fields should not be full-width)
-- Use the appropriate input type (`type="email"`, `type="tel"`, `type="date"`) for mobile keyboard optimization
+- Use the appropriate input type (`type="email"`, `type="tel"`, `type="date"`) for better browser keyboards, autofill, and validation hints
 - Show formatting hints as the user types (credit card spacing, phone number grouping)
 - Autofill-friendly: use standard `name` and `autocomplete` attributes
 
@@ -85,9 +85,9 @@ Break long forms into steps when:
 - Remove success indicators when the user edits the field again
 - Do not celebrate every valid field; it becomes noise
 
-## Mobile Form UX
+## Responsive Form UX
 
-- Ensure touch targets are at least 44×44px
+- Ensure coarse-pointer targets are at least 44×44px
 - Use appropriate input types for optimized keyboards
 - Minimize scrolling by breaking into steps or using progressive disclosure
 - Show the numeric keyboard for number fields, email keyboard for email fields
@@ -112,7 +112,7 @@ Break long forms into steps when:
 - **Disabled submit without guidance**: A grayed-out button with no visible errors is a dead end
 - **Multi-step without progress indicator**: Users do not know how much remains
 - **Inconsistent validation timing**: Some on blur, some on submit, with no clear logic
-- **Ignoring mobile keyboards**: Using `type="text"` for phone numbers forces users to switch keyboards
+- **Ignoring input semantics**: Using `type="text"` for phone numbers prevents browsers from showing the best available keyboard and autofill behavior
 - **No save-and-resume**: Long forms that cannot be saved mid-progress punish interruptions
 
 ## Verify Form Quality
@@ -126,6 +126,6 @@ Before shipping:
 - [ ] Input is preserved when validation fails
 - [ ] Focus moves to the first error after failed submission
 - [ ] Multi-step forms show progress and allow backward navigation
-- [ ] Mobile keyboards are optimized per field type
+- [ ] Browser keyboards, autofill, and validation hints are optimized per field type
 - [ ] The form is fully keyboard-navigable
 - [ ] Color is not the only indicator of error or success

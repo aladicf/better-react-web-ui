@@ -8,6 +8,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/) with Added / Chan
 
 ### Changed
 
+- **Project scope converted to `better-react-web-ui`.** The library now targets React-based web projects only: React, Next.js, React Router, TanStack Start, Vite React, and Astro with React islands.
+- **Styling guidance is now Tailwind-only.** Documentation and skill guidance now route styling decisions through Tailwind utilities, Tailwind theme variables, Tailwind-compatible keyframes, and React/browser APIs instead of alternative styling systems.
+- **Component guidance is now shadcn-oriented.** Defaults and references now focus on `shadcn/ui` and shadcn-compatible React component/block systems, including ReUI, shadcncraft, Kibo UI, Basecn, Tailark, shadcnblocks, React Bits, Animate UI, Magic UI, Motion Primitives, Animata, Efferd, Billing SDK, blocks.so, coss/ui, Better Auth UI, Smooth UI, TripleD UI, shadcn-map, mapcn, Consent Manager, c15t, and PatternCraft.
 - **Install guidance now defaults to Codex, Cursor, GitHub Copilot, and OpenCode.** README examples avoid the upstream interactive Universal group by documenting explicit `--agent codex --agent cursor --agent github-copilot --agent opencode` installs, and troubleshooting explains that the locked Universal list is owned by the upstream `skills` CLI.
 
 ## [2.4.0] - 2026-04-25
@@ -16,9 +19,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/) with Added / Chan
 
 - **New `a11y` skill.** Dedicated accessibility remediation workflow covering keyboard navigation, screen reader support, color contrast, semantic HTML, ARIA usage, focus management, and motion sensitivity. Complements `audit` (scoring) and `harden` (general resilience) with systematic implementation guidance.
 - **New `test` skill.** UI testing strategy covering visual regression (screenshot diffing, baseline discipline, anti-flake practices), interaction testing (component interactions, user flows, deterministic data), accessibility assertions (automated axe checks, keyboard traversal, screen reader smoke tests), and test pyramid guidance (unit vs integration vs E2E tradeoffs). Includes tool selection matrix for Playwright, Cypress, Chromatic, Storybook Test Runner, and axe-core.
-- **New `localize` skill.** Comprehensive i18n and localization workflow covering string management strategy (key-based extraction, ICU MessageFormat, context for translators), locale negotiation and routing (subdirectory vs subdomain vs query param strategies), library selection matrix (react-i18next, Lingui, vue-i18n, svelte-i18n, i18next, FormatJS), RTL and bidirectional text support, text expansion resilience, pluralization and grammar complexity, content beyond strings (images, URLs, SEO, legal), translation workflow (developer handoff, TMS integration, continuous localization), and localized UI testing checklist.
+- **New `localize` skill.** Comprehensive i18n and localization workflow covering string management strategy (key-based extraction, ICU MessageFormat, context for translators), locale negotiation and routing (subdirectory vs subdomain vs query param strategies), React-oriented library selection, RTL and bidirectional text support, text expansion resilience, pluralization and grammar complexity, content beyond strings (images, URLs, SEO, legal), translation workflow (developer handoff, TMS integration, continuous localization), and localized UI testing checklist.
 - **New `data-viz` skill.** Chart selection and dashboard design workflow covering data relationship mapping (comparisons, trends, distributions, hierarchies), accessible data presentation (text summaries, data table fallbacks, screen reader support), color strategy (sequential, diverging, categorical scales), responsive behavior across breakpoints, interaction design (filtering, drill-down, real-time updates), and dashboard layout principles.
-- **New `forms` skill.** Deep form design and validation workflow covering field necessity assessment, label and input design, multi-step form structure, validation timing (blur vs input vs submit), error message placement and copy, mobile form UX, autofill optimization, and accessibility for screen readers and keyboard users.
+- **New `forms` skill.** Deep form design and validation workflow covering field necessity assessment, label and input design, multi-step form structure, validation timing (blur vs input vs submit), error message placement and copy, responsive form UX, autofill optimization, and accessibility for screen readers and keyboard users.
 - **New `search` skill.** Search experience design workflow covering query input design, autocomplete and suggestion patterns, filter architecture and placement, result presentation with highlighted matches, zero-results recovery, pagination vs infinite scroll tradeoffs, ranking controls, and accessibility for screen readers and keyboard navigation.
 - **New `security-ux` skill.** Security-conscious UI workflow covering authentication flows (sign-in, MFA, session management), password UX (length-over-complexity, strength meters, passphrase support), trust indicators and transparency, account recovery design, breach and anomaly notifications, consent and permissions UX, and accessibility for MFA and recovery flows.
 - **New references for accessibility depth:**
@@ -174,8 +177,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/) with Added / Chan
 - **Reorganized README.** Shorter, human-first overview with clearer installation, capability, doctrine, attribution, and contribution sections.
 - **Updated attribution links.** README and `NOTICE.md` now point Anthropic attribution to the current upstream `better-web-ui` plugin path instead of stale frontend-design links.
 - **Motion attribution.** Now explicitly credits Emil Kowalski's [animations.dev](https://animations.dev/) course and related open-source motion work.
-- **Frontend doctrine additions.** Dark-mode-only `color-scheme` guidance, layout-faithful skeleton placeholders, async combobox result stability, Motion adapter guidance for React, Vue, and vanilla JS, and SVG path morphing for disclosure-icon animation.
-- **Animation doctrine clarification.** More explicitly prefers modern CSS, Tailwind utilities, and WAAPI wherever they can solve motion cleanly, reserving Motion for interactions that genuinely need a heavier framework-linked animation layer.
+- **Frontend doctrine additions.** Dark-mode-only `color-scheme` guidance, layout-faithful skeleton placeholders, async combobox result stability, React Motion adapter guidance, and SVG path morphing for disclosure-icon animation.
+- **Animation doctrine clarification.** More explicitly prefers Tailwind utilities, Tailwind-compatible keyframes, and WAAPI wherever they can solve motion cleanly, reserving Motion for interactions that genuinely need a heavier React animation layer.
 
 ### Fixed
 
@@ -189,9 +192,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/) with Added / Chan
 - **`component-anatomy` reference expansion.** Now covers buttons, cards, checkboxes, dividers, dropdowns, tabs, textareas, toasts, toggles, and tooltips.
 - **Additional shared doctrine.** Iconography, lists, submit-button guidance, stronger textarea state guidance, baseline-unit rules, and clearer grid and gutter spacing notes.
 - **React fallback guidance.** Sonner preferred for toasts, Vaul preferred for drawers in React-based web apps when no stronger standard exists.
-- **New-project form defaults.** TanStack Form preferred across React, Vue, Angular, Solid, and Svelte when the form architecture is still open.
-- **New-project table defaults.** TanStack Table preferred across the same ecosystems when the table or data-grid architecture is still open.
-- **New-project virtualization defaults.** TanStack Virtual preferred across the same ecosystems when the virtualization architecture is still open.
+- **New-project form defaults.** TanStack Form preferred for supported React projects when the form architecture is still open.
+- **New-project table defaults.** TanStack Table preferred for supported React projects when the table or data-grid architecture is still open.
+- **New-project virtualization defaults.** TanStack Virtual preferred for supported React projects when the virtualization architecture is still open.
 - **`text-layout-prediction` reference.** Documents when a Pretext-like approach is useful for virtualization, wrapped-text sizing, and repeated relayouts without hot-path DOM measurement.
 - **Default-by-problem summary.** README, core `frontend-design` skill, and repo agent guidance now surface one-glance defaults for TanStack Form, TanStack Table, Sonner, Vaul, and Pretext when the stack is still open.
 - **Next.js guidance.** Agents now prefer bundled version-matched docs in `node_modules/next/dist/docs/` when present. Follows the official AI-agents setup path for existing projects and respects modern `create-next-app` agent-file defaults.
@@ -268,7 +271,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/) with Added / Chan
 ### Changed
 
 - **Stack guidance precedence.** Explicitly prioritizes detecting an existing project's styling and component libraries first, then respecting explicit user preferences for new projects, and only then falling back to framework-specific defaults.
-- **Framework-specific default matrix.** Covers React-based frameworks, Astro, Laravel plus Inertia or React, Vue or Nuxt, Svelte or SvelteKit, Angular, and SolidJS or SolidStart.
+- **Framework-specific default matrix.** Covers React-based frameworks, React-enabled Astro usage, and React-first fallback defaults.
 - **`setup` persistence.** Now records implementation defaults as part of persisted project context so later design work can reuse the detected or chosen stack.
 - **Cross-skill alignment.** `add-ui`, `frontend-design`, README, and repo instructions now align on the same stack-selection precedence and preferred defaults.
 

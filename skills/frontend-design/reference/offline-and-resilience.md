@@ -6,7 +6,7 @@ If the project already uses a mature offline or state management library, keep i
 
 ## Resilience Mindset
 
-**The network is not reliable.** Design for intermittent connectivity as the default, not the exception. Users on mobile networks, public Wi-Fi, and rural connections experience flaky connectivity regularly.
+**The network is not reliable.** Design for intermittent connectivity as the default, not the exception. Users on cellular networks, public Wi-Fi, rural connections, captive portals, and throttled corporate networks experience flaky connectivity regularly.
 
 **Goal**: The interface should feel responsive and trustworthy even when the network is not. Users should never lose work because of a connection blip.
 

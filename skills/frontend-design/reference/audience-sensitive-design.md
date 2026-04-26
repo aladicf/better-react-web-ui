@@ -204,7 +204,7 @@ When possible, support:
 Strong starting points:
 
 - larger text, often around `18–19px` or whatever equivalent is genuinely readable for the age band
-- large tap areas, often around `75×75px` minimum when the experience is designed for young children
+- large activation areas, often around `75×75px` minimum when the experience is designed for young children
 - static, obvious controls with immediate feedback
 - visuals that translate or reinforce text instead of replacing meaning carelessly
 - strong ad and promotion transparency

@@ -64,11 +64,11 @@ Borrow physical cues from the real world, but stop before the effect becomes lou
 
 If the interface already reads clearly, simpler depth usually wins.
 
-## Use Solid or Tight Shadows Intentionally
+## Use Filled or Tight Shadows Intentionally
 
 Not every shadow needs a large blur.
 
-Tighter shadows or even solid-offset shadows can work well when:
+Tighter shadows or even offset shadows can work well when:
 - you want flat depth without soft-material realism
 - you need separation but want to preserve a flatter aesthetic
 - you want a card/button to stand off the page without dramatic softness

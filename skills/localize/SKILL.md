@@ -98,11 +98,10 @@ t('items_prefix') + count + t('items_suffix')
 
 | Need | Strong options | When to use |
 |------|----------------|-------------|
-| React / modern frameworks | react-i18next, Lingui, FormatJS (react-intl) | Component-level translations with hooks/context |
-| Vue | vue-i18n | Vue 2/3 with composition or options API |
-| Svelte | svelte-i18n, typesafe-i18n | Lightweight, store-based reactivity |
-| Vanilla JS / framework-agnostic | i18next, FormatJS IntlMessageFormat | Shared across stacks, extensive plugin ecosystem |
-| Build-time extraction | Lingui, typesafe-i18n | Smaller bundles, no runtime parsing |
+| React frameworks | react-i18next, Lingui, FormatJS (react-intl) | Component-level translations with hooks/context |
+| Next.js | next-intl, next-international, Lingui, FormatJS | App Router-aware locale routing and server/client boundaries |
+| Astro with React islands | Astro i18n routing plus React i18n inside islands | Static content stays Astro-native, interactive island copy stays React-compatible |
+| Build-time extraction | Lingui | Smaller bundles, no runtime parsing |
 | Runtime extraction | i18next, react-i18next | Dynamic loading, CMS-driven content |
 | Translation management | Phrase, Lokalise, Crowdin, Smartling | Team collaboration, TMS workflows, in-context editing |
 
@@ -127,13 +126,9 @@ t('items_prefix') + count + t('items_suffix')
 
 ### RTL and Bidirectional Text
 
-**CSS logical properties**:
-```css
-/* Use logical properties for margins, padding, borders */
-margin-inline-start: 1rem;
-padding-inline: 1rem;
-border-inline-end: 1px solid;
-```
+**Tailwind logical spacing and border utilities**:
+- Prefer logical utilities and direction-aware variants when available
+- Use Tailwind arbitrary properties only when the project needs a logical property that is not already covered by its utilities
 
 **Direction-aware transforms**:
 ```css

@@ -1,6 +1,6 @@
 # Notice
 
-better-web-ui
+better-react-web-ui
 Copyright 2026 Filip Aladic
 
 ## Impeccable
@@ -24,7 +24,7 @@ The `animate` skill and its skill-specific motion references are informed in par
 
 Related open-source inspiration also comes from Emil's work on [Sonner](https://github.com/emilkowalski/sonner) and [Vaul](https://github.com/emilkowalski/vaul), both of which are relevant to motion-heavy UI primitives discussed in this library.
 
-This repository does not reproduce the course itself. It applies and rewrites ideas from that motion lineage into original guidance for `better-web-ui`.
+This repository does not reproduce the course itself. It applies and rewrites ideas from that motion lineage into original guidance for `better-react-web-ui`.
 
 ## Refactoring UI
 
@@ -54,4 +54,4 @@ This project also draws on ideas from **Laws of UX**.
 - Paul Bakaus created **Impeccable**, which expanded that foundation into a broader UI skill system.
 - Emil Kowalski's motion teaching and open-source UI work informed parts of the `animate` skill's motion doctrine.
 - Refactoring UI, Design for Developers, and Laws of UX also informed broader quality and interaction guidance across the library.
-- **better-web-ui** builds on that lineage with additional customization, renamed commands, and project-specific refinements.
+- **better-react-web-ui** builds on that lineage with additional React, Tailwind, and project-specific refinements.

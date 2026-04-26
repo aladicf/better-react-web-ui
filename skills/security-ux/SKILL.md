@@ -121,7 +121,7 @@ Identify where security and user experience intersect:
 
 ## Accessibility
 
-- Ensure MFA code inputs are large and easy to type on mobile
+- Ensure MFA code inputs are large, easy to type, and compatible with browser autofill and one-time-code behavior
 - Provide time remaining for TOTP codes visually and for screen readers
 - Use `aria-live` for security alerts and notifications
 - Ensure trust indicators are perceivable without color alone

@@ -14,7 +14,7 @@ If the project uses a named `shadcn` style baseline — for example a typography
 - Follow the linked upstream dependency docs when the component relies on a deeper framework or platform constraint.
 - Do **not** assume every component fits every React stack equally well. Some are explicitly Next.js-oriented, some depend on Motion, and some depend on browser APIs with limited compatibility.
 - Treat these as accelerators to refine, not stock outputs to ship unchanged.
-- If the request is only asking for a small hover, press, fade, shimmer, or disclosure treatment, prefer native CSS / Tailwind patterns first instead of importing a heavier motion-dependent accelerator prematurely.
+- If the request is only asking for a small hover, press, fade, shimmer, or disclosure treatment, prefer Tailwind utilities and Tailwind-compatible keyframes first instead of importing a heavier motion-dependent accelerator prematurely.
 
 ## Curated defaults for React-based web apps
 
@@ -63,7 +63,7 @@ If the project uses a named `shadcn` style baseline — for example a typography
 
 ### Text and motion accents
 
-- [`Shimmering Text`](https://chanhdai.com/components/shimmering-text) — Motion-based shimmering text with configurable duration, pause control, and CSS variables for resting vs highlight color.
+- [`Shimmering Text`](https://chanhdai.com/components/shimmering-text) — Motion-based shimmering text with configurable duration, pause control, and Tailwind theme variables for resting vs highlight color.
   - motion reference: [Motion for React](https://motion.dev/docs/react)
 
 - [`Scroll Fade Effect`](https://chanhdai.com/components/scroll-fade-effect) — masked edge fade for scroll containers, with both vertical and horizontal modes and examples that pair well with shadcn `ScrollArea`.

@@ -101,7 +101,7 @@ Infinite scroll is usually a weak fit for ranked search results and often a weak
 
 These are starting points, not fixed laws.
 
-- **broad category browsing on desktop**: show a modest initial set, continue in smaller lazy-loaded batches, then interrupt with `Load more` after roughly `50–100` items
+- **broad category browsing in wide viewports**: show a modest initial set, continue in smaller lazy-loaded batches, then interrupt with `Load more` after roughly `50–100` items
 - **ranked search results**: start with a more focused set, often around `25–75` results, then use `Load more` or pagination
 - **compact-layout browsing**: lower the threshold further, often around `15–30` items before an explicit continuation control
 
@@ -175,7 +175,7 @@ For filters like brand, region, or long taxonomies, a search box inside the grou
 
 Sliders are good for exploration speed, but poor for precision on their own.
 
-Consult [slider UX](./slider-ux.md) when a filter depends on a single-value or dual-handle slider, a non-linear scale, histogram context, zero-results avoidance, or tap-vs-drag interaction details.
+Consult [slider UX](./slider-ux.md) when a filter depends on a single-value or dual-handle slider, a non-linear scale, histogram context, zero-results avoidance, or activate-vs-drag interaction details.
 
 When value precision matters, also provide:
 

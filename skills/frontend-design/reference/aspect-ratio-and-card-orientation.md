@@ -199,7 +199,7 @@ Good defaults:
 
 - vertical stacks usually pair naturally with vertical page flow
 - horizontal rails or compare strips need especially strong discoverability and controls
-- if cards change orientation at a breakpoint, preserve familiar tap targets and reading order so the interaction still feels like the same component
+- if cards change orientation at a breakpoint, preserve familiar activation targets and reading order so the interaction still feels like the same component
 
 Do not make the user relearn a card every time the layout changes.
 

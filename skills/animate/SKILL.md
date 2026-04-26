@@ -16,10 +16,10 @@ Consult the [animate reference index](reference/README.md) when you need to brow
 Consult the [elevation system](../frontend-design/reference/elevation-system.md) when motion should reinforce raised, pressed, inset, dragged, or layered depth.
 Consult the [interaction reference](../frontend-design/reference/interaction-design.md) when animation decisions overlap with focus, loading, transitions, or feedback states.
 Consult the [component anatomy reference](../frontend-design/reference/component-anatomy.md) when motion affects custom primitives such as buttons, tabs, tooltips, toasts, toggles, drawers, or submit actions.
-Consult the [responsive design reference](../frontend-design/reference/responsive-design.md) when motion needs to adapt across small screens, touch contexts, or reduced viewport space.
+Consult the [responsive design reference](../frontend-design/reference/responsive-design.md) when motion needs to adapt across compact viewports, coarse-pointer contexts, or reduced viewport space.
 Consult the [framework official docs reference](../frontend-design/reference/framework-official-docs.md) before making framework-specific animation decisions.
 Consult the [React shadcn accelerators reference](../frontend-design/reference/react-shadcn-accelerators.md) when the request overlaps with React toasts, drawers, text motion, or other UI patterns that already have strong accelerators.
-Consult the [CSS, Tailwind, and WAAPI motion reference](../frontend-design/reference/css-tailwind-and-waapi-motion.md) to decide when modern CSS, Tailwind, or WAAPI can solve the motion cleanly without reaching for a framework animation library.
+Consult the [Tailwind and WAAPI motion reference](../frontend-design/reference/css-tailwind-and-waapi-motion.md) to decide when Tailwind utilities, Tailwind-compatible keyframes, or WAAPI can solve the motion cleanly without reaching for a framework animation library.
 Consult the [scroll-driven animations reference](../frontend-design/reference/scroll-driven-animations.md) when motion should progress with scroll position rather than time.
 Consult the [view transitions reference](../frontend-design/reference/view-transitions.md) when animating between page states or DOM changes with shared-element continuity.
 Consult [attribution and sources](reference/attribution-and-sources.md) for the source lineage behind this skill's Emil-inspired motion guidance.
@@ -29,7 +29,7 @@ Consult [UI under 300ms](reference/ui-under-300ms.md), [asymmetric press and rel
 Consult [on-screen movement easing](reference/ease-in-out-on-screen-movement.md), [sheet and drawer easing](reference/sheet-drawer-easing.md), and [spring motion](reference/spring-motion.md) when the motion pattern needs more specific guidance.
 Consult [damped drag boundaries](reference/damp-drag-boundaries.md), [upward drag friction](reference/upward-drag-friction.md), [interruptible animations](reference/interruptible-animations.md), [momentum dismissal](reference/momentum-dismissal.md), [pointer capture](reference/pointer-capture.md), [scroll and drag conflicts](reference/scroll-drag-conflicts.md), and [velocity-aware snap points](reference/velocity-aware-snap-points.md) when implementing gesture-heavy surfaces.
 Consult [blur-bridged transitions](reference/blur-bridge-states.md), [clip-path tabs](reference/clip-path-tab-transitions.md), [respect reduced motion](reference/respect-reduced-motion.md), [opacity fallback](reference/opacity-reduced-motion-fallback.md), [reduced motion alternatives](reference/reduced-motion-not-zero.md), [Motion's `useReducedMotion`](reference/use-reduced-motion-hook.md), [hover gap fill](reference/hover-gap-fill.md), [scroll reveal thresholds](reference/scroll-animation-threshold.md), [child orchestration](reference/stagger-children-orchestration.md), and [toast stack depth](reference/toast-stack-depth.md) for polish and accessibility refinement.
-Consult [transform and opacity only](reference/transform-opacity-only.md), [avoid CSS variables in drag loops](reference/avoid-css-variables-drag.md), [clip-path reveals](reference/clip-path-layout-free-reveals.md), [hardware-accelerated motion under load](reference/hardware-accelerated-busy-main-thread.md), and [surgical `will-change`](reference/will-change-subpixel-shift.md) for performance-sensitive property choices.
+Consult [transform and opacity only](reference/transform-opacity-only.md), [avoid inherited token mutation in drag loops](reference/avoid-css-variables-drag.md), [clip-path reveals](reference/clip-path-layout-free-reveals.md), [hardware-accelerated motion under load](reference/hardware-accelerated-busy-main-thread.md), and [surgical `will-change`](reference/will-change-subpixel-shift.md) for performance-sensitive property choices.
 Consult [immediate action feedback](reference/immediate-feedback-actions.md), [interaction frequency](reference/interaction-frequency.md), [no keyboard animation](reference/no-animation-for-keyboard.md), [marketing exceptions](reference/marketing-exception.md), and [animation purpose](reference/animation-purpose.md) for strategy-heavy motion decisions.
 Consult [preserve-3d effects](reference/preserve-3d-effects.md), [never scale from zero](reference/never-scale-zero.md), [origin-aware animations](reference/origin-aware-animations.md), and [percentage translateY](reference/percentage-translate-y.md) when the question is really about transform technique and spatial feel.
 Consult [button press scale 0.97](reference/button-press-scale-097.md), [scale affecting children](reference/scale-affects-children.md), and [SVG path morph disclosure icons](reference/svg-path-morph-disclosure.md) for finer transform polish details.
@@ -57,9 +57,9 @@ Use this decision order before adding any animation:
 2. **Animate only with a job to do** — every animation should improve feedback, orientation, relationship, or delight.
 3. **Bias toward speed** — product UI should feel responsive first and impressive second.
 4. **Keep motion interruptible** — new user intent beats finishing the old animation.
-5. **Match the input method** — mouse, touch, and keyboard interactions do not all deserve the same motion treatment.
+5. **Match the input method** — precise pointer, coarse pointer, and keyboard interactions do not all deserve the same motion treatment.
 6. **Plan reduced motion up front** — accessibility is part of the system, not a cleanup pass.
-7. **Prefer the lightest implementation that fits** — modern CSS and Tailwind first, WAAPI when imperative timing matters, Motion when the interaction genuinely needs it.
+7. **Prefer the lightest implementation that fits** — Tailwind utilities and Tailwind-compatible keyframes first, WAAPI when imperative timing matters, Motion when the interaction genuinely needs it.
 
 Use motion for one or more of these jobs:
 
@@ -86,7 +86,7 @@ Analyze where motion would improve the experience:
   - What's the performance budget? (Compact-layout-first? Complex page?)
    - Who's the audience? (Motion-sensitive users? Power users who want speed?)
    - What matters most? (One hero animation vs many micro-interactions?)
-   - Which inputs matter? (mouse, touch, keyboard, stylus)
+- Which inputs matter? (precise pointer, coarse pointer, keyboard, stylus)
    - Which interactions are high-frequency and should stay especially snappy?
 
 If any of these are unclear from the codebase, ask the user directly to clarify what you cannot infer.
@@ -128,7 +128,7 @@ Use these as the default guidelines for animation work unless the product contex
 ### 2. Easing Defaults
 
 - Use **ease-out** as the default for entrances, reveals, and most feedback transitions.
-- Use **custom cubic-bezier curves** instead of the generic CSS `ease` default.
+- Use **custom cubic-bezier curves** through Tailwind arbitrary easing values or theme tokens instead of the generic `ease` default.
 - Use **ease-in-out** for reversible, on-screen state changes that travel there and back.
 - Use **spring motion** when the movement should feel physically connected to gesture input or object behavior.
 - For drawers, sheets, and similar surfaces, a good starting point is the sheet-style curve `cubic-bezier(0.32, 0.72, 0, 1)`.
@@ -160,7 +160,7 @@ Use these as the default guidelines for animation work unless the product contex
 - Use **clip-path**, masks, or composited reveals when you need a layout-free reveal effect.
 - Use hardware-friendly transforms when the main thread is busy or the component animates frequently.
 - Use `will-change` sparingly and only when animation is imminent or proven to need it.
-- During drag loops, avoid animation setups that route every frame through expensive CSS-variable or layout recalculation paths if they introduce lag.
+- During drag loops, avoid animation setups that route every frame through expensive inherited-token or layout recalculation paths if they introduce lag.
 - Prefer Intersection Observer for scroll-triggered motion and stop observing once the motion has completed if it only needs to happen once.
 
 ### 5. Transform and Scale Techniques
@@ -196,7 +196,7 @@ Use these as the default guidelines for animation work unless the product contex
 - Scroll reveals should trigger before the user has fully passed the element, but not so early that the effect feels detached from scroll context.
 - Fill hover gaps between triggers and floating surfaces so tooltips, menus, and popovers do not flicker closed during pointer travel.
 - Toast stacks can use offset, scale, and opacity to imply depth without becoming chaotic.
-- Respect motion sensitivity in compact and touch-capable contexts as much as in wide layouts. Gesture-led movement can be especially uncomfortable if overdone.
+- Respect motion sensitivity in compact and coarse-pointer contexts as much as in wide layouts. Gesture-led movement can be especially uncomfortable if overdone.
 
 ## Implement Animations
 
@@ -263,7 +263,7 @@ Use appropriate techniques for each animation:
 - **300-500ms**: Layout changes (accordion, modal, drawer)
 - **500ms max by default**: Large surface transitions that truly need it
 
-**Easing curves (use these, not CSS defaults):**
+**Easing curves (use these through Tailwind arbitrary values or theme tokens):**
 ```css
 /* Recommended - natural deceleration */
 --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);    /* Smooth, refined */
@@ -279,9 +279,9 @@ Use appropriate techniques for each animation:
 
 **Exit animations are faster than entrances.** Use ~75% of enter duration.
 
-### CSS Animations
+### Tailwind-Compatible Animations
 ```css
-/* Prefer for simple, declarative animations */
+/* Prefer for simple, declarative animations through Tailwind utilities or keyframes */
 - transitions for state changes
 - @keyframes for complex sequences
 - transform + opacity first (GPU-friendly)
@@ -296,7 +296,7 @@ Use appropriate techniques for each animation:
 - GSAP for complex sequences
 ```
 
-Default rule: if a hover, press, reveal, or reduced-motion fallback can be expressed cleanly with modern CSS or Tailwind utilities, prefer that path before escalating to Motion.
+Default rule: if a hover, press, reveal, or reduced-motion fallback can be expressed cleanly with Tailwind utilities or Tailwind-compatible keyframes, prefer that path before escalating to Motion.
 
 ### Performance
 - **GPU acceleration**: Use `transform` and `opacity`, avoid layout properties

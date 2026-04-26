@@ -1,10 +1,11 @@
 # Component Library Integration Checklist
 
-Use this checklist when `add-ui` is working in a React/Tailwind project where `shadcn/ui`, `shadcn/ui Blocks`, or `re-ui` may influence implementation.
+Use this checklist when `add-ui` is working in a React/Tailwind project where `shadcn/ui`, shadcn block kits, motion libraries, map component kits, consent UI, background pattern sources, specialized auth/billing UI, or Base UI-based primitives may influence implementation.
 
 ## Detect first
 
 - Does the project already use `shadcn/ui` components or local wrappers around them?
+- Does the project already use ReUI, shadcncraft, Kibo UI, Basecn, Tailark, shadcnblocks, React Bits, Animate UI, Animata, Magic UI, Motion Primitives, Efferd, Billing SDK, blocks.so, coss/ui, Better Auth UI, Smooth UI, TripleD UI, shadcn-map, mapcn, Consent Manager, c15t, or PatternCraft components or blocks?
 - Are there existing tokens, variants, or spacing conventions that new work should match?
 - Are blocks already present in the codebase, or is the stack still open?
 - Does the project include a `components.json` file with the shadcn schema?
@@ -35,7 +36,7 @@ Use this checklist when `add-ui` is working in a React/Tailwind project where `s
 ## Current availability rule
 
 - Do not maintain a frozen local inventory of every upstream component or block.
-- Check official upstream documentation for current `shadcn/ui`, `shadcn/ui Blocks`, and `re-ui` availability.
+- Check official upstream documentation for current `shadcn/ui`, shadcn block kits, motion libraries, map component kits, consent UI, background pattern sources, specialized auth/billing UI, and Base UI-based primitive availability.
 - If the docs still leave gaps, do a focused web search and verify what you find against the upstream docs before relying on it.
 
 ## Official docs quick links
@@ -44,6 +45,30 @@ Use this checklist when `add-ui` is working in a React/Tailwind project where `s
 - [`shadcn/ui` TanStack Form docs](https://ui.shadcn.com/docs/forms/tanstack-form)
 - [`shadcn/ui` Blocks](https://ui.shadcn.com/blocks#blocks)
 - [ReUI components](https://reui.io/components)
+- [ReUI docs](https://reui.io/docs)
+- [shadcncraft](https://shadcncraft.com/)
+- [Kibo UI components](https://www.kibo-ui.com/components)
+- [Kibo UI blocks](https://www.kibo-ui.com/blocks)
+- [Basecn](https://basecn.dev/)
+- [Tailark](https://tailark.com/)
+- [shadcnblocks](https://www.shadcnblocks.com/)
+- [React Bits](https://reactbits.dev/)
+- [Animate UI](https://animate-ui.com/)
+- [Animata](https://animata.design/docs)
+- [Magic UI](https://magicui.design/)
+- [Motion Primitives](https://motion-primitives.com/docs)
+- [Efferd](https://efferd.com/)
+- [Billing SDK](https://billingsdk.com/)
+- [blocks.so](https://blocks.so/)
+- [coss/ui](https://coss.com/ui)
+- [Better Auth UI](https://better-auth-ui.com/)
+- [Smooth UI](https://smoothui.dev/)
+- [TripleD UI](https://ui.tripled.work/)
+- [shadcn-map](https://shadcn-map.vercel.app/)
+- [mapcn](https://mapcn.vercel.app/)
+- [Consent Manager](https://chanhdai.com/components/consent-manager)
+- [c15t](https://c15t.com/)
+- [PatternCraft](https://patterncraft.fun/)
 - [Tailwind utility classes](https://tailwindcss.com/docs/styling-with-utility-classes)
 - [Tailwind states and variants](https://tailwindcss.com/docs/hover-focus-and-other-states)
 - [Tailwind responsive design](https://tailwindcss.com/docs/responsive-design)

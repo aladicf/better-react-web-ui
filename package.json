@@ -1,17 +1,17 @@
 {
-  "name": "better-web-ui",
+  "name": "better-react-web-ui",
   "version": "2.4.0",
   "private": true,
   "type": "module",
-  "description": "Opinionated frontend design Agent Skills package for AI coding agents.",
-  "license": "LicenseRef-better-web-ui",
+  "description": "Opinionated React and Tailwind frontend design Agent Skills package for AI coding agents.",
+  "license": "LicenseRef-better-react-web-ui",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aladicf/better-web-ui.git"
+    "url": "git+https://github.com/aladicf/better-react-web-ui.git"
   },
-  "homepage": "https://github.com/aladicf/better-web-ui",
+  "homepage": "https://github.com/aladicf/better-react-web-ui",
   "bugs": {
-    "url": "https://github.com/aladicf/better-web-ui/issues"
+    "url": "https://github.com/aladicf/better-react-web-ui/issues"
   },
   "keywords": [
     "agent-skills",

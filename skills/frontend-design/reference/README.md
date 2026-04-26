@@ -1,10 +1,10 @@
 # Frontend Design Reference Index
 
-This folder is the shared doctrine layer for `better-web-ui`.
+This folder is the shared doctrine layer for `better-react-web-ui`.
 
 Use it as a map of the map when you know you need guidance but do not yet know which specific reference file to open.
 
-Important default: the more component-shaped references in this folder are mostly for custom primitives, headless implementations, or plain HTML / CSS / JavaScript builds. If a mature component library already handles the primitive well, match that library first and use the pattern docs mainly for fit, structure, defaults, composition, and surrounding UX decisions. Cross-cutting behavior docs such as destructive actions, onboarding, validation, permissions, or status communication still apply even when a mature library is in use.
+Important default: the more component-shaped references in this folder are mostly for custom React primitives, headless React implementations, or Tailwind-compatible component work. If a mature component library already handles the primitive well, match that library first and use the pattern docs mainly for fit, structure, defaults, composition, and surrounding UX decisions. Cross-cutting behavior docs such as destructive actions, onboarding, validation, permissions, or status communication still apply even when a mature library is in use.
 
 ## Start here
 
@@ -41,7 +41,7 @@ If you only open a few files first, make them these:
 - [carousel UX](./carousel-ux.md) — when to avoid carousels, when they help, and how to make them navigable and accessible when they stay
 - [date input UX](./date-input-ux.md) — date of birth, memorable dates, typed-date fields, and when a picker should or should not appear
 - [date-time picker UX](./date-time-picker-ux.md) — booking calendars, date ranges, flexible dates, time slots, and combined date-and-time scheduling flows
-- [complex table UX](./complex-table-ux.md) — read-only/search/editable table architecture, pinned columns, header filters, command logic, and desktop-first operational grid design
+- [complex table UX](./complex-table-ux.md) — read-only/search/editable table architecture, pinned columns, header filters, command logic, and wide-viewport operational grid design
 - [live validation UX](./live-validation-ux.md) — blur-vs-real-time timing, reward-early/punish-late behavior, copy-paste-friendly validation, and validator override strategy
 - [error recovery](./error-recovery.md) — what users see after failure: summaries, field recovery, retry paths, and fixable error behavior
 - [authentication and account recovery](./authentication-and-account-recovery.md) — sign-in, MFA, session expiry, password UX, and recovery-stack guidance
@@ -164,7 +164,7 @@ Use these when color is carrying meaning in states, charts, legends, selections,
 - [framework defaults](./framework-defaults.md)
 - [framework official docs](./framework-official-docs.md)
 - [motion design](./motion-design.md)
-- [CSS, Tailwind, and WAAPI motion](./css-tailwind-and-waapi-motion.md)
+- [Tailwind and WAAPI motion](./css-tailwind-and-waapi-motion.md)
 - [react shadcn accelerators](./react-shadcn-accelerators.md)
 - [scroll-driven animations](./scroll-driven-animations.md)
 - [view transitions](./view-transitions.md)
@@ -195,7 +195,7 @@ Use these when the work depends on narrow-first layout strategy, component reflo
 
 Use these when the work involves reusable primitives, design-system reuse, screenshots/media, or repeated layout logic.
 
-Most of the pattern-specific references in this section are custom/headless-first. If a mature component library already owns the primitive, use them mainly to shape surrounding UX and product decisions rather than to override solid upstream anatomy by default.
+Most of the pattern-specific references in this section are custom React or headless React first. If a mature component library already owns the primitive, use them mainly to shape surrounding UX and product decisions rather than to override strong upstream anatomy by default.
 
 ## First impressions, hero sections, and above-the-fold messaging
 
@@ -284,7 +284,7 @@ Use these when users must narrow, compare, continue, revisit, recover their plac
 - [component anatomy](./component-anatomy.md)
 - [feature comparison UX](./feature-comparison-ux.md)
 
-Use these when the work involves dense read-only tables, search tables, editable grids, pinned columns, header filters, row selection, or desktop-first operational data work.
+Use these when the work involves dense read-only tables, search tables, editable grids, pinned columns, header filters, row selection, or wide-viewport operational data work.
 
 ## Sliders and range controls
 
@@ -371,7 +371,7 @@ Use these when the task touches account access, plan comparison, billing clarity
 
 - [data visualization](./data-visualization.md) — chart type selection, responsive patterns, accessible data tables, color-vision-friendly palettes, tooltips, and annotations
 - [colorblindness UX](./colorblindness-ux.md) — semantic states, chart palettes, non-color-only cues, and lightness-aware color choices for color-vision deficiencies
-- [complex table UX](./complex-table-ux.md) — read-only/search/editable table architecture, pinned columns, header filters, and desktop-first operational grid design
+- [complex table UX](./complex-table-ux.md) — read-only/search/editable table architecture, pinned columns, header filters, and wide-viewport operational grid design
 
 Use these when the product must present data visually, whether through charts, dense tables, or comparative visualizations, and when accessibility under color-vision deficiencies matters.
 

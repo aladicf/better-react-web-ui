@@ -11,7 +11,7 @@ The course teaches both the theory and practice behind great web animation, with
 
 The course site identifies Emil as the teacher and also highlights his work on [Sonner](https://github.com/emilkowalski/sonner) and [Vaul](https://github.com/emilkowalski/vaul), two React UI libraries where motion quality is part of the product feel.
 
-This repository uses that motion lineage as inspiration, but rewrites it into original guidance tailored to `better-web-ui`.
+This repository uses that motion lineage as inspiration, but rewrites it into original guidance tailored to `better-react-web-ui`.
 
 Use this attribution reference when:
 

@@ -122,7 +122,7 @@ Create a systematic plan:
 - Use identical card grids everywhere (icon + heading + text, repeated)
 - Center everything — left-aligned with asymmetry feels more designed
 - Default to the hero metric layout (big number, small label, stats, gradient) as a template. If showing real user data, a prominent metric can work — but it should display actual data, not decorative numbers.
-- Default to CSS Grid when Flexbox would be simpler — use the simplest tool for the job
+- Default to Tailwind grid utilities when Tailwind flex utilities would be simpler, use the simplest layout tool for the job
 - Force layouts to fill every inch of available width
 - Use arbitrary z-index values (999, 9999) — build a semantic scale
 

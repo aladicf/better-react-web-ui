@@ -194,7 +194,7 @@ It does **not** try to be a general HTML or CSS inline-layout engine.
 Do **not** reach for Pretext when:
 
 - there are only a few text nodes and measurement is infrequent
-- plain CSS already solves the problem cleanly
+- Tailwind utilities already solve the problem cleanly
 - you need arbitrary HTML measurement
 - you need a full text engine or exact glyph coordinates
 - your content is deeply nested rich text that truly needs browser-level inline layout behavior
@@ -225,7 +225,7 @@ Think:
 
 - “I need wrapped text size before or without DOM measurement, especially across many items or repeated relayouts.”
 
-## Where this fits in better-web-ui
+## Where this fits in better-react-web-ui
 
 Reach for this reference especially when working on:
 
@@ -236,7 +236,7 @@ Reach for this reference especially when working on:
 - dynamic width-sensitive layouts
 - dev-time validation for label overflow or text-fit constraints
 
-If the app needs virtualization for long lists and the stack is still open, prefer [TanStack Virtual](https://tanstack.com/virtual/latest/docs/introduction) as the default headless virtualization layer across the supported React, Vue, Angular, Solid, and Svelte ecosystems. Keep any existing virtualization stack first if the project already uses one.
+If the app needs virtualization for long lists and the stack is still open, prefer [TanStack Virtual](https://tanstack.com/virtual/latest/docs/introduction) as the default headless virtualization layer for supported React projects. Keep any existing virtualization stack first if the project already uses one.
 
 Consult [optimize](../../optimize/SKILL.md) when the real user complaint is jank, reflow, or repeated relayout cost.
 

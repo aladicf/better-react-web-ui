@@ -159,7 +159,7 @@ Color can help comparison, but it can also create noise fast.
 Good defaults:
 
 - use restrained highlights for changed or winning values
-- make row and column hover/tap emphasis help orientation, not dominate the table
+- make row and column hover/activation emphasis help orientation, not dominate the table
 - if using bars or visual indicators, ensure they clarify magnitude rather than decorate the row
 
 Avoid:
@@ -247,7 +247,7 @@ Weak surfaces:
 - a checkbox plus label is often clearer than a cryptic compare icon alone
 - keep the compare affordance near the product but visually subordinate to the primary purchase path
 - confirm selection immediately with visible feedback
-- let users unselect with one tap or click
+- let users unselect with one explicit activation
 
 Avoid disabling the control in a way that makes unselecting harder than selecting.
 

@@ -1,26 +1,26 @@
-# CSS, Tailwind, and WAAPI motion
+# Tailwind and WAAPI motion
 
 Use this reference when the animation concept is real, but a heavy framework-specific motion library is **not automatically required**.
 
 The goal is to keep agents honest:
 
-- use **modern CSS** first for simple state transitions
-- use **Tailwind utilities** when the project already lives in Tailwind
-- use the **Web Animations API** when the effect is imperative, synchronized, or should stay smooth outside a React/Vue render loop
+- use **Tailwind utilities** first for simple state transitions
+- use **Tailwind theme variables, utilities, and keyframes** when the project already lives in Tailwind
+- use the **Web Animations API** when the effect is imperative, synchronized, or should stay smooth outside a React render loop
 - use **Motion** only when the animation genuinely benefits from layout animation, state-driven orchestration, gesture APIs, motion values, or framework-specific composition
 
 ## Default implementation order
 
-1. **CSS transitions / keyframes first**
-2. **Tailwind utility composition** when the project uses Tailwind
+1. **Tailwind utility composition first**
+2. **Tailwind-compatible keyframes and theme variables** when utility composition is not enough
 3. **WAAPI** for imperative or synchronized animation control
 4. **Motion** when the interaction complexity justifies it
 
 Do not treat Motion as the default answer to every hover, opacity, or scale change.
 
-## When modern CSS is usually enough
+## When Tailwind utilities are usually enough
 
-Use plain CSS for:
+Use Tailwind utilities for:
 
 - hover, focus, and active state transitions
 - button press scale feedback
@@ -29,26 +29,10 @@ Use plain CSS for:
 - disclosure rotation or small icon state changes
 - clip-path reveals
 - shimmer and skeleton gradients
-- simple stagger using custom properties
+- simple stagger using Tailwind arbitrary values or theme variables
 - theme, color, and shadow transitions
 
-Example:
-
-```css
-.button {
-  transition:
-    transform 150ms cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 150ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.button:active {
-  transform: scale(0.97);
-}
-```
-
-## When Tailwind is usually enough
-
-If the project already uses Tailwind, most micro-interactions can stay utility-first.
+Most micro-interactions can stay utility-first.
 
 ```html
 <button
@@ -98,7 +82,7 @@ const animation = element.animate(
 )
 ```
 
-WAAPI is especially useful for synchronized skeleton shimmer, imperative toasts, or built-in browser animation control in vanilla JS projects.
+WAAPI is especially useful for synchronized skeleton shimmer, imperative toasts, or built-in browser animation control inside React projects.
 
 ## When Motion is actually worth it
 
@@ -108,7 +92,7 @@ Use Motion when the problem is not just “animate a property,” but one of the
 - shared layout / `layoutId`-style transitions
 - gesture-heavy drag, press, hover, and momentum interactions in framework apps
 - motion values, springs, scroll-linked state, or composable variants
-- React/Vue component orchestration tied directly to state and lifecycle
+- React component orchestration tied directly to state and lifecycle
 
 Motion is powerful because it scales. That does **not** mean every effect should start there.
 
@@ -116,16 +100,16 @@ Motion is powerful because it scales. That does **not** mean every effect should
 
 | Concept | Best first choice | Escalate when needed |
 | --- | --- | --- |
-| button press scale | CSS / Tailwind | Motion only if already in a larger gesture system |
-| hover/focus polish | CSS / Tailwind | rarely needs more |
-| opacity + translate entry | CSS / Tailwind | WAAPI for imperative control |
-| accordion reveal | CSS grid / clip-path | Motion if part of a bigger layout choreography |
-| tooltip fade / delay | CSS / JS state | Motion rarely required |
-| skeleton shimmer | CSS gradient + WAAPI sync | Motion optional, not required |
-| staggered list reveal | CSS vars / WAAPI | Motion variants for richer orchestration |
-| drag / swipe dismissal | Motion or custom pointer logic | CSS alone usually not enough |
-| shared layout transition | Motion | CSS cannot do the same job well |
-| disclosure icon state | CSS rotate or SVG morph | Motion optional |
+| button press scale | Tailwind utilities | Motion only if already in a larger gesture system |
+| hover/focus polish | Tailwind utilities | rarely needs more |
+| opacity + translate entry | Tailwind utilities | WAAPI for imperative control |
+| accordion reveal | Tailwind grid utilities / clip-path arbitrary values | Motion if part of a bigger layout choreography |
+| tooltip fade / delay | Tailwind utilities / JS state | Motion rarely required |
+| skeleton shimmer | Tailwind gradients + WAAPI sync | Motion optional, not required |
+| staggered list reveal | Tailwind arbitrary values / WAAPI | Motion variants for richer orchestration |
+| drag / swipe dismissal | Motion or custom pointer logic | Tailwind alone usually not enough |
+| shared layout transition | Motion | Tailwind utilities cannot do the same job well |
+| disclosure icon state | Tailwind rotate utilities or SVG morph | Motion optional |
 
 ## Practical guidance for common concepts in this library
 

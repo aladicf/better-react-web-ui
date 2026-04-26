@@ -219,7 +219,7 @@ If a mask exists, it should never become a cage.
 
 In compact layouts:
 
-- keep fields large enough to tap comfortably
+- keep fields large enough to activate comfortably
 - use labels above the inputs
 - bring up suitable keyboards where possible
 - avoid interactions that require many repeated reel or calendar movements for distant years
@@ -236,7 +236,7 @@ Typing eight or so digits into three fields is usually much faster than month-by
 - Are we using autocomplete purpose tokens for date of birth?
 - Are the validation messages specific to the actual error state?
 - If a date picker is used, is it because users need to choose a date rather than recall one?
-- Does the control remain workable across keyboard, touch, screen reader, zoomed, and narrow-layout contexts?
+- Does the control remain workable across keyboard, pointer, screen reader, zoomed, and narrow-layout contexts?
 - Would the pattern still make sense to someone entering a birth year several decades in the past?
 
 Good date-input UX respects whether the date is something users know already or something they need help choosing.

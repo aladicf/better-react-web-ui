@@ -13,7 +13,7 @@ The timing of validation affects how users feel about the form.
 **Validate on blur** for fields that are clearly finished:
 - Email, phone, URL — formats that are complete when the user leaves the field
 - Password confirmation — only after the user has had a chance to type both fields
-- Required fields — after the user has visited the field, not before they touch it
+- Required fields — after the user has visited the field, not before they interact with it
 
 **Validate on input** only when immediate feedback is genuinely helpful:
 - Password strength indicators

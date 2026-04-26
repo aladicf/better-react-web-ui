@@ -20,4 +20,4 @@ Use this pattern when:
 - release should feel forgiving and fast
 - the interaction benefits from a built-in reconsideration window
 
-Do not apply asymmetric timing to ordinary tap interactions by default. Save it for interactions where press and release genuinely have different jobs.
+Do not apply asymmetric timing to ordinary activation interactions by default. Save it for interactions where press and release genuinely have different jobs.

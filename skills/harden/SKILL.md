@@ -138,7 +138,7 @@ Systematically improve resilience:
 /* Use logical properties */
 margin-inline-start: 1rem; /* Not margin-left */
 padding-inline: 1rem; /* Not padding-left/right */
-border-inline-end: 1px solid; /* Not border-right */
+border-inline-end: 1px double currentColor; /* Not border-right */
 
 /* Or use dir attribute */
 [dir="rtl"] .arrow { transform: scaleX(-1); }

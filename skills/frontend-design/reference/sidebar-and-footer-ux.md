@@ -153,7 +153,7 @@ Good defaults:
 - reduce duplication before hiding essentials
 - keep language, support, and legal paths easy to reach
 
-Do not assume the footer is desktop-only just because it appears late in the scroll.
+Do not assume the footer is wide-viewport-only just because it appears late in the scroll.
 
 ## Accessibility and structural honesty
 

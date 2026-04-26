@@ -39,7 +39,7 @@ LCP breaks down into sequential phases. Optimizing one phase without fixing the 
 
 **Eliminate resource load delay**:
 - Make the LCP resource discoverable in the initial HTML. Do not inject hero images via JavaScript or lazy-load them.
-- Preload the LCP resource if it is referenced from an external CSS file:
+- Preload the LCP resource when Tailwind-driven layout or background utilities still require a separately loaded image asset:
   ```html
   <link rel="preload" fetchpriority="high" as="image" href="hero.webp" type="image/webp">
   ```
@@ -50,7 +50,7 @@ LCP breaks down into sequential phases. Optimizing one phase without fixing the 
 - Never lazy-load an above-the-fold LCP image.
 
 **Eliminate element render delay**:
-- Inline critical CSS for above-the-fold content.
+- Keep generated Tailwind output lean for above-the-fold content and avoid delaying the LCP element behind unnecessary route or island code.
 - Defer non-critical JavaScript.
 - Remove render-blocking resources from the `<head>` where possible.
 - Use server-side rendering so content is in the initial HTML.
@@ -72,7 +72,7 @@ INP replaced First Input Delay (FID) in 2024. It measures responsiveness across 
 
 ### How INP works
 
-INP observes the latency of all click, tap, and keyboard interactions during a page session and reports the worst (or near-worst) measured latency. A low INP means the page consistently feels responsive.
+INP observes the latency of pointer and keyboard interactions during a page session and reports the worst (or near-worst) measured latency. A low INP means the page consistently feels responsive.
 
 **What INP measures**: the time from interaction until the browser paints the next frame showing visual feedback.
 
@@ -83,7 +83,7 @@ INP observes the latency of all click, tap, and keyboard interactions during a p
 - Long JavaScript tasks (> 50ms) blocking the main thread
 - Expensive event handlers that run synchronously
 - Layout thrashing inside interaction handlers
-- Large component re-renders (React, Vue, Angular)
+- Large React component re-renders
 - Third-party scripts executing during interactions
 
 ### How to optimize INP
@@ -118,17 +118,17 @@ CLS measures how much the visible content shifts around during page load. Unexpe
 - Ads, embeds, or iframes injected after initial paint
 - Content loaded dynamically (fonts, late-arriving data, infinite scroll items)
 - Web fonts causing FOIT (Flash of Invisible Text) or FOUT (Flash of Unstyled Text)
-- CSS animations that change layout properties
+- Tailwind-compatible animations that change layout properties
 
 ### How to optimize CLS
 
 **Reserve space for images and media**:
 - Always specify `width` and `height` attributes on `<img>` and `<video>`.
-- Use `aspect-ratio` CSS property when dimensions are known:
-  ```css
-  .media-container {
-    aspect-ratio: 16 / 9;
-  }
+- Use Tailwind aspect-ratio utilities when dimensions are known:
+  ```html
+  <div class="aspect-video">
+    ...
+  </div>
   ```
 - For responsive images, use `srcset` and `sizes` but still include dimensions.
 
@@ -181,7 +181,7 @@ CLS measures how much the visible content shifts around during page load. Unexpe
 
 - [ ] LCP resource is discoverable in initial HTML (not injected by JS)
 - [ ] LCP image has `fetchpriority="high"` and is not lazy-loaded
-- [ ] Critical CSS is inlined; non-critical CSS is deferred
+- [ ] Generated Tailwind output is lean and non-critical route or island code is deferred
 - [ ] Images use modern formats and are sized to their display dimensions
 - [ ] JavaScript tasks are broken up; no single task blocks for > 50ms
 - [ ] Interaction handlers yield quickly and show feedback within one frame

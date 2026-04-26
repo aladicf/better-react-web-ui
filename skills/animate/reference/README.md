@@ -63,7 +63,7 @@ Use these when the question is: should this move, how fast should it move, and i
 - [scroll drag conflicts](./scroll-drag-conflicts.md)
 - [interruptible animations](./interruptible-animations.md)
 
-Use these when touch, swipe, drag, dismissal, or snap behavior needs to feel physically coherent instead of sticky or haunted.
+Use these when coarse-pointer, swipe, drag, dismissal, or snap behavior needs to feel physically coherent instead of sticky or haunted.
 
 ## Accessibility and reduced motion
 
@@ -94,7 +94,7 @@ Use these when touch, swipe, drag, dismissal, or snap behavior needs to feel phy
 
 - [transform opacity only](./transform-opacity-only.md)
 - [hardware accelerated busy main thread](./hardware-accelerated-busy-main-thread.md)
-- [avoid css variables drag](./avoid-css-variables-drag.md)
+- [avoid inherited token mutation in drag loops](./avoid-css-variables-drag.md)
 - [will-change subpixel shift](./will-change-subpixel-shift.md)
 
 ## Source and attribution

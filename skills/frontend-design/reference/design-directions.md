@@ -10,7 +10,7 @@ The right direction depends on three things lining up:
 - the **brand** and what it should feel like
 - the **real context of use** including readability, performance, accessibility, and maintenance cost
 
-Typography, spacing, hierarchy, content structure, and action order should be solid before you start layering stronger style signals on top.
+Typography, spacing, hierarchy, content structure, and action order should be strong before you start layering stronger style signals on top.
 
 ## Non-negotiables
 
@@ -167,7 +167,7 @@ Examples of bad combinations:
 
 **Use for:** ambitious tech brands, cultural projects, launch campaigns, research labs, or companies that want energy, geometry, and directional momentum.
 
-**Signals:** angular geometry, asymmetry, bold diagonals or offsets, strong directional composition, collage-like contrasts, energetic layout.
+**Signals:** sharp geometry, asymmetry, bold diagonals or offsets, strong directional composition, collage-like contrasts, energetic layout.
 
 **Works best when:** the brand wants motion, ambition, and modernist edge without collapsing into chaotic noise.
 
@@ -179,7 +179,7 @@ Examples of bad combinations:
 
 **Use for:** clarity-first products, public-service sites, documentation-adjacent surfaces, practical software, or any interface that should feel straightforward and fast.
 
-**Signals:** clean shapes, low-depth visuals, limited effect work, solid fills, crisp hierarchy.
+**Signals:** clean shapes, low-depth visuals, limited effect work, filled surfaces, crisp hierarchy.
 
 **Works best when:** speed, clarity, and maintainability are more important than heavy atmosphere.
 

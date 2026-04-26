@@ -71,7 +71,7 @@ if (status.state === 'prompt') {
 ### Notification content design
 
 Every notification should be:
-- **Actionable**: The user should know what happens when they tap it
+- **Actionable**: The user should know what happens when they activate it
 - **Timely**: Send only when the information is relevant now
 - **Personal**: Use the user's name, order number, or context when appropriate
 - **Concise**: Title under 40 characters, body under 100 characters when possible
@@ -116,9 +116,9 @@ If a user denies a permission that is needed for a feature:
 
 Provide platform-specific instructions:
 
-- **Desktop Chrome**: "Click the lock icon in the address bar → Site settings → Camera → Allow"
+- **Chromium browser**: "Click the lock icon in the address bar → Site settings → Camera → Allow"
 - **iOS Safari**: "Go to Settings → Safari → Camera → Allow"
-- **Android Chrome**: "Tap the three dots → Settings → Site settings → Camera → Allow"
+- **Chrome with overflow menu**: "Open the three-dot menu → Settings → Site settings → Camera → Allow"
 
 Use illustrations or screenshots when possible. Text-only instructions are often missed.
 

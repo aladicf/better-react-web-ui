@@ -1,13 +1,13 @@
 ---
 name: setup
-description: Gather and persist project design context such as audience, brand personality, UX goals, and implementation defaults for future better-web-ui work. Use when starting a project, defining UI direction, or establishing reusable design guidance before other better-web-ui skills.
+description: Gather and persist project design context such as audience, brand personality, UX goals, React framework, Tailwind setup, and component defaults for future better-react-web-ui work. Use when starting a project, defining UI direction, or establishing reusable design guidance before other better-react-web-ui skills.
 metadata:
   argument-hint: "[project]"
 ---
 
 Gather design context for this project, then persist it for all future sessions.
 
-`setup` writes to `.better-web-ui.md` as the canonical destination. Older files such as `.better-ui.md` and `.impeccable.md` are legacy migration inputs only, not the place new work should keep using.
+`setup` writes to `.better-react-web-ui.md` as the canonical destination. Older files such as `.better-web-ui.md`, `.better-ui.md`, and `.impeccable.md` are legacy migration inputs only, not the place new work should keep using.
 
 Consult [design principles](../frontend-design/reference/design-principles.md) when turning product values, tone, and repeated tradeoffs into durable design principles that later work can reuse without reopening the same debates.
 Consult [ux strategy](../frontend-design/reference/ux-strategy.md) when the project needs a clearer strategic frame for target outcomes, user focus, priorities, feasibility, or major risks.
@@ -17,16 +17,16 @@ Consult [ux strategy](../frontend-design/reference/ux-strategy.md) when the proj
 Before asking questions, thoroughly scan the project to discover what you can:
 
 - **README and docs**: Project purpose, target audience, any stated goals
-- **Package.json / config files**: Tech stack, dependencies, existing design libraries
+- **Package.json / config files**: React framework, dependencies, existing design libraries
 - **shadcn project config**: `components.json`, shadcn schema usage, CLI-generated configuration, preset clues, Radix vs Base UI choice
-- **Styling system**: Tailwind, CSS modules, CSS-in-JS, vanilla CSS, utility systems, tokens
-- **Component libraries**: shadcn/ui, Nuxt UI, Angular Material, custom UI packages, in-house systems
-- **Form architecture**: TanStack Form, React Hook Form, Formik, vee-validate, Angular forms, custom validation/state wiring
+- **Styling system**: Tailwind version, Tailwind config, theme variables, utility conventions, and tokens
+- **Component libraries**: shadcn/ui, ReUI, shadcncraft, Kibo UI, Basecn, Tailark, shadcnblocks, React Bits, Animate UI, Animata, Magic UI, Motion Primitives, Efferd, Billing SDK, blocks.so, coss/ui, Better Auth UI, Smooth UI, TripleD UI, shadcn-map, mapcn, c15t, PatternCraft, custom React UI packages, in-house systems
+- **Form architecture**: TanStack Form, React Hook Form, Formik, custom React validation/state wiring
 - **Table / data-grid architecture**: TanStack Table, AG Grid, framework-native tables, custom table state wiring
 - **Long-list / virtualization architecture**: TanStack Virtual, react-window, react-virtualized, framework-native virtualization, custom windowing logic
 - **Existing components**: Current design patterns, spacing, typography in use
 - **Brand assets**: Logos, favicons, color values already defined
-- **Design tokens / CSS variables**: Existing color palettes, font stacks, spacing scales
+- **Tailwind theme tokens / variables**: Existing color palettes, font stacks, spacing scales
 - **Any style guides or brand documentation**
 
 Note what you've learned and what remains unclear.
@@ -63,20 +63,20 @@ ask the user directly to clarify what you cannot infer. Focus only on what you c
 Skip questions where the answer is already clear from the codebase exploration.
 
 ### Implementation Defaults
-- What framework / runtime should future UI work assume by default?
-- If this is a brand-new project, does the user want a specific styling system?
-- If this is a brand-new project, does the user want a specific component library or block system?
+- What React framework / runtime should future UI work assume by default?
+- If this is a brand-new project, does the user want a specific Tailwind setup?
+- If this is a brand-new project, does the user want shadcn/ui, ReUI, shadcncraft, Kibo UI, Basecn, Tailark, shadcnblocks, React Bits, Animate UI, Animata, Magic UI, Motion Primitives, Efferd, Billing SDK, blocks.so, coss/ui, Better Auth UI, Smooth UI, TripleD UI, shadcn-map, mapcn, c15t, PatternCraft, or another React component library?
 - Does the project already use a form library or validation stack that later UI work should preserve?
 - Does the project already use a table or data-grid library that later UI work should preserve?
 - Does the project already use a virtualization or windowing library for long lists that later UI work should preserve?
 - If the project already uses `shadcn/ui`, is it mostly using the upstream primitives directly or local wrappers / compositions built on top of them?
-- If relevant, does the project already use `shadcn/ui Blocks` or `re-ui` as accelerators for common sections or flows?
+- If relevant, does the project already use `shadcn/ui Blocks`, ReUI, shadcncraft, Kibo UI, Basecn, Tailark, shadcnblocks, React Bits, Animate UI, Animata, Magic UI, Motion Primitives, Efferd, Billing SDK, blocks.so, coss/ui, Better Auth UI, Smooth UI, TripleD UI, shadcn-map, mapcn, c15t, or PatternCraft as accelerators for common sections or flows?
 - If relevant, is the project primarily following a Radix-flavored or Base UI-flavored ecosystem for its headless primitives and composed components?
 - If the project uses shadcn, does it already have a `components.json` file or signs of `shadcn create` / `shadcn apply` customizations that should be treated as the current baseline?
 
-If the project already has a styling system, component library, form stack, or table/grid stack, treat that as the default unless the user explicitly wants to change it.
+If the project already has a Tailwind setup, supported component library, form stack, or table/grid stack, treat that as the default unless the user explicitly wants to change it.
 
-If the project is new and the user does not specify implementation preferences, use the framework-default matrix from [`framework defaults`](../frontend-design/reference/framework-defaults.md) and record the result. When the form architecture is still open in a new React, Vue, Angular, Solid, or Svelte project, default to TanStack Form and record that too. When the table or data-grid architecture is still open in those ecosystems, default to TanStack Table and record that too. When the long-list or virtualization architecture is still open in those ecosystems, default to TanStack Virtual and record that too.
+If the project is new and the user does not specify implementation preferences, use the framework-default matrix from [`framework defaults`](../frontend-design/reference/framework-defaults.md) and record the result. When the form architecture is still open in a supported React project, default to TanStack Form and record that too. When the table or data-grid architecture is still open, default to TanStack Table and record that too. When the long-list or virtualization architecture is still open, default to TanStack Virtual and record that too.
 
 ## Step 3: Write Design Context
 
@@ -95,7 +95,7 @@ Synthesize your findings and the user's answers into a `## Design Context` secti
 [Visual tone, references, anti-references, theme]
 
 ### Implementation Defaults
-[Detected or chosen framework, styling system, component library defaults, form library / validation defaults, table/data-grid defaults, virtualization defaults, any block accelerators in use, any relevant Radix-vs-Base-UI ecosystem preference, any important `components.json` / `shadcn create` / `shadcn apply` customizations, and whether they came from the existing codebase, explicit user preference, or framework fallback defaults]
+[Detected or chosen React framework, Tailwind setup, component library defaults, form library / validation defaults, table/data-grid defaults, virtualization defaults, any block accelerators in use, any relevant Radix-vs-Base-UI ecosystem preference, any important `components.json` / `shadcn create` / `shadcn apply` customizations, and whether they came from the existing codebase, explicit user preference, or framework fallback defaults]
 
 ### Design Principles
 [3-5 principles derived from the conversation that should guide all design decisions]
@@ -109,9 +109,9 @@ Derive the principles from concrete levers, not vague aspirations. Prefer things
 
 The strongest principles explain both what to do and what to avoid. Treat them as default decisions with judgment, not as decorative slogans.
 
-Write this section to `.better-web-ui.md` in the project root. If that file already exists, update the Design Context section in place. If a legacy `.better-ui.md` or `.impeccable.md` file exists, migrate or mirror the Design Context section into `.better-web-ui.md` so better-web-ui has a single canonical project context file going forward.
+Write this section to `.better-react-web-ui.md` in the project root. If that file already exists, update the Design Context section in place. If a legacy `.better-web-ui.md`, `.better-ui.md`, or `.impeccable.md` file exists, migrate or mirror the Design Context section into `.better-react-web-ui.md` so better-react-web-ui has a single canonical project context file going forward.
 
-Legacy files are fallback inputs for migration only. New work should keep `.better-web-ui.md` as the canonical destination.
+Legacy files are fallback inputs for migration only. New work should keep `.better-react-web-ui.md` as the canonical destination.
 
 Make sure the persisted context captures this precedence clearly:
 

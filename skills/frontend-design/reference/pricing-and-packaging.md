@@ -354,7 +354,7 @@ Prefer:
 
 - inline clarifying copy for major differentiators
 - expandable rows or accordions for richer explanation
-- tap / click surfaces that work for keyboard and touch users as well as pointer users
+- activation surfaces that work for keyboard, coarse-pointer, and precise-pointer users
 
 Use a tooltip only for short, non-essential clarification. If the user needs the explanation to choose a plan confidently, it probably deserves more space than a hover bubble.
 

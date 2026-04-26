@@ -73,9 +73,9 @@ Viewport queries are for page layouts. **Container queries are for components**:
 
 Text at `margin-left: 0` looks indented due to letterform whitespace—use negative margin (`-0.05em`) to optically align. Geometrically centered icons often look off-center; play icons need to shift right, arrows shift toward their direction.
 
-### Touch Targets vs Visual Size
+### Pointer Targets vs Visual Size
 
-Buttons can look small but need large touch targets (44px minimum). Use padding or pseudo-elements:
+Buttons can look small but need large coarse-pointer targets (44px minimum). Use padding or pseudo-elements:
 
 ```css
 .icon-button {
@@ -87,7 +87,7 @@ Buttons can look small but need large touch targets (44px minimum). Use padding 
 .icon-button::before {
   content: '';
   position: absolute;
-  inset: -10px;  /* Expand tap target to 44px */
+inset: -10px;  /* Expand coarse-pointer target to 44px */
 }
 ```
 

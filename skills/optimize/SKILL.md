@@ -10,7 +10,7 @@ Identify and fix performance issues to create faster, smoother user experiences.
 Consult the [image treatment](../frontend-design/reference/image-treatment.md) when image performance problems intersect with screenshot sizing, icon scaling, cropping strategy, or user-uploaded media handling.
 Consult the [text layout prediction](../frontend-design/reference/text-layout-prediction.md) when performance issues come from measuring many wrapped text blocks, variable-height virtualization, repeated resize relayouts, or hot-path DOM reads like `offsetHeight` / `getBoundingClientRect()` for text-heavy UI.
 Consult the [core web vitals reference](../frontend-design/reference/core-web-vitals.md) when the optimization work focuses on LCP, INP, or CLS specifically and needs deeper subpart breakdowns or field-vs-lab measurement guidance.
-When a project needs virtualization for very long lists and the stack is still open, prefer TanStack Virtual as the default headless virtualization layer across the supported React, Vue, Angular, Solid, and Svelte ecosystems. If the project already uses another virtualization layer, preserve that first.
+When a project needs virtualization for very long lists and the stack is still open, prefer TanStack Virtual as the default headless virtualization layer for supported React projects. If the project already uses another virtualization layer, preserve that first.
 
 ## MANDATORY PREPARATION
 
@@ -103,11 +103,11 @@ Practical rules:
 const HeavyChart = lazy(() => import('./HeavyChart'));
 ```
 
-**Optimize CSS**:
-- Remove unused CSS
-- Critical CSS inline, rest async
-- Minimize CSS files
-- Use CSS containment for independent regions
+**Optimize Tailwind output**:
+- Keep Tailwind class names statically discoverable so the build can generate only the utilities in use
+- Avoid broad safelists and runtime-built class strings that force large generated output
+- Prefer Tailwind theme tokens, utilities, and variants over ad hoc styling paths
+- Use CSS containment utilities or Tailwind arbitrary properties only for independent regions that benefit from containment
 
 **Optimize Fonts**:
 - Use `font-display: swap` or `optional`
@@ -157,35 +157,21 @@ Tools for subsetting:
 - `subfont` for automatic subsetting at build time
 - `glyphhanger` for extracting only the glyphs used in your HTML/CSS
 
-**Critical CSS extraction**:
+**Tailwind delivery strategy**:
 
-Extract the CSS needed for above-the-fold content and inline it in the HTML `<head>`. Load the remaining CSS asynchronously.
+Let the React framework and Tailwind pipeline own generated style delivery. The goal is to keep the generated Tailwind output lean and route-aware instead of adding hand-written style loading patterns.
 
 Why it matters:
-- render-blocking CSS is often the biggest contributor to slow First Contentful Paint
-- inlining critical CSS eliminates the network request for the initial view
-- non-critical CSS can load after the page is interactive
+- large generated Tailwind output can delay First Contentful Paint
+- broad safelists and dynamic class construction often create unused utility output
+- framework-level bundling is more reliable than manual style preload patterns
 
 How to implement:
-- use `critical` (npm package) or `Penthouse` to extract above-the-fold CSS automatically
-- or identify critical CSS manually: header styles, hero layout, initial typography, and above-the-fold component styles
-- inline the critical CSS in a `<style>` tag in the `<head>`
-- load the full stylesheet asynchronously:
-
-```html
-<head>
-  <style>
-    /* Critical CSS inlined here */
-  </style>
-  <link rel="preload" href="/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="/styles.css"></noscript>
-</head>
-```
-
-Caveats:
-- do not inline more than ~14KB of CSS (gzippped) to stay within single TCP round-trip budgets
-- critical CSS must be kept in sync with the actual above-the-fold content; regenerate it when layouts change
-- for SPAs, consider route-level critical CSS rather than page-level
+- keep utility classes literal or use framework-supported helpers such as `clsx` with known class strings
+- keep safelists narrow and documented
+- split heavy routes and islands so their React, media, and component-library code load only where needed
+- verify generated Tailwind output size during performance work
+- use the framework's recommended Tailwind integration for React, Next.js, React Router, TanStack Start, Vite React, or Astro React islands
 
 **Optimize Loading Strategy**:
 - Critical resources first (async/defer non-critical)
@@ -228,7 +214,7 @@ elements.forEach((el, i) => {
 ```
 
 **Optimize Rendering**:
-- Use CSS `contain` property for independent regions
+- Use Tailwind containment utilities or `[contain:*]` arbitrary properties for independent regions
 - Minimize DOM depth (flatter is faster)
 - Reduce DOM size (fewer elements)
 - Use `content-visibility: auto` for long lists
@@ -262,7 +248,7 @@ elements.forEach((el, i) => {
 - Target 16ms per frame (60fps)
 - Use `requestAnimationFrame` for JS animations
 - Debounce/throttle scroll handlers
-- Use CSS animations when possible
+- Use Tailwind utilities, Tailwind-compatible keyframes, or WAAPI when possible
 - Avoid long-running JavaScript during animations
 
 **Intersection Observer**:
@@ -277,7 +263,7 @@ const observer = new IntersectionObserver((entries) => {
 });
 ```
 
-### React/Framework Optimization
+### React Optimization
 
 **React-specific**:
 - Use `memo()` for expensive components
@@ -287,11 +273,11 @@ const observer = new IntersectionObserver((entries) => {
 - Avoid inline function creation in render
 - Use React DevTools Profiler
 
-**Framework-agnostic**:
-- Minimize re-renders
+**React framework patterns**:
+- Minimize avoidable re-renders
 - Debounce expensive operations
-- Memoize computed values
-- Lazy load routes and components
+- Memoize computed values where profiling shows value
+- Lazy load routes and components using the framework's recommended pattern
 
 ### Network Optimization
 
@@ -318,7 +304,7 @@ const observer = new IntersectionObserver((entries) => {
 
 ### Largest Contentful Paint (LCP < 2.5s)
 - Optimize hero images
-- Inline critical CSS
+- Keep generated Tailwind output lean and avoid loading unnecessary route or island code before the LCP element
 - Preload key resources
 - Use CDN
 - Server-side rendering
@@ -332,7 +318,7 @@ const observer = new IntersectionObserver((entries) => {
 ### Cumulative Layout Shift (CLS < 0.1)
 - Set dimensions on images and videos
 - Don't inject content above existing content
-- Use `aspect-ratio` CSS property
+- Use Tailwind aspect-ratio utilities
 - Reserve space for ads/embeds
 - Avoid animations that cause layout shifts
 
@@ -360,7 +346,7 @@ const observer = new IntersectionObserver((entries) => {
 - Bundle size
 - Request count
 
-**IMPORTANT**: Measure on real devices with real network conditions. Desktop Chrome with fast connection isn't representative.
+**IMPORTANT**: Measure on real devices with real network conditions. A wide local browser with a fast connection is not representative.
 
 **NEVER**:
 - Optimize without measuring (premature optimization)
@@ -377,7 +363,7 @@ Test that optimizations worked:
 
 - **Before/after metrics**: Compare Lighthouse scores
 - **Real user monitoring**: Track improvements for real users
-- **Different devices**: Test on low-power touch-capable hardware and mainstream laptop/desktop browsers
+- **Different devices**: Test on low-power coarse-pointer hardware and mainstream precise-pointer browsers
 - **Slow connections**: Throttle to 3G, test experience
 - **No regressions**: Ensure functionality still works
 - **User perception**: Does it *feel* faster?

@@ -64,17 +64,17 @@ Organized by what you're trying to achieve, not by technology name.
 
 ### Make transitions feel cinematic
 - **View Transitions API** (same-document: all browsers; cross-document: no Firefox) — shared element morphing between states. A list item expanding into a detail page. A button morphing into a dialog. This is the closest thing to native FLIP animations.
-- **`@starting-style`** (all browsers) — animate elements from `display: none` to visible with CSS only, including entry keyframes
+- **`@starting-style`** (all browsers) — pair with Tailwind-compatible entry keyframes when elements animate from `display: none` to visible
 - **Spring physics** — natural motion with mass, tension, and damping instead of cubic-bezier. Libraries: motion (formerly Framer Motion), GSAP, or roll your own spring solver.
 
 ### Tie animation to scroll position
-- **Scroll-driven animations** (`animation-timeline: scroll()`) — CSS-only, no JS. Parallax, progress bars, reveal sequences all driven by scroll position. (Chrome/Edge/Safari; Firefox: flag only — always provide a static fallback)
+- **Scroll-driven animations** (`animation-timeline: scroll()`) — Tailwind-compatible keyframes driven by scroll position. Parallax, progress bars, and reveal sequences can run without extra JavaScript. (Chrome/Edge/Safari; Firefox: flag only — always provide a static fallback)
 
-### Render beyond CSS
-- **WebGL** (all browsers) — shader effects, post-processing, particle systems. Libraries: Three.js, OGL (lightweight), regl. Use for effects CSS can't express.
+### Render beyond Tailwind utilities
+- **WebGL** (all browsers) — shader effects, post-processing, particle systems. Libraries: Three.js, OGL (lightweight), regl. Use for effects Tailwind utilities cannot express.
 - **WebGPU** (Chrome/Edge; Safari partial; Firefox: flag only) — next-gen GPU compute. More powerful than WebGL but limited browser support. Always fall back to WebGL2.
 - **Canvas 2D / OffscreenCanvas** — custom rendering, pixel manipulation, or moving heavy rendering off the main thread entirely via Web Workers + OffscreenCanvas.
-- **SVG filter chains** — displacement maps, turbulence, morphology for organic distortion effects. CSS-animatable.
+- **SVG filter chains** — displacement maps, turbulence, morphology for organic distortion effects. Keep triggers and layout controlled through Tailwind utilities.
 
 ### Make data feel alive
 - **Virtual scrolling** — render only visible rows for tables/lists with tens of thousands of items. No library required for simple cases; TanStack Virtual for complex ones.
@@ -82,8 +82,8 @@ Organized by what you're trying to achieve, not by technology name.
 - **Animated data transitions** — morph between chart states rather than replacing. D3's `transition()` or View Transitions for DOM-based charts.
 
 ### Animate complex properties
-- **`@property`** (all browsers) — register custom CSS properties with types, enabling animation of gradients, colors, and complex values that CSS can't normally interpolate.
-- **Web Animations API** (all browsers) — JavaScript-driven animations with the performance of CSS. Composable, cancellable, reversible. The foundation for complex choreography.
+- **Tailwind-compatible `@property` tokens** (all browsers) — register typed theme variables only for advanced effects that Tailwind utilities cannot express directly, such as animating gradients, colors, and complex values.
+- **Web Animations API** (all browsers) — JavaScript-driven animations that can animate transform and opacity efficiently. Composable, cancellable, reversible. The foundation for complex choreography.
 
 ### Push performance boundaries
 - **Web Workers** — move computation off the main thread. Heavy data processing, image manipulation, search indexing — anything that would cause jank.
@@ -111,7 +111,7 @@ Every technique must degrade gracefully. The experience without the enhancement 
 ```javascript
 if ('gpu' in navigator) { /* WebGPU */ }
 else if (canvas.getContext('webgl2')) { /* WebGL2 fallback */ }
-/* CSS-only fallback must still look good */
+/* Tailwind-rendered fallback must still look good */
 ```
 
 ### Performance rules
@@ -138,7 +138,7 @@ The gap between "cool" and "extraordinary" is in the last 20% of refinement: the
 
 - **The wow test**: Show it to someone who hasn't seen it. Do they react?
 - **The removal test**: Take it away. Does the experience feel diminished, or does nobody notice?
-- **The device test**: Run it in a narrow browser, a medium-width browser, and a laptop/desktop browser. Still smooth?
+- **The device test**: Run it in a narrow browser, a medium-width browser, and a wide precise-pointer browser. Still smooth?
 - **The accessibility test**: Enable reduced motion. Still beautiful?
 - **The context test**: Does this make sense for THIS brand and audience?
 

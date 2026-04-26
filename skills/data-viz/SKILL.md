@@ -34,7 +34,7 @@ Understand the data story before choosing a chart:
 
 3. **What is the context?**
    - Dashboard (at-a-glance summaries) vs. exploratory analysis (deep interaction)
-   - Mobile-first vs. desktop-first audience
+- Expected viewport range, density needs, and primary input modes
    - Real-time updates vs. static reports
    - Accessibility requirements (screen readers, color-vision deficiencies)
 
@@ -82,12 +82,12 @@ Charts must remain legible across viewport sizes.
 
 - Simplify legends and rotate labels on medium layouts
 - Consider switching chart types on narrow layouts (horizontal bars instead of vertical)
-- Use interaction to compensate: pinch-to-zoom, tap for exact values, summary views by default
+- Use interaction to compensate: zoom controls, explicit value reveal, summary views by default
 - Test truncation and wrapping behavior at minimum widths
 
 ### Interaction Design
 
-- Click or tap legend items to toggle series visibility
+- Activate legend items to toggle series visibility
 - Hover or focus to highlight a series and dim others
 - Brush or drag to select time ranges for zooming
 - Click a data point to reveal detail in a panel or adjacent view
@@ -119,7 +119,7 @@ Dashboards combine multiple visualizations into an at-a-glance surface.
 - **Missing data without explanation**: Gaps should be visually distinct from zero values
 - **Color without pattern backup**: Colorblind users cannot distinguish purely color-coded series
 - **Animated charts without static fallback**: Auto-playing animations frustrate users who need stable reference points
-- **Tooltips as the only data source**: Touch and motor-impaired users may struggle to trigger them
+- **Tooltips as the only data source**: Coarse-pointer and motor-impaired users may struggle to trigger them
 - **Charts without context**: A number without comparison, baseline, or unit is meaningless
 
 ## Verify Visualization Quality
@@ -132,7 +132,7 @@ Before shipping:
 - [ ] An accessible data table is available as a fallback
 - [ ] A text summary of the main insight is provided
 - [ ] The chart is legible at narrow viewport widths
-- [ ] Interactive features work with keyboard and touch
+- [ ] Interactive features work with keyboard, coarse pointers, and precise pointers
 - [ ] Tooltips add precision, not just repetition
 - [ ] Real-time updates do not disorient users
 - [ ] The visualization answers a specific user question

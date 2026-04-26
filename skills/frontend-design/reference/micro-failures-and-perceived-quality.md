@@ -7,7 +7,7 @@ Micro failures are the small trust leaks that rarely become a single dramatic bu
 - the button feels late to respond
 - the dropdown closes when the pointer twitches
 - the form loses state after a back navigation
-- the layout jumps while users are trying to read or tap
+- the layout jumps while users are trying to read or activate a control
 - the loading state looks alive but gives no trustworthy signal
 - a focus ring disappears on the one screen where it matters most
 
@@ -62,7 +62,7 @@ Examples:
 
 Good defaults:
 
-- prefer click or tap for deep or important menus
+- prefer explicit activation for deep or important menus
 - make hover paths forgiving instead of precision tests
 - keep labels, fields, and messages visually stable while editing
 - preserve the active item by identity, not just by visual position or index
@@ -129,8 +129,8 @@ For deeper recovery guidance, use [error recovery](./error-recovery.md) and [sta
 Micro failures become more expensive when the user is:
 
 - on a slow or unstable connection
-- on a small screen
-- using touch with one hand
+- in a compact viewport
+- using a coarse pointer with limited reach
 - using keyboard navigation or assistive technology
 - jumping between tabs or tasks
 - low on time, patience, or battery
@@ -180,6 +180,6 @@ Avoid:
 - dismissing tiny inconsistencies because they do not reproduce as fatal bugs
 - masking uncertainty with animation instead of clearer status
 - forcing users to re-enter work after common recoverable failures
-- shipping hover, focus, and loading states that only work well in ideal desktop conditions
+- shipping hover, focus, and loading states that only work well in ideal wide-viewport, precise-pointer conditions
 
 Perceived quality is often the sum of the tiny things users should not have to notice at all.

@@ -5,7 +5,7 @@ Prioritize:
 - fast direct entry for known dates
 - low ambiguity about format
 - specific validation and recovery
-- accessibility across keyboard, touch, and assistive tech
+- accessibility across keyboard, pointer input, and assistive tech
 
 Also:
 

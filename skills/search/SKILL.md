@@ -41,7 +41,7 @@ Understand the search context before designing the interface:
 - Group by type: recent searches, popular queries, products, help articles
 - Bold the matching substring
 - Support arrow-key navigation, Enter to select, Escape to close
-- On mobile, ensure suggestions are scrollable and do not overflow
+- In compact viewports, ensure suggestions are scrollable and do not overflow
 - Show a helpful message when nothing matches instead of an empty list
 
 ### Filter integration
@@ -112,7 +112,7 @@ Understand the search context before designing the interface:
 Before shipping:
 
 - [ ] Search handles typos, partial matches, and common synonyms
-- [ ] Autocomplete is keyboard-navigable and mobile-friendly
+- [ ] Autocomplete is keyboard-navigable, pointer-friendly, and resilient in compact viewports
 - [ ] Active filters are visible and individually removable
 - [ ] Filter state is reflected in the URL
 - [ ] Zero-results pages offer alternatives and recovery paths

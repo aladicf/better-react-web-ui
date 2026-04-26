@@ -77,7 +77,7 @@ Review the design against ALL the **DON'T** guidelines in the frontend-design sk
 ### 5. Discoverability & Affordance
 - Are interactive elements obviously interactive?
 - Would a user know what to do without instructions?
-- Are primary and frequent targets large enough and close enough to use confidently, especially on touch devices?
+- Are primary and frequent targets large enough and close enough to use confidently, especially in coarse-pointer contexts?
 - Do powerful features have safeguards proportional to their risk — permissions, previews, undo, confirmation, history, or explicit consequence language?
 - Are hover/focus states providing useful feedback?
 - Are there hidden features that should be more visible?
@@ -137,7 +137,7 @@ Score each of Nielsen's 10 heuristics 0–4. Present as a table:
 
 | # | Heuristic | Score | Key Issue |
 |---|-----------|-------|-----------|
-| 1 | Visibility of System Status | ? | [specific finding or "—" if solid] |
+| 1 | Visibility of System Status | ? | [specific finding or "—" if sound] |
 | 2 | Match System / Real World | ? | |
 | 3 | User Control and Freedom | ? | |
 | 4 | Consistency and Standards | ? | |

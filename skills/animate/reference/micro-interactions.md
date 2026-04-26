@@ -131,7 +131,7 @@ When `prefers-reduced-motion` is active, replace scale and spatial motion with i
 - **Tooltips that flash on every pass**: Without delay, accidental hovers create noise.
 - **Animated keyboard focus**: Keyboard users want predictability, not motion.
 - **Decorative micro-interactions**: If the user notices the animation, it is too heavy.
-- **No feedback at all**: Silent buttons feel broken, especially on touch.
+- **No feedback at all**: Silent buttons feel broken, especially in coarse-pointer contexts.
 
 ## Consult Also
 

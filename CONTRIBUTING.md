@@ -1,8 +1,8 @@
-# Contributing to better-web-ui
+# Contributing to better-react-web-ui
 
-Thanks for improving `better-web-ui`.
+Thanks for improving `better-react-web-ui`.
 
-This repository is an opinionated Agent Skills library, not a generic starter. Contributions should preserve that identity: distinctive frontend design guidance, thin compatibility wrappers, and canonical skill content under `skills/`.
+This repository is an opinionated React and Tailwind Agent Skills library, not a generic starter. Contributions should preserve that identity: distinctive frontend design guidance, thin compatibility wrappers, and canonical skill content under `skills/`.
 
 ## Before you start
 
@@ -54,7 +54,7 @@ Before creating a new shared reference, check the existing doctrine maps first i
 
 In many cases the right fix is to strengthen an existing reference instead of adding a new one.
 
-### React fallback defaults
+### React and Tailwind defaults
 
 Before adding new React/Tailwind guidance, check the existing source-of-truth docs first:
 
@@ -62,7 +62,7 @@ Before adding new React/Tailwind guidance, check the existing source-of-truth do
 - [`skills/add-ui/reference/component-library-integration.md`](skills/add-ui/reference/component-library-integration.md)
 - [`skills/add-ui/assets/component-library-integration-checklist.md`](skills/add-ui/assets/component-library-integration-checklist.md)
 
-Prefer extending those docs over duplicating shadcn/ui, blocks, re-ui, or Tailwind usage guidance elsewhere.
+Prefer extending those docs over duplicating shadcn/ui, supported block kits, motion libraries, specialized auth/billing UI, Base UI-based primitives, or Tailwind usage guidance elsewhere.
 
 ## Proposing a new skill
 

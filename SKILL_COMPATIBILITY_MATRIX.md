@@ -20,7 +20,7 @@ It is generated automatically from canonical SKILL.md content analysis.
 
 ### Components
 
-- **setup**: Gather and persist project design context such as audience, brand personality, UX goals, and implementation defaults for...
+- **setup**: Gather and persist project design context such as audience, brand personality, UX goals, React framework, Tailwind setup...
 
 ### Data Viz
 
@@ -42,7 +42,7 @@ It is generated automatically from canonical SKILL.md content analysis.
 
 ### Hierarchy
 
-- **frontend-design**: Create distinctive, production-grade frontend interfaces with strong hierarchy, thoughtful systems, and polished impleme... Commonly used with: hierarchy, setup.
+- **frontend-design**: Create distinctive, production-grade React and Tailwind interfaces with strong hierarchy, thoughtful systems, and polish... Commonly used with: hierarchy, setup.
 - **hierarchy**: Clarify priority and emphasis by fixing unclear primary actions, competing visual weight, loud section titles, and weak ... Commonly used with: frontend-design, setup.
 - **quieter**: Reduce visual intensity, saturation, and noise while preserving hierarchy and character. Use when the structure is basic... Commonly used with: frontend-design, setup.
 

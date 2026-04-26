@@ -207,7 +207,7 @@ Charts are where color-only design fails most visibly. Under simulation:
 - does a heatmap still show the gradient progression?
 
 When simulation reveals ambiguity, add pattern alternatives:
-- solid vs striped vs dotted fills for bars or areas
+- filled vs striped vs dotted treatments for bars or areas
 - different line dash patterns for line charts
 - different point shapes for scatter plots
 - direct data labels so users do not need to read the legend

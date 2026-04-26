@@ -27,8 +27,8 @@ They should stay in sync and currently both point to Node `24.14.1`.
 When you need to verify public discoverability on `skills.sh`, use the direct pages first instead of relying only on keyword search:
 
 - [Creator page](https://skills.sh/aladicf)
-- [Repository page](https://skills.sh/aladicf/better-web-ui)
-- [Example skill page: `add-ui`](https://skills.sh/aladicf/better-web-ui/add-ui)
+- [Repository page](https://skills.sh/aladicf/better-react-web-ui)
+- [Example skill page: `add-ui`](https://skills.sh/aladicf/better-react-web-ui/add-ui)
 
 If the direct pages exist and show install counts, indexing and telemetry are already working even when owner/repo keyword search is unhelpful.
 
@@ -42,11 +42,11 @@ If the direct pages exist and show install counts, indexing and telemetry are al
 
 ## Design context files
 
-The canonical project design-context file for this library is `.better-web-ui.md`.
+The canonical project design-context file for this library is `.better-react-web-ui.md`.
 
-Some skills still check legacy files such as `.better-ui.md` and `.impeccable.md` for migration compatibility with older projects or earlier tooling conventions.
+Some skills still check legacy files such as `.better-web-ui.md`, `.better-ui.md`, and `.impeccable.md` for migration compatibility with older projects or earlier tooling conventions.
 
-Treat those legacy files as fallback inputs only. New work should write or update `.better-web-ui.md` so future sessions have a single canonical source of design context.
+Treat those legacy files as fallback inputs only. New work should write or update `.better-react-web-ui.md` so future sessions have a single canonical source of design context.
 
 ## Documentation map
 
@@ -59,7 +59,7 @@ When the repo grows, use these files for distinct purposes instead of letting al
 
 ## High-signal doctrine map
 
-When maintaining `better-web-ui`, these are the fastest in-repo references to check first before editing broader guidance:
+When maintaining `better-react-web-ui`, these are the fastest in-repo references to check first before editing broader guidance:
 
 Treat [`README.md` → Shared design doctrine](README.md#shared-design-doctrine) as the public annotated index. Treat this section as the faster maintainer map.
 
@@ -99,7 +99,7 @@ For Next.js maintenance work specifically, remember that modern Next.js can ship
 - [`skills/frontend-design/reference/color-ramp-workflow.md`](skills/frontend-design/reference/color-ramp-workflow.md)
 - [`skills/frontend-design/reference/semantic-color.md`](skills/frontend-design/reference/semantic-color.md)
 
-### System alignment and React fallback work
+### System alignment and React component work
 
 - [`skills/frontend-design/reference/design-system-alignment.md`](skills/frontend-design/reference/design-system-alignment.md)
 - [`skills/frontend-design/reference/component-and-block-strategy.md`](skills/frontend-design/reference/component-and-block-strategy.md)
@@ -111,9 +111,9 @@ For Next.js maintenance work specifically, remember that modern Next.js can ship
 
 If you are not sure where to place new doctrine, start by checking those files before creating a new reference. In many cases the right change is to strengthen one of them rather than add another document.
 
-## React fallback reference bridge
+## React and Tailwind reference bridge
 
-When maintaining docs or skills related to the React/Tailwind fallback path, use the official upstream docs as the source of truth for current inventories and implementation details.
+When maintaining docs or skills related to the React/Tailwind path, use the official upstream docs as the source of truth for current inventories and implementation details.
 
 Primary in-repo guidance:
 
@@ -129,6 +129,28 @@ Primary upstream references:
 - [`shadcn/ui` registry directory](https://ui.shadcn.com/docs/directory)
 - [ReUI components](https://reui.io/components)
 - [ReUI docs](https://reui.io/docs)
+- [shadcncraft](https://shadcncraft.com/)
+- [Kibo UI components](https://www.kibo-ui.com/components)
+- [Kibo UI blocks](https://www.kibo-ui.com/blocks)
+- [Basecn](https://basecn.dev/)
+- [Tailark](https://tailark.com/)
+- [shadcnblocks](https://www.shadcnblocks.com/)
+- [React Bits](https://reactbits.dev/)
+- [Animate UI](https://animate-ui.com/)
+- [Animata](https://animata.design/docs)
+- [Magic UI](https://magicui.design/)
+- [Motion Primitives](https://motion-primitives.com/docs)
+- [Efferd](https://efferd.com/)
+- [Billing SDK](https://billingsdk.com/)
+- [blocks.so](https://blocks.so/)
+- [coss/ui](https://coss.com/ui)
+- [Better Auth UI](https://better-auth-ui.com/)
+- [Smooth UI](https://smoothui.dev/)
+- [TripleD UI](https://ui.tripled.work/)
+- [shadcn-map](https://shadcn-map.vercel.app/)
+- [mapcn](https://mapcn.vercel.app/)
+- [c15t](https://c15t.com/)
+- [PatternCraft](https://patterncraft.fun/)
 - [Tailwind utility classes](https://tailwindcss.com/docs/styling-with-utility-classes)
 - [Tailwind states and variants](https://tailwindcss.com/docs/hover-focus-and-other-states)
 - [Tailwind responsive design](https://tailwindcss.com/docs/responsive-design)

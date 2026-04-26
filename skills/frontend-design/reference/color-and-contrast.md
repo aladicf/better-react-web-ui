@@ -299,7 +299,7 @@ And define it explicitly:
 }
 ```
 
-For Tailwind-oriented projects, exposing `scheme-only-dark` as a utility-style class on `<html>` is a clean pattern. If the project does not already have that utility, define the class in global CSS instead of assuming the browser will infer the right chrome.
+For Tailwind-oriented projects, exposing `scheme-only-dark` as a utility-style class on `<html>` is a clean pattern. If the project does not already have that utility, define it through the project's Tailwind entry layer instead of assuming the browser will infer the right chrome.
 
 Use this when:
 

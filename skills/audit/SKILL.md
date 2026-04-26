@@ -76,7 +76,7 @@ Run comprehensive checks across 5 dimensions. Score each dimension 0-4 using the
 
 **Check for**:
 - **Fixed widths**: Hard-coded widths that break on narrow viewports
-- **Touch targets**: Interactive elements < 44x44px
+- **Coarse-pointer targets**: Interactive elements < 44x44px
 - **Horizontal scroll**: Content overflow on narrow viewports
 - **Text scaling**: Layouts that break when text size increases
 - **Missing breakpoints**: No narrow/medium viewport variants

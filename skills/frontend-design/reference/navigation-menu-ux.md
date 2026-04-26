@@ -1,6 +1,6 @@
 # Navigation Menu UX
 
-Use this reference when the work involves mega-dropdowns, deep site navigation, desktop hover menus, click-triggered submenus, compact-layout navigation drawers, split menus, or any navigation system where users need to browse breadth without losing control.
+Use this reference when the work involves mega-dropdowns, deep site navigation, hover-capable menus, click-triggered submenus, compact-layout navigation drawers, split menus, or any navigation system where users need to browse breadth without losing control.
 
 If the project already uses a mature menu or navigation primitive, keep its baseline semantics, focus handling, and disclosure behavior first. Use this reference mainly to decide whether a mega-menu is appropriate, whether hover vs click is honest, and how the menu fits the product's information architecture.
 
@@ -53,7 +53,7 @@ That prediction fails often because people:
 - pass through navigation on the way to another target,
 - use imprecise pointer paths,
 - pause accidentally,
-- browse with touch or hybrid devices,
+- browse with coarse-pointer or hybrid input devices,
 - switch between search, cart, and navigation near the same header area.
 
 The safest default is:
@@ -133,7 +133,7 @@ For ordinary website navigation, conventional buttons plus nested lists are usua
 
 ## Keep the navigation model predictable across devices
 
-Touch already forces explicit opening, so desktop hover-only behavior creates an unnecessary mismatch.
+Coarse pointers already force explicit opening, so hover-only behavior creates an unnecessary mismatch across input modes.
 
 Prefer a consistent mental model:
 

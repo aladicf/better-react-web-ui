@@ -213,7 +213,7 @@ Even if the system is usable without docs, help should be easy to find, task-foc
 | Score Range | Rating | What It Means |
 |-------------|--------|---------------|
 | 36–40 | Excellent | Minor polish only — ship it |
-| 28–35 | Good | Address weak areas, solid foundation |
+| 28–35 | Good | Address weak areas, strong foundation |
 | 20–27 | Acceptable | Significant improvements needed before users are happy |
 | 12–19 | Poor | Major UX overhaul required — core experience broken |
 | 0–11 | Critical | Redesign needed — unusable in current state |

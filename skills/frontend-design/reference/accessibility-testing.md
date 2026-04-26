@@ -22,7 +22,7 @@ Automated accessibility testing catches issues early, before they reach users. U
 - keyboard focus issues
 - heading hierarchy problems
 - form label associations
-- touch target sizing
+- coarse-pointer target sizing
 
 **What it cannot catch**:
 - whether alt text is meaningful (only that it exists)
@@ -107,7 +107,7 @@ Automated tools catch roughly 20-30% of accessibility issues. The rest require h
 - **Colorblindness simulation**: use browser devtools or Coblis to verify that color-only meaning collapses
 - **Reduced motion**: enable `prefers-reduced-motion` and confirm the interface remains usable
 - **Zoom and reflow**: test at 200% and 400% zoom. Does content remain reachable without horizontal scrolling?
-- **Touch targets**: verify on actual devices that tap targets are large enough and not overlapping
+- **Pointer targets**: verify on actual devices that coarse-pointer targets are large enough and not overlapping
 
 ## Integrating into workflow
 
@@ -150,7 +150,7 @@ Automated tools catch roughly 20-30% of accessibility issues. The rest require h
 - [ ] Color is not the only signal for state or meaning
 - [ ] Images have alt text (and decorative images are marked as such)
 - [ ] Form inputs have associated labels
-- [ ] Touch targets are at least 44 by 44 pixels
+- [ ] Coarse-pointer targets are at least 44 by 44 pixels
 - [ ] Interface remains usable at 200% zoom
 - [ ] Motion respects `prefers-reduced-motion`
 - [ ] Screen readers announce dynamic content changes

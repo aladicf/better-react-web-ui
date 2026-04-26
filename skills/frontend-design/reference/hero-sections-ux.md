@@ -55,7 +55,7 @@ Practical rules:
 - if a headline or subhead wraps to multiple lines, reduce the type size before forcing the line-height so tight that letters collide or clip
 - keep enough top and bottom padding around the text block that ascenders, descenders, and nearby CTA spacing still breathe
 - avoid relying on `overflow: hidden` around live hero text unless the effect truly needs it and the actual font rendering has been tested carefully
-- re-check the hero at wide, medium, and narrow widths; a headline that was safe on desktop can clip or crowd instantly once it becomes two or three lines
+- re-check the hero at wide, medium, and narrow widths; a headline that was safe in a wide viewport can clip or crowd instantly once it becomes two or three lines
 
 Common failure mode:
 

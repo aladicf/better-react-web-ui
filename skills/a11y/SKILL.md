@@ -18,7 +18,7 @@ Consult the [colorblindness UX reference](../frontend-design/reference/colorblin
 Consult the [component accessibility reference](../frontend-design/reference/component-accessibility.md) for keyboard support, focus handling, skip links, and hidden content patterns.
 Consult the [interaction design reference](../frontend-design/reference/interaction-design.md) for focus, loading, transitions, and feedback states.
 Consult the [semantic color reference](../frontend-design/reference/semantic-color.md) when checking whether color communicates state or just decoration.
-Consult the [responsive design reference](../frontend-design/reference/responsive-design.md) when accessibility needs to adapt across small screens, touch contexts, or zoom levels.
+Consult the [responsive design reference](../frontend-design/reference/responsive-design.md) when accessibility needs to adapt across compact viewports, coarse-pointer contexts, or zoom levels.
 
 ## Assess Accessibility
 
@@ -193,7 +193,7 @@ After remediation, verify that fixes work:
 - [ ] Form inputs have associated labels
 - [ ] Form errors are linked to fields and announced
 - [ ] Dynamic content changes use aria-live regions
-- [ ] Touch targets are at least 44 by 44 pixels
+- [ ] Coarse-pointer targets are at least 44 by 44 pixels
 - [ ] Interface remains usable at 200% zoom
 - [ ] Motion respects `prefers-reduced-motion`
 - [ ] Automated tests pass with no WCAG AA violations

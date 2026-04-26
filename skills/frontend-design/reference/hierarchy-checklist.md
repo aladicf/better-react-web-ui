@@ -43,7 +43,7 @@ Use one visual logic per icon set or region whenever possible.
 
 Check for:
 
-- outline and solid styles being mixed without purpose
+- outline and filled styles being mixed without purpose
 - icons in the same group using unrelated stroke weights or corner styles
 - multiple colors inside one action cluster when only state should vary
 
@@ -339,7 +339,7 @@ Most screens should have:
 - **quiet tertiary actions** for low-frequency tasks
 
 Use hierarchy deliberately:
-- **Primary**: solid fill or strongest treatment
+- **Primary**: filled surface or strongest treatment
 - **Secondary**: outline or low-contrast surface
 - **Tertiary**: link-like or text-level treatment
 

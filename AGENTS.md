@@ -1,10 +1,10 @@
 # AGENTS.md
 
-This file gives repository-specific guidance to AI coding agents working on `better-web-ui`.
+This file gives repository-specific guidance to AI coding agents working on `better-react-web-ui`.
 
 ## Repository purpose
 
-`better-web-ui` is a public Agent Skills package focused on high-quality frontend design work.
+`better-react-web-ui` is a public Agent Skills package focused on high-quality React and Tailwind CSS frontend design work.
 
 It ships:
 
@@ -14,7 +14,7 @@ It ships:
 - human-facing docs in `README.md`
 - attribution and license context in `NOTICE.md` and `LICENSE`
 
-This is **not** a generic skills starter and **not** a Vercel deployment repo. Keep docs, examples, and contribution guidance specific to this project.
+This is **not** a generic skills starter, **not** a Vercel deployment repo, and **not** a broad UI package. Keep docs, examples, and contribution guidance specific to React-based projects using Tailwind CSS.
 
 ## Source of truth
 
@@ -116,22 +116,22 @@ Do not add host-detection logic or editor-specific installation rules to this re
 
 ### 5. Preserve project identity
 
-- `README.md` should describe `better-web-ui`, not the general skills ecosystem
+- `README.md` should describe `better-react-web-ui`, not the general skills ecosystem
 - examples should use this skill library's commands and purpose
 - docs should reflect the actual repository contents, not hypothetical directories
 
 ### 6. Keep stack guidance pragmatic
 
-- Preserve the library's framework-agnostic positioning in public docs and skill guidance
-- Detect the current project's styling system and component libraries first, and match those before introducing new defaults
+- Preserve the library's React and Tailwind CSS positioning in public docs and skill guidance
+- Detect the current project's React framework, Tailwind setup, and component libraries first, and match those before introducing new defaults
 - When a project is building primitives without a mature component library, use `skills/frontend-design/reference/component-anatomy.md` for anatomy guidance on custom components such as buttons, cards, checkboxes, dropdowns, tabs, textareas, toasts, toggles, tooltips, accordions, avatars, badges, borders, breadcrumbs, iconography, lists, and submit actions
 - When implementation work is specific to a known frontend framework or meta-framework, consult the official docs for that framework first using `skills/frontend-design/reference/framework-official-docs.md`, then follow the relevant architecture / routing / rendering / data-loading / forms / styling / deployment pages before making framework-specific decisions
 - For Next.js specifically, if the project includes bundled version-matched docs at `node_modules/next/dist/docs/`, read the relevant local Next.js doc there before coding; treat those bundled docs as the source of truth for the installed version, and use the official AI-agents setup/codemod path for older Next.js projects
-- For React/shadcn fallback work, use `skills/frontend-design/reference/react-shadcn-accelerators.md` when you need direct links to the curated Theme Toggle Effect, Consent Manager, Theme Switcher, Sonner, Vaul, Shimmering Text, Scroll Fade Effect, Text Flip, Testimonial, Testimonial Spotlight, Testimonials Marquee, React Wheel Picker, and Slide to Unlock docs.
+- For React component-library work, use `skills/frontend-design/reference/component-and-block-strategy.md` and `skills/frontend-design/reference/react-shadcn-accelerators.md` when you need direct links to shadcn/ui, supported shadcn block kits, motion libraries, specialized auth/billing UI, Base UI-based primitives, and curated React accelerators.
 - If the official docs still leave gaps after that framework-specific pass, do a focused web search and verify the answer against the official docs before relying on it
-- Avoid introducing framework islands or client JavaScript in Astro unless the feature genuinely needs interactivity that Astro-native HTML/CSS cannot cover cleanly
-- Do not present those preferences as hard requirements or force them into incompatible or already-established stacks
-- When a project already has a framework, design system, or component library, match the existing setup first
+- Avoid introducing React islands or client JavaScript in Astro unless the feature genuinely needs interactivity that Astro-native HTML and Tailwind cannot cover cleanly
+- Do not recommend non-Tailwind styling architectures, non-React frameworks, or non-React component libraries as supported implementation defaults
+- When a project already has a supported React framework, design system, or component library, match the existing setup first
 - When the project is new and the stack is still open, follow the precedence order and default matrix in [`skills/frontend-design/reference/framework-defaults.md`](skills/frontend-design/reference/framework-defaults.md)
 
 ## Adding or updating a skill

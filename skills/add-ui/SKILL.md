@@ -17,8 +17,8 @@ When working inside an existing project with an established visual system, prese
 
 Also gather the smallest set of implementation details needed to generate usable code:
 
-- framework / runtime (React, Next.js, Vue, plain HTML, etc.)
-- styling system (Tailwind, CSS modules, styled-components, vanilla CSS, etc.)
+- React framework / runtime (React, Next.js, React Router, TanStack Start, Vite React, or Astro with React islands)
+- Tailwind setup and theme token conventions
 - target insertion point (new route, existing page, shared component folder, design system area)
 - whether this is a brand-new artifact or a redesign of an existing one
 - whether the user wants a section, page, flow, shell, or standalone component
@@ -32,11 +32,11 @@ If the request is a redesign of an existing artifact, also identify:
 
 Use this precedence order when deciding implementation defaults:
 
-1. detect and match the existing project's styling and component libraries first
-2. if this is a brand-new project and the user explicitly names a styling or component library, use that
+1. detect and match the existing project's React framework, Tailwind setup, and component libraries first
+2. if this is a brand-new project and the user explicitly names a supported React component library, use that
 3. if this is a brand-new project and the user does not specify, use the framework defaults defined in `frontend-design`
 
-When React-based fallback defaults are relevant, also consult [component library integration](./reference/component-library-integration.md) to decide whether the requested artifact should be led by primitives, reusable patterns, or block accelerators.
+Also consult [component library integration](./reference/component-library-integration.md) to decide whether the requested artifact should be led by primitives, reusable patterns, or block accelerators.
 
 Ask only the missing questions. If you can infer the technical stack from the codebase, do so.
 
@@ -100,7 +100,7 @@ The list is illustrative, not exhaustive.
    - Do **not** rely on browser-extension-style DOM injection as the primary workflow. It is fragile and does not create maintainable source code.
 
 4. **Stay opinionated**
-   - `better-web-ui` optimizes for distinctive, high-taste output.
+   - `better-react-web-ui` optimizes for distinctive, high-taste React and Tailwind output.
    - Do not collapse into the safest possible generic SaaS layout.
    - Use the frontend-design anti-pattern guidance aggressively.
 

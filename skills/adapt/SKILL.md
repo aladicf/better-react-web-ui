@@ -1,6 +1,6 @@
 ---
 name: adapt
-description: Adapt designs for narrow, medium, wide, embedded, or print web contexts without losing usability, hierarchy, or target sizing. Use when the user mentions responsive design, breakpoints, narrow layouts, viewport changes, touch-capable browsers, or cross-context adaptation.
+description: Adapt designs for narrow, medium, wide, embedded, or print web contexts without losing usability, hierarchy, or target sizing. Use when the user mentions responsive design, breakpoints, narrow layouts, viewport changes, coarse-pointer browsers, or cross-context adaptation.
 metadata:
    argument-hint: "[target] [context (narrow, medium, wide, print...)]"
 ---
@@ -28,7 +28,7 @@ Understand what needs adaptation and why:
 
 2. **Understand target context**:
    - **Viewport / context**: Narrow, medium, wide, TV, embedded, print?
-   - **Input method**: Touch, mouse, keyboard, voice, gamepad?
+- **Input method**: Coarse pointer, precise pointer, keyboard, voice, gamepad?
    - **Screen constraints**: Size, resolution, orientation?
    - **Connection**: Fast wifi, slow 3G, offline?
    - **Usage context**: On-the-go vs desk, quick glance vs focused reading?
@@ -36,12 +36,12 @@ Understand what needs adaptation and why:
 
 3. **Identify adaptation challenges**:
    - What won't fit? (Content, navigation, features)
-   - What won't work? (Hover states on touch, tiny touch targets)
+- What won't work? (hover-only states for coarse pointers, tiny pointer targets)
    - What's inappropriate? (Wide-layout patterns in narrow layouts, hover-only patterns in coarse-pointer contexts)
 
 **CRITICAL**: Adaptation is not just scaling - it's rethinking the experience for the new context.
 
-Treat smaller screens as real constraints, not as desktop layouts that got squeezed in the wash.
+Treat compact viewports as real constraints, not as wide layouts squeezed down.
 
 ## Plan Adaptation Strategy
 
@@ -62,10 +62,10 @@ Create context-appropriate strategy:
 - Compact navigation instead of assuming a persistent top or side structure
 
 **Interaction Strategy**:
-- Touch targets 44x44px minimum (not hover-dependent)
+- Coarse-pointer targets 44x44px minimum (not hover-dependent)
 - Gesture support where appropriate and discoverable
 - Edge-attached or anchored overlays instead of cramped dropdowns when space is tight
-- Keep repeated actions in reachable zones for compact touch-capable layouts
+- Keep repeated actions in reachable zones for compact coarse-pointer layouts
 - Larger hit areas with more spacing
 
 **Content Strategy**:
@@ -89,7 +89,7 @@ Create context-appropriate strategy:
 - Adaptive based on orientation (portrait vs landscape)
 
 **Interaction Strategy**:
-- Support both touch and pointer
+- Support both coarse and precise pointers
 - Preserve generous target sizes while allowing denser layouts than the narrowest viewport
 - Side navigation drawers
 - Multi-column forms where appropriate
@@ -135,7 +135,7 @@ Create context-appropriate strategy:
 **Layout Strategy**:
 - Narrow width (600px max)
 - Single column only
-- Inline CSS (no external stylesheets)
+- Inline Tailwind-compatible utility output when a host requires self-contained markup
 - Table-based layouts (for email client compatibility)
 
 **Interaction Strategy**:
@@ -157,20 +157,20 @@ Choose appropriate breakpoints:
 
 ### Layout Adaptation Techniques
 
-- **CSS Grid/Flexbox**: Reflow layouts automatically
+- **Tailwind grid/flex utilities**: Reflow layouts automatically
 - **Container Queries**: Adapt based on container, not viewport
 - **`clamp()`**: Fluid sizing between min and max
 - **Media queries**: Different styles for different contexts
 - **Display properties**: Show/hide elements per context
 - **Max-widths**: Keep forms, text blocks, and sidebars at natural widths until the viewport forces change
 
-### Touch Adaptation
+### Pointer Adaptation
 
-- Increase touch target sizes (44x44px minimum)
+- Increase coarse-pointer target sizes (44x44px minimum)
 - Add more spacing between interactive elements
 - Remove hover-dependent interactions
-- Add touch feedback (ripples, highlights)
-- Consider thumb zones (easier to reach bottom than top)
+- Add activation feedback for coarse-pointer interactions when it improves confidence
+- Place frequent actions where they remain reachable in compact, coarse-pointer layouts
 
 ### Content Adaptation
 
@@ -182,31 +182,31 @@ Choose appropriate breakpoints:
 ### Navigation Adaptation
 
 - Transform complex navigation into compact menus, drawers, or accordion structures on narrow layouts
-- Persistent side navigation on desktop
+- Persistent side navigation in wide viewports when it supports orientation
 - Breadcrumbs or compact context cues on narrower layouts
 
 **IMPORTANT**: Test on real devices, not just browser DevTools. Device emulation is helpful but not perfect.
 
 **NEVER**:
 - Hide core functionality in narrow layouts (if it matters, make it work)
-- Assume desktop = powerful device (consider accessibility, older machines)
+- Assume wide viewport equals powerful device (consider accessibility, older machines, and constrained hardware)
 - Use different information architecture across contexts (confusing)
 - Break user expectations for responsive web behavior in a given input context
 - Forget narrow landscape or medium-width window states
 - Use generic breakpoints blindly (use content-driven breakpoints)
-- Ignore touch on desktop (many desktop devices have touch)
-- Scale desktop relationships down proportionally and call it responsive design
+- Ignore coarse pointers in wide viewports (many browser environments combine wide screens and coarse input)
+- Scale wide-layout relationships down proportionally and call it responsive design
 - Make components fluid when they don't actually benefit from scaling
 
 ## Verify Adaptations
 
 Test thoroughly across contexts:
 
-- **Real devices**: Test on actual touch-capable browsers, laptops/desktops, and constrained hardware where relevant
+- **Real devices**: Test on actual coarse-pointer browsers, precise-pointer browsers, and constrained hardware where relevant
 - **Different orientations**: Portrait and landscape
 - **Different browsers**: Safari, Chrome, Firefox, Edge
-- **Different OS**: Windows, macOS, Linux, ChromeOS, and touch-capable browser environments when relevant
-- **Different input methods**: Touch, mouse, keyboard
+- **Different OS**: Windows, macOS, Linux, ChromeOS, and coarse-pointer browser environments when relevant
+- **Different input methods**: Coarse pointer, precise pointer, keyboard
 - **Edge cases**: Very small screens (320px), very large screens (4K)
 - **Slow connections**: Test on throttled network
 

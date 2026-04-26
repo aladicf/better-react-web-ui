@@ -26,7 +26,7 @@ Real users are often:
 - tired
 - anxious about making a mistake
 - multitasking across tabs, apps, or devices
-- seeing the flow for the first time on a small screen
+- seeing the flow for the first time in a compact viewport
 
 An interface that only feels easy under ideal attention is fragile.
 

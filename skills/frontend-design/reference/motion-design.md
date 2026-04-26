@@ -6,12 +6,12 @@ Do not assume every animation needs a framework-specific motion library.
 
 Use this bias order by default:
 
-1. **modern CSS transitions / keyframes**
+1. **Tailwind utility transitions / Tailwind-compatible keyframes**
 2. **Tailwind utility composition** when the project already uses Tailwind
 3. **Web Animations API** when you need imperative or synchronized timing control
 4. **Motion** when the interaction genuinely needs layout animation, framework-linked orchestration, gesture handling, or motion values
 
-For the fuller decision matrix and built-in web motion examples, consult [CSS, Tailwind, and WAAPI motion](./css-tailwind-and-waapi-motion.md).
+For the fuller decision matrix and built-in web motion examples, consult [Tailwind and WAAPI motion](./css-tailwind-and-waapi-motion.md).
 
 ## Duration: The 100/300/500 Rule
 
@@ -95,7 +95,7 @@ Good defaults:
 
 ## Staggered Animations
 
-Use CSS custom properties for cleaner stagger: `animation-delay: calc(var(--i, 0) * 50ms)` with `style="--i: 0"` on each item. **Cap total stagger time**—10 items at 50ms = 500ms total. For many items, reduce per-item delay or cap staggered count.
+Use Tailwind arbitrary animation-delay utilities or Tailwind-owned theme variables for cleaner stagger, such as `[animation-delay:calc(var(--i,0)*50ms)]` when the component already provides a stable index token. **Cap total stagger time**—10 items at 50ms = 500ms total. For many items, reduce per-item delay or cap staggered count.
 
 ## Reduced Motion
 

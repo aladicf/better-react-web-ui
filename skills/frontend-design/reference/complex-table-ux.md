@@ -4,7 +4,7 @@ Complex tables are not just bigger versions of simple tables.
 
 They are operational work surfaces with their own logic, states, shortcuts, scanning patterns, and failure modes.
 
-If the project already uses a mature data-grid or table library, keep its baseline keyboard support, resize and selection mechanics, and core table anatomy first. Use this reference mainly to choose the right table mode, command model, density, state handling, responsive strategy, and surrounding workflow rather than to fight solid upstream primitives.
+If the project already uses a mature data-grid or table library, keep its baseline keyboard support, resize and selection mechanics, and core table anatomy first. Use this reference mainly to choose the right table mode, command model, density, state handling, responsive strategy, and surrounding workflow rather than to fight reliable upstream primitives.
 
 Use this reference when the work involves:
 
@@ -13,7 +13,7 @@ Use this reference when the work involves:
 - search/filter tables
 - command toolbars attached to tabular data
 - pinned columns, resizing, row selection, or header filters
-- desktop-first operational tables that must still degrade sensibly on smaller screens
+- wide-viewport operational tables that must still degrade sensibly in compact viewports
 
 ## Start by questioning whether a table is the right answer
 
@@ -161,8 +161,8 @@ If you are building that with TanStack Table and TanStack Virtual, do not assume
 
 Good implementation rule:
 
-- give the sticky header rowgroup its own solid surface background
-- give every header cell that same solid background, not just pinned columns
+- give the sticky header rowgroup its own opaque surface background
+- give every header cell that same opaque background, not just pinned columns
 - treat pinning, sticky positioning, and header/background shadows as one system so overlap stays readable while users scroll
 
 In utility-first stacks, that often means applying something like `bg-background` to both the sticky header wrapper and every `columnheader`, instead of conditionally painting only pinned cells.
@@ -274,13 +274,13 @@ If keyboard-heavy use is part of the job, design for that intentionally instead 
 
 ## Responsive honesty matters
 
-Large operational tables are usually desktop-first for a reason.
+Large operational tables are usually wide-viewport-first for a reason.
 
 There is rarely a magical small-screen version of a truly complex table.
 
 Strong responsive guidance:
 
-- keep large operational tables primarily desktop-oriented when the workflow demands it
+- keep large operational tables primarily wide-viewport-oriented when the workflow demands it
 - let small and medium tables become cards or compact summaries when one-item-at-a-time inspection is enough
 - do not pretend a giant spreadsheet remains equally powerful in a narrow viewport
 
@@ -310,7 +310,7 @@ Only keep features that materially improve real work.
 - Are command enable/disable rules documented rather than improvised later?
 - Is numeric formatting based on decision needs, not backend storage alone?
 - Are validation and errors kept close to the affected cells or rows?
-- Is the table honestly desktop-first when the workflow demands it?
+- Is the table honestly wide-viewport-first when the workflow demands it?
 - Are accessibility, keyboard use, and non-color-only cues designed in from the start?
 
 ## Strong defaults to remember

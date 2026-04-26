@@ -26,7 +26,7 @@ If the team cannot answer those, the design work risks optimizing the shell whil
 
 ## Narrow-layout resilience and speed are core commerce requirements
 
-Large parts of ecommerce browsing happen in narrow, touch-capable browser contexts.
+Large parts of ecommerce browsing happen in narrow, coarse-pointer browser contexts.
 
 That means:
 
