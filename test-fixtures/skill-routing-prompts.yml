@@ -295,3 +295,201 @@
 - prompt: "choose better typography for this interface"
   should_trigger: [typeset]
   should_not_trigger: [a11y, adapt]
+- prompt: "make the menu usable without a mouse"
+  should_trigger: [a11y]
+  should_not_trigger: [adapt, add-ui]
+- prompt: "repair contrast and ARIA issues in this modal"
+  should_trigger: [a11y]
+  should_not_trigger: [audit, polish]
+- prompt: "make the nav collapse gracefully at narrow widths"
+  should_trigger: [adapt]
+  should_not_trigger: [arrange, add-ui]
+- prompt: "adjust this product grid for touch screens"
+  should_trigger: [adapt]
+  should_not_trigger: [animate, data-viz]
+- prompt: "generate five checkout page options"
+  should_trigger: [add-ui]
+  should_not_trigger: [forms, critique]
+- prompt: "create several alternatives for this settings shell"
+  should_trigger: [add-ui]
+  should_not_trigger: [normalize, polish]
+- prompt: "add entrance motion to the notification stack"
+  should_trigger: [animate]
+  should_not_trigger: [delight, optimize]
+- prompt: "make this tab switch feel smoother"
+  should_trigger: [animate]
+  should_not_trigger: [arrange, polish]
+- prompt: "rebalance the spacing between these card groups"
+  should_trigger: [arrange]
+  should_not_trigger: [hierarchy, normalize]
+- prompt: "make this page layout easier to scan"
+  should_trigger: [arrange]
+  should_not_trigger: [critique, typeset]
+- prompt: "produce a P0 to P3 report for this UI"
+  should_trigger: [audit]
+  should_not_trigger: [critique, polish]
+- prompt: "check this page for anti-patterns and responsive failures"
+  should_trigger: [audit]
+  should_not_trigger: [a11y, adapt]
+- prompt: "make this homepage more striking and memorable"
+  should_trigger: [bolder]
+  should_not_trigger: [showcase, delight]
+- prompt: "push the visual contrast without changing the workflow"
+  should_trigger: [bolder]
+  should_not_trigger: [colorize, hierarchy]
+- prompt: "tighten the onboarding instructions"
+  should_trigger: [clarify]
+  should_not_trigger: [onboard, forms]
+- prompt: "make these button labels less vague"
+  should_trigger: [clarify]
+  should_not_trigger: [hierarchy, polish]
+- prompt: "replace the gray palette with purposeful accents"
+  should_trigger: [colorize]
+  should_not_trigger: [bolder, quieter]
+- prompt: "define success warning and danger colors"
+  should_trigger: [colorize]
+  should_not_trigger: [harden, audit]
+- prompt: "critique this dashboard before we redesign it"
+  should_trigger: [critique]
+  should_not_trigger: [audit, add-ui]
+- prompt: "tell me what is wrong with the UX of this checkout"
+  should_trigger: [critique]
+  should_not_trigger: [forms, audit]
+- prompt: "select the right graph for retention cohorts"
+  should_trigger: [data-viz]
+  should_not_trigger: [colorize, search]
+- prompt: "make this metrics table easier to interpret"
+  should_trigger: [data-viz]
+  should_not_trigger: [arrange, hierarchy]
+- prompt: "add a satisfying completion moment after export"
+  should_trigger: [delight]
+  should_not_trigger: [animate, polish]
+- prompt: "make this empty success screen feel more human"
+  should_trigger: [delight]
+  should_not_trigger: [empty-state, clarify]
+- prompt: "create a clearer elevation scale for these panels"
+  should_trigger: [depth]
+  should_not_trigger: [colorize, arrange]
+- prompt: "make dragged cards feel lifted"
+  should_trigger: [depth]
+  should_not_trigger: [animate, polish]
+- prompt: "cut unnecessary steps from this wizard"
+  should_trigger: [distill]
+  should_not_trigger: [forms, onboard]
+- prompt: "remove low value sections from this landing page"
+  should_trigger: [distill]
+  should_not_trigger: [quieter, bolder]
+- prompt: "design the blank state before users add projects"
+  should_trigger: [empty-state]
+  should_not_trigger: [onboard, add-ui]
+- prompt: "make the no permission state useful"
+  should_trigger: [empty-state]
+  should_not_trigger: [security-ux, harden]
+- prompt: "turn repeated form rows into a shared component"
+  should_trigger: [extract]
+  should_not_trigger: [forms, normalize]
+- prompt: "create reusable primitives from these duplicated settings sections"
+  should_trigger: [extract]
+  should_not_trigger: [add-ui, polish]
+- prompt: "improve the checkout validation flow"
+  should_trigger: [forms]
+  should_not_trigger: [harden, clarify]
+- prompt: "make this account form less intimidating"
+  should_trigger: [forms]
+  should_not_trigger: [quieter, clarify]
+- prompt: "design a React Tailwind surface for this admin workflow"
+  should_trigger: [frontend-design]
+  should_not_trigger: [add-ui, normalize]
+- prompt: "build a polished web UI for this product concept"
+  should_trigger: [frontend-design]
+  should_not_trigger: [showcase, bolder]
+- prompt: "make this table survive long names and empty values"
+  should_trigger: [harden]
+  should_not_trigger: [data-viz, localize]
+- prompt: "add fallbacks for failed image uploads"
+  should_trigger: [harden]
+  should_not_trigger: [imagery, empty-state]
+- prompt: "make the important stats stand out first"
+  should_trigger: [hierarchy]
+  should_not_trigger: [data-viz, arrange]
+- prompt: "reduce competition between secondary actions"
+  should_trigger: [hierarchy]
+  should_not_trigger: [quieter, polish]
+- prompt: "make the gallery thumbnails crop consistently"
+  should_trigger: [imagery]
+  should_not_trigger: [arrange, depth]
+- prompt: "improve icon sizing and screenshot readability"
+  should_trigger: [imagery]
+  should_not_trigger: [typeset, a11y]
+- prompt: "support RTL and translated navigation labels"
+  should_trigger: [localize]
+  should_not_trigger: [adapt, harden]
+- prompt: "plan regional date currency and number formats"
+  should_trigger: [localize]
+  should_not_trigger: [forms, data-viz]
+- prompt: "replace one off spacing with system tokens"
+  should_trigger: [normalize]
+  should_not_trigger: [extract, arrange]
+- prompt: "make this new feature match the existing component patterns"
+  should_trigger: [normalize]
+  should_not_trigger: [polish, frontend-design]
+- prompt: "design activation steps for a new workspace"
+  should_trigger: [onboard]
+  should_not_trigger: [setup, empty-state]
+- prompt: "improve the first time user setup path"
+  should_trigger: [onboard]
+  should_not_trigger: [forms, setup]
+- prompt: "reduce rendering lag in this data grid"
+  should_trigger: [optimize]
+  should_not_trigger: [data-viz, test]
+- prompt: "improve LCP and CLS on this route"
+  should_trigger: [optimize]
+  should_not_trigger: [audit, harden]
+- prompt: "finish the final visual details on this complete page"
+  should_trigger: [polish]
+  should_not_trigger: [bolder, critique]
+- prompt: "do a pre-ship cleanup pass on spacing and states"
+  should_trigger: [polish]
+  should_not_trigger: [audit, harden]
+- prompt: "make this saturated dashboard less overwhelming"
+  should_trigger: [quieter]
+  should_not_trigger: [distill, colorize]
+- prompt: "calm the styling down while keeping the layout"
+  should_trigger: [quieter]
+  should_not_trigger: [arrange, distill]
+- prompt: "design faceted filters for this catalog"
+  should_trigger: [search]
+  should_not_trigger: [data-viz, arrange]
+- prompt: "make search suggestions and recent queries useful"
+  should_trigger: [search]
+  should_not_trigger: [onboard, clarify]
+- prompt: "improve the account lockout recovery flow"
+  should_trigger: [security-ux]
+  should_not_trigger: [harden, clarify]
+- prompt: "make permission changes feel trustworthy"
+  should_trigger: [security-ux]
+  should_not_trigger: [empty-state, localize]
+- prompt: "write the project design context file"
+  should_trigger: [setup]
+  should_not_trigger: [frontend-design, add-ui]
+- prompt: "establish the brand tone and component defaults"
+  should_trigger: [setup]
+  should_not_trigger: [normalize, extract]
+- prompt: "create a flagship interactive product demo"
+  should_trigger: [showcase]
+  should_not_trigger: [add-ui, animate]
+- prompt: "make this hero technically impressive and cinematic"
+  should_trigger: [showcase]
+  should_not_trigger: [bolder, polish]
+- prompt: "add accessibility assertions to the UI test suite"
+  should_trigger: [test]
+  should_not_trigger: [a11y, audit]
+- prompt: "set up Playwright coverage for this flow"
+  should_trigger: [test]
+  should_not_trigger: [harden, optimize]
+- prompt: "fix type weight and line length in this article page"
+  should_trigger: [typeset]
+  should_not_trigger: [clarify, hierarchy]
+- prompt: "make the label and value typography easier to compare"
+  should_trigger: [typeset]
+  should_not_trigger: [data-viz, hierarchy]

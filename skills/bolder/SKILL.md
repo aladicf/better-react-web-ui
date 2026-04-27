@@ -2,7 +2,7 @@
 name: bolder
 description: Increase visual impact, contrast, personality, and compositional confidence when a design feels bland, generic, or too safe. Use when the design needs more energy, confidence, or memorability—not when the real problem is clutter, over-intensity, or micro-detail polish.
 metadata:
-   argument-hint: "[target]"
+  argument-hint: "[screen or section]"
 ---
 
 Increase visual impact and personality in designs that are too safe, generic, or visually underwhelming, creating more engaging and memorable experiences.

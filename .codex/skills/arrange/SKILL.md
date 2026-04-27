@@ -2,7 +2,7 @@
 name: arrange
 description: Improve layout composition, spacing systems, grouping, and visual rhythm. Use when the user mentions weak layout structure, arbitrary spacing, weak grouping, crowded composition, or layout monotony rather than priority/emphasis problems.
 metadata:
-   argument-hint: "[target]"
+  argument-hint: "[layout, page, or section]"
 ---
 
 This compatibility wrapper exposes the `arrange` skill for the `.codex/skills` layout while keeping `skills/arrange/SKILL.md` as the canonical source of truth.

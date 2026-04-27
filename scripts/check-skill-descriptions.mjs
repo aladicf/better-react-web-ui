@@ -8,6 +8,7 @@ import {
 
 const errors = [];
 const warnings = [];
+const genericArgumentHints = new Set(['[target]', '[request]', '[project]']);
 
 function addError(message) {
   errors.push(message);
@@ -45,30 +46,29 @@ async function main() {
       addError(`Missing or invalid description in ${relativeFilePath}.`);
     }
 
-    // 2. Check for literal double-hyphen sequences used as em dashes
+    // 2. Check for literal double-hyphen sequences used as dash punctuation
     const body = normalizeNewlines(skill.contents);
     const frontmatterBlock = extractFrontmatterBlock(body);
     const bodyText = body.slice(frontmatterBlock.length);
 
-    // Find literal " -- " (space double-hyphen space) which is likely an em dash
-    const emDashPattern = /\s--\s/g;
-    const matches = [...bodyText.matchAll(emDashPattern)];
+    const doubleHyphenDashPattern = /\s--\s/g;
+    const matches = [...bodyText.matchAll(doubleHyphenDashPattern)];
     if (matches.length > 0) {
       for (const match of matches) {
         const pos = match.index;
         const lineNumber = bodyText.slice(0, pos).split('\n').length;
         addWarning(
-          `Literal " -- " sequence found at line ${lineNumber} in ${relativeFilePath}. Use an em dash (—) or rephrase.`,
+          `Literal space double-hyphen space sequence found at line ${lineNumber} in ${relativeFilePath}. Rephrase with a comma, colon, semicolon, or separate sentence.`,
         );
       }
     }
 
-    // Also check frontmatter description for literal --
+    // Also check frontmatter description.
     if (typeof description === 'string') {
-      const descMatches = [...description.matchAll(emDashPattern)];
+      const descMatches = [...description.matchAll(doubleHyphenDashPattern)];
       if (descMatches.length > 0) {
         addWarning(
-          `Literal " -- " sequence found in description of ${relativeFilePath}. Use an em dash (—) or rephrase.`,
+          `Literal space double-hyphen space sequence found in description of ${relativeFilePath}. Rephrase with a comma, colon, semicolon, or separate sentence.`,
         );
       }
     }
@@ -87,6 +87,10 @@ async function main() {
         if (typeof hint !== 'string' || hint.trim().length === 0) {
           addError(
             `Empty metadata.argument-hint in ${relativeFilePath}. Provide a non-empty hint.`,
+          );
+        } else if (genericArgumentHints.has(hint.trim())) {
+          addWarning(
+            `Generic metadata.argument-hint in ${relativeFilePath}. Prefer a more specific hint for slash-command help.`,
           );
         }
       }

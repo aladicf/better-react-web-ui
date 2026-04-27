@@ -8,6 +8,7 @@
 The supported engine range for repository tooling is `>=24.14.1 <25`.
 
 Use `.nvmrc` or `.node-version` to align your local environment before running repository scripts.
+The committed `.npmrc` enables `engine-strict=true`, and `npm run check:node-version` fails fast when scripts run on an unsupported Node major or patch level.
 
 Both files are intentionally committed for compatibility across version managers:
 
@@ -169,19 +170,20 @@ Do not turn those upstream inventories into a frozen in-repo catalog. When the d
 
 ## Script reference
 
+- `npm run check:node-version`: verify the active Node runtime satisfies `>=24.14.1 <25`
 - `npm run lint` — lint repository scripts with OXC (`oxlint`)
 - `npm run generate:wrappers` — regenerate all wrapper trees and wrapper-root readmes from canonical skills
-- `npm run check:wrapper-drift` — fail if tracked generated wrapper outputs differ from the checked-in wrapper roots
+- `npm run check:wrapper-drift` — fail if wrapper roots do not match generated output from canonical skills
 - `npm run check:skill-descriptions` — validate skill descriptions against length limits, check for literal `--` sequences, and flag missing `argument-hint` metadata
 - `npm run validate` — validate canonical skill metadata, local markdown links, README skill catalog sync, wrapper root readmes, and wrapper drift
 - `npm run validate:wrappers` — validate wrapper trees and wrapper-root readmes only
 - `npm run generate:compatibility-matrix` — generate `SKILL_COMPATIBILITY_MATRIX.md` from canonical skill content analysis
 - `npm run check:compatibility-matrix`: fail when `SKILL_COMPATIBILITY_MATRIX.md` is stale
-- `npm run check:reference-index`: fail when shared reference files are missing from their README indexes
-- `npm run check:skill-routing-fixtures`: validate realistic should-trigger and should-not-trigger prompt fixtures for every skill
+- `npm run check:reference-index`: fail when any `reference/` or `references/` markdown directory is missing a README index entry for a local reference file
+- `npm run check:skill-routing-fixtures`: validate realistic should-trigger and should-not-trigger prompt fixtures for every skill, including minimum coverage and per-case overlap checks
 - `npm run smoke:list` — smoke-test local `skills` CLI discovery from the repository root; verifies that `npx skills add . --list` discovers and lists the canonical skills as expected
 - `npm run smoke:install` — perform a disposable local install smoke test for the `add-ui` skill in a temporary directory, report which wrapper root or roots the CLI wrote to, and verify that the installed skill is listed successfully
-- `npm run verify`: run the main maintainer checks in sequence: lint, wrapper generation, validation, generated artifact checks, routing fixtures, discovery smoke test, and install smoke test
+- `npm run verify`: run the full maintainer check sequence: Node version, lint, wrapper generation, wrapper drift, canonical validation, skill descriptions, compatibility matrix drift, reference indexes, routing fixtures, discovery smoke test, and install smoke test
 - `npm run release:check`: alias the full release readiness check so release notes and CI can refer to one command
 
 ## Choosing the right skill
@@ -287,6 +289,6 @@ If you need to assert that a specific install root is present while reproducing 
 
 ## CI
 
-GitHub Actions in [`.github/workflows/validate.yml`](.github/workflows/validate.yml) installs dependencies, lints repository scripts, validates canonical skills and wrapper sync, checks wrapper generation idempotency, and runs local discovery plus install smoke tests.
+GitHub Actions in [`.github/workflows/validate.yml`](.github/workflows/validate.yml) installs dependencies and runs `npm run release:check`, keeping CI aligned with the local release readiness command.
 
-The wrapper-idempotency check is intentionally scoped to the generated wrapper roots rather than the whole repository, so unrelated files such as local package-manager artifacts cannot cause false negatives.
+The wrapper-idempotency check is intentionally scoped to generated wrapper content rather than the whole repository, so unrelated files such as local package-manager artifacts cannot cause false negatives.

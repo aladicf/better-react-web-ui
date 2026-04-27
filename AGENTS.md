@@ -68,6 +68,7 @@ LICENSE
 
 - Use Node `24.14.1` for local maintainer work.
 - Treat `>=24.14.1 <25` as the supported engine range for repository tooling and CI.
+- Keep `.npmrc` engine strictness and `npm run check:node-version` aligned with that supported range.
 - Run `npm install` before using repository scripts.
 - Use `npm run lint` for repository scripts, `npm run generate:wrappers` for compatibility trees, `npm run check:wrapper-drift` for generated wrapper diff checks, and `npm run validate` for canonical skill, doc, and wrapper checks.
 - The repository generates all supported wrapper roots up front; it does **not** decide which root a host installs into.

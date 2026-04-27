@@ -2,7 +2,7 @@
 name: localize
 description: Plan, implement, or improve an internationalization and localization strategy for UI content, formatting, and regional adaptation. Use when the user asks to add i18n, localize, translate, support multiple languages, handle regional formats, manage locale switching, or build a multilingual product.
 metadata:
-  argument-hint: "[target]"
+  argument-hint: "[locale scope or UI surface]"
 ---
 
 Build and maintain internationalized interfaces that feel native in every supported locale, not merely translated.

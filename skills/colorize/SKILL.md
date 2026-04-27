@@ -2,7 +2,7 @@
 name: colorize
 description: Build or refine UI color systems, warmth, semantic color, and color-based hierarchy in designs that are too gray, monochromatic, or missing color meaning. Use when the user mentions dull colors, gray UI, missing warmth, weak semantic color, or a need for stronger color hierarchy.
 metadata:
-   argument-hint: "[target]"
+  argument-hint: "[screen, theme, or color system]"
 ---
 
 Strategically introduce color to designs that are too monochromatic, gray, or lacking in visual warmth and personality.

@@ -195,7 +195,10 @@ Use the upstream CLI to remove all skills or only the ones you want:
 npx skills remove
 npx skills remove add-ui
 npx skills remove --global add-ui
-npx skills remove --agent codex cursor github-copilot opencode add-ui
+npx skills remove add-ui --agent codex
+npx skills remove add-ui --agent cursor
+npx skills remove add-ui --agent github-copilot
+npx skills remove add-ui --agent opencode
 npx skills remove --all
 ```
 
@@ -258,6 +261,7 @@ At a high level, `better-react-web-ui` covers four kinds of work:
 ## Shared design doctrine
 
 The canonical shared reference set lives under [`skills/frontend-design/reference/`](skills/frontend-design/reference/).
+Some skills also carry focused reference indexes, such as [`skills/add-ui/reference/README.md`](skills/add-ui/reference/README.md) and [`skills/critique/reference/README.md`](skills/critique/reference/README.md).
 
 If you want the map of the map, start with the [frontend-design reference index](skills/frontend-design/reference/README.md).
 

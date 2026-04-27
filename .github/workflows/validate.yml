@@ -24,19 +24,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint repository scripts
-        run: npm run lint
-
-      - name: Validate canonical skills and wrapper sync
-        run: npm run validate
-
-      - name: Ensure generated wrappers are up to date
-        run: |
-          npm run generate:wrappers
-          npm run check:wrapper-drift
-
-      - name: Smoke test local skills discovery
-        run: npm run smoke:list
-
-      - name: Smoke test local skill install
-        run: npm run smoke:install
+      - name: Run release checks
+        run: npm run release:check

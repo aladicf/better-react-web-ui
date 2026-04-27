@@ -1,33 +1,40 @@
 import { getCanonicalSkills } from './skill-library-utils.mjs';
 
-const categoryRules = [
-  ['Accessibility', /accessibility|a11y|keyboard|screen reader|aria|wcag/i],
-  ['Testing', /test|testing|visual regression|assertion/i],
-  ['Performance', /performance|optimize|speed|bundle|loading/i],
-  ['Localization', /i18n|localiz|translat|multilingual|locale/i],
-  ['Motion', /motion|animation|transition|gesture|micro-interaction/i],
-  ['Color', /color|palette|contrast|semantic color/i],
-  ['Typography', /typography|font|type scale|readability/i],
-  ['Layout', /layout|spacing|composition|grouping|arrange/i],
-  ['Hierarchy', /hierarchy|priority|emphasis|weight/i],
-  ['Forms', /form|validation|field|input/i],
-  ['Search', /search|filter|findability|autocomplete/i],
-  ['Data Viz', /chart|data|visualization|dashboard|metric/i],
-  ['Security', /security|mfa|password|breach|trust|auth/i],
-  ['Responsive', /responsive|adapt|breakpoint|narrow|wide/i],
-  ['Resilience', /error|edge case|overflow|resilien|harden/i],
-  ['Onboarding', /onboard|activation|first-run|getting started/i],
-  ['Empty State', /empty state|zero-data|no-results/i],
-  ['Components', /component|extract|reusable|design system|token/i],
-  ['Imagery', /image|photo|icon|screenshot|media/i],
-  ['Depth', /depth|elevation|shadow|layer/i],
-  ['Polish', /polish|alignment|consistency|micro-detail/i],
-  ['Review', /critique|review|assess|heuristic|score/i],
-  ['Audit', /audit|check|measure|anti-pattern/i],
-  ['Delight', /delight|joy|personality|surprise|celebration/i],
-  ['Simplification', /simplify|declutter|remove|distill/i],
-  ['Writing', /copy|writing|label|microcopy|text|clarify/i],
-];
+const skillCategories = new Map([
+  ['a11y', 'Accessibility'],
+  ['adapt', 'Responsive'],
+  ['add-ui', 'Generation'],
+  ['animate', 'Motion'],
+  ['arrange', 'Layout'],
+  ['audit', 'Audit'],
+  ['bolder', 'Visual Direction'],
+  ['clarify', 'Writing'],
+  ['colorize', 'Color'],
+  ['critique', 'Review'],
+  ['data-viz', 'Data Viz'],
+  ['delight', 'Delight'],
+  ['depth', 'Depth'],
+  ['distill', 'Simplification'],
+  ['empty-state', 'Empty State'],
+  ['extract', 'Components'],
+  ['forms', 'Forms'],
+  ['frontend-design', 'Core Design'],
+  ['harden', 'Resilience'],
+  ['hierarchy', 'Hierarchy'],
+  ['imagery', 'Imagery'],
+  ['localize', 'Localization'],
+  ['normalize', 'Design System'],
+  ['onboard', 'Onboarding'],
+  ['optimize', 'Performance'],
+  ['polish', 'Polish'],
+  ['quieter', 'Visual Direction'],
+  ['search', 'Search'],
+  ['security-ux', 'Security'],
+  ['setup', 'Setup'],
+  ['showcase', 'Advanced UI'],
+  ['test', 'Testing'],
+  ['typeset', 'Typography'],
+]);
 
 const collaborations = [
   ['Accessibility', 'a11y', 'Resilience', 'harden', 'a11y focuses on systematic remediation; harden covers broader edge cases'],
@@ -53,17 +60,17 @@ const overlaps = [
 ];
 
 function sanitizeInlineText(value) {
-  return value.replace(/[—–]/g, ' - ').replace(/\s+/g, ' ').trim();
+  return value.replace(/[\u2013\u2014]/g, ' - ').replace(/\s+/g, ' ').trim();
 }
 
-function categorizeSkill(description) {
-  for (const [category, pattern] of categoryRules) {
-    if (pattern.test(description)) {
-      return category;
-    }
+function categorizeSkill(skillName) {
+  const category = skillCategories.get(skillName);
+
+  if (!category) {
+    throw new Error(`Missing compatibility matrix category for skill: ${skillName}`);
   }
 
-  return 'Other';
+  return category;
 }
 
 function getReferencedSkills({ content, skillName, skillNames }) {
@@ -99,7 +106,7 @@ export async function buildCompatibilityMatrixContent() {
 
     return {
       name: skill.skillName,
-      category: categorizeSkill(description),
+      category: categorizeSkill(skill.skillName),
       description: sanitizeInlineText(description),
       referencedSkills: getReferencedSkills({
         content: skill.contents.toLowerCase(),
@@ -113,7 +120,7 @@ export async function buildCompatibilityMatrixContent() {
     '# Skill Compatibility Matrix',
     '',
     'This matrix shows which skills reference each other and which skill categories commonly work together.',
-    'It is generated automatically from canonical SKILL.md content analysis.',
+    'It is generated automatically from canonical SKILL.md metadata and content references.',
     '',
     '## Skills by Category',
     '',

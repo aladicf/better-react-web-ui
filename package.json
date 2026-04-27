@@ -24,7 +24,8 @@
   "engines": {
     "node": ">=24.14.1 <25"
   },
-  "scripts": {
+    "scripts": {
+    "check:node-version": "node ./scripts/check-node-version.mjs",
     "lint": "oxlint --deny-warnings scripts",
     "generate:wrappers": "node ./scripts/generate-wrappers.mjs",
     "check:wrapper-drift": "node ./scripts/check-generated-wrapper-diff.mjs",
@@ -37,7 +38,7 @@
     "check:compatibility-matrix": "node ./scripts/check-compatibility-matrix-drift.mjs",
     "check:reference-index": "node ./scripts/check-reference-index.mjs",
     "check:skill-routing-fixtures": "node ./scripts/check-skill-routing-fixtures.mjs",
-    "verify": "npm run lint && npm run generate:wrappers && npm run validate && npm run check:compatibility-matrix && npm run check:reference-index && npm run check:skill-routing-fixtures && npm run smoke:list && npm run smoke:install",
+    "verify": "npm run check:node-version && npm run lint && npm run generate:wrappers && npm run check:wrapper-drift && npm run validate && npm run check:skill-descriptions && npm run check:compatibility-matrix && npm run check:reference-index && npm run check:skill-routing-fixtures && npm run smoke:list && npm run smoke:install",
     "release:check": "npm run verify"
   },
   "devDependencies": {

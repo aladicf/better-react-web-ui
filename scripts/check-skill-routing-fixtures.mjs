@@ -4,8 +4,8 @@ import { parse } from 'yaml';
 import { getCanonicalSkills, projectRoot } from './skill-library-utils.mjs';
 
 const fixturePath = path.join(projectRoot, 'test-fixtures', 'skill-routing-prompts.yml');
-const minimumTriggerPrompts = 3;
-const minimumNegativePrompts = 2;
+const minimumTriggerPrompts = 5;
+const minimumNegativePrompts = 4;
 const errors = [];
 
 function addError(message) {
@@ -94,6 +94,14 @@ if (!Array.isArray(fixtureCases)) {
       caseIndex,
       skillNames,
     });
+    const shouldTriggerSet = new Set(shouldTrigger);
+    const overlappingSkills = shouldNotTrigger.filter((skillName) => shouldTriggerSet.has(skillName));
+
+    if (overlappingSkills.length > 0) {
+      addError(
+        `Case ${caseIndex} lists the same skill in should_trigger and should_not_trigger: ${overlappingSkills.join(', ')}.`,
+      );
+    }
 
     for (const skillName of shouldTrigger) {
       triggerCounts.set(skillName, triggerCounts.get(skillName) + 1);

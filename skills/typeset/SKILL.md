@@ -2,7 +2,7 @@
 name: typeset
 description: Improve UI typography by fixing font choices, type scale, hierarchy, weight, and readability so text feels intentional. Use when the user mentions fonts, typography, type scale, readability, text hierarchy, or sizing that feels off.
 metadata:
-   argument-hint: "[target]"
+  argument-hint: "[text surface or component]"
 ---
 
 Assess and improve typography that feels generic, inconsistent, or poorly structured — turning default-looking text into intentional, well-crafted type.

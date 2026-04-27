@@ -2,7 +2,7 @@
 name: delight
 description: Add moments of joy, personality, and surprise through success states, empty states, loading moments, hover details, and celebratory polish once the fundamentals already work. Use when the user wants delight, charm, personality, or memorable micro-interactions—not when the main need is baseline cleanup or stronger visual impact.
 metadata:
-  argument-hint: "[target]"
+  argument-hint: "[flow, state, or interaction]"
 ---
 
 This compatibility wrapper exposes the `delight` skill for the `.claude/skills` layout while keeping `skills/delight/SKILL.md` as the canonical source of truth.

@@ -2,7 +2,7 @@
 name: test
 description: Build or improve a UI testing strategy covering visual regression, interaction testing, and accessibility assertions. Use when the user asks to add tests, set up testing, fix flaky tests, improve test coverage, validate UI behavior, catch visual bugs, or establish confidence in shipping frontend changes.
 metadata:
-  argument-hint: "[target]"
+  argument-hint: "[flow, component, or test gap]"
 ---
 
 Establish systematic confidence in UI behavior through the right mix of visual regression, interaction testing, and accessibility assertions.

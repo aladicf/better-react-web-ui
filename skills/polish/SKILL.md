@@ -2,7 +2,7 @@
 name: polish
 description: Perform a final quality pass fixing alignment, spacing, consistency, and micro-detail issues before shipping. Use when the work is functionally complete and needs finishing touches—not when the hierarchy, structure, tone, or technical foundation still need major changes.
 metadata:
-   argument-hint: "[target]"
+  argument-hint: "[complete feature or page]"
 ---
 
 ## MANDATORY PREPARATION

@@ -2,7 +2,7 @@
 name: animate
 description: Improve or implement purposeful motion systems, micro-interactions, gestures, and transition behavior for production-grade UI. Use when the user mentions animation, motion, transitions, micro-interactions, hover states, drawers, toasts, gestures, or making the UI feel more alive.
 metadata:
-  argument-hint: "[target]"
+  argument-hint: "[component, state, or interaction]"
 ---
 
 Analyze a feature and add motion that improves clarity, feedback, perceived performance, and polish without making the interface feel slow, noisy, or theatrical.

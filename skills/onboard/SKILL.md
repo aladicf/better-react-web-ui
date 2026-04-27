@@ -2,7 +2,7 @@
 name: onboard
 description: Design onboarding and activation flows that help users reach value quickly. Use when the user mentions onboarding, getting started, first-time users, activation, aha moments, or new user flows—not when the work is only the empty-state surface itself.
 metadata:
-   argument-hint: "[target]"
+  argument-hint: "[activation flow or first-run surface]"
 ---
 
 ## MANDATORY PREPARATION

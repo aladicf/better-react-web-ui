@@ -2,7 +2,7 @@
 name: imagery
 description: Improve how interfaces use photos, screenshots, icons, illustrations, and user-uploaded media so visuals support clarity instead of undermining it. Use when the user mentions images, screenshots, background photos, hero images, icon sizing, user-uploaded media, crops, overlays, or image readability.
 metadata:
-   argument-hint: "[target]"
+  argument-hint: "[image, media area, or page]"
 ---
 
 Assess and improve image usage so photography, illustrations, screenshots, icons, and uploaded media feel intentional, readable, and well-contained.

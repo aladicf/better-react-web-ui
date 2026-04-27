@@ -2,7 +2,7 @@
 name: depth
 description: Add or refine depth through elevation systems, raised and inset surfaces, layered overlap, and meaningful shadow behavior so interfaces feel structured instead of flat. Use when the user mentions depth, elevation, shadows, layering, flat cards, pressed states, drag feedback, or inset controls.
 metadata:
-   argument-hint: "[target]"
+  argument-hint: "[surface or component]"
 ---
 
 Create or improve visual depth so layers, surfaces, and states feel intentional, readable, and physically believable without drifting into over-styled noise.

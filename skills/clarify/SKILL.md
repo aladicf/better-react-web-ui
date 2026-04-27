@@ -2,7 +2,7 @@
 name: clarify
 description: Improve UX writing, marketing copy, labels, microcopy, instructions, and error messages so interfaces and product messaging are easier to understand and act on. Use when the user mentions confusing copy, unclear labels, bad error text, weak CTAs, hard-to-follow instructions, or wanting better UX writing.
 metadata:
-   argument-hint: "[target]"
+  argument-hint: "[copy surface or flow]"
 ---
 
 Identify and improve unclear, confusing, or poorly written product text to make the product easier to understand, trust, and act on.

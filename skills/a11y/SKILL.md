@@ -2,7 +2,7 @@
 name: a11y
 description: Systematically audit and remediate accessibility issues in UI, focusing on keyboard navigation, screen reader support, color contrast, semantic HTML, ARIA usage, and motion sensitivity. Use when the user wants to improve accessibility, make a component accessible, fix WCAG violations, add keyboard support, or ensure screen reader compatibility.
 metadata:
-  argument-hint: "[target]"
+  argument-hint: "[component, page, or WCAG issue]"
 ---
 
 Systematically improve accessibility so the interface works for users with disabilities, temporary impairments, and assistive technology.

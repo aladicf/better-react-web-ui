@@ -2,7 +2,7 @@
 name: hierarchy
 description: Clarify priority and emphasis by fixing unclear primary actions, competing visual weight, loud section titles, and weak label/value treatment. Use when the user mentions hierarchy, prioritization, too much competition, grayscale confusion, loud headings, or unclear primary actions.
 metadata:
-   argument-hint: "[target]"
+  argument-hint: "[screen or decision point]"
 ---
 
 Assess and improve visual hierarchy so the interface communicates priority immediately instead of making users decode it manually.

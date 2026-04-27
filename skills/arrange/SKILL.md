@@ -2,7 +2,7 @@
 name: arrange
 description: Improve layout composition, spacing systems, grouping, and visual rhythm. Use when the user mentions weak layout structure, arbitrary spacing, weak grouping, crowded composition, or layout monotony rather than priority/emphasis problems.
 metadata:
-   argument-hint: "[target]"
+  argument-hint: "[layout, page, or section]"
 ---
 
 Assess and improve layout and spacing that feels monotonous, crowded, or structurally weak — turning generic arrangements into intentional, rhythmic compositions.
