@@ -55,32 +55,6 @@ It works with:
 
 Styling guidance is Tailwind-only. When custom styling is unavoidable, express it through Tailwind utilities, Tailwind theme tokens, Tailwind directives, or project-local Tailwind-compatible utilities.
 
-Supported component systems are:
-
-- [`shadcn/ui`](https://ui.shadcn.com/)
-- [`ReUI`](https://reui.io/)
-- [`shadcncraft`](https://shadcncraft.com/)
-- [`Kibo UI`](https://www.kibo-ui.com/)
-- [`Basecn`](https://basecn.dev/)
-- [`Tailark`](https://tailark.com/)
-- [`shadcnblocks`](https://www.shadcnblocks.com/)
-- [`React Bits`](https://reactbits.dev/)
-- [`Animate UI`](https://animate-ui.com/)
-- [`Animata`](https://animata.design/docs)
-- [`Magic UI`](https://magicui.design/)
-- [`Motion Primitives`](https://motion-primitives.com/docs)
-- [`Efferd`](https://efferd.com/)
-- [`Billing SDK`](https://billingsdk.com/)
-- [`blocks.so`](https://blocks.so/)
-- [`coss/ui`](https://coss.com/ui)
-- [`Better Auth UI`](https://better-auth-ui.com/)
-- [`Smooth UI`](https://smoothui.dev/)
-- [`TripleD UI`](https://ui.tripled.work/)
-- [`shadcn-map`](https://shadcn-map.vercel.app/)
-- [`mapcn`](https://mapcn.vercel.app/)
-- [`c15t`](https://c15t.com/)
-- [`PatternCraft`](https://patterncraft.fun/)
-
 When a React project already has an established setup, agents should match it first inside the React and Tailwind boundary. When the stack is still open, the library provides pragmatic defaults and reference guidance. See [`skills/frontend-design/reference/framework-defaults.md`](skills/frontend-design/reference/framework-defaults.md) for the precedence order and default matrix.
 
 ## Installation
@@ -91,26 +65,9 @@ Install from GitHub:
 npx skills add aladicf/better-react-web-ui --agent codex --agent cursor --agent github-copilot --agent opencode
 ```
 
-Useful variations:
-
-```bash
-npx skills add aladicf/better-react-web-ui --list
-npx skills add aladicf/better-react-web-ui --agent codex --agent cursor --agent github-copilot --agent opencode
-npx skills add aladicf/better-react-web-ui --agent codex --agent cursor --agent github-copilot --agent opencode --skill add-ui --skill critique
-npx skills add aladicf/better-react-web-ui --agent codex --agent cursor --agent github-copilot --agent opencode -g
-```
-
 Do **not** use `--all` unless you explicitly want **all skills installed to all agents**. 
 
 ### Recommended install target
-
-For the supported default audience, install directly to Codex, Cursor, GitHub Copilot, and OpenCode:
-
-```bash
-npx skills add aladicf/better-react-web-ui --agent codex --agent cursor --agent github-copilot --agent opencode
-```
-
-Those four upstream agents currently share the same project-scope path, `.agents/skills/`, so the CLI writes one shared copy of each skill there.
 
 If you want one predictable install target, use one explicit upstream `--agent` flag:
 
@@ -121,14 +78,6 @@ If you want one predictable install target, use one explicit upstream `--agent` 
 | Cursor | `cursor` | `.agents/skills/` | `npx skills add aladicf/better-react-web-ui --agent cursor` |
 | OpenCode | `opencode` | `.agents/skills/` | `npx skills add aladicf/better-react-web-ui --agent opencode` |
 
-If you only want a subset of skills for one supported target, keep the same `--agent` flag and add `--skill` selectors:
-
-```bash
-npx skills add aladicf/better-react-web-ui --agent github-copilot --skill add-ui --skill critique
-npx skills add aladicf/better-react-web-ui --agent codex --skill add-ui --skill audit
-npx skills add aladicf/better-react-web-ui --agent opencode --skill setup
-```
-
 If you want a global install instead of a project-scoped install, add `-g` to the same command:
 
 ```bash
@@ -136,32 +85,6 @@ npx skills add aladicf/better-react-web-ui --agent github-copilot -g
 npx skills add aladicf/better-react-web-ui --agent codex -g
 npx skills add aladicf/better-react-web-ui --agent opencode -g
 ```
-
-### Troubleshooting installation surprises
-
-#### Why did many folders get created?
-
-That happens when the upstream `skills` CLI installs to multiple agents instead of one. The two common reasons are:
-
-1. you used `--all`, which upstream defines as all skills to all agents
-2. you used the plain interactive install and accepted multiple detected targets
-
-If you want a single target only, reinstall with one explicit `--agent` value from the supported table above.
-
-#### Why does the installer show Amp, Antigravity, Cline, Deep Agents, Firebender, Gemini CLI, Kimi Code CLI, or Warp as "Universal"?
-
-The upstream `skills` CLI groups every agent whose project path is `.agents/skills/` into a locked "Universal" section during interactive installs. That list is defined by the CLI, not by this repository's skill metadata, so `better-react-web-ui` cannot mark only some `.agents/skills/` consumers as universal.
-
-To avoid that locked universal prompt, use explicit agents:
-
-```bash
-npx skills add aladicf/better-react-web-ui --agent codex --agent cursor --agent github-copilot --agent opencode
-```
-
-#### Why did GitHub Copilot, Codex, Cursor, or OpenCode land in `.agents/skills`?
-
-Because that is the upstream project-scope path those agents currently use. In this repository, `.github/skills`, `.codex/skills`, `.cursor/skills`, and `.opencode/skills` are compatibility wrapper trees, not a promise that the upstream installer will choose those exact project directories.
-
 ## First thing to do after installing
 
 Run `/setup` first. Yes, before you go off and build the thing.
@@ -177,7 +100,6 @@ To update an existing install, use the upstream CLI:
 
 ```bash
 npx skills update
-npx skills update add-ui
 npx skills update -g
 npx skills update -p
 npx skills update -y
