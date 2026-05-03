@@ -745,6 +745,32 @@ Useful extensions:
 - when the target is not normally focusable, consider `tabindex="-1"` on the target so focus can land there reliably in more browsers
 - keep skip links visually obvious when focused; an invisible focused skip link defeats the point
 
+### Smooth Anchor Scrolling
+
+Smooth scrolling can make anchor navigation, in-page table-of-contents links, and section jumps feel less abrupt. In Tailwind, apply it to the scroll container or document root:
+
+```tsx
+<main className="scroll-smooth motion-reduce:scroll-auto">
+  ...
+</main>
+```
+
+For page-wide anchor behavior:
+
+```tsx
+<html className="scroll-smooth motion-reduce:scroll-auto">
+```
+
+If the page has a sticky header, pair anchors with `scroll-mt-*` so headings do not land hidden under the nav:
+
+```tsx
+<section id="pricing" className="scroll-mt-24">
+  ...
+</section>
+```
+
+Use smooth scrolling for short, understandable jumps. Avoid it for long forced motion, frequent programmatic scrolling, or experiences where users may feel motion sensitivity. Always preserve instant scrolling through `motion-reduce:scroll-auto`.
+
 ### Programmatic Focus After UI Changes
 
 When the UI adds, removes, opens, or dismisses something, choose the focus destination deliberately instead of letting the browser dump focus somewhere accidental.

@@ -59,6 +59,40 @@ body {
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 ```
 
+### Prefer `svh` for Mobile Viewport Sections
+
+On mobile browsers, `100vh` can include browser chrome that is not actually available to the page. This can cut off the bottom of full-height sections or push important content under browser UI. Prefer Tailwind's `min-h-svh` for page-level sections that should fit the small viewport height and still allow content to grow.
+
+Good default:
+
+```tsx
+<main className="min-h-svh px-4 py-6">
+  ...
+</main>
+```
+
+Use `h-svh` only when the element must be exactly viewport-height, such as a fixed preview frame, immersive step, or controlled scroll region. For ordinary pages, `min-h-svh` is safer because content can exceed the viewport without being clipped.
+
+Useful Tailwind patterns:
+
+```tsx
+<section className="min-h-svh content-center px-6 py-10">
+  ...
+</section>
+
+<aside className="h-svh overflow-y-auto">
+  ...
+</aside>
+```
+
+Combine this with safe-area padding when content reaches the device edges:
+
+```tsx
+<main className="min-h-svh pb-[max(1rem,env(safe-area-inset-bottom))] pt-[max(1rem,env(safe-area-inset-top))]">
+  ...
+</main>
+```
+
 ## Responsive Images: Get It Right
 
 ### srcset with Width Descriptors
@@ -96,6 +130,32 @@ When you need different crops/compositions (not just resolutions):
 ## Layout Adaptation Patterns
 
 **Navigation**: Three stages—compact menu or drawer in narrow layouts, condensed horizontal navigation in medium widths, fuller labeled navigation in wide layouts. **Tables**: Transform to cards or summaries in narrow layouts using `display: block` and `data-label` attributes when the table job changes. **Progressive disclosure**: Use `<details>/<summary>` for content that can collapse in compact layouts.
+
+### Responsive Flex Rows Without Breakpoints
+
+For simple clusters, toolbars, stat groups, and card rows, `flex-wrap` often handles responsiveness without a media query. In Tailwind, let items wrap and give children a reasonable minimum width:
+
+```tsx
+<div className="flex flex-wrap justify-center gap-4">
+  <article className="min-w-64 flex-1">...</article>
+  <article className="min-w-64 flex-1">...</article>
+  <article className="min-w-64 flex-1">...</article>
+</div>
+```
+
+Use this pattern when each child can stand alone and wrapping preserves the reading order. Add `items-stretch` when cards should share row height, or `items-start` when content height should remain natural.
+
+For tighter control, use arbitrary flex basis values:
+
+```tsx
+<div className="flex flex-wrap gap-3">
+  <button className="basis-[14rem] grow">Export</button>
+  <button className="basis-[14rem] grow">Share report</button>
+  <button className="basis-[14rem] grow">Schedule</button>
+</div>
+```
+
+Do not use wrapping as a substitute for a real layout change when the task changes across widths. Navigation, dense tables, and multi-column forms often still need explicit responsive structure.
 
 ## You Don’t Have to Fill the Whole Screen
 

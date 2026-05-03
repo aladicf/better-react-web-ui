@@ -307,6 +307,73 @@ Use this when:
 - the layout root should always render dark-friendly browser UI
 - you want scrollbars and other UA-controlled surfaces to match the app instead of the user's daytime light preference
 
+### Style scrollbars through Tailwind's base layer
+
+For app-style interfaces with custom themes, default browser scrollbars can feel like they belong to another product. Keep scrollbar styling global, restrained, and token-driven.
+
+Tailwind-oriented projects can define this in the main CSS entry:
+
+```css
+@import "tailwindcss";
+
+@layer base {
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 5px;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+}
+```
+
+Use theme tokens such as `--border`, `--muted`, or a dedicated scrollbar token so the thumb updates with light and dark mode. Avoid hard-coded gray values unless the product's neutral system is already expressed that way.
+
+### Extend the scrollbar gutter into the theme
+
+On dense web apps, side panels, command surfaces, and dark layouts, the scroll area should feel like part of the surface. Match the scrollbar track or gutter to the surrounding background instead of leaving a bright system strip at the edge.
+
+For full-page scroll, set document-level browser chrome and scrollbar tokens:
+
+```css
+@layer base {
+  :root {
+    color-scheme: light dark;
+    --scrollbar-thumb: var(--border);
+    --scrollbar-track: var(--background);
+  }
+
+  .dark {
+    --scrollbar-thumb: var(--border);
+    --scrollbar-track: var(--background);
+  }
+
+  * {
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+  }
+}
+```
+
+For nested scroll containers, prefer a local class or data attribute that maps the track to that container's surface token. This keeps a sidebar scrollbar aligned with the sidebar background and a main-content scrollbar aligned with the page background.
+
 ## Alpha Is A Design Smell
 
 Heavy use of transparency (rgba, hsla) usually means an incomplete palette. Alpha creates unpredictable contrast, performance overhead, and inconsistency. Define explicit overlay colors for each context instead. Exception: focus rings and interactive states where see-through is needed.

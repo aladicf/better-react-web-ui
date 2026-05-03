@@ -59,6 +59,35 @@ Use these as the primary source for current component availability, integration 
 
 If the official docs still do not answer the question, do a focused web search and then verify what you find against upstream documentation before making implementation decisions.
 
+## Split Tailwind CSS entry points when sources differ
+
+Tailwind v4 can generate separate CSS outputs for different source sets. Use this when an internal route, admin area, editor, playground, or other isolated surface has many custom utilities or class patterns that should not inflate the main site CSS.
+
+Example:
+
+```css
+/* global.css */
+@import "tailwindcss";
+@source not "./internal";
+```
+
+```css
+/* internal.css */
+@import "tailwindcss" source(none);
+@source "./internal";
+```
+
+Then import `internal.css` only from the internal route or layout that needs it.
+
+Use this pattern when:
+
+- the project uses Tailwind v4 CSS-first configuration
+- a route segment owns a meaningfully different class surface
+- the extra utilities are measurable in the primary CSS bundle
+- the framework supports route-level or layout-level CSS entry points
+
+Do not split CSS entry points for tiny one-off differences. The extra file, import path, and source boundary should pay for themselves through smaller critical CSS, less unused style matching, and simpler route ownership.
+
 ## Curated community accelerators for React fallback defaults
 
 When a React/Tailwind/shadcn project is new or still open-ended, `better-react-web-ui` may also consider the curated shortlist in [React shadcn accelerators](./react-shadcn-accelerators.md).

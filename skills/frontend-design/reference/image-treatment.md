@@ -119,6 +119,53 @@ Detailed icons or logos reduced too far lose clarity.
 
 At very small sizes, redraw or simplify rather than asking the browser to compress detail into mush.
 
+## Theme-Aware Favicons
+
+Favicons are tiny brand assets, but they still need to survive light and dark browser chrome. When a site ships both light and dark themes, provide theme-aware favicon assets instead of relying on one mark to work everywhere.
+
+For Next.js App Router metadata, use media-specific icon entries:
+
+```ts
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  icons: {
+    icon: [
+      {
+        url: "/favicon.ico",
+        sizes: "32x32",
+      },
+      {
+        url: "/favicon.svg",
+        sizes: "any",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/favicon-dark.svg",
+        sizes: "any",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+    apple: {
+      url: "/apple-touch-icon.png",
+      type: "image/png",
+      sizes: "180x180",
+    },
+  },
+};
+```
+
+For framework-agnostic HTML, use equivalent `<link rel="icon">` tags with `media="(prefers-color-scheme: ...)"`.
+
+Keep the light and dark versions intentionally paired:
+
+- same silhouette and optical size
+- enough edge contrast against browser tab backgrounds
+- simplified geometry at 16px and 32px
+- no fragile low-contrast detail
+
 ## Beware User-Uploaded Content
 
 User media is unpredictable:

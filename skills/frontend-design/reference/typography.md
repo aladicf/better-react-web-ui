@@ -225,6 +225,62 @@ Fluid typography via `clamp(min, preferred, max)` scales text smoothly with the 
 
 **Use fixed `rem` scales for**: App UIs, dashboards, and data-dense interfaces. No major app design system (Material, Polaris, Primer, Carbon) uses fluid type in product UI — fixed scales with optional breakpoint adjustments give the spatial predictability that container-based layouts need. Body text should also be fixed even on marketing pages, since the size difference across viewports is too small to warrant it.
 
+In Tailwind, express fluid type with an arbitrary text size or a named theme token:
+
+```tsx
+<h1 className="text-[clamp(2rem,6vw,4.5rem)] leading-[0.95]">
+  Product analytics that stay readable
+</h1>
+```
+
+For reusable roles in Tailwind v4, define a token once and use it like a normal utility:
+
+```css
+@import "tailwindcss";
+
+@theme {
+  --text-display-fluid: clamp(2rem, 6vw, 4.5rem);
+  --text-display-fluid--line-height: 0.95;
+}
+```
+
+```tsx
+<h1 className="text-display-fluid">Product analytics that stay readable</h1>
+```
+
+If the text should respond to a component resizing rather than the viewport, prefer container query variants or a component-scoped token over viewport-only `vw` math. Viewport fluid type can look wrong inside narrow cards on wide screens.
+
+### Truncate Overflowing Text Deliberately
+
+Use ellipsis only when the full text is still available somewhere nearby or through a title, detail view, tooltip, or accessible label. Truncation hides information, so it should protect layout without destroying meaning.
+
+Tailwind's single-line default:
+
+```tsx
+<p className="max-w-[30rem] truncate">
+  Quarterly enterprise onboarding and implementation status
+</p>
+```
+
+`truncate` expands to the required trio: `overflow-hidden`, `text-ellipsis`, and `whitespace-nowrap`.
+
+For multi-line truncation, use Tailwind's line clamp utility when the project includes it:
+
+```tsx
+<p className="line-clamp-2">
+  A longer description that can wrap to two lines before it fades out of the card.
+</p>
+```
+
+Avoid truncating primary action labels, form labels, errors, prices, legal text, or critical status messages. In flex rows, remember that the text child usually needs `min-w-0` before truncation can work:
+
+```tsx
+<div className="flex min-w-0 items-center gap-3">
+  <span className="size-2 shrink-0 rounded-full bg-primary" />
+  <p className="min-w-0 truncate">Very long project or customer name</p>
+</div>
+```
+
 ### Responsive Size Strategy
 
 Body text and headings do not scale the same way.

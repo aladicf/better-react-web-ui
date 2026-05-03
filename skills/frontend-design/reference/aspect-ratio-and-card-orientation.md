@@ -53,6 +53,43 @@ This gives the system visual memory.
 
 Users learn what each shape usually means.
 
+## Use Tailwind aspect ratio utilities for responsive shapes
+
+When an element's height should respond to its width, use Tailwind's `aspect-*` utilities instead of fixed heights. This is the cleanest way to create responsive squares, media frames, map previews, chart shells, avatars, and thumbnails.
+
+```tsx
+<div className="w-full max-w-[12.5rem] aspect-square rounded-lg bg-muted" />
+```
+
+Common Tailwind patterns:
+
+```tsx
+<div className="aspect-square w-full max-w-48" />
+<div className="aspect-video w-full overflow-hidden rounded-lg" />
+<div className="aspect-[4/3] w-full" />
+<div className="aspect-[3/4] w-full" />
+```
+
+Use `max-w-*` to cap the width when the shape should stop growing. The height will follow from the aspect ratio:
+
+```tsx
+<article className="w-full max-w-80">
+  <div className="aspect-[5/4] overflow-hidden rounded-md bg-muted">
+    ...
+  </div>
+</article>
+```
+
+For real media, combine the ratio wrapper with `object-cover` or `object-contain` based on whether cropping is acceptable:
+
+```tsx
+<img
+  src="/product.jpg"
+  alt=""
+  className="aspect-[4/3] w-full rounded-md object-cover"
+/>
+```
+
 ## Repetition creates rhythm; variation creates hierarchy
 
 Consistent ratios make lists easier to scan.

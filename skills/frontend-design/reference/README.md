@@ -54,7 +54,7 @@ If you only open a few files first, make them these:
 - [legacy modernization](./legacy-modernization.md) — legacy-system UX upgrades, migration strategy, stakeholder trust, and hybrid old/new seams
 - [cognitive load](./cognitive-load.md) — simplify decisions, memory burden, and complexity exposure
 - [ux writing](./ux-writing.md) — interface microcopy, labels, errors, and confirmations
-- [typography](./typography.md) — type scale, hierarchy, pairing, and readability
+- [typography](./typography.md) — type scale, hierarchy, pairing, fluid type, truncation, and readability
 - [color and contrast](./color-and-contrast.md) — palette structure, contrast, and theme discipline
 
 ## Structure and layout
@@ -149,7 +149,7 @@ Use these when the problem is not just wording polish, but whether the interface
 - [finishing touches](./finishing-touches.md)
 - [ai slop detection](./ai-slop-detection.md)
 
-Use these when the UI needs a clearer website style direction, stronger mood, more systematic ramps, or protection from generic AI aesthetics.
+Use these when the UI needs a clearer website style direction, stronger mood, more systematic ramps, theme-aware browser chrome or scrollbars, or protection from generic AI aesthetics.
 
 ## Color accessibility and semantic-state resilience
 
@@ -165,6 +165,7 @@ Use these when color is carrying meaning in states, charts, legends, selections,
 - [framework official docs](./framework-official-docs.md)
 - [motion design](./motion-design.md)
 - [Tailwind and WAAPI motion](./css-tailwind-and-waapi-motion.md)
+- [component and block strategy](./component-and-block-strategy.md)
 - [react shadcn accelerators](./react-shadcn-accelerators.md)
 - [scroll-driven animations](./scroll-driven-animations.md)
 - [view transitions](./view-transitions.md)
@@ -178,7 +179,7 @@ For the deeper motion doctrine library, also see the [animate reference index](.
 - [sidebar and footer UX](./sidebar-and-footer-ux.md)
 - [container queries](./container-queries.md)
 
-Use these when the work depends on narrow-first layout strategy, component reflow across contexts, sidebars or right rails, footer utility/recovery paths, container-level responsive behavior, or deciding whether secondary content belongs in a peripheral support surface at all.
+Use these when the work depends on narrow-first layout strategy, `svh` viewport sizing, breakpoint-free flex wrapping, component reflow across contexts, sidebars or right rails, footer utility/recovery paths, container-level responsive behavior, or deciding whether secondary content belongs in a peripheral support surface at all.
 
 ## Components and systems
 
@@ -193,7 +194,7 @@ Use these when the work depends on narrow-first layout strategy, component reflo
 - [image treatment](./image-treatment.md)
 - [text-layout prediction](./text-layout-prediction.md)
 
-Use these when the work involves reusable primitives, design-system reuse, screenshots/media, or repeated layout logic.
+Use these when the work involves reusable primitives, design-system reuse, screenshots/media, favicons, Tailwind CSS entry points, or repeated layout logic.
 
 Most of the pattern-specific references in this section are custom React or headless React first. If a mature component library already owns the primitive, use them mainly to shape surrounding UX and product decisions rather than to override strong upstream anatomy by default.
 
@@ -211,7 +212,7 @@ Use these when the top of the page needs to explain the product quickly, when a 
 - [component anatomy](./component-anatomy.md)
 - [image treatment](./image-treatment.md)
 
-Use these when the work depends on card direction, media ratios, crop rules, list rhythm, browse-vs-evaluate layout choices, or keeping repeated cards comparable across breakpoints.
+Use these when the work depends on card direction, media ratios, responsive aspect-ratio shapes, crop rules, list rhythm, browse-vs-evaluate layout choices, or keeping repeated cards comparable across breakpoints.
 
 ## Primary actions, disabled states, destructive actions, and blocked progression
 
@@ -238,7 +239,7 @@ Use these when the work touches FAQ sections, product-detail accordions, setting
 - [error recovery](./error-recovery.md)
 - [accessibility testing](./accessibility-testing.md)
 
-Use these when the work depends on keyboard parity, focus movement, hidden-content strategy, component semantics, accessible states, or testing whether a component is actually usable with assistive technology.
+Use these when the work depends on keyboard parity, focus movement, anchor scrolling, hidden-content strategy, component semantics, accessible states, or testing whether a component is actually usable with assistive technology.
 
 ## Perceived quality, resilience, and papercut failures
 
