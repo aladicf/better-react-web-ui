@@ -55,6 +55,10 @@ Timing matters more than easing. These durations feel right for most UI:
 
 **transform** and **opacity** only—everything else causes layout recalculation. For height animations (accordions), use `grid-template-rows: 0fr → 1fr` instead of animating `height` directly.
 
+Be explicit about transition properties. `transition-all` is a review smell because future CSS changes can accidentally animate layout, shadow, filter, or color work. Prefer Tailwind utilities such as `transition-transform`, `transition-opacity`, `transition-colors`, or `transition-[transform,opacity]`.
+
+For rapidly triggered controls, CSS transitions usually beat keyframes because they can reverse when hover, active, open, or closed state changes. Save keyframes for sequences that need fixed internal choreography.
+
 ## Micro-Interactions Need Four Things
 
 Useful micro-interactions usually have:

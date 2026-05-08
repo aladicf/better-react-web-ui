@@ -44,12 +44,36 @@ Most micro-interactions can stay utility-first.
 
 Useful Tailwind patterns:
 
-- `transition`, `transition-transform`, `transition-opacity`, `transition-colors`
+- `transition-transform`, `transition-opacity`, `transition-colors`, and arbitrary property lists such as `transition-[transform,opacity]`
 - `duration-150`, `duration-200`, `duration-300`, `duration-500`
 - `ease-linear`, `ease-in`, `ease-out`, or custom `ease-[cubic-bezier(...)]`
 - `translate-y-*`, `scale-*`, `rotate-*`, `opacity-*`
 - `motion-reduce:*` variants for reduced motion
 - arbitrary values for `clip-path`, `transform-origin`, and custom timing when the design needs them
+
+Avoid `transition-all` when the moving properties are known. It is easy to ship accidental animation of layout, colors, shadows, filters, or future CSS changes. Be explicit:
+
+```html
+<div class="transition-[transform,opacity] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)]">
+  ...
+</div>
+```
+
+Gate hover-only motion so touch devices do not inherit fake hover behavior. Tailwind has built-in state variants, but hover capability usually needs a media query or project variant:
+
+```css
+@custom-variant can-hover {
+  @media (hover: hover) and (pointer: fine) {
+    @slot;
+  }
+}
+```
+
+```html
+<button class="transition-transform can-hover:hover:scale-[1.02] active:scale-[0.97] motion-reduce:transform-none">
+  Save
+</button>
+```
 
 Example reduced-motion fallback:
 

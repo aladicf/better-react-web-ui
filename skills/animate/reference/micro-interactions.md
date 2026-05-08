@@ -32,6 +32,32 @@ See [asymmetric press release](asymmetric-press-release.md) for detailed timing 
 
 ## Hover States
 
+**Gate hover motion to hover-capable pointers.** Hover animation that runs on touch devices is noise at best and sticky-state breakage at worst. Use Tailwind state utilities for simple cases, but put hover-only motion behind `@media (hover: hover) and (pointer: fine)` or an equivalent Tailwind custom variant.
+
+```css
+@custom-variant can-hover {
+  @media (hover: hover) and (pointer: fine) {
+    @slot;
+  }
+}
+```
+
+```html
+<button class="transition-transform can-hover:hover:scale-[1.02] active:scale-[0.97]">
+  Save
+</button>
+```
+
+**Animate the child when parent hover causes flicker or layout uncertainty.** If scaling a card, row, or trigger changes the hit region enough to drop hover, keep the parent stable and animate an inner visual layer.
+
+```html
+<article class="group">
+  <div class="transition-transform duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02]">
+    ...
+  </div>
+</article>
+```
+
 **Fill hover gaps when groups should feel continuous.** If hover should persist while the pointer moves between stacked or adjacent elements, small physical gaps can cause the state to drop unexpectedly. Use a pseudo-element to fill the gap.
 
 ```css
@@ -127,6 +153,8 @@ When `prefers-reduced-motion` is active, replace scale and spatial motion with i
 
 - **Slow press feedback**: A 300ms button press feels laggy, not tactile.
 - **Symmetric press and release**: Release does not need the same urgency as press.
+- **Hover motion on touch devices**: Sticky hover behavior makes mobile UI feel broken.
+- **Parent hover scale that changes the hit region**: Animate a stable child layer instead.
 - **Hover gaps that drop state**: Moving between adjacent hover targets should not feel like crossing a canyon.
 - **Tooltips that flash on every pass**: Without delay, accidental hovers create noise.
 - **Animated keyboard focus**: Keyboard users want predictability, not motion.

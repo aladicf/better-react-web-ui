@@ -139,26 +139,30 @@ Use these as the default guidelines for animation work unless the product contex
   - **exiting surfaces** → shorter duration, often ease-in or a snappier exit curve
   - **state toggles / reversible movement** → ease-in-out
   - **gesture-linked movement** → spring or velocity-aware interpolation
+  - **constant autonomous motion** → linear, unless the loop needs a deliberate mechanical feel
 
 ### 3. Timing and Duration
 
 - Keep most recurring UI motion under **300ms**.
-- Use **100-150ms** for press states, toggles, color changes, and immediate acknowledgment.
-- Use **200-300ms** for standard UI state changes such as hover, menus, tooltips, and small reveals.
-- Use **300-500ms** for larger layout transitions such as drawers, modals, accordions, and major surface changes.
+- Use **100-150ms** for micro-interactions such as press states, toggles, color changes, and immediate acknowledgment.
+- Use **150-250ms** for standard UI such as tooltips, dropdowns, menus, hover states, and small reveals.
+- Use **200-300ms** for modals, drawers, and medium surface transitions when they do not need sheet-like weight.
+- Use **300-500ms** for larger layout transitions such as accordions, sheets, drawers, and major surface changes.
 - Treat **500ms** as a special-case upper bound for bigger surface motion like sheets or staged entrances, not as the default for ordinary controls.
 - Exit animations should be faster than entrances. A good default is roughly **75%** of enter duration.
 - Press should be faster than release. Downward feedback should feel immediate; reset can be slightly softer.
 - Delay the **first** tooltip or hover-revealed helper when needed, but make subsequent related reveals much faster or instant so the interface does not feel sticky.
-- Long stagger chains are a smell. Cap total stagger time so the last item does not arrive embarrassingly late.
+- For small grouped entrances, start with **30-80ms** stagger steps. Long stagger chains are a smell. Cap total stagger time so the last item does not arrive embarrassingly late.
+- Match duration to travel distance and visual mass. Larger elements and longer travel usually need slightly more time than small local changes.
 
 ### 4. Property Selection and Performance
 
 - Prefer animating **transform** and **opacity**.
+- Avoid `transition-all` in production UI. Specify the properties that should move, such as `transition-[transform,opacity]`, `transition-transform`, `transition-opacity`, or `transition-colors`.
 - Avoid animating **width, height, top, left, padding, margin, border-width**, or other layout-heavy properties unless there is a strong reason and the surface is small.
 - For accordion-like height transitions, prefer **grid-template-rows** or equivalent layout-friendly patterns over raw `height` animation when possible.
 - Use **clip-path**, masks, or composited reveals when you need a layout-free reveal effect.
-- Use hardware-friendly transforms when the main thread is busy or the component animates frequently.
+- Use hardware-friendly full transforms such as `translateX(...)`, `translateY(...)`, or `translate3d(...)` when the main thread is busy or the component animates frequently. Avoid framework props that mutate layout-position values under load when a real transform would do the job.
 - Use `will-change` sparingly and only when animation is imminent or proven to need it.
 - During drag loops, avoid animation setups that route every frame through expensive inherited-token or layout recalculation paths if they introduce lag.
 - Prefer Intersection Observer for scroll-triggered motion and stop observing once the motion has completed if it only needs to happen once.
@@ -178,6 +182,7 @@ Use these as the default guidelines for animation work unless the product contex
 ### 6. Gesture and Interaction Patterns
 
 - Make interactive animations **interruptible**. Users should not have to wait for motion to finish before expressing new intent.
+- Prefer CSS transitions over keyframes for rapidly triggered hover, press, menu, and popover state because transitions can reverse cleanly when user intent changes.
 - For swipe-to-dismiss, sheet snapping, and similar gestures, use **distance plus velocity**, not distance alone.
 - Add **friction or damping** near boundaries so drags resist instead of hard-stopping.
 - Handle **scroll-vs-drag conflicts** intentionally. Nested surfaces should not feel like they are fighting over input.
@@ -193,6 +198,7 @@ Use these as the default guidelines for animation work unless the product contex
 - Preserve functional cues such as focus states, progress, loading feedback, and success or error acknowledgment.
 - Use blur carefully to bridge between visual states when a straight cut feels harsh.
 - Use stagger intentionally for orchestration, not as decoration. Small lists can benefit; huge lists usually cannot.
+- Gate hover-only motion behind hover and pointer capability. In Tailwind, prefer `motion-safe:` plus custom `@media (hover: hover) and (pointer: fine)` variants or CSS when hover motion would misfire on touch.
 - Scroll reveals should trigger before the user has fully passed the element, but not so early that the effect feels detached from scroll context.
 - Fill hover gaps between triggers and floating surfaces so tooltips, menus, and popovers do not flicker closed during pointer travel.
 - Toast stacks can use offset, scale, and opacity to imply depth without becoming chaotic.
@@ -288,6 +294,18 @@ Use appropriate techniques for each animation:
 - Tailwind utilities when the project already uses Tailwind
 ```
 
+Tailwind examples:
+
+```tsx
+<button className="transition-transform duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.97] motion-reduce:transition-none motion-reduce:transform-none">
+  Save
+</button>
+
+<div className="transition-[transform,opacity] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] data-[state=open]:scale-100 data-[state=open]:opacity-100 data-[state=closed]:scale-95 data-[state=closed]:opacity-0 origin-[var(--radix-popover-content-transform-origin)]">
+  ...
+</div>
+```
+
 ### JavaScript Animation
 ```javascript
 /* Use for complex, interactive animations */
@@ -357,5 +375,19 @@ Test animations thoroughly:
 - **Reduced motion works**: Animations disabled or simplified appropriately
 - **Doesn't block**: Users can interact during/after animations
 - **Adds value**: Makes interface clearer or more delightful
+
+During review, flag these problems immediately:
+
+- `transition-all` where exact properties are known
+- entry animation from `scale(0)` instead of roughly `scale(0.95)` plus opacity
+- routine UI motion over `300ms`
+- hover animation without hover-capability gating
+- keyboard-triggered action using pointer-style animation
+- popover, tooltip, or menu scaling from the wrong origin
+- keyframes on rapidly triggered controls where reversible transitions would behave better
+- parent hover animation that flickers or distorts children when a child-layer animation would be cleaner
+- Motion `x` or `y` style updates used under load where a composited `transform` string would be safer
+- identical enter and exit timing when exit should feel faster
+- list children appearing all at once when a small, capped stagger would clarify order
 
 Remember: the best UI animation usually feels inevitable, not attention-seeking. Animate with purpose, tune for responsiveness, respect accessibility, and let motion support the product instead of starring in it.

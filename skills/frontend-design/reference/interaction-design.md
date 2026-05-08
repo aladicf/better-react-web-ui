@@ -86,6 +86,24 @@ Primary and frequent actions should be large enough, close enough, and separated
 - Dense data UIs can stay compact while preserving usable click targets through padding and row height
 - Sticky action bars are often better than tiny floating controls when the action matters repeatedly
 
+### Mobile tap feedback
+
+Mobile browsers may add their own tap highlight to links, buttons, and controls. If the product already has clear `active`, pressed, focus-visible, and disabled states, remove the browser flash at the root instead of fighting it component by component.
+
+Tailwind-first global CSS:
+
+```css
+@import "tailwindcss";
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+```
+
+This is a WebKit/Blink-specific property, so Firefox and other browsers simply ignore it. Do not treat it as a replacement for real pressed feedback; pair it with Tailwind state utilities such as `active:scale-[0.98]`, `active:bg-*`, or tokenized pressed states.
+
 ### Anti-patterns
 
 - Tiny close buttons in modal corners
@@ -655,6 +673,44 @@ Check viewport boundaries before rendering. If the dropdown would overflow the b
 - **`position: absolute` inside `overflow: hidden`** - The dropdown will be clipped. Use `position: fixed` or the top layer instead.
 - **Arbitrary z-index values** like `z-index: 9999` - Use a semantic z-index scale: `dropdown (100) -> sticky (200) -> modal-backdrop (300) -> modal (400) -> toast (500) -> tooltip (600)`.
 - **Rendering dropdown markup inline** without an escape hatch from the parent's stacking context. Either use `popover` (top layer), a portal, or `position: fixed`.
+
+## Scrollbar and Stacking Stability
+
+Use CSS to prevent layout movement before inventing JavaScript measurement.
+
+### Stable scrollbars
+
+When content sometimes becomes scrollable, reserve scrollbar space so centered or edge-aligned content does not jump.
+
+Tailwind-first arbitrary utilities:
+
+```tsx
+<div className="[scrollbar-gutter:stable] overflow-auto">
+  ...
+</div>
+```
+
+For centered content, reserve both sides so the content remains optically balanced:
+
+```tsx
+<div className="[scrollbar-gutter:stable_both-edges] overflow-auto">
+  ...
+</div>
+```
+
+Use it as progressive enhancement. Modern Chromium, Firefox, and Safari support `scrollbar-gutter`, but overlay-scrollbar environments may show little visible effect. Keep the layout valid without it.
+
+### Local stacking contexts
+
+If internal badges, media overlays, sticky child controls, or decorative layers keep fighting outside elements, contain that component's stacking context:
+
+```tsx
+<article className="isolate relative">
+  ...
+</article>
+```
+
+Tailwind's `isolate` maps to `isolation: isolate` and is supported across current major browsers. Prefer it over escalating arbitrary z-index values, but do not use it to trap overlays that should escape via top layer, portal, or fixed positioning.
 
 ## Async Combobox Stability
 

@@ -119,6 +119,20 @@ Detailed icons or logos reduced too far lose clarity.
 
 At very small sizes, redraw or simplify rather than asking the browser to compress detail into mush.
 
+## Recolor Monochrome Assets Carefully
+
+Prefer inline SVG icons, `currentColor`, `mask-image`, or theme-aware assets when the icon or logo is part of the component system. That keeps color controlled by Tailwind text or background tokens.
+
+For one-off monochrome raster marks, CSS filters can avoid duplicate black and white files:
+
+```tsx
+<img src="/mark.png" alt="" className="brightness-0 invert" />
+```
+
+`brightness-0` turns the source black; `invert` turns that result white. For black output, use `brightness-0` only.
+
+This works across current major browsers, but it is blunt: it destroys original color and can make antialiasing or brand marks look off. Do not use filter hacks for multicolor logos, legal brand assets, or icons that need semantic color states.
+
 ## Theme-Aware Favicons
 
 Favicons are tiny brand assets, but they still need to survive light and dark browser chrome. When a site ships both light and dark themes, provide theme-aware favicon assets instead of relying on one mark to work everywhere.

@@ -48,6 +48,31 @@ Understand the form's purpose and context:
 - Use the appropriate input type (`type="email"`, `type="tel"`, `type="date"`) for better browser keyboards, autofill, and validation hints
 - Show formatting hints as the user types (credit card spacing, phone number grouping)
 - Autofill-friendly: use standard `name` and `autocomplete` attributes
+- Normalize browser autofill visuals when custom input surfaces are dark, translucent, or heavily branded. Use Tailwind utilities for the normal field state first, then add a small CSS layer for browser pseudo-classes that Tailwind cannot express cleanly:
+
+```css
+@import "tailwindcss";
+
+@layer components {
+  .input:-webkit-autofill,
+  .input:-webkit-autofill:hover,
+  .input:-webkit-autofill:focus,
+  .input:-webkit-autofill:active {
+    border-color: color-mix(in oklab, white 40%, transparent);
+    caret-color: var(--color-white);
+    -webkit-text-fill-color: var(--color-white);
+    -webkit-box-shadow: 0 0 0 1000px color-mix(in oklab, white 20%, transparent) inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  .input:autofill {
+    border-color: color-mix(in oklab, white 40%, transparent);
+    caret-color: var(--color-white);
+  }
+}
+```
+
+`:-webkit-autofill` covers Chromium and Safari. `:autofill` is the standards-facing selector for compatible browsers. Keep both, include hover/focus/active, and test actual saved-password and saved-address flows instead of trusting static screenshots.
 
 ### Multi-step forms
 

@@ -424,6 +424,14 @@ Line-height depends on both font size and measure.
 
 Use line-height as an active reading tool, not a fixed default.
 
+In Tailwind, use role-appropriate leading utilities instead of treating `leading-none` as a spacing reset. `leading-none` can work for short badges, counters, icon labels, and large display headlines where descenders and wrapping are controlled. It is usually wrong for paragraphs, form helper text, errors, and multi-line labels because it makes reading brittle and can clip accents or scripts in some fonts.
+
+```tsx
+<span className="text-xs leading-none">12</span>
+<h1 className="text-5xl leading-[0.95]">Launch report</h1>
+<p className="text-base leading-7">Readable body copy needs breathing room.</p>
+```
+
 ## Accounting for Line Length
 
 As lines get longer, increase line-height so the eye can find the next line comfortably.
