@@ -19,6 +19,10 @@ function applyBoundaryResistance(offsetY: number) {
 }
 ```
 
+**Constrain the axis before the gesture starts.** A horizontal row action should drag on `x` only; a sheet should drag on `y` only. Do not let diagonal noise decide the interaction after the UI has already started moving.
+
+**Disable uncontrolled fling when the interaction must land on exact snap points.** Momentum can be useful for free-scrolling or tossable objects, but row actions, reveal controls, and destructive affordances often need predictable settling. In Motion, that may mean `dragMomentum={false}` plus explicit snap animation on drag end.
+
 ## Damping and Boundaries
 
 When a surface can be dragged past its resting point, allow controlled resistance. As the overshoot grows, the apparent movement should become increasingly expensive.
@@ -34,8 +38,22 @@ Snap points should feel velocity-aware and purposefully chosen, not like arbitra
 - Use distance plus velocity to determine which snap point the surface settles into
 - Provide at least one obvious resting state; ambiguous snap points confuse users
 - Animate to the chosen snap point with a spring or deceleration curve, not linear
+- For symmetric row actions, define named snap points such as `left`, `center`, and `right` rather than scattering magic numbers through the component
+- Make the commit threshold visible through progressive reveal or other feedback before the action becomes eligible
 
 See [velocity-aware snap points](velocity-aware-snap-points.md) for the decision math and [spring motion](spring-motion.md) for the settling physics.
+
+## Progressive Reveal for Swipe Actions
+
+Swipe rows should not reveal every possible action immediately. Reveal the primary action first, then secondary actions after deeper drag thresholds. This lets the user understand direction and commitment before seeing the full action set.
+
+Good defaults:
+
+- keep actions hidden at rest unless discoverability requires a visible affordance
+- reveal first action after a small threshold
+- reveal destructive or secondary actions only after a deeper threshold
+- animate action opacity and scale from the side they belong to
+- keep every revealed action reachable by click, keyboard, or menu as well as drag
 
 ## Momentum Dismissal
 
@@ -104,6 +122,7 @@ Use springs when you want motion to feel organic, interruptible, attached to inp
 - Use `transform` for position updates, not `left`/`top`
 - Avoid `will-change` on elements that are not about to animate; on dragged elements, it is usually justified
 - Use hardware-friendly transforms when the main thread is busy
+- Put `overflow-clip` or equivalent clipping on the row container when hidden actions should not create scrollbars. Use `overflow-hidden` only when its scroll-container behavior is acceptable.
 
 See [avoid inherited token mutation in drag loops](avoid-css-variables-drag.md) and [hardware-accelerated motion under load](hardware-accelerated-busy-main-thread.md).
 

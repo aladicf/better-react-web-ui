@@ -115,6 +115,34 @@ Combine this with safe-area padding when content reaches the device edges:
 - `sizes` tells the browser how wide the image will display
 - Browser picks the best file based on viewport width AND device pixel ratio
 
+### Lazy Images Can Use `sizes="auto"`
+
+For below-the-fold images with `loading="lazy"`, prefer `sizes="auto"` plus a fallback sizes list. Lazy images are requested late enough that supporting browsers can use the actual rendered layout size instead of making you encode every grid, card, sidebar, and container-query width by hand.
+
+```html
+<img
+  loading="lazy"
+  src="card-650.jpg"
+  srcset="
+    card-650.jpg 650w,
+    card-960.jpg 960w,
+    card-1400.jpg 1400w
+  "
+  sizes="auto, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+  width="650"
+  height="433"
+  alt="..."
+>
+```
+
+Rules:
+
+- use `sizes="auto, ...fallbacks"` only with lazy-loaded images
+- keep explicit `width` and `height` or an aspect-ratio wrapper to prevent layout shift
+- keep hand-authored `sizes` for above-the-fold and likely LCP images because they should not be lazy-loaded
+- still provide real `srcset` width candidates; `auto` does not generate image variants for you
+- test generated framework image components because some abstractions may not expose `sizes="auto"` cleanly yet
+
 ### Picture Element for Art Direction
 
 When you need different crops/compositions (not just resolutions):

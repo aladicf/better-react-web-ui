@@ -15,7 +15,7 @@ Prefer JavaScript observers or libraries when:
 
 - you need complex choreography or sequencing
 - the animation must interact with other state (hover, click, form input)
-- you need to support Firefox with no flag (as of early 2025, Firefox requires a flag)
+- you need the effect to be required behavior in Firefox without a fallback; Firefox support may still lag stable Chromium and Safari and must be verified for the target release
 - you are animating values that CSS cannot interpolate easily
 
 ## Core concepts
@@ -62,6 +62,8 @@ A view timeline links animation progress to an element's position within the vie
 ```
 
 `view()` creates a timeline based on the element's visibility in the viewport. `animation-range` controls when the animation starts and ends relative to the element entering and leaving the viewport.
+
+Use linear timing for scrubbed effects by default. The scroll position is already the timing input, so ordinary easing can make progress feel disconnected from the user's hand. Use easing only when you intentionally want progress to accelerate or decelerate within a view range.
 
 ### Named scroll timelines
 
@@ -176,6 +178,24 @@ animation-range: entry 0% exit 100%;
 }
 ```
 
+### Linked element timelines
+
+Use named view timelines when one element's scroll position should drive another element's animation, such as a section heading changing while its content panel enters.
+
+```css
+.story-section {
+  view-timeline-name: --story;
+}
+
+.story-progress {
+  animation: fill-progress linear both;
+  animation-timeline: --story;
+  animation-range: entry 0% exit 100%;
+}
+```
+
+Reach for linked timelines only when the relationship is clear. If a distant element moves because something else scrolled and users cannot understand the connection, the animation is decorative noise.
+
 ## Graceful degradation
 
 Always provide a static fallback. Browsers that do not support scroll-driven animations should still show fully functional content.
@@ -219,6 +239,8 @@ if (!CSS.supports('animation-timeline', 'scroll()')) {
 - Avoid animating layout properties (width, height, top, left) with scroll timelines. These force main-thread recalculation on every scroll event
 - Keep the number of simultaneous scroll-driven animations reasonable. Hundreds of animated elements can still overwhelm the GPU
 - Use `content-visibility: auto` for off-screen sections to reduce rendering cost
+- Avoid scroll-driven animation for essential reading order, disclosure, or form progress. Scroll position is not a reliable state machine.
+- Pair scroll timelines with `prefers-reduced-motion` fallbacks; scroll-scrubbed movement can be more uncomfortable than short time-based transitions
 
 ## When not to use scroll-driven animations
 
@@ -229,6 +251,6 @@ if (!CSS.supports('animation-timeline', 'scroll()')) {
 
 ## Browser support
 
-Scroll-driven animations are supported in Chrome/Edge 115+, Safari 17.4+. Firefox requires the `layout.css.scroll-driven-animations.enabled` flag as of early 2025.
+Scroll-driven animations are supported in current Chromium and Safari. Firefox support has been behind a preference during recent rollout periods, so verify current Firefox stable support before depending on it.
 
 For current support details, check [Can I use: scroll-driven animations](https://caniuse.com/mdn-css_properties_animation-timeline).

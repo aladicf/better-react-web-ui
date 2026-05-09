@@ -18,6 +18,8 @@ Use these as the primary source for current component availability, integration 
 - [Kibo UI components](https://www.kibo-ui.com/components) - composable shadcn/ui-oriented React, TypeScript, Tailwind, Lucide, and Radix components
 - [Kibo UI blocks](https://www.kibo-ui.com/blocks) - precomposed and animated blocks for React interfaces
 - [Basecn](https://basecn.dev/) - shadcn/ui components powered by Base UI
+- [Base UI composition](https://base-ui.com/react/handbook/composition) - official `render` prop composition model for Base UI primitives
+- [Base UI Button](https://base-ui.com/react/components/button) - official `nativeButton`, link, submit, and disabled-focus semantics
 - [Tailark](https://tailark.com/) - shadcn marketing blocks, pages, and illustrations for modern marketing websites
 - [shadcnblocks](https://www.shadcnblocks.com/) - shadcn/ui blocks and components for common sections and product surfaces
 - [React Bits](https://reactbits.dev/) - animated React components and effects
@@ -173,6 +175,42 @@ When this library says `shadcn/ui` in the Base UI direction, it means:
 - treat the library as a foundation, not as the finished brand expression
 
 This is about **how to use the primitives**, not about copying a default demo aesthetic.
+
+## Base UI Primitive Usage Notes For Agents
+
+Base UI is not Radix with different import paths. Do not hallucinate Radix patterns into Base UI components.
+
+Use these rules when a project uses Base UI, Basecn, coss/ui, or a shadcn setup generated in Base UI mode:
+
+- import primitives from subpaths such as `@base-ui/react/dialog`, `@base-ui/react/menu`, or `@base-ui/react/popover`
+- use Base UI's `render` prop for composition instead of Radix `asChild`
+- ensure custom components passed to `render` forward `ref` and spread all received props onto the underlying DOM element
+- use nested `render` props when composing multiple primitives, such as tooltip trigger plus dialog trigger plus local button
+- only override the rendered element case by case; Base UI defaults are usually the correct semantic element
+- check each component's official Base UI docs for state attributes and prop names instead of assuming Radix `data-state`, `sideOffset`, `delayDuration`, or `type="single"` APIs
+- prefer ARIA and documented Base UI state attributes in Tailwind selectors when the component exposes them, such as `aria-expanded:` or `aria-disabled:`
+- for Base UI `Button`, specify `type="submit"` explicitly when it should submit a form
+- do not render links through Base UI `Button`; style an `<a>` as a button when navigation is the semantic action
+- when replacing a button-like primitive with a non-button element, verify whether `nativeButton={false}` is required and whether the replacement can receive button semantics
+- use `focusableWhenDisabled` for loading or temporarily disabled buttons when preserving focus and tab order matters
+
+Bad migration:
+
+```tsx
+<Dialog.Trigger asChild>
+  <Button>Open</Button>
+</Dialog.Trigger>
+```
+
+Base UI shape:
+
+```tsx
+<Dialog.Trigger render={<Button type="button" />}>
+  Open
+</Dialog.Trigger>
+```
+
+Render-prop composition is powerful but unforgiving. If props or refs are swallowed by a local wrapper, keyboard behavior, focus management, ARIA wiring, and positioning can silently break. Test the primitive with keyboard, pointer, screen reader basics, open/close state, disabled state, and dark mode after changing composition.
 
 ## Positioning: primitives, block kits, motion libraries, and specialist kits
 

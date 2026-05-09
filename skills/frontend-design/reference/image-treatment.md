@@ -89,6 +89,21 @@ Images and icons have a size range where they feel right.
 
 Even vector artwork can feel wrong when scaled too far away from the size it was designed for.
 
+## Choose Icon Sets Like A System
+
+Icons are interface language, not decoration. Start with the concept the icon must communicate, then choose the simplest recognizable metaphor. If the concept is abstract, culturally variable, high-risk, or business-critical, pair the icon with a visible label instead of making users decode it.
+
+When a group of icons appears together, keep the set coherent:
+
+- use one family or tightly matched families
+- avoid mixing filled and outline styles in the same local cluster unless one variant intentionally marks state or priority
+- keep stroke weight, corner radius, detail level, perspective, and canvas ratio consistent
+- use one color model per cluster: monochrome, duotone, multicolor, or gradient, not a random mix
+- test recognition at the actual rendered size, especially at `16px`, `20px`, and `24px`
+- do not stretch icons to force a square or ratio match
+
+For product UI, prefer SVG icons that inherit `currentColor` so Tailwind text color utilities and semantic tokens control the icon. For icon-only buttons, provide an accessible name and consider whether the visible label should remain present in dense or high-risk workflows.
+
 ## Don’t Scale Up Icons
 
 Small icons scaled up too far become chunky, simplistic, and amateur-looking.
@@ -118,6 +133,21 @@ Prefer:
 Detailed icons or logos reduced too far lose clarity.
 
 At very small sizes, redraw or simplify rather than asking the browser to compress detail into mush.
+
+## Normalize Logo Clouds Optically
+
+Logo rows fail when every image gets the same width or the same height. Wide wordmarks become too dominant; square marks become too heavy; thin marks disappear. Treat customer, partner, and press logos as an optical normalization problem, not a naive sizing problem.
+
+Good defaults:
+
+- crop or compensate for baked-in transparent padding before sizing
+- size by a damped aspect-ratio formula rather than fixed width or fixed height alone
+- reduce dense, blocky logos slightly and allow thin wordmarks more room
+- align by visual center when asymmetric marks feel off even though their boxes align
+- store light, dark, full, and icon-only variants separately when logos appear on different surfaces
+- make CMS-managed logo lists robust enough that content editors can add or reorder logos without hand-tuned CSS per brand
+
+If a React project needs many uncontrolled third-party logos, consider a dedicated normalization utility or component instead of hard-coding one-off dimensions. If the brand set is small and stable, manual optical tuning is fine, but document the sizing rule so the next logo does not restart the mess.
 
 ## Recolor Monochrome Assets Carefully
 
