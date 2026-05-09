@@ -590,6 +590,98 @@ const dialog = document.querySelector('dialog');
 dialog.showModal();  // Opens with focus trap, closes on Escape
 ```
 
+### Native dialog entry and exit transitions
+
+Modern CSS can transition discrete properties such as `display` when paired with `transition-behavior: allow-discrete`, and `@starting-style` can provide the missing first frame for elements entering from `display: none`. This is useful for native `<dialog>` and top-layer overlays, but it must be progressive enhancement. Older or partial implementations should still show and hide correctly.
+
+Do not copy examples that use `transition: all`. Be explicit:
+
+```css
+@layer components {
+  dialog[data-ui-dialog] {
+    opacity: 0;
+    transform: scale(0.96);
+    transition:
+      opacity 180ms ease-in,
+      transform 180ms ease-in,
+      display 180ms allow-discrete,
+      overlay 180ms allow-discrete;
+  }
+
+  dialog[data-ui-dialog]:open {
+    opacity: 1;
+    transform: scale(1);
+    transition:
+      opacity 220ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+      display 220ms allow-discrete,
+      overlay 220ms allow-discrete;
+  }
+
+  @starting-style {
+    dialog[data-ui-dialog]:open {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+  }
+
+  dialog[data-ui-dialog]::backdrop {
+    background: rgb(0 0 0 / 0);
+    transition:
+      background-color 180ms ease-in,
+      display 180ms allow-discrete,
+      overlay 180ms allow-discrete;
+  }
+
+  dialog[data-ui-dialog]:open::backdrop {
+    background: rgb(0 0 0 / 0.45);
+    transition:
+      background-color 220ms ease-out,
+      display 220ms allow-discrete,
+      overlay 220ms allow-discrete;
+  }
+
+  @starting-style {
+    dialog[data-ui-dialog]:open::backdrop {
+      background: rgb(0 0 0 / 0);
+    }
+  }
+}
+```
+
+Tailwind can own the normal visual styling while CSS owns the discrete transition plumbing:
+
+```tsx
+<dialog
+  data-ui-dialog
+  className="m-auto max-w-lg rounded-lg border bg-background p-0 text-foreground shadow-xl backdrop:bg-black/45"
+>
+  ...
+</dialog>
+```
+
+Rules:
+
+- keep the closed state visible to CSS long enough for the exit transition; if React unmounts the dialog immediately, CSS cannot animate it
+- include `overlay allow-discrete` when animating native dialogs or popovers that enter the top layer
+- treat `@starting-style` as progressive enhancement, not required behavior
+- always preserve focus management, Escape behavior, backdrop behavior, and reduced-motion handling
+- for library dialogs such as Radix or Base UI, prefer the library's documented state attributes and mount lifecycle before forcing native `<dialog>` patterns onto it
+
+Reduced motion:
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  dialog[data-ui-dialog],
+  dialog[data-ui-dialog]:open,
+  dialog[data-ui-dialog]::backdrop,
+  dialog[data-ui-dialog]:open::backdrop {
+    transition-duration: 1ms;
+    transform: none;
+  }
+}
+```
+
 ## The Popover API
 
 For tooltips, dropdowns, and non-modal overlays, use native popovers:

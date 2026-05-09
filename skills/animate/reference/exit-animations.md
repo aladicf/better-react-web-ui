@@ -37,6 +37,68 @@ Use this reference when elements are leaving, dismissing, or disappearing from t
 
 **Swipe-to-dismiss**: Use distance plus velocity, not distance alone, to decide whether to complete or cancel the dismissal. See [velocity-aware snap points](velocity-aware-snap-points.md) and [momentum dismissal](momentum-dismissal.md).
 
+### Item removal with content fade and slot collapse
+
+For removable cards, chips, comparison items, or queue rows, separate the visual exit from the layout collapse:
+
+1. The inner content fades, blurs slightly, and scales down.
+2. The outer slot collapses after a short delay.
+3. The data is removed after the animation finishes, or the item is restored immediately if undo happens.
+
+Tailwind-first markup:
+
+```tsx
+<li
+  data-removing={isRemoving ? "true" : "false"}
+  className="overflow-hidden data-[removing=true]:w-0 data-[removing=true]:transition-[width] data-[removing=true]:delay-[60ms] data-[removing=true]:duration-300 data-[removing=true]:ease-[cubic-bezier(0.2,0,0,1)] motion-reduce:data-[removing=true]:duration-0"
+>
+  <div className="transition-[filter,opacity,transform] duration-[280ms] ease-in data-[removing=true]:scale-[0.92] data-[removing=true]:opacity-0 data-[removing=true]:blur-sm data-[removing=true]:duration-[280ms] motion-reduce:transition-opacity motion-reduce:data-[removing=true]:transform-none motion-reduce:data-[removing=true]:blur-none">
+    ...
+  </div>
+</li>
+```
+
+Use `blur-sm` instead of a heavy `8px` blur for text-heavy UI. Large blur can make removal feel smeared and expensive. If the item sits in a vertical list, collapse `height`, `grid-template-rows`, or block-size instead of width; the same two-phase rule still applies.
+
+Only use this effect where removal benefits from a little polish. Dense admin tables, repeated bulk deletes, and high-frequency workflows usually need faster fade/height collapse, not theatrical disappearance.
+
+CSS-layer version when Tailwind utilities get too noisy:
+
+```css
+@layer components {
+  .removable-item {
+    overflow: hidden;
+    transition: inline-size 320ms cubic-bezier(0.2, 0, 0, 1) 60ms;
+  }
+
+  .removable-item[data-removing="true"] {
+    inline-size: 0;
+  }
+
+  .removable-item > .removable-item__content {
+    transition:
+      filter 280ms ease-in,
+      opacity 200ms ease-in,
+      transform 280ms ease-in;
+  }
+
+  .removable-item[data-removing="true"] > .removable-item__content {
+    filter: blur(4px);
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .removable-item,
+    .removable-item > .removable-item__content {
+      transition-duration: 1ms;
+      filter: none;
+      transform: none;
+    }
+  }
+}
+```
+
 ## Collapse and Height Transitions
 
 For accordion-like or list collapse, prefer **grid-template-rows** or equivalent layout-friendly patterns over raw `height` animation when possible. If you must animate height, ensure the parent handles overflow correctly and that sibling elements reflow smoothly.
@@ -105,6 +167,8 @@ When `prefers-reduced-motion` is active, exits should simplify to short opacity 
 - **Instant exit after animated entrance**: A modal that slides in but disappears instantly feels broken.
 - **Slower exits than entrances**: The user has already decided to move on; do not make them wait.
 - **Height collapse before fade completes**: Collapsing a toast while it is still visible creates layout jump.
+- **Slot collapse before content exit**: Removing the layout box before the item visually leaves makes sibling movement feel abrupt.
+- **Heavy blur on readable text**: Big blur values during removal can look muddy and cost more paint than the effect deserves.
 - **Exit in the wrong direction**: A drawer that entered from the bottom should not exit to the left.
 - **Ignoring velocity in swipe dismissal**: Distance alone makes gestures feel mechanical.
 - **Uninterruptible exits**: Users should be able to reverse their decision immediately.

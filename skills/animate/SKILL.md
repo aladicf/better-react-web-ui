@@ -183,6 +183,7 @@ Use these as the default guidelines for animation work unless the product contex
 
 - Make interactive animations **interruptible**. Users should not have to wait for motion to finish before expressing new intent.
 - Prefer CSS transitions over keyframes for rapidly triggered hover, press, menu, and popover state because transitions can reverse cleanly when user intent changes.
+- For native dialogs and popovers, consider `@starting-style` plus `transition-behavior: allow-discrete` for display/top-layer entry and exit, but keep it progressive and never replace focus or lifecycle correctness with animation tricks.
 - For swipe-to-dismiss, sheet snapping, and similar gestures, use **distance plus velocity**, not distance alone.
 - Add **friction or damping** near boundaries so drags resist instead of hard-stopping.
 - Handle **scroll-vs-drag conflicts** intentionally. Nested surfaces should not feel like they are fighting over input.
@@ -389,5 +390,7 @@ During review, flag these problems immediately:
 - Motion `x` or `y` style updates used under load where a composited `transform` string would be safer
 - identical enter and exit timing when exit should feel faster
 - list children appearing all at once when a small, capped stagger would clarify order
+- immediate React unmounts that prevent item, dialog, toast, or popover exit animation
+- `transition: all` on dialogs, popovers, or removable list items
 
 Remember: the best UI animation usually feels inevitable, not attention-seeking. Animate with purpose, tune for responsiveness, respect accessibility, and let motion support the product instead of starring in it.
