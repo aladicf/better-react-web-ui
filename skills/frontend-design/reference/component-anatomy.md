@@ -191,6 +191,8 @@ Icons are visual symbols meant to be read quickly.
 
 They work best when they are simple, familiar, and consistent.
 
+In React and Tailwind work, prefer a single icon source such as `lucide-react` or the project's existing icon package before mixing libraries. If the product needs custom SVG icons, wrap them in a small typed React primitive so size, stroke, title handling, and `aria-hidden` behavior stay consistent.
+
 ### Good defaults
 
 - build or select icons on a square `1:1` canvas
@@ -198,6 +200,9 @@ They work best when they are simple, familiar, and consistent.
 - keep icon styles consistent within a set, outline with outline, filled with filled, two-tone with two-tone unless state meaning justifies a change
 - use SVG or icon fonts instead of bitmap images so the result stays sharp and scalable
 - when icons sit beside text, keep their color aligned with the text by default and align them optically with the label
+- use Tailwind `size-*` utilities for the glyph and separate `min-h-*`, `min-w-*`, `p-*`, or wrapper classes for the hit area
+- set decorative icons to `aria-hidden="true"` and keep the accessible name on the button, link, or field they support
+- give icon-only controls a visible label when space allows; otherwise provide a real accessible name and a tooltip for sighted pointer users
 
 ### Practical sizing notes
 
@@ -210,6 +215,8 @@ They work best when they are simple, familiar, and consistent.
 - a small visible icon still needs a generous coarse-pointer target
 - icon-only controls should have accessible naming and, when possible, visible labels or tooltips for extra clarity
 - do not replace well-understood platform metaphors with clever but unfamiliar shapes
+- do not rely on a tooltip to make an icon accessible; tooltips support recognition, but screen readers and keyboard users need the control name in the element semantics
+- treat unfamiliar icons as a failure until a label, nearby text, or product convention makes the meaning obvious
 
 ### Avoid
 
@@ -217,6 +224,8 @@ They work best when they are simple, familiar, and consistent.
 - scaling tiny icons up until they become chunky
 - shrinking detailed icons until they turn mushy
 - relying on PNG icons where scalable vectors are expected
+- using color, stroke weight, or fill style inconsistently for icons that represent the same state across the product
+- shipping icon buttons with a visible `16px` glyph and no expanded activation area
 
 Consult [image treatment](./image-treatment.md) for icon scaling discipline and [interaction design](./interaction-design.md) for icon-button hit targets and tooltip behavior.
 

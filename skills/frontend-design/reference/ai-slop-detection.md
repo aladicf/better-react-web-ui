@@ -58,6 +58,33 @@ Ask:
 - use fewer but more intentional effects
 - prefer distinct composition over more garnish
 
+## Redesign Upgrade Priority
+
+When improving an existing React and Tailwind surface, fix in this order:
+
+1. **Typography**: choose a stronger local type system, fix heading scale, line-height, line length, and numeric alignment.
+2. **Color cleanup**: remove clashing accents, normalize gray families, and route colors through semantic tokens.
+3. **Interactive states**: add hover, focus-visible, active, loading, disabled, and error states before adding new decoration.
+4. **Layout rhythm**: fix max-widths, section spacing, grid structure, alignment, and responsive collapse.
+5. **Component patterns**: replace generic repeated card formulas only when the new pattern serves the content better.
+6. **Missing states**: add loading, empty, error, and success states so the product feels finished.
+7. **Polish pass**: tune spacing, wrapping, copy, icon weight, media treatment, and small alignment details.
+
+This order matters. If hierarchy and states are weak, adding fancier surfaces only makes the weakness louder.
+
+## Strategic Omissions to Check
+
+Generic generated pages often forget:
+
+- custom 404 or not-found recovery
+- clear back or escape route from secondary pages
+- privacy, terms, and required legal links
+- form validation and inline recovery
+- skip link for keyboard users
+- favicon and share metadata
+- cookie or consent surface when legally required
+- real loading, empty, and error states
+
 ---
 
 **Avoid**: solving weak design with extra gradients, glow, blur, metrics, or stock “wow” devices. Distinctiveness comes from decisions, not effects density.

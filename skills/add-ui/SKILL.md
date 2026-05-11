@@ -254,7 +254,7 @@ Use the [apply / cleanup checklist](./assets/apply-cleanup-checklist.md) after t
 - ignore the existing codebase structure and styling system
 - bulldoze an existing artifact's structure after the user asked to preserve its essence or recognizable parts
 - default to generic startup aesthetics just because the prompt is broad
-- default to retro, cyber, synthwave, terminal, or generic futuristic-neon directions in this library
+- default to novelty aesthetics in this library
 - make every option loud, card-heavy, gradient-heavy, or animation-heavy
 - skip loading/error/empty/responsive-layout states when they materially affect the artifact
 - apply a chosen variant without making it clear what changed

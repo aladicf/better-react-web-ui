@@ -7,11 +7,12 @@ metadata:
 
 Build forms that users complete without confusion, anxiety, or abandonment. The goal is not to collect every possible field; it is to remove every unnecessary obstacle between the user and their goal.
 
-Consult the [form validation patterns](../frontend-design/reference/form-validation-patterns.md) reference for validation timing, error placement, multi-field dependencies, async validation, and recovery design.
+Consult the [form validation patterns](../frontend-design/reference/form-validation-patterns.md) reference for validation timing, error placement, multi-field dependencies, async validation, recovery design, conversion measurement, field-level drop-off, and field-by-field optimization guidance.
 Consult the [live validation UX](../frontend-design/reference/live-validation-ux.md) reference for blur-vs-real-time timing, reward-early/punish-late behavior, and copy-paste-friendly validation.
 Consult the [error recovery](../frontend-design/reference/error-recovery.md) reference for what happens after validation or submission fails.
 Consult the [disabled buttons UX](../frontend-design/reference/disabled-buttons-ux.md) reference when deciding whether to block submit buttons or keep them enabled with error explanation.
 Consult the [component anatomy](../frontend-design/reference/component-anatomy.md) reference for button, input, checkbox, radio, toggle, dropdown, and textarea anatomy guidance.
+Consult the [self-evident interface design](../frontend-design/reference/self-evident-interface.md) reference when a form depends on too much helper text, instructions, or onboarding; prefer clearer grouping, defaults, constraints, examples, and inline feedback.
 
 ## MANDATORY PREPARATION
 
@@ -25,6 +26,8 @@ Understand the form's purpose and context:
 2. **Field necessity**: Every field you add drops completion rates. Challenge each field: is it required now, or can it be collected later?
 3. **Context of use**: Is the user rushed, distracted, using a compact viewport or coarse pointer, or in a stressful situation? Stressful contexts need simpler forms.
 4. **Failure points**: Where do users currently drop off? Long forms, unclear labels, and unexpected validation are common culprits.
+5. **Data use**: Which fields are actually used after submission? If sales, support, or onboarding does not use a field, remove it, infer it, or collect it later.
+6. **Measurement**: Do analytics show form views, first field focus, field completion, validation errors, submit attempts, successful submissions, and mobile vs desktop completion?
 
 ## Form Structure
 
@@ -41,6 +44,7 @@ Understand the form's purpose and context:
 - Sentence case is easier to read than Title Case
 - Be specific: "Card number" not "Payment info"
 - Helper text should explain format requirements, not repeat the label
+- Before adding helper text, ask whether input type, width, placeholder example, prefix/suffix, default, or grouping can make the field self-evident
 
 ### Input design
 
@@ -48,6 +52,7 @@ Understand the form's purpose and context:
 - Use the appropriate input type (`type="email"`, `type="tel"`, `type="date"`) for better browser keyboards, autofill, and validation hints
 - Show formatting hints as the user types (credit card spacing, phone number grouping)
 - Autofill-friendly: use standard `name` and `autocomplete` attributes
+- Use field-specific affordances: email typo suggestions, phone country handling, searchable selects for long option lists, radio buttons for fewer than five choices, and expandable textareas for longer messages
 - Normalize browser autofill visuals when custom input surfaces are dark, translucent, or heavily branded. Use Tailwind utilities for the normal field state first, then add a small CSS layer for browser pseudo-classes that Tailwind cannot express cleanly:
 
 ```css
@@ -86,6 +91,18 @@ Break long forms into steps when:
 - Allow navigation back to previous steps
 - Preserve entered data if the user leaves and returns
 - Validate each step before allowing progression, but do not block navigation backward
+
+### Conversion-sensitive forms
+
+When a form captures a lead, demo request, quote request, application, or checkout intent:
+
+- put the value proposition immediately above or beside the form
+- state what happens after submit, including response time when relevant
+- start with low-friction fields such as email or name before sensitive fields
+- ask phone, company size, budget, or detailed requirements only when they materially improve follow-up
+- use progressive profiling for returning users instead of asking everything up front
+- add privacy assurance near sensitive fields, not buried in a footer
+- offer alternative contact paths when the form is high intent, such as chat, email, phone, or calendar booking
 
 ## Validation Strategy
 

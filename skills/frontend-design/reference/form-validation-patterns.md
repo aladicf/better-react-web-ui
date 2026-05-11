@@ -4,6 +4,35 @@ Use this reference when designing validation behavior for forms: when to validat
 
 If the project already uses a mature form library, keep its baseline validation timing, error display, and accessibility behavior first. Use this reference mainly to decide validation strategy, error copy, placement, and recovery design.
 
+For conversion-sensitive forms such as lead capture, contact, demo request, quote, application, survey, or checkout forms, validation is only part of the problem. Also measure field friction, field necessity, and post-submit confidence.
+
+## Form Conversion Baseline
+
+Before redesigning a form for completion rate, identify:
+
+- form type and promise: what does the user get by submitting?
+- current field count and required field count
+- current completion rate and mobile vs desktop split
+- first field focus rate
+- field-level abandonment
+- validation errors by field
+- average time to complete
+- what happens with each field after submission
+
+Every field has a cost. If a field is not needed to route, qualify, fulfill, or personalize the next step, remove it or ask later.
+
+Useful instrumentation events:
+
+- `form_viewed`
+- `form_started`
+- `field_completed`
+- `field_error`
+- `submit_attempted`
+- `submit_succeeded`
+- `submit_failed`
+
+Do not track sensitive field values. Track field names, state, error types, and completion timing.
+
 ## When to Validate
 
 ### Reward early, punish late
@@ -33,6 +62,49 @@ The timing of validation affects how users feel about the form.
 2. **Touched state**: User has focused and left the field — validate on blur
 3. **Active state**: User is editing — show inline validation only for clearly recoverable errors (password strength, format hints)
 4. **Submitted state**: Full validation across all fields, summary at the top
+
+## Field-by-Field Optimization
+
+### Email
+
+- use one email field, not confirm-email duplication
+- set `type="email"` and `autocomplete="email"`
+- suggest common domain typo fixes when possible
+- validate on blur and again on submit
+
+### Name
+
+- use one `Name` field unless downstream systems truly need separate first and last names
+- set `autocomplete="name"` for one field or `given-name` / `family-name` for split fields
+
+### Phone
+
+- make optional unless voice or SMS contact is genuinely part of fulfillment
+- explain why the number is needed when required
+- use `type="tel"` and country handling when users may be international
+- avoid format punishment while the user is typing
+
+### Company and role
+
+- infer company from email domain or enrichment when acceptable
+- use searchable comboboxes only when the option set is large
+- keep role free text when categories are vague or incomplete
+
+### Message or comments
+
+- make optional unless the message is the product of the form
+- set a reasonable visible height and expand on focus for longer answers
+- use character guidance only when there is a real limit or useful prompt
+
+### Selects, radio groups, and checkboxes
+
+- use radio buttons for fewer than five mutually exclusive choices
+- use native `select` or searchable combobox for long lists
+- include `Other` with a text field only when options will miss real cases
+- make checkbox labels parallel and specific
+- use `fieldset` and `legend` for grouped choices
+
+React/Tailwind note: short option sets are often clearer as stacked labels with `has-[:checked]` styling than as compact dropdowns, especially on mobile.
 
 ## Error Message Placement
 

@@ -127,6 +127,17 @@ Three tiers remain the clearest default for many products because they create an
 
 More tiers create more precision only if the buyer can quickly tell why each tier exists.
 
+### Tier structure sanity check
+
+Each tier should have a distinct job:
+
+- entry tier lowers adoption friction
+- recommended tier captures the common serious buyer
+- premium tier captures advanced scale, governance, support, or customization needs
+- enterprise tier exists only when procurement, security, implementation, or contract requirements truly change
+
+If two tiers target the same persona with tiny feature differences, merge them or make the distinction meaningful.
+
 ## Packaging Strategies
 
 Different products need different differentiation levers. Common ones include:
@@ -145,6 +156,20 @@ Use packaging that matches how value actually expands.
 - enterprise-specific procurement and governance features stay out of the entry tier
 
 Do not gate features that users reasonably expect as basic hygiene unless you can clearly explain why.
+
+### Persona-to-package mapping
+
+Before designing plan cards, map tiers to buyer segments:
+
+| Persona question | UI implication |
+| --- | --- |
+| What size is this customer? | plan labels, seat limits, support expectations |
+| What use case matters most? | benefit bullets and proof per tier |
+| How sophisticated are they? | advanced controls vs guided simplicity |
+| What budget norm do they expect? | monthly, annual, custom, or usage framing |
+| What buying process do they have? | self-serve checkout vs demo/contact-sales CTA |
+
+The pricing page should let buyers self-identify fast. If users must read every row to know which plan is for them, the package story is weak.
 
 ## Packaging for Personas
 

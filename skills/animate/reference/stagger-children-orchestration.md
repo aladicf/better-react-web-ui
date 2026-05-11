@@ -4,6 +4,8 @@ Sequential child reveals can make a list or grouped surface feel more intentiona
 
 Use a small stagger so the motion reads as one orchestrated entrance rather than a slow domino effect.
 
+For Tailwind-first React implementation, choreography tokens, capped stagger patterns, and related list/modal/route sequencing guidance, consult [motion choreography](../../frontend-design/reference/motion-choreography.md).
+
 ```tsx
 const container = {
   hidden: { opacity: 0 },

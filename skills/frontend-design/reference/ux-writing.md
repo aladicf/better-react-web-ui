@@ -24,6 +24,20 @@ For editing existing copy in structured passes rather than rewriting from scratc
 - "Delete" not "Remove" (delete is permanent, remove implies recoverable)
 - "Delete 5 items" not "Delete selected" (show the count)
 
+## UX Writing Process
+
+Good UX writing starts from user context, not word polish.
+
+Before rewriting interface copy, identify:
+
+- who is reading this
+- what they are trying to do
+- what they already know from the UI state
+- what they need to decide or fix now
+- what tone fits the moment: routine, blocked, risky, successful, or sensitive
+
+React/Tailwind implementation rule: copy and component state should agree. If a button says `Save changes`, the loading label should say `Saving changes...`, the success state should confirm `Changes saved`, and the error should explain why saving failed. Do not let each state invent a different vocabulary.
+
 ## Error Messages: The Formula
 
 Every error message should answer: (1) What happened? (2) Why? (3) How to fix it? Example: "Email address isn't valid. Please include an @ symbol." not "Invalid input".
@@ -72,6 +86,35 @@ Empty states are onboarding moments: (1) Acknowledge briefly, (2) Explain the va
 | Destructive confirm | Serious, clear: "Delete this project? This can't be undone." |
 
 **Never use humor for errors.** Users are already frustrated. Be helpful, not cute.
+
+## Emotional Content Without Manipulation
+
+Emotional copy should help users feel understood, capable, and informed. It should not pressure them, flatter them into risky action, or hide tradeoffs.
+
+Good emotional content starts with user research:
+
+- what stress, doubt, hope, or urgency exists at this moment?
+- what outcome does the user care about?
+- what language do users use for the problem?
+- what proof or visual context would make the promise believable?
+
+React/Tailwind surface rules:
+
+- pair emotional copy with the right component state: success copy in success states, reassurance in loading states, consequence-first language in destructive states
+- keep tone variants in reusable components so `Alert`, `Toast`, `EmptyState`, and `Dialog` do not invent incompatible personalities
+- use testimonials, user-generated content, screenshots, or case evidence near emotional claims when credibility matters
+- keep humour optional, rare, and out of high-friction recovery moments
+- make emotional moments accessible: no meaning hidden only in an image, animation, color, or idiom
+
+Weak:
+
+- `You're amazing! Upgrade now to unlock your destiny.`
+
+Stronger:
+
+- `Your first report is ready. Upgrade to export it as a PDF and share it with your team.`
+
+The second version still creates motivation, but it names the concrete value instead of pushing vague emotion.
 
 ## Prefer active voice and strong verbs
 
@@ -170,6 +213,27 @@ Build a terminology glossary and enforce it. Variety creates confusion.
 If the heading explains it, the intro is redundant. If the button is clear, don't explain it again. Say it once, say it well.
 
 If a sentence exists only to point out a UI element users should already understand visually, the design may need work more than the copy does.
+
+## Contextual Help Beats Global Instructions
+
+Put guidance where the question appears.
+
+Prefer:
+
+- field-level helper text for format, privacy, consequence, or unusual requirements
+- tooltips only for short secondary clarification
+- inline examples for inputs with strict format
+- empty-state copy that explains the value and offers one action
+- error text next to the failed object
+
+Avoid:
+
+- long setup paragraphs above forms
+- helper text under every field because the layout feels thin
+- tooltips that contain required instructions
+- copy that says `click`, `tap`, `below`, or `above` when responsive layout may move the control
+
+Action-oriented language should name the user's next step, not shout at them. `Import contacts` beats `Get started` when the next step is importing contacts.
 
 ## Loading States
 

@@ -51,6 +51,7 @@ Analyze what's weak or generic about the current type:
 Consult the [typography reference](../frontend-design/reference/typography.md) from the frontend-design skill for detailed guidance on scales, pairing, loading strategies, and font-selection heuristics.
 Consult the [text hierarchy and readability](../frontend-design/reference/text-hierarchy-and-readability.md) for line length, line-height, alignment, baseline, label/value handling, semantic-vs-visual hierarchy, link emphasis, and numeric alignment.
 Consult the [hierarchy checklist](../frontend-design/reference/hierarchy-checklist.md) when typography problems are really hierarchy problems in disguise.
+When changing web fonts in React or Tailwind projects, use the typography reference sections on framework font loading, fallback metrics, OpenType utilities, variable font axes, and font payload budgets before adding new font files.
 
 Treat the shared text hierarchy/readability reference as the common source for reading comfort and text-structure rules, then apply the typography-specific changes here.
 
@@ -61,6 +62,8 @@ Create a systematic plan:
 - **Weight strategy**: Which weights serve which roles? (Regular for body, Semibold for labels, Bold for headings — or whatever fits)
 - **Spacing**: Line-heights, letter-spacing, and margins between typographic elements
 - **Schema**: Are the typography roles documented clearly enough that future screens can stay consistent?
+- **Loading and performance**: Are fonts subset, preloaded by the framework when available, and safe from layout shift?
+- **OpenType and numerals**: Do data-heavy components need `tabular-nums`, lining numerals, disabled code ligatures, or other font features?
 
 ## Improve Typography Systematically
 

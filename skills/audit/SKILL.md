@@ -22,6 +22,7 @@ Consult the [semantic color](../frontend-design/reference/semantic-color.md) whe
 Consult the [surface separation](../frontend-design/reference/surface-separation.md) when checking whether borders, shadows, cards, overlap, and background shifts are being used intentionally.
 Consult the [image treatment](../frontend-design/reference/image-treatment.md) when screenshots, icons, or media handling affect usability or polish.
 Consult the [accessibility testing](../frontend-design/reference/accessibility-testing.md) when integrating automated checks (axe, WAVE, Pa11y) into the audit workflow or CI pipeline.
+Consult the [React and Tailwind implementation review](../frontend-design/reference/react-tailwind-implementation-review.md) when checking code-level accessibility, focus states, forms, motion, content resilience, navigation state, safe areas, localization, and hydration safety.
 
 Still, when the implementation clearly violates the shared design system or obvious Refactoring UI principles — weak hierarchy, arbitrary spacing, gray text on color, every button styled as primary — call it out as an implementation issue, not a matter of taste.
 
@@ -57,6 +58,8 @@ Run comprehensive checks across 5 dimensions. Score each dimension 0-4 using the
 - **Missing optimization**: Images without lazy loading, unoptimized assets, missing will-change
 - **Bundle size**: Unnecessary imports, unused dependencies
 - **Render performance**: Unnecessary re-renders, missing memoization
+- **Hydration safety**: Client-only dates, uncontrolled/controlled input mismatches, unnecessary `suppressHydrationWarning`
+- **Large list handling**: Unvirtualized repeated lists or missing containment where list size makes rendering costly
 
 **Score 0-4**: 0=Severe issues (layout thrash, unoptimized everything), 1=Major problems (no lazy loading, expensive animations), 2=Partial (some optimization, gaps remain), 3=Good (mostly optimized, minor improvements possible), 4=Excellent (fast, lean, well-optimized)
 
@@ -76,6 +79,7 @@ Run comprehensive checks across 5 dimensions. Score each dimension 0-4 using the
 
 **Check for**:
 - **Fixed widths**: Hard-coded widths that break on narrow viewports
+- **Viewport height bugs**: `h-screen` or `100vh` page sections that jump or clip content on mobile browser chrome
 - **Coarse-pointer targets**: Interactive elements < 44x44px
 - **Horizontal scroll**: Content overflow on narrow viewports
 - **Text scaling**: Layouts that break when text size increases

@@ -55,13 +55,7 @@ That especially applies to:
 - error states and recovery paths
 - permission or admin surfaces
 
-Glass, soft UI, clay, brutalist accents, 3D, and other louder treatments can work well on hero sections, proof cards, feature spotlights, or campaign moments. They usually work worse when every surface uses the same effect at full intensity.
-
-### Do not use these directions in this library
-
-Do not propose or generate retro, synthwave, cyber, terminal, or generic futuristic-neon directions in broad or default style selection.
-
-This library is for strong web design direction, not nostalgia theater or HUD cosplay. Tiny mercy, big results.
+Louder visual treatments can work well on hero sections, proof cards, feature spotlights, or campaign moments. They usually work worse when every surface uses the same effect at full intensity.
 
 ## How to choose a direction
 
@@ -99,7 +93,6 @@ Do not combine multiple loud directions at full strength.
 Examples of good combinations:
 
 - Swiss + Frost UI accents
-- Minimalism + Mesh Gradients
 - Editorial + restrained Glass hero treatment
 - Bento + Outline / Skeletal detail language
 - Organic + soft gradients and rounded surfaces
@@ -110,7 +103,6 @@ Examples of good combinations:
 
 Examples of bad combinations:
 
-- Glass + Clay + Neumorphism + 3D all fighting for every card
 - Neo-brutal borders plus luxury-editorial typography plus soft organic blobs with no unifying logic
 
 ## Approved structural directions
@@ -219,7 +211,7 @@ Examples of bad combinations:
 
 **Works best when:** users need speed, confidence, and no-nonsense wayfinding.
 
-**Use carefully:** utilitarian does not mean ugly by default. It should feel disciplined and dependable, not like a lazy terminal cosplay or unfinished wireframe.
+**Use carefully:** utilitarian does not mean ugly by default. It should feel disciplined and dependable, not like an unfinished wireframe.
 
 **Pull back when:** the brand depends on emotional warmth, aspiration, or expressive storytelling.
 
@@ -239,11 +231,11 @@ Examples of bad combinations:
 
 **Use for:** home and furniture brands, editorial products, lifestyle businesses, design-forward consumer products, or warm modern brands that want optimism without generic minimalism.
 
-**Signals:** clean lines, warm retro-inspired color families, organic geometry, restrained pattern, modernist optimism, approachable typography.
+**Signals:** clean lines, warm color families, organic geometry, restrained pattern, modernist optimism, approachable typography.
 
 **Works best when:** you want warmth and personality with strong compositional order.
 
-**Use carefully:** use Mid-Century as warm modernism, not as a cue to slide into broad retro nostalgia. Keep the shapes and palette disciplined.
+**Use carefully:** use Mid-Century as warm modernism with disciplined shapes and palette.
 
 **Pull back when:** the product needs ultra-contemporary sharpness or highly conservative trust language.
 
@@ -256,7 +248,7 @@ For surface treatments, depth systems, typographic-led modifiers, and motion-led
 When the prompt is broad and the product idea does not strongly suggest something else:
 
 - default toward **Minimalism**, **Swiss Style**, **Editorial Style**, **Bento**, **Flat**, **Organic**, **Japandi**, **Bauhaus**, **Utilitarian**, or **Wabi Sabi** depending on the audience and content
-- use **Glassmorphism**, **Frost UI**, **Mesh Gradients**, **Outline / Skeletal UI**, **Neo-Brutalism**, **Claymorphism**, **Neumorphism**, **3D UI**, **Bold Typography**, **Luxury Typography**, **Modular Typography**, or **Motion Design and Animation** as selective modifiers when the brand truly supports them
+- use **Frost UI**, **Outline / Skeletal UI**, **Neo-Brutalism**, **3D UI**, **Bold Typography**, **Luxury Typography**, **Modular Typography**, or **Motion Design and Animation** as selective modifiers when the brand truly supports them
 
 ## Recommended output language for style selection
 

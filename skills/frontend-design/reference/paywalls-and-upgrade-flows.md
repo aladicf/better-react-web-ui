@@ -203,13 +203,19 @@ Paywalls are product surfaces, so experimentation should test both value communi
 Useful experiment themes:
 
 - trigger timing
+- hard gate vs soft gate
+- feature gate vs usage-limit prompt
+- modal vs dedicated upgrade page vs inline banner
 - headline and benefit framing
 - feature emphasis
 - monthly vs annual presentation
+- single recommended plan vs plan comparison
 - value preview format
+- personalized usage summary
 - trial length and reminder cadence
 - upgrade path length
 - dismissal treatment
+- frequency cap and cooldown duration
 
 Track more than click-through:
 
@@ -219,6 +225,37 @@ Track more than click-through:
 - revenue per exposed user or account
 - short-term churn or refund signals
 - annoyance or abandonment behavior after exposure
+
+### Personalization experiments
+
+Use personalization only when the data is reliable enough to improve relevance.
+
+Good variants:
+
+- show usage stats such as `You created 9 of 10 projects`
+- highlight the premium feature the user attempted to use
+- recommend a plan based on seats, records, usage, or role
+- vary proof by segment, such as solo creator vs team admin
+- offer team-oriented upgrade copy after invite or collaboration intent
+
+Avoid:
+
+- creepy personalization based on opaque tracking
+- pretending a plan is personalized when it is just the default upsell
+- showing high-pressure loss copy to low-engagement users who have not seen value
+
+### Trial and expiration experiments
+
+Test:
+
+- 7, 14, and 30 day trial lengths based on product complexity
+- full-access trial vs limited trial
+- trial countdown always visible vs only near expiration
+- grace period after trial end vs immediate downgrade
+- trial extension for engaged users who have not reached value
+- reminder timing at 7, 3, and 1 day before expiration
+
+Trial-expiration UI should summarize what the user accomplished and what changes next. Do not make expiration feel like a trap.
 
 ## Anti-Patterns
 

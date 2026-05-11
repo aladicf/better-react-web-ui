@@ -16,6 +16,20 @@ Name by relationship (`--space-sm`, `--space-lg`), not value (`--spacing-8`). Us
 
 Use `repeat(auto-fit, minmax(280px, 1fr))` for responsive grids without breakpoints. Columns are at least 280px, as many as fit per row, leftovers stretch. For complex layouts, use named grid areas (`grid-template-areas`) and redefine them at breakpoints.
 
+### Rule of Thirds as a Composition Tool
+
+Use rule-of-thirds thinking for hero sections, editorial layouts, feature narratives, gallery/detail pages, and image-led product pages where one focal point needs to guide attention.
+
+Practical React/Tailwind patterns:
+
+- build wide compositions with `grid-cols-12`; thirds map cleanly to `col-span-4` regions and focal bands
+- place the headline, primary CTA, product crop, person gaze, or proof point near a third-line or intersection when it strengthens the scan path
+- use `object-position` utilities or arbitrary values such as `object-[65%_40%]` to keep the meaningful image subject near a focal third
+- let responsive variants change the composition instead of forcing a wide third-grid onto narrow screens
+- reserve center alignment for simple, minimal, or ceremonial moments where off-center composition would add noise
+
+Do not treat thirds as law. Data-heavy dashboards, dense forms, tables, and operational tools usually need alignment, density, and stable scanning more than photographic composition. If the grid makes the task slower, drop it.
+
 ## Visual Hierarchy
 
 ### The Squint Test

@@ -79,6 +79,8 @@ Primary and frequent actions should be large enough, close enough, and separated
 - Place the next likely action near the content or cursor/focus location that leads to it
 - Separate destructive actions from high-frequency safe actions so slips are less likely
 - In compact coarse-pointer layouts, keep important actions within comfortable reach instead of pinning everything to the top edge
+- in Tailwind, separate glyph size from target size: `size-4` or `size-5` on the icon can live inside a `min-h-11 min-w-11` button
+- when density is required, let rows or wrappers provide activation area instead of shrinking the interactive target itself
 
 ### Good tradeoffs
 

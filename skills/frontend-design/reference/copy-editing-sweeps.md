@@ -124,6 +124,8 @@ Then do one final quick loop across the earlier sweeps.
 
 When a full seven-sweep edit is overkill, run these faster checks.
 
+Use quick passes for small interface edits, old landing-page sections, settings copy, release notes, and component labels. Do not use quick passes to pretend that weak positioning is only a wording problem.
+
 ### Word-level cuts
 
 Usually remove:
@@ -142,18 +144,54 @@ Usually replace:
 - `things` → something concrete
 - `stuff` → something concrete
 
-### Common replacements
+### Plain-English replacements
 
-| Weak | Stronger |
+Prefer words users already understand. This matters more inside React components where labels, alerts, and cards have limited space.
+
+| Weak or stiff | Stronger |
 | --- | --- |
+| accelerate | speed up |
+| additional | more |
+| approximately | about |
+| commence | start |
+| concerning | about |
+| currently | now, or delete it |
+| demonstrate | show |
+| discontinue | stop |
+| due to the fact that | because |
+| enable | allow |
+| ensure | make sure |
+| facilitate | help |
+| following | after |
+| frequently | often |
+| in order to | to |
+| in relation to | about |
+| in the event of | if |
+| numerous | many |
+| obtain | get |
+| prior to | before |
+| purchase | buy |
+| regarding | about |
+| retain | keep |
+| select | choose |
+| terminate | end |
 | utilize | use |
 | implement | set up |
 | leverage | use |
-| facilitate | help |
 | innovative | new |
 | robust | strong |
 | seamless | smooth |
 | cutting-edge | modern |
+
+Delete phrases that add no meaning:
+
+- `a total of`
+- `at this moment in time`
+- `basically`
+- `it should be understood`
+- `of course`
+- `the fact of the matter is`
+- `to all intents and purposes`
 
 ### Sentence checks
 
@@ -167,6 +205,29 @@ Usually replace:
 - one topic per paragraph
 - strong opening sentence
 - enough white space to scan
+
+### Component-fit checks
+
+Copy edits are not done until the edited text still fits the UI.
+
+Check React/Tailwind surfaces for:
+
+- button labels that stay readable at mobile widths
+- card titles that survive real product names, plan names, and translated strings
+- alerts that do not wrap into awkward walls
+- table headers that remain scannable in dense grids
+- empty states that keep one primary action instead of becoming mini landing pages
+- tooltip text that stays short enough for hover, focus, and touch fallback patterns
+- CTA copy that matches loading, success, and error states
+
+Tailwind implementation moves:
+
+- use `min-w-0`, `truncate`, `line-clamp-*`, or wrapping deliberately instead of hoping copy stays short
+- avoid fixed-height cards when marketing text can grow
+- test edited copy with realistic long names and narrow containers
+- keep icon-only actions backed by `aria-label` text that names the action and object
+
+If stronger copy breaks the component, fix the component. Do not weaken important meaning just to satisfy brittle layout.
 
 ## Editing Checklist
 
@@ -213,6 +274,78 @@ Fix by adding proof, privacy clarity, reliability cues, and support visibility.
 ### Buried CTA
 
 Fix by making the next step obvious early and repeating it after major arguments when appropriate.
+
+## Content Refresh Pass
+
+Use this when editing existing published product or marketing surfaces rather than new copy.
+
+Refresh triggers:
+
+- traffic, activation, conversion, or search performance has declined
+- product names, pricing, features, screenshots, or integrations changed
+- stats, examples, or customer proof are more than 12 months old
+- competitors changed their positioning or comparison claims
+- brand voice has drifted since the content shipped
+
+Refresh sequence:
+
+1. **Freshness**: update dates, product screenshots, feature names, pricing, plan names, and examples.
+2. **Accuracy**: verify claims, links, integrations, supported frameworks, and billing or legal language.
+3. **Voice**: align older copy with current brand and product maturity.
+4. **Search intent**: check whether the page still answers the query or job that brings users there.
+5. **Proof**: replace stale proof with newer testimonials, numbers, logos, case studies, or screenshots.
+6. **Structure**: add comparison tables, FAQs, scannable sections, or tighter visual grouping when the current page is hard to scan.
+
+Refresh vs rewrite:
+
+| Signal | Action |
+| --- | --- |
+| Core message still works, details are stale | Refresh |
+| Product changed but audience stayed same | Refresh plus voice and proof pass |
+| Audience, offer, or page job changed | Rewrite |
+| Layout no longer supports current search intent | Rewrite structure, then edit copy |
+| Only stats, links, or screenshots are stale | Light refresh |
+
+Cadence defaults:
+
+- pricing and product pages: quarterly or whenever features/pricing change
+- comparison and alternatives pages: every 3-6 months
+- high-traffic guides: every 6 months
+- evergreen docs and low-traffic pages: annually or when data shows decay
+
+React/Tailwind refresh checks:
+
+- update screenshots or product imagery together with the copy so page evidence does not contradict current UI
+- check responsive wrapping after replacing old short claims with newer specific proof
+- keep `Last updated` or freshness metadata near content where currency matters
+- use stable data sources for numbers where possible instead of hardcoding stale claims across components
+
+## Expert Panel Gate
+
+Use this after the seven sweeps for high-stakes copy: homepage hero, pricing page, launch page, checkout, upgrade prompt, cancellation flow, enterprise contact page, marketplace listing, or product onboarding.
+
+Pick 3-5 lenses, score each 1-10, then fix the lowest score first.
+
+Useful lenses:
+
+- conversion copywriter: benefit hierarchy, CTA strength, objection handling
+- UX writer: scannability, component fit, state clarity, cognitive load
+- target customer: relevance, trust, motivation, objections
+- brand strategist: voice, positioning, category fit
+- accessibility reviewer: plain language, readable structure, keyboard and screen reader text
+- SEO/content reviewer: search intent, freshness, headings, useful answers
+
+Scoring:
+
+| Score | Meaning |
+| --- | --- |
+| 9-10 | publish-ready |
+| 7-8 | strong, minor edits |
+| 5-6 | functional but weak |
+| 3-4 | major gaps |
+| 1-2 | wrong direction |
+
+Do not treat persona scoring as theater. If every imaginary expert loves everything, the review is useless.
 
 ## Collaborative Editing Pattern
 

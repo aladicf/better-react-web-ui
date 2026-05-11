@@ -6,12 +6,56 @@ Format follows [Keep a Changelog](https://keepachangelog.com/) with Added / Chan
 
 ## [Unreleased]
 
+## [3.1.0] - 2026-05-11
+
+### Added
+
+- **New subscription retention UX reference.** `subscription-retention-ux.md` covers React/Tailwind cancellation flows, exit surveys, pause and downgrade alternatives, failed-payment recovery banners, grace-period states, reactivation paths, trust guardrails, and instrumentation for subscription products.
+- **New conversion experimentation reference.** `conversion-experimentation.md` covers React/Tailwind CRO experiment planning for pages, onboarding, pricing, forms, feature pages, behavioral models, metrics, guardrails, and backlog structure.
+- **New interruptive conversion surfaces reference.** `interruptive-conversion-surfaces.md` covers React/Tailwind popups, modals, slide-ins, sticky bars, announcement bars, triggers, frequency rules, accessibility, mobile constraints, and measurement.
+- **New referral and sharing UX reference.** `referral-and-sharing-ux.md` covers React/Tailwind referral loops, share mechanisms, referral dashboards, affiliate UI, referred-user landing pages, fraud guardrails, and referral metrics.
+- **New search engine content UX reference.** `search-engine-content-ux.md` covers React page-level SEO, framework metadata, indexability, structured data, freshness, performance, and AI-sounding copy checks.
+- **New React and Tailwind implementation review reference.** `react-tailwind-implementation-review.md` covers code-level accessibility, focus states, forms, animation, content resilience, images, performance, URL state, safe areas, theming, i18n, and hydration safety.
+- **Expanded copy editing sweeps.** `copy-editing-sweeps.md` now adds plain-English replacement guidance, content refresh cadence, expert-panel review gates, and React/Tailwind component-fit checks for edited copy.
+- **Expanded marketing and form conversion guidance.** `marketing-copywriting.md`, `forms/SKILL.md`, and `form-validation-patterns.md` now add React/Tailwind page-structure templates, conversion-sensitive form assessment, field-level analytics, and field-by-field optimization guidance.
+- **Expanded onboarding and behavioral design guidance.** `onboarding-ux.md` and `behavioral-design.md` now include activation experiment themes, measurement guidance, and ethical behavioral model diagnosis for React/Tailwind product flows.
+- **Expanded paywall and pricing guidance.** `paywalls-and-upgrade-flows.md` and `pricing-and-packaging.md` now add paywall experiment variants, personalization guardrails, trial-expiration tests, tier sanity checks, and persona-to-package mapping.
+- **Expanded authentication and signup guidance.** `authentication-and-account-recovery.md` now includes signup conversion defaults, deferrable fields, verification states, and signup measurement guidance.
+- **Expanded audit and AI-slop guidance.** `audit/SKILL.md` and `ai-slop-detection.md` now include implementation-review routing, hydration and viewport checks, redesign upgrade priority, and common strategic omissions.
+
+### Changed
+
+- **Removed discouraged style-name guidance.** `design-directions.md`, `expressive-directions.md`, and related skill references no longer recommend or enumerate the removed novelty style names.
+- **Repository version metadata bumped to `3.1.0`.** This is a minor release for the new React/Tailwind references and guidance expansions documented above.
+
+## [3.0.0] - 2026-05-11
+
+### Added
+
+- **New React/Tailwind interaction and motion references.**
+  - `linear-easing-patterns.md` covers linear easing for smoother CSS motion.
+  - `motion-choreography.md` covers sequencing, timing, and attention control across related UI motion.
+  - `micro-interactions.md` now includes trigger/rules/feedback/loop anatomy, React `data-state` examples, implementation steps, accessibility checks, and anti-patterns for state-free Tailwind animation.
+- **New copy and self-evidence references.**
+  - `natural-copy-transitions.md` covers section-to-section copy flow, question bridges, evidence transitions, CTA bridges, and AI-tell phrases to avoid.
+  - `self-evident-interface.md` covers React/Tailwind patterns for replacing explanatory copy with clearer structure, defaults, constraints, inline examples, feedback, and intuitive UI checks.
+- **New emotional UX guidance.** `personality-levers.md` now defines emotional intent, the functionality/reliability/usability/personality stack, risk-based tone fit, and React/Tailwind token mapping for calm, playful, confident, and restrained experiences.
+- **New dark-mode token guidance.** `color-and-contrast.md` now documents paired dark-mode tokens, OKLCH examples, Tailwind token utilities, contrast checks, semantic state testing, and dark-mode depth alternatives.
+- **New visual storytelling and composition guidance.** `spatial-design.md` covers rule-of-thirds composition for image-led layouts; `image-treatment.md` covers story-driven image selection, crop survival, caption/callout placement, and media rhythm.
+- **New behavioral and cognitive UX guidance.** `behavioral-design.md` now includes ethical gamification guardrails; `cognitive-load.md` now includes React/Tailwind decision-point patterns and Parkinson's Law workflow guidance.
+- **New iconography, Gestalt, and target-acquisition guidance.** `component-anatomy.md`, `spacing-system.md`, and `interaction-design.md` now cover icon systems, accessible icon-only controls, proximity/similarity/common-region grouping, and Tailwind target sizing.
+- **New UX writing guidance.** `ux-writing.md` now covers user-context writing, component-state vocabulary consistency, contextual help placement, emotional content without manipulation, and accessible emotional messaging.
+- **New typography, marketing copy, and Tailwind motion guidance.** Existing typography, marketing, view-transition, and Tailwind/WAAPI references were expanded with practical React/Tailwind-specific rules for production surfaces.
+
 ### Changed
 
 - **Project scope converted to `better-react-web-ui`.** The library now targets React-based web projects only: React, Next.js, React Router, TanStack Start, Vite React, and Astro with React islands.
 - **Styling guidance is now Tailwind-only.** Documentation and skill guidance now route styling decisions through Tailwind utilities, Tailwind theme variables, Tailwind-compatible keyframes, and React/browser APIs instead of alternative styling systems.
 - **Component guidance is now shadcn-oriented.** Defaults and references now focus on `shadcn/ui` and shadcn-compatible React component/block systems, including ReUI, shadcncraft, Kibo UI, Basecn, Tailark, shadcnblocks, React Bits, Animate UI, Magic UI, Motion Primitives, Animata, Efferd, Billing SDK, blocks.so, coss/ui, Better Auth UI, Smooth UI, TripleD UI, shadcn-map, mapcn, Consent Manager, c15t, and PatternCraft.
 - **Install guidance now defaults to Codex, Cursor, GitHub Copilot, and OpenCode.** README examples avoid the upstream interactive Universal group by documenting explicit `--agent codex --agent cursor --agent github-copilot --agent opencode` installs, and troubleshooting explains that the locked Universal list is owned by the upstream `skills` CLI.
+- **Core skills now route to richer shared doctrine.** `animate`, `clarify`, `distill`, `forms`, and `typeset` were updated to point agents toward the new or expanded references for motion, copy, self-evident UI, typography, forms, and React/Tailwind implementation details.
+- **Reference index expanded.** `frontend-design/reference/README.md` now surfaces the new motion, copy-flow, self-evident interface, dark-mode, composition, storytelling, and emotional UX references.
+- **Repository version metadata bumped to `3.0.0`.** This is a major release because public guidance, package identity, and defaults are now explicitly React + Tailwind rather than broad web UI guidance.
 
 ## [2.4.0] - 2026-04-25
 

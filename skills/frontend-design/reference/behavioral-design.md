@@ -149,6 +149,21 @@ Examples:
 - save, success, retry, and loading feedback
 - confirmation summaries after meaningful progress
 
+### Diagnose behavior before applying a model
+
+Psychology labels are useful only when they explain a real constraint in the flow.
+
+| Constraint | Useful model | Better UI move |
+| --- | --- | --- |
+| users do not start | activation energy | shorter first step, templates, prefilled defaults |
+| users stall near the end | goal-gradient effect | honest progress, visible steps left, resume path |
+| users cannot choose | Hick's law, paradox of choice | fewer options, recommended path, grouped choices |
+| users distrust the claim | availability heuristic, social proof | specific examples, proof near claim, case study |
+| users fear switching | status-quo bias, regret aversion | import path, undo, trial terms, data safety copy |
+| users abandon after small errors | fundamental attribution error | fix the situation before blaming motivation |
+
+If the model suggests fake urgency, hidden exits, or pressure that users would resent if explained plainly, reject it.
+
 ### Use affordances and constraints honestly
 
 Affordances should signal what the control is for. Constraints should reduce invalid or risky behavior without becoming hostile.
@@ -237,6 +252,33 @@ This can be useful, but it needs guardrails.
 - notifications that surface genuinely time-sensitive or human-relevant events
 - progress or completion signals that reinforce meaningful achievement
 - surprise only when it delights without destabilizing trust
+
+### Gamification must earn its place
+
+Bad gamification is usually lipstick on a weak task. Points, badges, streaks, levels, leaderboards, confetti, and challenges only help when they reinforce progress the user already values.
+
+Use gamified patterns when:
+
+- the task has meaningful progress or mastery
+- completion can be broken into small honest wins
+- rewards represent real user effort, learning, contribution, or saved time
+- participation is optional or easy to ignore
+- the tone fits the product category and risk level
+
+React/Tailwind implementation defaults:
+
+- model progress, badges, and streaks as real state, not visual-only decoration
+- use restrained badge, progress, and toast components that share semantic tokens with the rest of the design system
+- keep celebratory motion behind `prefers-reduced-motion` fallbacks
+- provide non-competitive alternatives when leaderboards could shame, discourage, or expose sensitive behavior
+- show why a reward was earned and what practical next step it unlocks
+
+Avoid:
+
+- awarding meaningless badges for trivial behavior
+- forcing game mechanics into banking, healthcare, security, admin, or high-stakes flows where trust matters more than play
+- using streak loss, fake scarcity, or social pressure to create anxiety
+- letting rewards become louder than the task itself
 
 ### Prompt cadence matters as much as prompt wording
 

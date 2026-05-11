@@ -53,6 +53,13 @@ When options multiply:
 
 If several options must remain visible, make the structure obvious enough that users can recognize the correct branch quickly instead of comparing every item one by one.
 
+In React and Tailwind implementations, do not dump every option into one permanently visible button row because it is easy to map an array. Model decision points deliberately:
+
+- primary options visible as real buttons or segmented controls
+- secondary options inside a menu, disclosure, or advanced section
+- destructive or rare options separated from high-frequency safe actions
+- repeated option sets rendered through one component variant so users can scan by pattern
+
 ## Progressive Disclosure Rules
 
 Show users what they need **now**, not everything the system can do.
@@ -168,6 +175,20 @@ Meaningful defaults help when they:
 - guide uncertain users toward a safe starting point
 
 Use defaults to remove low-value decisions, not to smuggle in product-favoring outcomes.
+
+## Parkinson's Law in Practice
+
+Tasks expand to match the time and friction the interface creates. If account setup, checkout, filtering, or item creation can be shorter without hiding consequences, shorten it.
+
+Good React/Tailwind moves:
+
+- collapse optional fields behind a clear disclosure instead of showing them as equal work
+- use browser autofill attributes, input modes, and sensible defaults
+- keep progress visible in multi-step flows so users know the remaining scope
+- preserve form and filter state across route changes when the user is likely to return
+- put review summaries near final actions so users do not re-scan previous steps from memory
+
+Do not speed up irreversible or high-stakes actions by removing review. Speed routine work; slow only the decisions where mistakes are expensive.
 
 ## Meaningful friction is rare and must earn its place
 

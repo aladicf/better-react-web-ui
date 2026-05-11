@@ -17,6 +17,8 @@ Consult the [error-recovery](../frontend-design/reference/error-recovery.md) ref
 Consult the [status communication](../frontend-design/reference/status-communication.md) reference when the wording touches notifications, alerts, badges, digests, reminders, or notification settings.
 Consult [marketing copywriting](../frontend-design/reference/marketing-copywriting.md) when the work touches headlines, landing pages, feature pages, onboarding promises, lifecycle messaging, marketplace listings, or CTA strategy.
 Consult [copy editing sweeps](../frontend-design/reference/copy-editing-sweeps.md) when improving existing copy through focused editing passes instead of rewriting it wholesale.
+Consult [natural copy transitions](../frontend-design/reference/natural-copy-transitions.md) when page sections feel choppy, over-signposted, or AI-written, or when copy needs better section-to-section flow.
+Consult [self-evident interface design](../frontend-design/reference/self-evident-interface.md) before adding helper copy or instructions to a routine React/Tailwind interface; often the better fix is structure, defaults, constraints, or inline feedback.
 
 ---
 
@@ -54,6 +56,10 @@ Use that shared text reference as the canonical source for label/value structure
 When the task is broader than interface microcopy, use [marketing copywriting](../frontend-design/reference/marketing-copywriting.md) to gather the right positioning context, choose stronger structure, and sharpen CTAs.
 
 When you are improving existing copy, run the [copy editing sweeps](../frontend-design/reference/copy-editing-sweeps.md) so changes happen in focused passes instead of one unfocused rewrite.
+
+When the copy feels disconnected between sections, use [natural copy transitions](../frontend-design/reference/natural-copy-transitions.md) to improve signposting, question bridges, evidence transitions, and CTA bridges without adding filler.
+
+When a UI needs lots of explanatory copy, first use [self-evident interface design](../frontend-design/reference/self-evident-interface.md) to decide whether layout, grouping, control choice, defaults, constraints, or previews should solve the confusion instead.
 
 - **Primary message**: What's the ONE thing users need to know?
 - **Action needed**: What should users do next (if anything)?

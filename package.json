@@ -1,6 +1,6 @@
 {
   "name": "better-react-web-ui",
-  "version": "2.4.0",
+  "version": "3.1.0",
   "private": true,
   "type": "module",
   "description": "Opinionated React and Tailwind frontend design Agent Skills package for AI coding agents.",
@@ -24,7 +24,7 @@
   "engines": {
     "node": ">=24.14.1 <25"
   },
-    "scripts": {
+  "scripts": {
     "check:node-version": "node ./scripts/check-node-version.mjs",
     "lint": "oxlint --deny-warnings scripts",
     "generate:wrappers": "node ./scripts/generate-wrappers.mjs",

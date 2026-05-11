@@ -10,6 +10,7 @@ Use view transitions when:
 - a list item expands into a detail view, and you want to morph between them
 - page navigations in a multi-page app should feel like a single-page app
 - you want shared-element transitions without managing FLIP animations manually
+- a layout mode change would otherwise make users lose track of the object they were reading or acting on
 
 Do not use view transitions when:
 
@@ -17,6 +18,7 @@ Do not use view transitions when:
 - users prefer reduced motion
 - the pages are unrelated and continuity would be confusing
 - you need to support browsers without a functional fallback
+- the interaction needs immediate confirmation and transition delay would make the product feel unresponsive
 
 ## Same-document transitions (SPA)
 
@@ -24,9 +26,13 @@ In a single-page app, call `document.startViewTransition()` before updating the 
 
 ```javascript
 function switchView(newContent) {
+  if (!document.startViewTransition) {
+    updateDOM(newContent);
+    return;
+  }
+
   document.startViewTransition(() => {
-    // Update DOM here
-    document.querySelector('.content').innerHTML = newContent;
+    updateDOM(newContent);
   });
 }
 ```
@@ -65,6 +71,8 @@ Assign `view-transition-name` to elements that should morph individually:
   view-transition-name: card-image; /* same name = morph */
 }
 ```
+
+Name only meaningful shared elements. Every named element creates another snapshot layer, so naming decorative children or whole dense lists can add memory cost and visual noise.
 
 During the transition, the browser creates pseudo-elements for each named view transition:
 
@@ -179,6 +187,7 @@ View transitions can create accessibility issues if not handled carefully:
 - **Screen readers**: the transition is visual. Ensure content changes are announced with ARIA live regions when the state change is meaningful
 - **Reduced motion**: always respect `prefers-reduced-motion`. Skip the transition or use an instant cross-fade
 - **Cognitive load**: excessive transitions between every page can be disorienting. Use them for related views, not every navigation
+- **Core interaction safety**: never block navigation, submission, closing, or focus restoration while waiting for transition effects
 
 ## Progressive enhancement
 
@@ -186,7 +195,9 @@ View transitions should never be required for functionality.
 
 ```javascript
 function switchView(newContent) {
-  if (!document.startViewTransition) {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduceMotion || !document.startViewTransition) {
     updateDOM(newContent);
     return;
   }
@@ -197,12 +208,15 @@ function switchView(newContent) {
 
 Without the API, the DOM updates instantly. With it, the update is wrapped in a transition.
 
+When reduced motion is requested, remove spatial travel. Keep the state change clear with an instant update, a very short opacity change, or a non-motion affordance such as focus movement, selected state, status text, or highlight.
+
 ## Performance
 
 - View transitions capture snapshots of the old and new states. Large or complex pages may have higher capture cost
 - Keep transitions short (200-400ms). Long transitions feel sluggish
 - Animating `transform` and `opacity` is cheapest. Avoid animating layout properties during transitions
 - Test on low-end devices. Snapshot-based transitions can be memory-intensive
+- Profile before and after adding named shared elements. Watch frame stability, long tasks, and layer count
 
 ## Browser support
 

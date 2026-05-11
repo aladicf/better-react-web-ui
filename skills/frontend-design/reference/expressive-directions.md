@@ -28,7 +28,7 @@ These are selective tools, not default shells. Start with a structural direction
 
 **Cost:** blur and transparency raise contrast, performance, and state-management complexity.
 
-**Do not:** make every card glass. If everything blurs, nothing stands out and the interface starts to feel slower and less legible. In this library, prefer restrained or neutral tinting over neon-futuristic glass defaults.
+**Do not:** make every card glass. If everything blurs, nothing stands out and the interface starts to feel slower and less legible. In this library, prefer restrained or neutral tinting.
 
 ### Frost UI (Soft Glass)
 
@@ -41,42 +41,6 @@ These are selective tools, not default shells. Start with a structural direction
 **Cost:** still requires careful contrast discipline, but usually cheaper and safer than full glassmorphism.
 
 **Do not:** treat it as permission to wash the whole interface in translucent haze.
-
-### Neumorphism (Soft UI)
-
-**Use for:** tactile control clusters, calculators, fintech or productivity controls, refined settings blocks, audio or wellness surfaces, and focused moments where soft physicality matters.
-
-**Signals:** extruded softness, inner and outer shadows, rounded forms, low-contrast relief, subtle pressed states, touchable-looking surfaces.
-
-**Best use:** small, selective controls or supportive panels where clarity and polish can coexist.
-
-**Cost:** low-contrast states and accessibility are easy to get wrong; dense screens become mushy fast.
-
-**Do not:** build whole product surfaces with nothing but soft shadows and same-tone panels. Start from clear flat hierarchy first, then add just enough relief to support tactility.
-
-### Claymorphism
-
-**Use for:** playful consumer brands, kids or family-friendly products, creative tools, event pages, or marketing moments that benefit from cheerful tactility.
-
-**Signals:** chunky softness, bright color, bulbous shapes, strong rounded forms, playful depth.
-
-**Best use:** illustrations, hero accents, feature highlights, or a small number of brand-defining surfaces.
-
-**Cost:** custom component work increases quickly and can become toy-like when the product needs trust or seriousness.
-
-**Do not:** force it onto serious, dense, or high-trust categories without a very good reason.
-
-### Mesh Gradients
-
-**Use for:** modern brand backdrops, hero sections, launch pages, and premium-feeling sites that need atmosphere without heavy component complexity.
-
-**Signals:** fluid color blending, soft shape fields, vibrant but diffused background energy.
-
-**Best use:** backgrounds and branding moments paired with clearer typography and layout.
-
-**Cost:** relatively low when used as a background; much riskier when combined with weak contrast or too many extra effects.
-
-**Do not:** stack mesh gradients with glow, blur, and noisy imagery all at once.
 
 ### Outline / Skeletal UI
 

@@ -18,6 +18,17 @@ The goal is to keep agents honest:
 
 Do not treat Motion as the default answer to every hover, opacity, or scale change.
 
+Choose the lightest mechanism that still explains the interaction:
+
+| Need | First mechanism | Why |
+| --- | --- | --- |
+| single element state change | Tailwind transition utilities | reversible, cheap, easy to inspect |
+| multi-step or repeated sequence | Tailwind keyframes | declarative timeline without React churn |
+| cancel, reverse, sync, or playback control | WAAPI | imperative control without a framework dependency |
+| route, DOM-swap, or list/detail continuity | View Transitions API | browser-managed snapshots and shared elements |
+
+If motion does not improve continuity, feedback, hierarchy, or focus guidance, cut it.
+
 ## When Tailwind utilities are usually enough
 
 Use Tailwind utilities for:
@@ -51,6 +62,18 @@ Useful Tailwind patterns:
 - `motion-reduce:*` variants for reduced motion
 - arbitrary values for `clip-path`, `transform-origin`, and custom timing when the design needs them
 
+Prefer Tailwind's individual transform utilities when independent states control independent channels:
+
+```html
+<div class="translate-y-2 scale-95 opacity-0 transition-[translate,scale,opacity] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] data-[state=open]:translate-y-0 data-[state=open]:scale-100 data-[state=open]:opacity-100">
+  ...
+</div>
+```
+
+Use a single arbitrary `transform-[...]` value only when transform order is intentionally coupled or the effect needs functions that Tailwind utilities do not expose cleanly.
+
+Do not use `translate3d()` as a reflexive GPU hack. Use 3D transforms only for real 3D/perspective behavior or after profiling shows a compositor win in a real bottleneck.
+
 Avoid `transition-all` when the moving properties are known. It is easy to ship accidental animation of layout, colors, shadows, filters, or future CSS changes. Be explicit:
 
 ```html
@@ -82,6 +105,37 @@ Example reduced-motion fallback:
   class="transition-transform transition-opacity duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transform-none motion-reduce:duration-200"
 ></div>
 ```
+
+## Tailwind-compatible easing tokens
+
+Use cubic-bezier tokens for most product motion. Use CSS `linear()` tokens when piecewise velocity control is useful, such as soft enter curves, crisp exits, controlled settle, or a brand-specific motion signature. Keep point counts readable, usually 4-8 points.
+
+For a fuller React and Tailwind token workflow with applied component examples, consult [linear easing patterns](./linear-easing-patterns.md).
+
+Tailwind v4 CSS-first theme example:
+
+```css
+@theme {
+  --ease-enter-soft: linear(0, 0.08 12%, 0.34 36%, 0.74 66%, 0.93 84%, 1);
+  --ease-exit-crisp: linear(0, 0.3 18%, 0.72 58%, 0.9 78%, 1);
+  --ease-settle-gentle: linear(0, 0.06 10%, 0.31 32%, 0.72 62%, 0.92 82%, 1);
+  --ease-emphasis-pop: linear(0, 0.38 20%, 0.88 62%, 1);
+}
+```
+
+Use the tokens through Tailwind utilities:
+
+```tsx
+<div className="translate-y-2 opacity-0 transition-[translate,opacity] duration-[180ms] ease-enter-soft data-[state=open]:translate-y-0 data-[state=open]:opacity-100 motion-reduce:translate-y-0">
+  ...
+</div>
+
+<button className="transition-transform duration-150 ease-emphasis-pop active:scale-[0.97] motion-reduce:transform-none">
+  Save
+</button>
+```
+
+If the project is on older Tailwind config, add the same values under `theme.extend.transitionTimingFunction` instead of inventing per-component arbitrary easing.
 
 ## When WAAPI is the better built-in option
 

@@ -42,7 +42,7 @@ For UI work, prefer fonts that are:
 When appropriate, strong modern defaults include:
 - **Geist Sans** for clean, modern UI and product surfaces
 - **Geist Mono** for technical accents, code, and data contexts where monospace is genuinely useful
-- **Geist Pixel** for playful, retro, or deliberately pixel-art directions where that personality is clearly intentional
+- **Geist Pixel** for playful or deliberately pixel-art directions where that personality is clearly intentional
 
 Use Geist thoughtfully:
 - Geist Sans works well as a primary UI sans
@@ -135,6 +135,23 @@ When pairing, contrast on multiple axes:
 
 **Never pair fonts that are similar but not identical** (e.g., two geometric sans-serifs). They create visual tension without clear hierarchy.
 
+Useful pairing shortcuts:
+
+- use one variable family first, then add a second family only when the brand needs real contrast
+- use a superfamily when harmony matters more than surprise, such as a sans plus matching serif from the same family
+- match x-height and apparent size between heading and body faces so the page does not feel like two unrelated systems
+- avoid pairing two attention-seeking display faces; one expressive voice is enough
+
+Broad font personality guide:
+
+| Need | Safer direction |
+| --- | --- |
+| formal, traditional, authoritative | serif or transitional serif |
+| modern, clean, technical | neutral sans |
+| friendly and approachable | humanist sans |
+| structured and tech-forward | geometric sans, used carefully |
+| editorial or long-form reading | readable serif with calm sans UI support |
+
 ### Weight Strategy Changes the message
 
 Font weight is not only a hierarchy tool.
@@ -214,6 +231,61 @@ body {
 ```
 
 Tools like [Fontaine](https://github.com/unjs/fontaine) calculate these overrides automatically.
+
+### React and framework font loading
+
+In React frameworks, use the framework font pipeline when it exists before hand-rolling font loading.
+
+For Next.js projects, prefer `next/font` because it self-hosts, subsets, preloads, and generates fallback metric adjustments for the installed app. Keep font setup close to the root layout so the same font variables are available to Tailwind classes throughout the app.
+
+Example pattern:
+
+```tsx
+import { Geist, Geist_Mono } from 'next/font/google';
+
+import './globals.css';
+
+const sans = Geist({
+  subsets: ['latin'],
+  variable: '--font-geist-sans',
+  display: 'swap',
+});
+
+const mono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-geist-mono',
+  display: 'swap',
+});
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
+      <body className="font-sans">{children}</body>
+    </html>
+  );
+}
+```
+
+Tailwind v4 token hookup:
+
+```css
+@theme {
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+```
+
+For Vite or plain React apps, use explicit `@font-face` with WOFF2, `font-display: swap`, and metric-compatible fallback overrides. Do not use CSS `@import` for production font loading because it blocks rendering and is harder to prioritize.
+
+Keep web font budgets boring:
+
+| Tier | Total font payload | Practical guidance |
+| --- | --- | --- |
+| fast product UI | under `100KB` | 1 variable family or 2-3 WOFF2 files |
+| balanced marketing page | `100-200KB` | primary family plus one display or mono accent |
+| rich editorial page | `200-400KB` | only when typography is a core part of the experience |
+
+Load only the subsets, weights, styles, and axes you actually use.
 
 ## Modern Web Typography
 
@@ -321,6 +393,59 @@ body { font-kerning: normal; }
 ```
 
 Check what features your font supports at [Wakamai Fondue](https://wakamaifondue.com/).
+
+In Tailwind and React, prefer readable utility classes when possible:
+
+```tsx
+<td className="text-right tabular-nums">$12,480.00</td>
+<time className="tabular-nums lining-nums">09:42</time>
+<abbr className="tracking-[0.08em] uppercase">API</abbr>
+<code className="font-mono [font-variant-ligatures:none]">user_id</code>
+```
+
+Use `font-feature-settings` only when no higher-level CSS property or Tailwind utility covers the feature. Raw feature tags are powerful, but they are easy to make opaque and font-specific.
+
+### Variable font axes
+
+Variable fonts can reduce file count and make typography more adaptable, but only when the chosen family has useful axes and the UI actually uses them.
+
+Common axes:
+
+| Axis | Tag | Useful for |
+| --- | --- | --- |
+| weight | `wght` | role weights without loading separate files |
+| width | `wdth` | tighter headings or responsive labels when supported |
+| slant | `slnt` | controlled oblique without separate italic files |
+| optical size | `opsz` | better rendering at caption, body, and display sizes |
+| grade | `GRAD` | dark mode or emphasis without changing layout width |
+
+Tailwind arbitrary property example:
+
+```tsx
+<p className="[font-variation-settings:'opsz'_16] text-base leading-7">
+  Body copy tuned for reading size.
+</p>
+```
+
+Prefer semantic tokens for repeated axis settings:
+
+```css
+@theme {
+  --font-grade-dark: 'GRAD' 40;
+}
+
+.dark {
+  --font-ui-grade: var(--font-grade-dark);
+}
+```
+
+```tsx
+<main className="[font-variation-settings:var(--font-ui-grade,normal)]">
+  ...
+</main>
+```
+
+Use grade for dark-mode compensation only if the font supports it. Otherwise, slightly increase text weight or line-height in dark themes. Do not blindly make all dark-mode text bold.
 
 ## Typography System Architecture
 

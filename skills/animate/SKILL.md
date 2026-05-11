@@ -20,6 +20,8 @@ Consult the [responsive design reference](../frontend-design/reference/responsiv
 Consult the [framework official docs reference](../frontend-design/reference/framework-official-docs.md) before making framework-specific animation decisions.
 Consult the [React shadcn accelerators reference](../frontend-design/reference/react-shadcn-accelerators.md) when the request overlaps with React toasts, drawers, text motion, or other UI patterns that already have strong accelerators.
 Consult the [Tailwind and WAAPI motion reference](../frontend-design/reference/css-tailwind-and-waapi-motion.md) to decide when Tailwind utilities, Tailwind-compatible keyframes, or WAAPI can solve the motion cleanly without reaching for a framework animation library.
+Consult the [linear easing patterns reference](../frontend-design/reference/linear-easing-patterns.md) when defining CSS `linear()` easing tokens, Tailwind motion tokens, React component motion examples, or View Transition easing.
+Consult the [motion choreography reference](../frontend-design/reference/motion-choreography.md) when orchestrating multi-element motion, staggered reveals, list insert/remove/reorder, modal stacks, drawer sequences, route choreography, or dense interaction flows.
 Consult the [scroll-driven animations reference](../frontend-design/reference/scroll-driven-animations.md) when motion should progress with scroll position rather than time.
 Consult the [view transitions reference](../frontend-design/reference/view-transitions.md) when animating between page states or DOM changes with shared-element continuity.
 Consult [attribution and sources](reference/attribution-and-sources.md) for the source lineage behind this skill's Emil-inspired motion guidance.
@@ -67,6 +69,8 @@ Use motion for one or more of these jobs:
 - **Orientation** — help users understand where something came from or where it went
 - **Relationship** — show how surfaces, layers, and controls relate spatially
 - **Delight** — add warmth or personality after the fundamentals already work
+- **Hierarchy**: clarify what changed most and why
+- **Focus guidance**: move attention to the right target without stealing control
 
 If the animation cannot justify itself with one of those jobs, cut it.
 
@@ -262,6 +266,17 @@ Add motion systematically across these categories:
 
 Use appropriate techniques for each animation:
 
+### Mechanism Selection
+
+Choose the lightest mechanism that satisfies the interaction:
+
+- **Tailwind transition utilities** for reversible single-element state changes such as hover, selected, pressed, open, or closed
+- **Tailwind-compatible keyframes** for repeated or multi-stage timelines such as loaders, attention pulses, staged reveals, or choreography
+- **WAAPI** for imperative sequencing, playback control, cancel/reverse behavior, or animation sync with logic
+- **View Transitions API** for continuity across DOM swaps, route transitions, list/detail transitions, or layout-mode changes
+
+Do not escalate to a framework animation library unless utility classes, Tailwind keyframes, WAAPI, or View Transitions cannot honestly handle the job.
+
 ### Timing & Easing
 
 **Durations by purpose:**
@@ -305,6 +320,27 @@ Tailwind examples:
 <div className="transition-[transform,opacity] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] data-[state=open]:scale-100 data-[state=open]:opacity-100 data-[state=closed]:scale-95 data-[state=closed]:opacity-0 origin-[var(--radix-popover-content-transform-origin)]">
   ...
 </div>
+```
+
+Use individual Tailwind transform utilities when separate states own separate transform channels:
+
+```tsx
+<div className="translate-y-2 scale-95 opacity-0 transition-[translate,scale,opacity] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] data-[state=open]:translate-y-0 data-[state=open]:scale-100 data-[state=open]:opacity-100 motion-reduce:translate-y-0 motion-reduce:scale-100">
+  ...
+</div>
+```
+
+Use arbitrary transform shorthand only when order is intentionally coupled. Do not use `translate3d()` as a blanket performance hack; profile first or reserve it for real 3D/perspective work.
+
+Tailwind-compatible `linear()` easing tokens are useful for piecewise velocity control, soft enters, crisp exits, and controlled settle. Prefer named theme tokens over one-off arbitrary values:
+
+```css
+@theme {
+  --ease-enter-soft: linear(0, 0.08 12%, 0.34 36%, 0.74 66%, 0.93 84%, 1);
+  --ease-exit-crisp: linear(0, 0.3 18%, 0.72 58%, 0.9 78%, 1);
+  --ease-settle-gentle: linear(0, 0.06 10%, 0.31 32%, 0.72 62%, 0.92 82%, 1);
+  --ease-emphasis-pop: linear(0, 0.38 20%, 0.88 62%, 1);
+}
 ```
 
 ### JavaScript Animation
@@ -394,3 +430,15 @@ During review, flag these problems immediately:
 - `transition: all` on dialogs, popovers, or removable list items
 
 Remember: the best UI animation usually feels inevitable, not attention-seeking. Animate with purpose, tune for responsiveness, respect accessibility, and let motion support the product instead of starring in it.
+
+## Output Contract
+
+When the user asks for a motion plan, motion system, or significant animation implementation, respond with:
+
+1. **Intent**: user perception or behavior the motion should drive
+2. **Motion Spec**: duration, easing token, distance, trigger, and affected elements
+3. **Implementation**: concrete Tailwind, Tailwind keyframe, WAAPI, or View Transition code
+4. **Accessibility Fallback**: reduced-motion and unsupported-API behavior
+5. **QA Checklist**: performance, usability, focus, keyboard, and cross-device checks
+
+When the work is choreography-heavy, use the stricter storyboard format from [motion choreography](../frontend-design/reference/motion-choreography.md): storyboard, timeline spec, implementation plan, a11y/fallback, and validation plan.

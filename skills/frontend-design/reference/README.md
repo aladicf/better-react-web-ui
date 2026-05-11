@@ -17,6 +17,7 @@ If you only open a few files first, make them these:
 - [design directions](./design-directions.md) — choose or preserve a website style using approved direction families, fit/cost checks, and restraint rules for louder treatments
 - [hierarchy checklist](./hierarchy-checklist.md) — sanity check priority, grouping, and grayscale clarity
 - [interaction design](./interaction-design.md) — patterns, focus, loading, overlays, and guardrails
+- [self-evident interface design](./self-evident-interface.md) — reduce helper copy by improving structure, defaults, constraints, and inline feedback
 - [micro failures and perceived quality](./micro-failures-and-perceived-quality.md) — tiny repeated jank, weak feedback, state loss, and other trust-eroding papercuts that make products feel broken before they actually crash
 - [loading feedback and perceived performance](./loading-feedback-and-perceived-performance.md) — honest waiting states, skeleton decisions, stale-data cues, and trust-preserving loading behavior
 - [aspect ratio and card orientation](./aspect-ratio-and-card-orientation.md) — ratio tokens, cropping logic, browse-vs-evaluate card choices, and responsive card/media rhythm
@@ -49,6 +50,7 @@ If you only open a few files first, make them these:
 - [reviews and ratings](./reviews-and-ratings.md) — product-review trust, rating summaries, and social proof that actually helps decisions
 - [social proof patterns](./social-proof-patterns.md) — testimonials, trust badges, customer logos, case studies, and proof placement across marketing and commerce surfaces
 - [search and findability](./search-and-findability.md) — site search, autosuggest, zero-results recovery, and intent-aware findability
+- [search engine content UX](./search-engine-content-ux.md) — React page-level SEO, metadata, indexability, structured data, content freshness, and AI-sounding copy checks
 - [data visualization](./data-visualization.md) — chart type selection, responsive patterns, accessible data tables, color-vision-friendly palettes, tooltips, and annotations
 - [status communication](./status-communication.md) — notifications, validations, badges, inboxes, and attention management
 - [legacy modernization](./legacy-modernization.md) — legacy-system UX upgrades, migration strategy, stakeholder trust, and hybrid old/new seams
@@ -56,6 +58,7 @@ If you only open a few files first, make them these:
 - [ux writing](./ux-writing.md) — interface microcopy, labels, errors, and confirmations
 - [typography](./typography.md) — type scale, hierarchy, pairing, fluid type, truncation, and readability
 - [color and contrast](./color-and-contrast.md) — palette structure, contrast, and theme discipline
+- [natural copy transitions](./natural-copy-transitions.md) — section-to-section signposting, question bridges, evidence transitions, and AI-tell phrases to avoid
 
 ## Structure and layout
 
@@ -73,6 +76,7 @@ Use these when the UI feels crowded, flat, ambiguously grouped, or visually mono
 - [ux strategy](./ux-strategy.md)
 - [audience-sensitive design](./audience-sensitive-design.md)
 - [interaction design](./interaction-design.md)
+- [self-evident interface design](./self-evident-interface.md)
 - [micro failures and perceived quality](./micro-failures-and-perceived-quality.md)
 - [loading feedback and perceived performance](./loading-feedback-and-perceived-performance.md)
 - [component accessibility](./component-accessibility.md)
@@ -123,8 +127,11 @@ Use these when the problem is not just styling, but how the product behaves, gui
 - [behavioral design](./behavioral-design.md)
 - [hero sections UX](./hero-sections-ux.md)
 - [marketing copywriting](./marketing-copywriting.md)
+- [natural copy transitions](./natural-copy-transitions.md)
 - [social proof patterns](./social-proof-patterns.md)
-- [copy editing sweeps](./copy-editing-sweeps.md)
+- [referral and sharing UX](./referral-and-sharing-ux.md)
+- [copy editing sweeps](./copy-editing-sweeps.md) â€” seven-pass copy editing, plain-English cleanup, content refresh, expert panel review, and React/Tailwind component-fit checks
+- [conversion experimentation](./conversion-experimentation.md) â€” page, onboarding, pricing, and form experiment planning with metrics and guardrails
 
 Use these when the interface reads poorly, sounds unclear, or needs stronger conversion-aware messaging.
 
@@ -134,8 +141,10 @@ Use these when the interface reads poorly, sounds unclear, or needs stronger con
 - [ux writing](./ux-writing.md)
 - [status communication](./status-communication.md)
 - [paywalls and upgrade flows](./paywalls-and-upgrade-flows.md)
+- [interruptive conversion surfaces](./interruptive-conversion-surfaces.md)
+- [subscription retention UX](./subscription-retention-ux.md)
 
-Use these when the problem is not just wording polish, but whether the interface is speaking plainly about errors, progress, consent, exits, upgrades, or user-harming tradeoffs.
+Use these when the problem is not just wording polish, but whether the interface is speaking plainly about errors, progress, consent, exits, upgrades, billing recovery, cancellation, or user-harming tradeoffs.
 
 ## Color, tone, and visual personality
 
@@ -163,8 +172,11 @@ Use these when color is carrying meaning in states, charts, legends, selections,
 
 - [framework defaults](./framework-defaults.md)
 - [framework official docs](./framework-official-docs.md)
+- [React and Tailwind implementation review](./react-tailwind-implementation-review.md)
 - [motion design](./motion-design.md)
 - [Tailwind and WAAPI motion](./css-tailwind-and-waapi-motion.md)
+- [linear easing patterns](./linear-easing-patterns.md)
+- [motion choreography](./motion-choreography.md)
 - [component and block strategy](./component-and-block-strategy.md)
 - [react shadcn accelerators](./react-shadcn-accelerators.md)
 - [scroll-driven animations](./scroll-driven-animations.md)
@@ -184,6 +196,7 @@ Use these when the work depends on narrow-first layout strategy, `svh` viewport 
 ## Components and systems
 
 - [component anatomy](./component-anatomy.md)
+- [React and Tailwind implementation review](./react-tailwind-implementation-review.md)
 - [aspect ratio and card orientation](./aspect-ratio-and-card-orientation.md)
 - [hero sections UX](./hero-sections-ux.md)
 - [component accessibility](./component-accessibility.md)
@@ -254,6 +267,7 @@ Use these when the product technically works but feels unreliable because of tin
 
 - [onboarding UX](./onboarding-ux.md)
 - [behavioral design](./behavioral-design.md)
+- [conversion experimentation](./conversion-experimentation.md)
 - [empty-state patterns](./empty-state-patterns.md)
 - [loading feedback and perceived performance](./loading-feedback-and-perceived-performance.md)
 - [status communication](./status-communication.md)
@@ -275,6 +289,7 @@ Use these when the work involves step-based customization, presets, real-time pr
 - [slider UX](./slider-ux.md)
 - [feature comparison UX](./feature-comparison-ux.md)
 - [search and findability](./search-and-findability.md)
+- [search engine content UX](./search-engine-content-ux.md)
 - [predictive and intent-driven UI](./predictive-and-intent-ui.md)
 
 Use these when users must narrow, compare, continue, revisit, recover their place across large result sets, or manipulate range filters without precision traps.
@@ -355,6 +370,8 @@ Use this when the work touches language switching, regional overrides, country o
 - [ecommerce UX](./ecommerce-ux.md)
 - [pricing and packaging](./pricing-and-packaging.md)
 - [paywalls and upgrade flows](./paywalls-and-upgrade-flows.md)
+- [interruptive conversion surfaces](./interruptive-conversion-surfaces.md)
+- [subscription retention UX](./subscription-retention-ux.md)
 - [reviews and ratings](./reviews-and-ratings.md)
 
 ## Commerce, trust, and social proof
@@ -362,11 +379,12 @@ Use this when the work touches language switching, regional overrides, country o
 - [ecommerce UX](./ecommerce-ux.md)
 - [reviews and ratings](./reviews-and-ratings.md)
 - [social proof patterns](./social-proof-patterns.md)
+- [referral and sharing UX](./referral-and-sharing-ux.md)
 - [pricing and packaging](./pricing-and-packaging.md)
 
 Use these when the work involves product discovery, product pages, carts, checkout, trust cues, testimonials, ratings, case studies, or conversion-sensitive proof placement.
 
-Use these when the task touches account access, plan comparison, billing clarity, feature gates, or upgrade prompts.
+Use these when the task touches account access, plan comparison, billing clarity, feature gates, upgrade prompts, cancellation flows, failed-payment recovery, or reactivation paths.
 
 ## Data presentation and visualization
 

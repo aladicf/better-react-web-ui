@@ -66,6 +66,17 @@ Spacing should communicate structure.
 
 If the space between items inside a group matches the space between groups, the grouping will feel ambiguous.
 
+This is proximity in practical UI form: users infer relationships from distance before they read labels. In Tailwind, encode that relationship with intentional `gap-*`, `space-y-*`, `p-*`, and section margin steps instead of scattered one-off margins.
+
+Good React/Tailwind grouping patterns:
+
+- use `gap-1` or `gap-2` for label/support-text pairs, then a larger `gap-4` or `gap-6` between field groups
+- use `gap-2` inside toolbar clusters, then `gap-4`, `gap-6`, or a separator between unrelated command groups
+- use `grid gap-4` or `gap-6` for repeated cards, but keep card internals tighter so each card reads as one unit
+- use `fieldset` / `legend` or component boundaries when spacing alone cannot make related controls obvious
+
+Similarity and common-region rules matter too. Repeated items should share the same Tailwind class pattern, density, and state treatment. A card, panel, `fieldset`, or tinted region should contain one real concept; if it wraps unrelated controls, the container lies to the user.
+
 ## Logical Block Separation
 
 Long pages should read as a sequence of clear blocks, not as one uninterrupted slab.
@@ -126,6 +137,13 @@ Bad:
 
 Better:
 - tighter spacing inside action groups, larger gaps between groups
+
+### Repeated React components
+Bad:
+- each item tweaks padding, icon size, border, or radius independently
+
+Better:
+- one component variant owns spacing and state classes, then data changes inside that stable shell
 
 ## Rhythmic Spacing
 

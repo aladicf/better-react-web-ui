@@ -134,6 +134,52 @@ Federated sign-in can reduce friction, but not every user wants it.
 - hiding privacy or data-sharing implications
 - assuming users remember which provider they chose months ago
 
+## Signup Flow Conversion
+
+Account creation should collect only what is required before the user can reach value.
+
+Good signup defaults:
+
+- email or phone plus one authentication method
+- social or federated sign-in options that match the audience
+- visible labels, not placeholder-only labels
+- password requirements shown before failure
+- password paste and password managers allowed
+- `autocomplete` attributes for email, name, password, and one-time codes
+- one clear CTA that names the outcome
+- trial or pricing terms near the CTA when relevant
+- privacy reassurance near sensitive fields
+- immediate next step after submit
+
+Defer when possible:
+
+- company
+- role
+- team size
+- phone number
+- address
+- detailed use-case questions
+- marketing preferences
+
+Use multi-step signup only when required information exceeds what users can complete comfortably in one screen. If you split the flow, start with low-friction fields, show progress, preserve state, and let users go back.
+
+Post-submit states matter:
+
+- if email verification is required, explain the exact next step
+- include resend and change-email paths
+- preserve the user's destination after verification
+- consider delaying verification until the user reaches a moment where identity proof is actually needed
+
+Measure:
+
+- form start rate
+- completion rate
+- field-level drop-off
+- error rate by field
+- social auth vs email signup ratio
+- mobile vs desktop completion
+- time to complete
+
 ## Replace Security Questions With Stronger Recovery Methods
 
 Security questions are often weak in both usability and actual protection.

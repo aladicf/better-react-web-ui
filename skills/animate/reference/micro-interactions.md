@@ -10,6 +10,44 @@ Use this reference for small, high-frequency feedback moments: button presses, h
 
 **Press should be faster than release.** Downward feedback should feel immediate; reset can be slightly softer.
 
+## Anatomy of a Micro-interaction
+
+Every useful micro-interaction has four parts:
+
+- **trigger**: user or system event that starts it
+- **rules**: conditions that decide what happens
+- **feedback**: visible, audible, or haptic response
+- **loop or mode**: what persists, repeats, or changes after the moment
+
+In React, make those parts explicit in state instead of scattering animation classes randomly through markup. A toggle should know whether it is `checked`, `pending`, `success`, or `error`; Tailwind classes should reflect those states predictably.
+
+Useful pattern:
+
+```tsx
+<button
+  aria-pressed={liked}
+  data-state={liked ? "on" : "off"}
+  className="transition-[transform,color,background-color] duration-150 ease-out active:scale-[0.97] data-[state=on]:text-rose-600 motion-reduce:transition-colors motion-reduce:active:scale-100"
+>
+  <Heart className="size-4" aria-hidden="true" />
+  <span className="sr-only">{liked ? "Remove from favorites" : "Add to favorites"}</span>
+</button>
+```
+
+If a micro-interaction cannot name its trigger, rule, feedback, and after-state, it is probably decoration.
+
+## Design Steps
+
+Use this sequence before adding motion utilities:
+
+1. Identify the user goal and friction point.
+2. Define the purpose: progress, feedback, guidance, confirmation, error prevention, or small delight.
+3. Choose the least motion that communicates the state.
+4. Make behavior consistent with similar controls.
+5. Test pointer, keyboard, reduced-motion, and slow-network states.
+
+Micro-interactions should answer a real question: did the click land, did the value change, is the system working, what failed, or what can I do next?
+
 ## Button and Press Feedback
 
 **Scale to `0.97` on press** for crisp tactile feedback. This is one of the highest-value micro-interactions in UI.
@@ -149,6 +187,15 @@ When `prefers-reduced-motion` is active, replace scale and spatial motion with i
 }
 ```
 
+## Accessibility Checklist
+
+- keyboard users can trigger the same state change
+- focus states remain visible and do not depend on hover
+- color changes are paired with text, icon, shape, or position changes when meaning matters
+- decorative animation is hidden from assistive tech; meaningful state changes are exposed through labels, ARIA state, or live regions when needed
+- users who prefer reduced motion still receive feedback through color, opacity, text, or state changes
+- timing does not block task completion or force users to wait for decorative motion
+
 ## Anti-Patterns
 
 - **Slow press feedback**: A 300ms button press feels laggy, not tactile.
@@ -160,6 +207,7 @@ When `prefers-reduced-motion` is active, replace scale and spatial motion with i
 - **Animated keyboard focus**: Keyboard users want predictability, not motion.
 - **Decorative micro-interactions**: If the user notices the animation, it is too heavy.
 - **No feedback at all**: Silent buttons feel broken, especially in coarse-pointer contexts.
+- **State-free Tailwind animation**: Random `hover:*`, `animate-*`, and `group-hover:*` utilities that do not map to a clear user or system state become noise fast.
 
 ## Consult Also
 

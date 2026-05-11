@@ -6,6 +6,9 @@ This library is not trying to turn every design task into a growth-hacker carniv
 
 The goal is clear, credible, action-oriented product copy that helps the right user understand the value and take the next step.
 
+For section-to-section flow, question bridges, evidence transitions, CTA bridges, and AI-tell phrases to avoid, use [natural copy transitions](./natural-copy-transitions.md).
+For page CRO hypotheses, A/B test planning, guardrail metrics, and experiment backlogs, use [conversion experimentation](./conversion-experimentation.md).
+
 ## Ask Only for Missing Context
 
 Before writing, gather only what the prompt or workspace does not already make clear.
@@ -296,6 +299,12 @@ Useful headline frames:
 - `The {category} for {audience}`
 - `Stop {painful task} in {timeframe}`
 - `{question that names the pain}`
+- `Turn {input} into {outcome}`
+- `Never {unpleasant event} again`
+- `The {category} that {specific differentiator}`
+- `{number} {audience} use {product} to {outcome}` when the number is true and provable
+- `Everything you need to {outcome}` only when the product genuinely covers the full job
+- `Finally, {category} that {benefit}` only when the category pain is well-known and the tone fits
 
 #### Headline and subheadline roles
 
@@ -327,6 +336,53 @@ It is not the only good formula, but it is a strong antidote to category fog.
 | Integrations / compatibility | Reduce fit anxiety |
 | Objection handling | Address trust, migration, or pricing concerns |
 | Final CTA | Restate value and ask clearly |
+
+### Page structure templates
+
+Use templates as starting points, not cages. Match the section order to traffic temperature, product complexity, proof strength, and viewport reality.
+
+#### Compact campaign landing page
+
+Best for ad traffic, launch pages, or one-off campaigns.
+
+1. Hero with specific outcome, subheadline, CTA, and product visual
+2. Proof bar with logos, metric, rating, or short quote
+3. Three key benefits with concrete examples
+4. How it works in 3 steps
+5. Objection or FAQ block
+6. Final CTA with risk reversal
+
+React/Tailwind pattern: keep this as narrow, section-led composition. Do not inflate it into a card grid wall just because the template has six parts.
+
+#### Enterprise or B2B evaluation page
+
+Best when multiple stakeholders need trust, security, integration, and ROI clarity.
+
+1. Hero with business outcome and demo/contact CTA
+2. Recognizable customer proof
+3. Problem and business cost
+4. Solution overview tied to workflow
+5. Use cases by role or department
+6. Security, compliance, and integration section
+7. Case study with metric
+8. ROI or value model
+9. FAQ and final demo CTA
+
+React/Tailwind pattern: use dense but calm sections, comparison rows, proof callouts, and clear anchors. Avoid oversized consumer-style hero drama when buyers need evaluation material.
+
+#### Feature page
+
+Best when user already understands the category and needs to evaluate one capability.
+
+1. Feature outcome headline
+2. Product screenshot or focused demo
+3. Before and after workflow contrast
+4. 3-5 capability blocks, each tied to outcome and proof
+5. Integration or compatibility details
+6. Related use cases
+7. CTA to try the feature or see it in context
+
+Feature-heavy pages become weak when they are only a list. Build a persuasive sequence: problem, proof, mechanism, fit, next step.
 
 #### Landing-page credibility sequence
 
@@ -365,6 +421,26 @@ For many first-pass landing pages, a practical block flow looks like this:
 5. conversion: one clear CTA with low ambiguity
 6. optional extras: FAQ, resources, blog, or downloads only if they solve a real question and can be maintained
 7. footer: contact, support, legal, and legitimacy cues
+
+Avoid the weak feature-list page:
+
+1. hero
+2. feature 1
+3. feature 2
+4. feature 3
+5. feature 4
+6. CTA
+
+That is not a persuasive story. It is an inventory.
+
+Stronger product-page structures usually vary the argument:
+
+- **compact campaign page**: hero, social proof, 3 key benefits, testimonial, how it works, final CTA
+- **feature-heavy product page**: hero, proof, problem, solution overview, 2-3 outcome-led features, example use cases, objection handling, CTA
+- **enterprise page**: hero, logo bar, business pain, role-based use cases, security/compliance, integrations, case study, ROI, demo CTA
+- **launch page**: announcement hero, product demo, 3-5 highlights, before/after contrast, early proof, launch offer, CTA
+
+If the structure feels template-driven, check whether each section answers a real visitor question. Delete sections that only exist because a landing-page template had a slot.
 
 #### Objection handling
 
@@ -552,6 +628,14 @@ For broader placement patterns across testimonials, badges, case studies, and tr
 - acknowledge competitor strengths honestly
 - win on 2-3 real differentiators
 - avoid petty or unprovable claims
+
+### Pricing page
+
+- help users choose, not admire pricing cards
+- answer `which plan is right for me?` before users have to compare every row
+- make the recommended plan obvious and explain why it is recommended
+- keep plan CTAs specific to the next step: `Start free trial`, `Book a demo`, `Contact sales`, `Compare plans`
+- put billing, cancellation, limits, and overage language where doubt appears, not in fine print users must hunt for
 
 ### About page
 

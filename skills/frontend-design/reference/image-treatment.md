@@ -35,6 +35,20 @@ Useful signs of a friendlier image:
 
 Avoid placing headline copy on top of faces, product details, or other focal points users actually need to inspect.
 
+## Compose Images Around the Story
+
+Strong visual storytelling is not the same as adding more imagery. Each image should clarify the user, setting, state, product outcome, or next step.
+
+Good React/Tailwind patterns:
+
+- use real product screenshots, task-context photos, or specific generated images that reveal the actual subject
+- crop with `object-fit` and `object-position` so the focal subject, gaze, action, or product state survives at every breakpoint
+- pair image order with copy order: setup, tension, resolution, next action
+- keep captions, callouts, badges, or annotations close to the exact part of the image they explain
+- use consistent aspect-ratio tokens so repeated story blocks feel like one system instead of random media drops
+
+Avoid decorative images that create mood but do not answer what the product is, who it is for, what changed, or why the user should care.
+
 ## Add an Overlay
 
 Use an overlay when you need to compress the dynamic range of an image quickly.

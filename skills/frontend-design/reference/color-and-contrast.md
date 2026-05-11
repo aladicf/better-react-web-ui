@@ -148,6 +148,48 @@ A complete system needs:
 
 **Skip secondary/tertiary unless you need them.** Most apps work fine with one accent color. Adding more creates decision fatigue and visual noise.
 
+## Dark Mode Token Discipline
+
+Dark mode is not light mode with inverted colors. Build a paired theme with semantic tokens, then map Tailwind utilities to those tokens.
+
+Good defaults:
+
+- avoid pure black backgrounds and pure white body text; use near-black surfaces and off-white text
+- reduce chroma for accent and semantic colors on dark surfaces so buttons, badges, and links do not vibrate
+- use regular or medium body text weights; very thin type gets weak fast on dark backgrounds
+- create separate tokens for `background`, `surface`, `surface-raised`, `border`, `muted`, `foreground`, `muted-foreground`, `primary`, and semantic states
+- treat dark shadows as weak depth tools; use subtle borders, highlights, glows, gradients, or surface lightness steps instead
+- provide a theme toggle when user preference matters, and respect `prefers-color-scheme` as the initial default when no explicit choice exists
+
+Tailwind pattern:
+
+```css
+@theme {
+  --color-background: oklch(99% 0.004 250);
+  --color-foreground: oklch(17% 0.014 250);
+  --color-surface: oklch(100% 0 0);
+  --color-border: oklch(90% 0.01 250);
+}
+
+.dark {
+  --color-background: oklch(15% 0.014 250);
+  --color-foreground: oklch(88% 0.01 250);
+  --color-surface: oklch(20% 0.016 250);
+  --color-border: oklch(31% 0.018 250);
+}
+```
+
+Then use token utilities such as `bg-background`, `text-foreground`, `bg-surface`, and `border-border` instead of hard-coding `dark:bg-black`, `dark:text-white`, or random slate values per component.
+
+Dark mode testing should include:
+
+- normal text and small metadata contrast
+- disabled and placeholder contrast
+- focus rings on dark surfaces
+- semantic states such as error, warning, success, and info
+- screenshots, charts, and logos that may disappear on dark backgrounds
+- bright ambient light, dim rooms, and OLED/low-brightness devices
+
 ### Build a Practical Color Schema
 
 A real color schema should document more than a few pretty swatches.

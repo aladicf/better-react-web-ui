@@ -223,6 +223,32 @@ A useful onboarding flow is not only completed.
 
 It is also resumed, survived, and understood.
 
+## Onboarding Experiment Ideas
+
+Use experiments when the activation path is instrumented enough to show where users stall.
+
+Good experiment themes:
+
+- **flow simplification**: fewer required steps, optional vs required fields, quick-start path vs full setup
+- **step sequencing**: value-first order, sensitive setup later, role-specific branch vs one common path
+- **progress and motivation**: checklist length, progress visibility, completion summary, first-win celebration
+- **guidance**: contextual hints vs tour, automatic vs user-triggered tour, shorter tour, sticky next-step CTA
+- **personalization**: goal question, role-based defaults, relevant templates, industry examples
+- **support**: help offer at stuck points, chat during setup, onboarding call for high-value accounts
+- **return experience**: welcome-back state, resume where left off, simplified return path after stalled setup
+
+Measure:
+
+- activation rate
+- time to activation
+- step completion
+- drop-off by step
+- skip and later recovery rate
+- Day 1, Day 7, and Day 30 retention
+- support requests during onboarding
+
+For a broader experiment-planning format across onboarding, pages, forms, and pricing, use [conversion experimentation](./conversion-experimentation.md).
+
 ## Common failure modes
 
 Watch for:

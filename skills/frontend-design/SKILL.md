@@ -84,7 +84,7 @@ Use these rules by default:
 - **Broad new-project requests choose from approved directions**: if the user asks for a new landing page, marketing page, or several distinct directions without naming a style, select from the approved design directions based on the product idea and brand fit instead of inventing random vibe labels.
 - **Choose structure before effects**: establish one primary structural direction first, then optionally add one supporting surface, typographic, motion, or expressive modifier.
 - **Keep core flows clearer than the shell**: even when the marketing layer is more expressive, forms, tables, settings, auth, pricing comparisons, and error states should usually stay closer to minimalist, Swiss, flat, or similarly clarity-first behavior.
-- **Never default to retro / cyber / synthwave / terminal aesthetics**: do not volunteer those directions from broad prompts in this library.
+- **Never default to novelty aesthetics**: do not volunteer novelty directions from broad prompts in this library.
 
 Apply a little pessimism up front:
 

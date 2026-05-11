@@ -16,6 +16,7 @@ Users start this workflow with `/distill`. Once this skill is active, load $fron
 Consult the [cognitive load](../frontend-design/reference/cognitive-load.md) when simplification depends on reducing visible choices, memory burden, or premature complexity.
 Consult the [hierarchy checklist](../frontend-design/reference/hierarchy-checklist.md) when clutter is really flattening priority, section restraint, or label/value clarity.
 Consult the [action hierarchy](../frontend-design/reference/action-hierarchy.md) when simplifying means deciding which controls should lead, recede, combine, or disappear.
+Consult the [self-evident interface design](../frontend-design/reference/self-evident-interface.md) reference when simplification means removing helper copy, redundant labels, onboarding instructions, or explanatory text by improving structure, defaults, constraints, previews, and inline feedback.
 
 ---
 
@@ -120,6 +121,7 @@ Systematically remove complexity across these dimensions:
 - **Scannable structure**: Short paragraphs, bullet points, clear headings
 - **Essential information only**: Remove marketing fluff, legalese, hedging
 - **Remove redundant copy**: No headers restating intros, no repeated explanations, say it once
+- **Structure before explanation**: If helper text is carrying the interaction, improve grouping, defaults, constraints, or inline examples before rewriting the helper text
 
 ### Code Simplification
 - **Remove unused code**: Dead CSS, unused components, orphaned files
