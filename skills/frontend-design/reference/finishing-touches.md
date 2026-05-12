@@ -54,6 +54,16 @@ Background treatment can add energy without changing the information hierarchy.
 
 Good background decoration should stay subordinate to content.
 
+Tailwind CSS v4 expands gradient utilities enough that many background treatments no longer need custom CSS:
+
+```tsx
+<div className="bg-linear-45 from-mist-50 via-white to-taupe-100" />
+<div className="bg-radial-[at_25%_25%] from-white to-zinc-900 to-75%" />
+<div className="bg-conic/[in_hsl_longer_hue] from-red-600 to-red-600" />
+```
+
+Use gradient interpolation modifiers, radial gradients, and conic gradients when they support a real composition. Avoid gradient text and generic purple-blue hero washes; those still read like template noise.
+
 ## Change the Background Color
 
 A small background shift can:
@@ -87,6 +97,8 @@ Good uses:
 
 The point is not complexity.
 The point is giving the page a memorable visual cue.
+
+Tailwind CSS v4 also includes 3D transform utilities such as `perspective-*`, `transform-3d`, `rotate-x-*`, `rotate-y-*`, and `translate-z-*`. Use them for controlled product mockups, cards, or preview compositions where depth clarifies the object. Do not add 3D tilt to ordinary dashboards, forms, or dense product flows just because the utility exists.
 
 ## Think Outside the Box
 

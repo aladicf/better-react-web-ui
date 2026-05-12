@@ -164,6 +164,11 @@ Check:
 
 - dark themes set `color-scheme: dark` where appropriate
 - native controls and scrollbars match the theme
+- local scroll containers use Tailwind scrollbar utilities before custom scrollbar CSS
+- conditionally scrollable panels reserve space with `scrollbar-gutter-stable` or `scrollbar-gutter-both` when layout shift would be visible
+- long identifiers, emails, URLs, and user-generated text use `wrap-anywhere` or `wrap-break-word` where overflow would break layout
+- coarse-pointer controls use pointer-aware sizing instead of viewport guesses
+- native dialogs, popovers, and details use Tailwind state variants such as `starting:*`, `open:*`, and `details-content:*` where they simplify CSS without weakening semantics
 - theme color metadata matches page background when the framework supports it
 - hard-coded colors do not bypass semantic tokens
 - dark mode relies on contrast and depth alternatives, not only inverted light-mode colors

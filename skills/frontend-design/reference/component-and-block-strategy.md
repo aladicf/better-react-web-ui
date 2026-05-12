@@ -65,6 +65,15 @@ If the official docs still do not answer the question, do a focused web search a
 
 Tailwind v4 can generate separate CSS outputs for different source sets. Use this when an internal route, admin area, editor, playground, or other isolated surface has many custom utilities or class patterns that should not inflate the main site CSS.
 
+Tailwind v4 is CSS-first:
+
+- use `@import "tailwindcss"` instead of the old `@tailwind` directives
+- define tokens in `@theme` before adding JavaScript configuration
+- prefer `@utility` and `@variant` for project-specific extensions that belong near CSS
+- use the first-party Vite plugin in Vite projects when the framework stack supports it
+- avoid adding `postcss-import` solely for Tailwind imports; Tailwind v4 handles CSS imports
+- rely on automatic source detection first, then add explicit `@source` directives only for files Tailwind cannot see or should ignore
+
 Example:
 
 ```css
@@ -89,6 +98,21 @@ Use this pattern when:
 - the framework supports route-level or layout-level CSS entry points
 
 Do not split CSS entry points for tiny one-off differences. The extra file, import path, and source boundary should pay for themselves through smaller critical CSS, less unused style matching, and simpler route ownership.
+
+### Source detection, safelisting, and exclusions
+
+Tailwind v4 automatically detects source files and ignores common generated or binary paths. When a project still needs manual control, keep that control in CSS:
+
+```css
+@import "tailwindcss";
+@source "../node_modules/@acme/ui";
+@source not "./src/legacy";
+@source inline("{hover:,}bg-red-{50,{100..900..100},950}");
+```
+
+Use `@source` for shared component packages or unusual source roots. Use `@source not` for large legacy, generated, or vendor directories that slow scanning or produce false positives. Use `@source inline()` only for classes that are generated outside static source, such as CMS-controlled theme options or class names assembled by a constrained design-token map.
+
+Do not use broad safelists to excuse dynamic class construction. Static class maps are still clearer, more searchable, and easier to review.
 
 ## Curated community accelerators for React fallback defaults
 

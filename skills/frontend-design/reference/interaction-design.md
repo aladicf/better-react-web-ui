@@ -662,11 +662,20 @@ Tailwind can own the normal visual styling while CSS owns the discrete transitio
 </dialog>
 ```
 
+Tailwind's `starting` variant can handle simple entry states directly in markup:
+
+```tsx
+<div popover className="opacity-100 transition-opacity starting:open:opacity-0">
+  ...
+</div>
+```
+
 Rules:
 
 - keep the closed state visible to CSS long enough for the exit transition; if React unmounts the dialog immediately, CSS cannot animate it
 - include `overlay allow-discrete` when animating native dialogs or popovers that enter the top layer
 - treat `@starting-style` as progressive enhancement, not required behavior
+- use `starting:*` for simple enter transitions; keep CSS rules for more complex dialog or backdrop lifecycles
 - always preserve focus management, Escape behavior, backdrop behavior, and reduced-motion handling
 - for library dialogs such as Radix or Base UI, prefer the library's documented state attributes and mount lifecycle before forcing native `<dialog>` patterns onto it
 
@@ -697,6 +706,8 @@ For tooltips, dropdowns, and non-modal overlays, use native popovers:
 ```
 
 **Benefits**: Light-dismiss (click outside closes), proper stacking, no z-index wars, accessible by default.
+
+Tailwind's `open` variant targets open popovers as well as open details/dialog states, so prefer `open:*` for simple visual state styling before adding extra data attributes.
 
 ## Dropdown & Overlay Positioning
 
@@ -776,10 +787,10 @@ Use CSS to prevent layout movement before inventing JavaScript measurement.
 
 When content sometimes becomes scrollable, reserve scrollbar space so centered or edge-aligned content does not jump.
 
-Tailwind-first arbitrary utilities:
+Tailwind CSS v4.3 has first-party scrollbar gutter utilities. Use them instead of arbitrary CSS:
 
 ```tsx
-<div className="[scrollbar-gutter:stable] overflow-auto">
+<div className="overflow-auto scrollbar-gutter-stable">
   ...
 </div>
 ```
@@ -787,12 +798,33 @@ Tailwind-first arbitrary utilities:
 For centered content, reserve both sides so the content remains optically balanced:
 
 ```tsx
-<div className="[scrollbar-gutter:stable_both-edges] overflow-auto">
+<div className="overflow-auto scrollbar-gutter-both">
   ...
 </div>
 ```
 
+Use `scrollbar-gutter-auto` when you need the default behavior at specific breakpoints, for example `scrollbar-gutter-auto md:scrollbar-gutter-stable`.
+
 Use it as progressive enhancement. Modern Chromium, Firefox, and Safari support `scrollbar-gutter`, but overlay-scrollbar environments may show little visible effect. Keep the layout valid without it.
+
+### Scrollbar width and color
+
+Tailwind CSS v4.3 also includes first-party scrollbar width and color utilities. Use them on local scroll containers when the scrollbar is part of the component surface:
+
+```tsx
+<div className="overflow-auto scrollbar-thin scrollbar-thumb-slate-900/60 scrollbar-track-slate-900/10">
+  ...
+</div>
+```
+
+Practical rules:
+
+- prefer `scrollbar-thin` for dense application panels, sidebars, code panes, and compact listboxes
+- keep `scrollbar-auto` for long reading content and coarse-pointer-heavy experiences
+- avoid `scrollbar-none` when the scrollbar is the only discoverable affordance for overflow
+- keep thumb contrast visible enough to find without turning the scrollbar into decoration
+- theme with `scrollbar-thumb-*` and `scrollbar-track-*` classes, including custom theme colors when project tokens exist
+- use `hover:scrollbar-thumb-*` only as polish; the default state still needs enough contrast
 
 ### Local stacking contexts
 

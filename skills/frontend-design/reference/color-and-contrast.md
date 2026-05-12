@@ -119,6 +119,17 @@ In UI work:
 
 **Pure gray is dead.** Add a subtle hint of your brand hue to all neutrals:
 
+Tailwind CSS v4.2 adds neutral-adjacent palettes `mauve`, `olive`, `mist`, and `taupe`. Use them when default gray, zinc, neutral, stone, and slate feel too generic for the brand but a full custom neutral ramp would be wasteful.
+
+Useful mapping:
+
+- `mauve`: warmer, slightly violet product surfaces
+- `olive`: calm green-gray operational or wellness-adjacent surfaces
+- `mist`: cooler, blue-green neutral surfaces
+- `taupe`: warmer editorial, premium, or tactile surfaces
+
+Do not swap every neutral to a new palette for novelty. Pick one neutral family, test contrast, and keep semantic roles clear.
+
 ```css
 /* Dead grays */
 --gray-100: oklch(95% 0 0);     /* No personality */
@@ -349,37 +360,71 @@ Use this when:
 - the layout root should always render dark-friendly browser UI
 - you want scrollbars and other UA-controlled surfaces to match the app instead of the user's daytime light preference
 
-### Style scrollbars through Tailwind's base layer
+### Prefer Tailwind scrollbar utilities for local scroll areas
 
-For app-style interfaces with custom themes, default browser scrollbars can feel like they belong to another product. Keep scrollbar styling global, restrained, and token-driven.
+For app-style interfaces with custom themes, default browser scrollbars can feel like they belong to another product. Tailwind CSS v4.3 ships first-party scrollbar utilities, so do not reach for bespoke scrollbar CSS by default.
 
-Tailwind-oriented projects can define this in the main CSS entry:
+Use utilities on the actual scroll container:
+
+```tsx
+<aside className="overflow-auto scrollbar-thin scrollbar-gutter-stable scrollbar-thumb-border scrollbar-track-transparent">
+  ...
+</aside>
+```
+
+Good defaults:
+
+- use `scrollbar-thin` on dense panels, command palettes, sidebars, and code panes where default scrollbars feel heavy
+- use `scrollbar-auto` for long reading surfaces or coarse-pointer contexts where the browser default is easier to grab
+- use `scrollbar-none` only for decorative or gesture-first regions that still expose another obvious way to move through content
+- pair `scrollbar-thumb-*` and `scrollbar-track-*`; if one is unset, the missing side can become transparent
+- use opacity modifiers for subtle tracks, such as `scrollbar-thumb-slate-900/60 scrollbar-track-slate-900/10`
+- use `scrollbar-gutter-stable` when overflow appears conditionally and layout shift would hurt scanability
+- use `scrollbar-gutter-both` for centered panels where a one-sided gutter makes content look off-center
+
+For project tokens, define theme colors instead of hard-coding one-off values:
 
 ```css
 @import "tailwindcss";
 
+@theme {
+  --color-scrollbar-thumb: var(--border);
+  --color-scrollbar-track: transparent;
+}
+```
+
+Then use `scrollbar-thumb-scrollbar-thumb scrollbar-track-scrollbar-track` in markup. This keeps scrollbars connected to the design system and lets light and dark mode update through tokens.
+
+### Use base-layer scrollbar CSS only for global defaults
+
+Use base-layer CSS when the whole document needs a consistent browser chrome treatment, when the project must support a wrapper component that does not expose scrollbar classes, or when WebKit-specific radius/size polish is part of the design system.
+
+Keep global scrollbar styling restrained:
+
+```css
 @layer base {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
+  }
+
   ::-webkit-scrollbar {
-    width: 5px;
+    width: 8px;
+    height: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    background: transparent;
+    background: var(--color-scrollbar-track);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--border);
-    border-radius: 5px;
-  }
-
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: var(--border) transparent;
+    background: var(--color-scrollbar-thumb);
+    border-radius: 999px;
   }
 }
 ```
 
-Use theme tokens such as `--border`, `--muted`, or a dedicated scrollbar token so the thumb updates with light and dark mode. Avoid hard-coded gray values unless the product's neutral system is already expressed that way.
+Avoid global `* { scrollbar-width: thin; }` unless the product is a dense application and you have tested coarse-pointer usability. Blanket thin scrollbars can make long pages worse.
 
 ### Extend the scrollbar gutter into the theme
 
@@ -414,7 +459,7 @@ For full-page scroll, set document-level browser chrome and scrollbar tokens:
 }
 ```
 
-For nested scroll containers, prefer a local class or data attribute that maps the track to that container's surface token. This keeps a sidebar scrollbar aligned with the sidebar background and a main-content scrollbar aligned with the page background.
+For nested scroll containers, prefer Tailwind's local scrollbar utilities or a local data attribute that maps the track to that container's surface token. This keeps a sidebar scrollbar aligned with the sidebar background and a main-content scrollbar aligned with the page background.
 
 ## Alpha Is A Design Smell
 

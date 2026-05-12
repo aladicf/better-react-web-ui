@@ -36,6 +36,16 @@ Don't chase device sizes—let content tell you where to break. Start narrow, st
 
 **Critical**: Don't rely on hover for functionality. Coarse-pointer and non-hover users cannot hover.
 
+In Tailwind CSS v4.1+, prefer pointer variants when writing utilities directly:
+
+```tsx
+<button className="px-3 py-2 pointer-coarse:px-5 pointer-coarse:py-3 hover:pointer-fine:bg-muted">
+  Save
+</button>
+```
+
+Use `pointer-coarse`, `pointer-fine`, `any-pointer-coarse`, and `any-pointer-fine` for target sizing, hover affordance density, drag handles, and compact toolbar controls. Do not infer touch from viewport width.
+
 ## Safe Areas: Handle Viewport Insets
 
 Modern browsers can expose display cutouts, rounded corners, and browser-chrome insets. Use `env()` when the edge treatment actually matters:
@@ -184,6 +194,18 @@ For tighter control, use arbitrary flex basis values:
 ```
 
 Do not use wrapping as a substitute for a real layout change when the task changes across widths. Navigation, dense tables, and multi-column forms often still need explicit responsive structure.
+
+### Safe Alignment
+
+Tailwind CSS v4.1 adds safe alignment utilities such as `justify-center-safe`, `items-center-safe`, and related safe variants. Use them when centered flex or grid content could overflow and become unreachable.
+
+```tsx
+<ul className="flex gap-2 overflow-x-auto justify-center-safe">
+  ...
+</ul>
+```
+
+Safe alignment is useful for chip rows, tab bars, filter controls, and compact action groups. It is not a substitute for real overflow affordances, wrapping, or narrower-layout redesign when the content set is too large.
 
 ## You Don’t Have to Fill the Whole Screen
 

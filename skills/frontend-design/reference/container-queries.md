@@ -30,6 +30,26 @@ Use media queries when:
 
 `inline-size` is the right default for most components. It creates a query container based on the inline dimension (width in horizontal writing modes) without applying extra layout constraints.
 
+In Tailwind CSS v4, prefer the built-in container utility when writing markup:
+
+```tsx
+<article className="@container">
+  ...
+</article>
+```
+
+Tailwind CSS v4.3 also adds `@container-size` for size containers when queries or container units need both inline and block dimensions:
+
+```tsx
+<section className="@container-size">
+  <div className="h-[50cqb]">
+    ...
+  </div>
+</section>
+```
+
+Do not upgrade every container to `@container-size`. It creates stronger containment than most components need. Use it when height-aware container units like `cqb` or `cqh` are part of the solution.
+
 ### 2. Write the container query
 
 ```css

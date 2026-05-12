@@ -126,6 +126,16 @@ Prefer:
 - `hidden`
 - `display: none`
 
+Use Tailwind state variants for progressive accessibility handling when they fit the markup:
+
+- `inert:*` for styling sections that are deliberately non-interactive
+- `noscript:*` for fallback warnings when JavaScript is required
+- `inverted-colors:*` for removing or changing effects that break in OS inverted-colors mode
+- `user-valid:*` and `user-invalid:*` for native form validation states
+- `not-*` variants for state exclusions that would otherwise require brittle selector CSS
+
+These variants do not replace semantics. They only style states that must already be real in the DOM.
+
 Typical cases:
 
 - closed dialogs

@@ -1,10 +1,27 @@
 # Changelog
 
-All notable changes to `better-web-ui` are documented in this file.
+All notable changes to `better-react-web-ui` are documented in this file.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/) with Added / Changed / Fixed / Removed sections.
 
 ## [Unreleased]
+
+## [3.2.0] - 2026-05-12
+
+### Added
+
+- **Tailwind CSS v4 through v4.3 implementation guidance.** Frontend references now cover CSS-first `@import "tailwindcss"` setup, `@theme` tokens, automatic source detection, `@source`, `@source not`, `@source inline()`, split Tailwind entry points, first-party Vite integration, and safer static class generation guidance.
+- **First-party scrollbar guidance for Tailwind CSS v4.3.** `color-and-contrast.md`, `interaction-design.md`, and `react-tailwind-implementation-review.md` now prefer `scrollbar-thin`, `scrollbar-auto`, `scrollbar-none`, `scrollbar-thumb-*`, `scrollbar-track-*`, `scrollbar-gutter-stable`, and `scrollbar-gutter-both` before bespoke scrollbar CSS.
+- **Expanded Tailwind layout and responsive guidance.** `container-queries.md`, `spatial-design.md`, and `responsive-design.md` now cover core `@container`, `@container-size`, logical property utilities, safe alignment utilities, pointer variants, and cautious `zoom-*` usage.
+- **Expanded Tailwind typography and text resilience guidance.** `typography.md` now covers `font-features-*`, `tab-*`, `wrap-anywhere`, `wrap-break-word`, and `wrap-normal` for OpenType features, code/log panes, and long user-generated text.
+- **Expanded Tailwind visual effects guidance.** `image-treatment.md` and `finishing-touches.md` now cover `text-shadow-*`, `mask-*`, expanded gradient utilities, and 3D transform utilities with restraint rules for when they help rather than decorate.
+- **Expanded Tailwind component-state guidance.** `component-anatomy.md`, `accordion-ux.md`, `component-accessibility.md`, `interaction-design.md`, and `react-tailwind-implementation-review.md` now cover `field-sizing-content`, `field-sizing-fixed`, `details-content`, `starting:*`, `open:*`, `inert:*`, `noscript:*`, `inverted-colors:*`, `user-valid:*`, `user-invalid:*`, and `not-*` usage.
+- **Tailwind neutral palette guidance.** `color-and-contrast.md` now includes Tailwind v4.2 `mauve`, `olive`, `mist`, and `taupe` neutral-adjacent palette guidance for brand-tinted neutral systems.
+
+### Changed
+
+- **Scrollbar doctrine now defaults to Tailwind utilities.** Previous global base-layer scrollbar CSS guidance was narrowed to document-level defaults or wrapper-component edge cases, with warnings against blanket thin scrollbars in coarse-pointer or reading-heavy contexts.
+- **Repository version metadata bumped to `3.2.0`.** This is a minor release for Tailwind CSS v4 through v4.3 guidance updates across the React/Tailwind design references.
 
 ## [3.1.0] - 2026-05-11
 

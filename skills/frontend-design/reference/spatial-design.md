@@ -83,6 +83,28 @@ Viewport queries are for page layouts. **Container queries are for components**:
 
 **Why this matters**: A card in a narrow sidebar stays compact, while the same card in a main content area expands—automatically, without viewport hacks.
 
+## Logical Layout Utilities
+
+Tailwind v4 itself leans on logical properties internally, and v4.2 adds more logical property utilities. Use them when layout should respect writing mode, direction, or reusable component placement better than physical left/right/top/bottom classes.
+
+Good uses:
+
+- `pbs-*` and `pbe-*` for block-start and block-end padding
+- `mbs-*` and `mbe-*` for block-start and block-end margin
+- `scroll-mbs-*`, `scroll-mbe-*`, `scroll-pbs-*`, and `scroll-pbe-*` for anchor offsets in writing-mode-aware layouts
+- `inline-*`, `block-*`, `min-inline-*`, `max-inline-*`, `min-block-*`, and `max-block-*` for component sizing by logical axis
+- `inset-s-*`, `inset-e-*`, `inset-bs-*`, and `inset-be-*` for positioned elements
+
+Prefer logical utilities for reusable primitives, multilingual interfaces, sidebars, sheets, and components that may appear in both left-to-right and right-to-left contexts. Physical utilities are fine when the design meaning is explicitly physical, such as a chart axis, drag handle, or directional illustration.
+
+Stop using old `start-*` and `end-*` positioning patterns in new work when `inset-s-*` and `inset-e-*` express the same job more consistently.
+
+## Zoom Utilities Are For Controlled Previews
+
+Tailwind CSS v4.3 adds `zoom-*` utilities. Use them only when the product intentionally needs CSS `zoom`, such as document previews, canvas previews, miniature UI snapshots, or controlled editor surfaces.
+
+Avoid `zoom-*` for ordinary responsive layout, text fitting, or accessibility fixes. If content does not fit, fix the layout, wrapping, scale, or container logic. Zooming whole UI regions can distort hit targets, focus expectations, and perceived type scale.
+
 ## Optical Adjustments
 
 Text at `margin-left: 0` looks indented due to letterform whitespace—use negative margin (`-0.05em`) to optically align. Geometrically centered icons often look off-center; play icons need to shift right, arrows shift toward their direction.

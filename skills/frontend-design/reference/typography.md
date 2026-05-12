@@ -405,6 +405,44 @@ In Tailwind and React, prefer readable utility classes when possible:
 
 Use `font-feature-settings` only when no higher-level CSS property or Tailwind utility covers the feature. Raw feature tags are powerful, but they are easy to make opaque and font-specific.
 
+Tailwind CSS v4.2 adds `font-features-*` utilities for those font-specific escape hatches:
+
+```tsx
+<p className='font-features-["ss01","cv02"]'>
+  ...
+</p>
+```
+
+Use higher-level utilities first, such as `tabular-nums`, `lining-nums`, and `slashed-zero`. Reach for `font-features-*` only when the font exposes a real stylistic set or character variant the design system intentionally uses.
+
+Tailwind CSS v4.3 adds `tab-*` utilities for preformatted text that contains real tab characters. Use them for code samples, editors, diff views, and logs:
+
+```tsx
+<pre className="tab-2 whitespace-pre overflow-auto">
+  {code}
+</pre>
+```
+
+Keep tab sizes practical. `tab-2` or `tab-4` usually scans better than wide defaults in constrained panes.
+
+### Overflow Wrapping
+
+Tailwind CSS v4.1 adds `wrap-break-word`, `wrap-anywhere`, and `wrap-normal` utilities for `overflow-wrap`.
+
+Use them deliberately:
+
+```tsx
+<p className="wrap-anywhere">
+  {emailOrLongIdentifier}
+</p>
+```
+
+- use `wrap-anywhere` inside flex rows, cards, table cells, profile blocks, and narrow panels where long emails, URLs, hashes, or German compounds would otherwise force overflow
+- use `wrap-break-word` when emergency breaking is acceptable but intrinsic sizing should stay closer to normal text
+- use `wrap-normal` for prose, headings, labels, and content where mid-word breaks would hurt readability
+
+Do not hide horizontal overflow globally to cover bad wrapping. Fix the text container and choose the right wrapping behavior.
+
 ### Variable font axes
 
 Variable fonts can reduce file count and make typography more adaptable, but only when the chosen family has useful axes and the UI actually uses them.

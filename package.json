@@ -1,6 +1,6 @@
 {
   "name": "better-react-web-ui",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "private": true,
   "type": "module",
   "description": "Opinionated React and Tailwind frontend design Agent Skills package for AI coding agents.",

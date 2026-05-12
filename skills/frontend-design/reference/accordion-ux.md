@@ -25,6 +25,17 @@ Common strong fits:
 - filters grouped by category
 - schedules, agendas, and dense reference lists
 
+Tailwind's `details-content` variant can style the content box inside native `<details>` without adding extra wrapper-specific selectors:
+
+```tsx
+<details className="details-content:mt-3 details-content:border-s details-content:ps-4">
+  <summary>Shipping options</summary>
+  <div>...</div>
+</details>
+```
+
+Use it for native disclosure polish when `<details>/<summary>` already fits. Do not choose native details only because the variant exists; component-library accordions may still be better when keyboard behavior, animation lifecycle, or controlled state needs are stricter.
+
 ## When not to use one
 
 An accordion is usually the wrong default when:

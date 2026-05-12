@@ -1009,6 +1009,14 @@ A textarea allows multi-line freeform input.
 - use a textarea only when the answer is genuinely multi-line or longform
 - expose character guidance or limits clearly when the task has real constraints
 
+Tailwind CSS includes `field-sizing-content` for content-sized form controls:
+
+```tsx
+<textarea className="field-sizing-content min-h-24 resize-y" rows={2} />
+```
+
+Use it for short-to-medium freeform answers where auto-growth reduces cramped editing. Keep a sensible `min-h-*`, consider `max-h-*` plus `overflow-auto` for long entries, and avoid auto-growing a field so far that it pushes the submit action or nearby context out of reach. Use `field-sizing-fixed` when stable layout matters more than content-sized growth.
+
 ### Avoid
 
 - textareas so small that users cannot comfortably see what they typed

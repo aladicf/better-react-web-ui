@@ -97,6 +97,37 @@ Use it like a glow, not a theatrical shadow:
 
 This works best as support, not as the only fix.
 
+Tailwind CSS v4.1 ships first-party text shadow utilities. Prefer them before custom CSS:
+
+```tsx
+<h1 className="text-shadow-sm/30 text-shadow-black">
+  ...
+</h1>
+```
+
+Use `text-shadow-2xs`, `text-shadow-xs`, or `text-shadow-sm` for image readability polish. Treat `text-shadow-md` and `text-shadow-lg` as display-only tools; they get tacky fast in product UI. Use `text-shadow-none` at breakpoints or in dark mode when the background becomes calm enough.
+
+## Use Masks for Edge Fades and Media Blends
+
+Tailwind CSS v4.1 includes composable `mask-*` utilities. Use them for practical image treatment:
+
+```tsx
+<img
+  className="mask-b-from-70% mask-b-to-95% object-cover"
+  src={src}
+  alt=""
+/>
+```
+
+Strong fits:
+
+- fading screenshots into a section background
+- softening media edges in hero or feature compositions
+- scroll-fade affordances for clipped content
+- preserving image content while reducing harsh rectangular edges
+
+Avoid masks that hide meaningful product detail, body text, controls, or crop-critical faces. Masking is presentation, not information architecture.
+
 ## Everything Has an Intended Size
 
 Images and icons have a size range where they feel right.
