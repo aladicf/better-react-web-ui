@@ -9,7 +9,7 @@ Adapt existing designs to work effectively across different contexts - different
 
 ## MANDATORY PREPARATION
 
-Users start this workflow with `/adapt`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first. Additionally gather: target platforms/devices and usage contexts.
+Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps. Additionally gather: target platforms/devices and usage contexts.
 
 Consult the [responsive reference](../frontend-design/reference/responsive-design.md) for narrow-first adaptation, fluid behavior, and container-query strategy.
 Consult the [spacing system](../frontend-design/reference/spacing-system.md) when adaptation problems are really grouping, rhythm, or width-discipline issues.

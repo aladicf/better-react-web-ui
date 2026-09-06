@@ -2,6 +2,8 @@
 
 This reference captures the most common visual tells that make an interface look machine-generated, trend-chasing, or generically “designed.”
 
+Treat these patterns as diagnostic prompts, not bans. Judge their effect on the task, hierarchy, and brand fit. An approved font, palette, or familiar layout is not a defect by itself. Preserve explicit constraints and identify a concrete problem before recommending a change.
+
 ## Common AI Slop Tells
 
 ### Purple-Blue Gradient Syndrome

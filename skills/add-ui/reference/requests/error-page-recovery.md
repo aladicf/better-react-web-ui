@@ -16,4 +16,4 @@ Also:
 - for `503` or maintenance flows, link to status/incident detail and set expectations about timing when known
 - keep route-level recovery actions more prominent than illustrations, mascots, or novelty copy
 
-Pair this with [empty-state-patterns](../../frontend-design/reference/empty-state-patterns.md) when the work is specifically about sign-in-required, access-denied, rate-limited, server-error, maintenance, or not-found recovery surfaces.
+Pair this with [empty-state-patterns](../../../frontend-design/reference/empty-state-patterns.md) when the work is specifically about sign-in-required, access-denied, rate-limited, server-error, maintenance, or not-found recovery surfaces.

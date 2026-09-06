@@ -1,14 +1,10 @@
 ## Comparison table template
 
-Use this deterministic template when summarizing the five generated directions.
+For exploration, use one row per requested direction. Direct implementation does not need a comparison table.
 
 | Variation | Concept | Best for | Distinguishing traits | Tradeoffs |
 |---|---|---|---|---|
-| 1 | [short concept name] | [best-fit use case] | [layout / hierarchy / tone] | [what it sacrifices] |
-| 2 | [short concept name] | [best-fit use case] | [layout / hierarchy / tone] | [what it sacrifices] |
-| 3 | [short concept name] | [best-fit use case] | [layout / hierarchy / tone] | [what it sacrifices] |
-| 4 | [short concept name] | [best-fit use case] | [layout / hierarchy / tone] | [what it sacrifices] |
-| 5 | [short concept name] | [best-fit use case] | [layout / hierarchy / tone] | [what it sacrifices] |
+| [number] | [short concept name] | [best-fit use case] | [layout, hierarchy, tone] | [what it sacrifices] |
 
 ### Notes
 

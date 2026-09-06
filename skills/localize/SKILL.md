@@ -16,7 +16,7 @@ Consult the [date-input-ux](../frontend-design/reference/date-input-ux.md) and [
 
 ## MANDATORY PREPARATION
 
-Users start this workflow with `/localize`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first. Additionally gather: which markets and languages are targeted now and next, whether the product is content-heavy or UI-heavy, and whether translation will be done in-house, by agency, or through a TMS.
+Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps. Additionally gather: which markets and languages are targeted now and next, whether the product is content-heavy or UI-heavy, and whether translation will be done in-house, by agency, or through a TMS.
 
 ## Assess Localization Scope
 

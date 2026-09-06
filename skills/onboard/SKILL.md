@@ -7,7 +7,7 @@ metadata:
 
 ## MANDATORY PREPARATION
 
-Users start this workflow with `/onboard`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first. Additionally gather: the "aha moment" you want users to reach, and users' experience level.
+Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps. Additionally gather: the "aha moment" you want users to reach, and users' experience level.
 
 Consult the [onboarding UX](../frontend-design/reference/onboarding-ux.md) when deciding first-run sequencing, activation milestones, setup-wizard scope, tours vs checklists vs contextual onboarding, progressive permission requests, or how returning users should re-enter an unfinished flow.
 Consult the [empty-state patterns](../frontend-design/reference/empty-state-patterns.md) when zero-data surfaces are part of the onboarding journey.

@@ -8,6 +8,8 @@ Important default: the more component-shaped references in this folder are mostl
 
 ## Start here
 
+- [Before-and-after examples](./before-and-after-examples.md) show constraint-preserving hierarchy, visible hero loading, and reduced-motion fallback reviews.
+
 If you only open a few files first, make them these:
 
 - [ux strategy](./ux-strategy.md) — connect UX direction to user segments, priorities, feasibility, and risk

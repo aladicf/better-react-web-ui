@@ -14,7 +14,7 @@ Consult [ux strategy](../frontend-design/reference/ux-strategy.md) when the proj
 
 ## Step 1: Explore the Codebase
 
-Before asking questions, thoroughly scan the project to discover what you can:
+Follow the [Context Gathering Protocol](../frontend-design/SKILL.md#context-gathering-protocol). Reuse explicit instructions, documented audience and brand context, and prior answers. Inspect the relevant project files before asking about gaps:
 
 - **README and docs**: Project purpose, target audience, any stated goals
 - **Package.json / config files**: React framework, dependencies, existing design libraries
@@ -33,7 +33,7 @@ Note what you've learned and what remains unclear.
 
 ## Step 2: Ask UX-Focused Questions
 
-ask the user directly to clarify what you cannot infer. Focus only on what you couldn't infer from the codebase:
+Ask only about consequential gaps. The questions below are prompts to select from, not a mandatory questionnaire. If the user delegates creative decisions, record your assumptions and proceed. Do not invent user quotations:
 
 ### Users & Purpose
 - Who uses this? What's their context when using it?
@@ -123,6 +123,6 @@ When the distinction matters for React-oriented component ecosystems, also recor
 
 If shadcn-specific project configuration exists, record it as part of the baseline instead of letting later sessions assume the generic fallback defaults.
 
-Then ask the user whether they'd also like the Design Context appended to `AGENTS.md`. If yes, append or update the section there as well.
+Use `.better-react-web-ui.md` as the single persisted source. Update `AGENTS.md` only when the user requests it, and prefer a pointer to the context file over duplicating the section.
 
 Confirm completion and summarize the key design principles that will now guide all future work.

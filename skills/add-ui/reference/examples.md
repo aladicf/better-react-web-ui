@@ -28,10 +28,10 @@ The skill should:
 1. classify the request
 2. detect whether the request is net-new UI or a redesign of an existing artifact
 3. preserve the recognizable structure when the user asks to keep the essence or current layout
-4. generate **5** genuinely different directions
-5. explain tradeoffs in a compact comparison format
+4. implement directly unless the user requests exploration. For exploration, use the requested count or five if no count is specified
+5. for exploration, explain tradeoffs in a compact comparison format
 6. recommend one direction when the goals clearly favor it
-7. help preview and apply the selected option
+7. apply a selected direction or choose under delegated authority without another approval checkpoint
 
 For redesign requests that preserve structure, the directions should usually vary typography, color, copy framing, proof treatment, density, and detail language more than the underlying page skeleton.
 

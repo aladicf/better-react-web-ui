@@ -7,7 +7,7 @@ metadata:
 
 ## MANDATORY PREPARATION
 
-Users start this workflow with `/audit`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first.
+Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps.
 
 ---
 
@@ -55,13 +55,15 @@ Run comprehensive checks across 5 dimensions. Score each dimension 0-4 using the
 - **Layout thrashing**: Reading/writing layout properties in loops
 - **Expensive animations**: Animating layout properties (width, height, top, left) instead of transform/opacity
 - **Interaction latency**: Common actions provide no immediate feedback, rely on blank waits, or miss obvious optimistic/prefetch/progressive-loading opportunities
-- **Missing optimization**: Images without lazy loading, unoptimized assets, missing will-change
+- **Image delivery**: Oversized assets, unnecessary eager loading below the fold, or lazy loading of initially visible and likely LCP images
 - **Bundle size**: Unnecessary imports, unused dependencies
-- **Render performance**: Unnecessary re-renders, missing memoization
+- **Render performance**: Measured expensive rendering or repeated calculations that delay interactions
 - **Hydration safety**: Client-only dates, uncontrolled/controlled input mismatches, unnecessary `suppressHydrationWarning`
 - **Large list handling**: Unvirtualized repeated lists or missing containment where list size makes rendering costly
 
-**Score 0-4**: 0=Severe issues (layout thrash, unoptimized everything), 1=Major problems (no lazy loading, expensive animations), 2=Partial (some optimization, gaps remain), 3=Good (mostly optimized, minor improvements possible), 4=Excellent (fast, lean, well-optimized)
+Measure load and interaction behavior before recommending optimizations. Missing memoization or `will-change` is not a defect by itself. Add either only when profiling identifies a bottleneck and a comparison demonstrates improvement. See [React memo](https://react.dev/reference/react/memo) and [will-change guidance](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/will-change).
+
+**Score 0-4**: 0=Task-blocking delays, 1=Major measured load or interaction problems, 2=Usable with measured bottlenecks, 3=Meets target-device budgets with minor issues, 4=Meets agreed budgets across tested conditions. If performance was not measured, report it as untested and omit the aggregate score.
 
 ### 3. Theming
 
@@ -89,7 +91,7 @@ Run comprehensive checks across 5 dimensions. Score each dimension 0-4 using the
 
 ### 5. Anti-Patterns (CRITICAL)
 
-Check against ALL the **DON'T** guidelines in the frontend-design skill and the [ai slop detection](../frontend-design/reference/ai-slop-detection.md) reference. Look for AI slop tells (AI color palette, gradient text, glassmorphism, hero metrics, card grids, generic fonts) and general design anti-patterns (gray on color, nested cards, bounce easing, redundant copy).
+Use the [AI slop detection](../frontend-design/reference/ai-slop-detection.md) reference to assess composition and brand fit. Treat visual patterns as prompts for review, not automatic defects. Preserve approved fonts and colors. Report concrete problems such as unclear hierarchy, unreadable content, unnecessary decoration, or mismatch with the brief.
 
 Also run these implementation-level hierarchy checks:
 - **Hierarchy check**: Can a user identify primary, secondary, and tertiary elements within about 2 seconds?
@@ -113,7 +115,7 @@ Also run these implementation-level hierarchy checks:
 - **Dark-pattern check**: Are there misleading labels, preselected exploitative options, obstructed cancellation/consent flows, fake urgency, or hierarchy that pressures the wrong choice?
 - **Guardrail check**: Do bulk/destructive/admin/powerful actions lack confirmations, undo, permission boundaries, or other proportional safeguards?
 
-**Score 0-4**: 0=AI slop gallery (5+ tells), 1=Heavy AI aesthetic (3-4 tells), 2=Some tells (1-2 noticeable), 3=Mostly clean (subtle issues only), 4=No AI tells (distinctive, intentional design)
+**Score 0-4**: 0=Composition obstructs the primary task, 1=Several major hierarchy or brand-fit problems, 2=Some visible composition problems, 3=Minor refinement needed, 4=Clear hierarchy and consistent brand fit. This is a qualitative judgment. Cite observed examples rather than counting fonts, colors, or effects.
 
 ## Generate Report
 

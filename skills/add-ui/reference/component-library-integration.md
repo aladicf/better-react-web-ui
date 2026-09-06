@@ -2,7 +2,7 @@
 
 Use this reference when `add-ui` is generating directions for React and Tailwind projects where `shadcn/ui`, shadcn block kits, motion libraries, map component kits, consent UI, background pattern sources, specialized auth/billing UI, or Base UI-based primitives may be part of the implementation path.
 
-This reference does **not** replace [artifact taxonomy](./artifact-taxonomy.md) or [request mapping](./request-mapping.md). It explains how component-library choices should influence the five-direction workflow.
+This reference does **not** replace [artifact taxonomy](./artifact-taxonomy.md) or [request mapping](./request-mapping.md). It explains how component-library choices should influence the implementation or exploration workflow.
 
 For current upstream inventories and implementation details, use the official docs directly:
 
@@ -119,7 +119,7 @@ Typical fits:
 - landing-page sections
 - auth entry points
 
-## How to use blocks in a five-variation workflow
+## How to use blocks in a variation workflow
 
 A block should not replace variation thinking.
 
@@ -127,8 +127,8 @@ Use blocks to accelerate only part of the workflow:
 
   - one or more directions may start from a block-derived structure from shadcn/ui Blocks, ReUI, shadcncraft, Kibo UI, Basecn, Tailark, shadcnblocks, Efferd, blocks.so, Smooth UI, TripleD UI, shadcn-map, mapcn, Consent Manager, c15t, or PatternCraft
 - at least some directions should still explore materially different hierarchy or framing
-- do not generate five near-identical block remixes
-- if all five directions would collapse into the same scaffold, reduce block reliance and compose more of the structure manually
+- do not generate near-identical block remixes
+- if all requested directions would collapse into the same scaffold, reduce block reliance and compose more of the structure manually
 
 ## Mixing block-derived structure with custom differentiation
 
@@ -184,7 +184,7 @@ If the project already uses ReUI, shadcncraft, Kibo UI, Basecn, Tailark, shadcnb
 
 ## Recommendation behavior inside `add-ui`
 
-When presenting five directions:
+When presenting alternatives:
 
 - state whether each direction is component-led, pattern-led, or block-led
 - explain why that layer suits the artifact

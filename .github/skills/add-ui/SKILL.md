@@ -1,6 +1,6 @@
 ---
 name: add-ui
-description: Generate 5 distinct, production-grade UI variations for a requested new or existing section, component, page, flow, or shell, then help the user preview and apply one. Use when the user asks to add or redesign UI like a hero, pricing, navbar, auth flow, dashboard shell, ecommerce surface, or data component.
+description: Create or redesign React and Tailwind sections, pages, flows, shells, and components. Use when the user wants new UI or a redesign. Implement one requested or selected direction directly, or generate distinct alternatives when the user asks to compare options.
 metadata:
   argument-hint: "[UI artifact or redesign request]"
 ---

@@ -1,6 +1,9 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import {
+  collectLocalMarkdownTargets,
+  findBrokenMarkdownLinks,
+  skillsDir,
   buildWrapperContent,
   buildWrapperRootReadmeContent,
   getCanonicalSkills,
@@ -169,43 +172,6 @@ function reportSetMismatch({ actual, expected, label }) {
   }
 }
 
-function isExternalLink(target) {
-  return /^[a-z][a-z0-9+.-]*:/i.test(target) || target.startsWith('//');
-}
-
-function collectLocalMarkdownTargets(contents) {
-  const normalizedContents = contents.replace(/\r\n/g, '\n').replace(/```[\s\S]*?```/g, '');
-  const targets = [];
-
-  for (const match of normalizedContents.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)) {
-    let target = match[1].trim();
-
-    if (target.startsWith('<') && target.endsWith('>')) {
-      target = target.slice(1, -1).trim();
-    }
-
-    const titleSeparatorIndex = target.search(/\s(?=(?:[^"]*"[^"]*")*[^"]*$)/);
-    if (titleSeparatorIndex !== -1) {
-      target = target.slice(0, titleSeparatorIndex);
-    }
-
-    const pathWithoutAnchor = target.split('#')[0];
-
-    if (
-      !pathWithoutAnchor ||
-      pathWithoutAnchor.startsWith('#') ||
-      isExternalLink(pathWithoutAnchor) ||
-      path.isAbsolute(pathWithoutAnchor)
-    ) {
-      continue;
-    }
-
-    targets.push(pathWithoutAnchor);
-  }
-
-  return [...new Set(targets)];
-}
-
 async function validateLocalMarkdownLinks(filePath, contents) {
   const relativeFilePath = path.relative(projectRoot, filePath);
 
@@ -311,6 +277,9 @@ if (skills.length === 0) {
 if (!wrappersOnly) {
   const documents = await validateRepositoryDocs();
   await validateRuntimeVersionFiles();
+  for (const { filePath, target } of await findBrokenMarkdownLinks(skillsDir)) {
+    addError(`Broken local markdown link in ${path.relative(projectRoot, filePath)}: ${target}.`);
+  }
 
   const readmeContents = documents.get('README.md');
   if (readmeContents) {
@@ -347,8 +316,6 @@ if (!wrappersOnly) {
         `Non-portable top-level argument-hint found in ${path.relative(projectRoot, skill.skillFilePath)}. Prefer metadata.argument-hint for future edits.`,
       );
     }
-
-    await validateLocalMarkdownLinks(skill.skillFilePath, skill.contents);
   }
 }
 

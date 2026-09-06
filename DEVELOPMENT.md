@@ -259,13 +259,15 @@ If a description gets longer because it tries to explain every edge case, that i
 
 Use `npm run smoke:install` when you want to verify a real local install flow instead of just discovery.
 
-The helper script creates a disposable temporary directory, installs the `add-ui` skill into that temporary project scope, reports which generated wrapper root or roots the `skills` CLI chose, verifies the installed skill appears in `skills list --json`, and then cleans the temp directory up on success.
+The helper installs the complete skill set into a temporary project for the explicit supported agents. It checks every installed skill against `skills list --json` and resolves local Markdown links throughout the installed files. It removes the temporary project only after these checks pass. Individual skill folders are not supported as standalone installations.
 
 When you need a reproducible supported install while checking README examples, prefer running a disposable manual install with the explicit upstream target set `--agent codex --agent cursor --agent github-copilot --agent opencode` rather than relying on interactive detection or `--all`. Use a single explicit `--agent` only when you are checking one target-specific path.
 
 If you need to assert that a specific install root is present while reproducing host-routing behavior, set `SKILLS_EXPECTED_INSTALL_ROOT` to one of the configured wrapper roots such as `.github/skills` or `.cursor/skills` before running the smoke test. The script will fail if the CLI does not write that root.
 
 ## Validation coverage
+
+Use [behavioral evaluations](evaluations/README.md) to compare actual agent routing, questions, implementation scope, and rendered results across library revisions. The existing routing-fixture check validates the prompt data only. Repository checks do not run an agent or certify visual quality.
 
 `npm run validate` currently checks:
 
@@ -281,7 +283,7 @@ If you need to assert that a specific install root is present while reproducing 
 - `metadata.argument-hint` is non-empty if present
 - literal `--` sequences in skill bodies are flagged (em dash anti-pattern)
 - top-level docs required for contributors exist
-- local markdown links in canonical docs resolve
+- inline local Markdown links in root contributor docs and every canonical skill, reference, and asset Markdown file resolve. This check skips fenced examples and does not validate anchors or reference-style links.
 - the README skill catalog stays in sync with canonical `skills/`
 - the README wrapper-root list stays in sync with configured wrapper roots
 - wrapper-root `README.md` files match the generated contract
@@ -291,4 +293,4 @@ If you need to assert that a specific install root is present while reproducing 
 
 GitHub Actions in [`.github/workflows/validate.yml`](.github/workflows/validate.yml) installs dependencies and runs `npm run release:check`, keeping CI aligned with the local release readiness command.
 
-The wrapper-idempotency check is intentionally scoped to generated wrapper content rather than the whole repository, so unrelated files such as local package-manager artifacts cannot cause false negatives.
+Release checks inspect committed wrapper content without regenerating it. Run `npm run generate:wrappers` explicitly after canonical metadata or wrapper-template changes, review the diff, and then run `npm run release:check`. CI fails on drift instead of repairing the checkout.

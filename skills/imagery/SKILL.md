@@ -9,7 +9,7 @@ Assess and improve image usage so photography, illustrations, screenshots, icons
 
 ## MANDATORY PREPARATION
 
-Users start this workflow with `/imagery`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first. Additionally gather: what role imagery plays here (brand, explanation, proof, decoration, content).
+Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps. Additionally gather: what role imagery plays here (brand, explanation, proof, decoration, content).
 
 Consult the [color and contrast](../frontend-design/reference/color-and-contrast.md) reference when images create readability problems, need overlays, or should be harmonized with the palette.
 Consult the [semantic color](../frontend-design/reference/semantic-color.md) when imagery intersects with status, alerts, meaning, or tinted contextual surfaces rather than pure atmosphere.

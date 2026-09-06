@@ -51,9 +51,9 @@ Use Geist thoughtfully:
 
 ### Choosing Distinctive Fonts
 
-**Avoid the invisible defaults**: Inter, Roboto, Open Sans, Lato, Montserrat. These are everywhere, making your design feel generic. They're fine for documentation or tools where personality isn't the goal—but if you want distinctive design, look elsewhere.
+Preserve approved brand fonts, including Inter, Arial, and system fonts. For an open design direction, compare font choices by readability, language coverage, loading cost, and fit. Distinctiveness can come from hierarchy and composition without replacing the typeface.
 
-**Better Google Fonts alternatives**:
+**Alternative Google Fonts for an open direction**:
 - Instead of Inter → **Instrument Sans**, **Plus Jakarta Sans**, **Outfit**
 - Instead of Roboto → **Onest**, **Figtree**, **Urbanist**
 - Instead of Open Sans → **Source Sans 3**, **Nunito Sans**, **DM Sans**

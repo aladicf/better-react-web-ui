@@ -151,3 +151,59 @@ export async function getCanonicalSkills() {
 
   return skills;
 }
+function isExternalLink(target) {
+  return /^[a-z][a-z0-9+.-]*:/i.test(target) || target.startsWith('//');
+}
+
+export function collectLocalMarkdownTargets(contents) {
+  // ponytail: checks inline links used by this library. Add a Markdown parser if reference-style links become part of the contract.
+  const normalizedContents = contents.replace(/\r\n/g, '\n').replace(/```[\s\S]*?```/g, '');
+  const targets = [];
+
+  for (const match of normalizedContents.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)) {
+    let target = match[1].trim();
+
+    if (target.startsWith('<') && target.endsWith('>')) {
+      target = target.slice(1, -1).trim();
+    }
+
+    const titleSeparatorIndex = target.search(/\s(?=(?:[^"]*"[^"]*")*[^"]*$)/);
+    if (titleSeparatorIndex !== -1) {
+      target = target.slice(0, titleSeparatorIndex);
+    }
+
+    const pathWithoutAnchor = target.split('#')[0];
+
+    if (
+      !pathWithoutAnchor ||
+      pathWithoutAnchor.startsWith('#') ||
+      isExternalLink(pathWithoutAnchor) ||
+      path.isAbsolute(pathWithoutAnchor)
+    ) {
+      continue;
+    }
+
+    targets.push(pathWithoutAnchor);
+  }
+
+  return [...new Set(targets)];
+}
+
+export async function findBrokenMarkdownLinks(directory) {
+  const files = (await fs.readdir(directory, { recursive: true }))
+    .filter((file) => file.endsWith('.md'));
+  const broken = [];
+  for (const file of files) {
+    const filePath = path.join(directory, file);
+    const contents = await fs.readFile(filePath, 'utf8');
+    for (const target of collectLocalMarkdownTargets(contents)) {
+      try {
+        await fs.access(path.resolve(path.dirname(filePath), target));
+      } catch (error) {
+        if (error.code !== 'ENOENT' && error.code !== 'ENOTDIR') throw error;
+        broken.push({ filePath, target });
+      }
+    }
+  }
+  return broken;
+}

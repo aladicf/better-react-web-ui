@@ -1,6 +1,6 @@
 ## Apply / cleanup checklist
 
-Use this checklist after the user selects one of the five generated directions.
+Use this checklist after the user selects one of the requested directions.
 
 - [ ] Apply the chosen variation to the requested target location
 - [ ] Preserve project conventions, imports, and existing folder structure

@@ -14,7 +14,7 @@ When a project needs virtualization for very long lists and the stack is still o
 
 ## MANDATORY PREPARATION
 
-Users start this workflow with `/optimize`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first. Additionally gather: the target devices, performance constraints, and which user interactions feel slow.
+Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps. Additionally gather: the target devices, performance constraints, and which user interactions feel slow.
 
 ## Assess Performance Issues
 
@@ -58,6 +58,7 @@ When work will exceed that window:
 - Use modern formats (WebP, AVIF)
 - Proper sizing (don't load 3000px image for 300px display)
 - Lazy loading for below-fold images
+- Keep initially visible images eager. Prioritize the likely LCP image using the installed framework's image conventions. See [browser image loading](https://web.dev/articles/browser-level-image-lazy-loading).
 - Responsive images (`srcset`, `picture` element)
 - Compress images (80-85% quality is usually imperceptible)
 - Use CDN for faster delivery
@@ -67,7 +68,8 @@ When work will exceed that window:
   src="hero.webp"
   srcset="hero-400.webp 400w, hero-800.webp 800w, hero-1200.webp 1200w"
   sizes="(max-width: 400px) 400px, (max-width: 800px) 800px, 1200px"
-  loading="lazy"
+  loading="eager"
+  fetchpriority="high"
   alt="Hero image"
 />
 ```
@@ -80,7 +82,7 @@ AVIF typically delivers 30-50% smaller files than WebP at equivalent visual qual
 <picture>
   <source srcset="hero.avif" type="image/avif">
   <source srcset="hero.webp" type="image/webp">
-  <img src="hero.jpg" alt="Hero image" loading="lazy">
+  <img src="hero.jpg" alt="Hero image" loading="eager" fetchpriority="high">
 </picture>
 ```
 
@@ -224,7 +226,7 @@ elements.forEach((el, i) => {
 **Reduce Paint & Composite**:
 - Use `transform` and `opacity` for animations (GPU-accelerated)
 - Avoid animating layout properties (width, height, top, left)
-- Use `will-change` sparingly for known expensive operations
+- Add temporary, narrowly scoped `will-change` only when a measured animation bottleneck improves with it. Remove it afterward. Missing `will-change` is not a problem by itself.
 - Minimize paint areas (smaller is faster)
 
 ### Animation Performance
@@ -266,11 +268,12 @@ const observer = new IntersectionObserver((entries) => {
 ### React Optimization
 
 **React-specific**:
-- Use `memo()` for expensive components
-- `useMemo()` and `useCallback()` for expensive computations
+- Profile representative interactions before adding memoization. Match the project's React Compiler setup before introducing manual caches.
+- Use `memo()` when costly repeated renders with unchanged props are a measured bottleneck.
+- Use `useMemo()` for measured expensive calculations. Use `useCallback()` only when stable function identity enables a demonstrated optimization or is required by a consumer.
 - Virtualize long lists
 - Code split routes
-- Avoid inline function creation in render
+- Keep inline callbacks unless their changing identity causes a measured problem.
 - Use React DevTools Profiler
 
 **React framework patterns**:

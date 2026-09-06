@@ -1,6 +1,6 @@
 ---
 name: add-ui
-description: Generate 5 distinct, production-grade UI variations for a requested new or existing section, component, page, flow, or shell, then help the user preview and apply one. Use when the user asks to add or redesign UI like a hero, pricing, navbar, auth flow, dashboard shell, ecommerce surface, or data component.
+description: Create or redesign React and Tailwind sections, pages, flows, shells, and components. Use when the user wants new UI or a redesign. Implement one requested or selected direction directly, or generate distinct alternatives when the user asks to compare options.
 metadata:
   argument-hint: "[UI artifact or redesign request]"
 ---
@@ -9,7 +9,7 @@ metadata:
 
 Users start this workflow with `/add-ui`. `add-ui` is the canonical skill name in this repository. Some hosts may expose a friendly `/add` alias, but docs, wrappers, and source files should continue to refer to the skill as `add-ui`.
 
-Once this skill is active, load $frontend-design — it contains the design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding. If no design context exists yet, you MUST load $setup first.
+Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps.
 
 When the request is for a brand-new landing page, marketing page, or several distinct directions and the aesthetic is still open, use the approved style-selection rules in `frontend-design`'s [design directions](../frontend-design/reference/design-directions.md). Choose directions that fit the product idea and brand context instead of inventing vague vibe labels.
 
@@ -61,7 +61,7 @@ Use these deterministic helper assets when they improve consistency across hosts
 
 ---
 
-Generate multiple **meaningfully different** UI directions for a requested artifact, help the user compare them, then guide selection and integration.
+Implement the requested artifact directly. When the user asks for alternatives, generate meaningfully different directions and help compare and integrate them.
 
 This includes both **adding new UI** and **redesigning existing UI**.
 
@@ -87,7 +87,7 @@ The list is illustrative, not exhaustive.
 ## Core Operating Rules
 
 1. **Generate real alternatives, not recolors**
-   - Variations must differ in layout, hierarchy, density, tone, interaction model, and content framing.
+   - Variations must differ in at least two relevant dimensions from the variation quality bar. Preserve fixed structure and brand constraints.
    - Changing only palette, border radius, or icon set does **not** count as a new direction.
 
 2. **Start from the requested job to be done**
@@ -104,7 +104,7 @@ The list is illustrative, not exhaustive.
 4. **Stay opinionated**
    - `better-react-web-ui` optimizes for distinctive, high-taste React and Tailwind output.
    - Do not collapse into the safest possible generic SaaS layout.
-   - Use the frontend-design anti-pattern guidance aggressively.
+   - Use frontend-design guidance to identify concrete quality problems. Preserve explicit brand choices.
 
 5. **Be integration-aware**
    - Match the project's existing code conventions and folder structure.
@@ -116,7 +116,13 @@ The list is illustrative, not exhaustive.
    - Distinct directions can still be genuinely different through type, color, copy, density, proof treatment, surface styling, media direction, and action emphasis.
    - Do not mistake “give me options” for permission to discard the existing architecture.
 
-## Workflow
+## Choose the delivery mode
+
+Default to direct implementation when the user requests one artifact, specifies a direction, asks to apply a selected option, or delegates the design choice. Classify the request below, then implement and verify the result in the target location. Skip alternative files, comparison tables, and preview pickers. Report the changed files and checks.
+
+Use exploration only when the user asks for alternatives or comparison. Honor the requested count. If no count is given, use five directions. The remaining workflow describes exploration.
+
+## Exploration workflow
 
 ### 1. Classify the request
 
@@ -138,11 +144,11 @@ Then identify:
 - which structural elements are fixed versus flexible
 - which current qualities should remain recognizable versus which should change
 
-### 2. Define 5 distinct directions
+### 2. Define the requested directions
 
-Generate **5** candidate directions. Fewer than 3 reduces exploration; more than 5 becomes noise.
+Generate the requested number of candidate directions, or five when an exploration request leaves the count open.
 
-Use the [variation quality bar](./reference/variation-quality-bar.md) to ensure the five directions are meaningfully different rather than cosmetic recolors.
+Use the [variation quality bar](./reference/variation-quality-bar.md) to ensure the requested directions are meaningfully different rather than cosmetic recolors.
 
 When the request says to preserve the existing structure or essence, treat the current artifact as the baseline skeleton. The directions should primarily vary through visual system and messaging decisions rather than by deleting or reordering the page without permission.
 
@@ -205,13 +211,13 @@ For redesigns, also include:
 
 Do not let one option be a sketch while another is production-grade. Compare like with like.
 
-### 5. Recommend, then let the user choose
+### 5. Recommend and resolve selection
 
 After generating the options:
 
 1. summarize the tradeoffs in a compact table
 2. recommend one option if the user's goals clearly favor it
-3. let the user choose explicitly when multiple directions are viable
+3. ask the user to choose only if selection remains unresolved. Honor a prior choice or delegated authority to select and apply.
 
 Your recommendation should explain **why** the chosen direction best matches:
 
@@ -237,10 +243,10 @@ Use the [request mapping heuristics](./reference/request-mapping.md) for artifac
 
 ## Output Contract
 
-Whenever possible, present results in this order:
+For direct implementation, report the implemented result, changed files, and verification. For exploration, present results in this order:
 
 1. **What I generated** — requested artifact + number of directions
-2. **Variation summary table** — 1/2/3/4/5 with thesis and best-fit use case, using the [comparison table template](./assets/comparison-table-template.md) when helpful
+2. **Variation summary table** — one row per generated direction with thesis and best-fit use case, using the [comparison table template](./assets/comparison-table-template.md) when helpful
 3. **Recommended choice** — if appropriate
 4. **Preview/apply notes** — how to inspect or switch among variants
 5. **Implementation output** — created/updated files
@@ -251,7 +257,8 @@ Use the [apply / cleanup checklist](./assets/apply-cleanup-checklist.md) after t
 
 ## Never Do This
 
-- generate 5 near-identical variants with cosmetic differences only
+- generate alternatives when the user requested direct implementation
+- generate near-identical variants with cosmetic differences only
 - inject temporary browser DOM as the main implementation strategy
 - ignore the existing codebase structure and styling system
 - bulldoze an existing artifact's structure after the user asked to preserve its essence or recognizable parts
@@ -261,4 +268,4 @@ Use the [apply / cleanup checklist](./assets/apply-cleanup-checklist.md) after t
 - skip loading/error/empty/responsive-layout states when they materially affect the artifact
 - apply a chosen variant without making it clear what changed
 
-Remember: this skill is not a slot machine for interchangeable UI. It is a structured exploration workflow that helps the user choose among genuinely different, production-credible directions and end up with maintainable source code.
+Remember: this skill is not a slot machine for interchangeable UI. It supports direct implementation and requested exploration, with maintainable source code in either mode.

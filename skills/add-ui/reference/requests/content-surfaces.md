@@ -17,4 +17,4 @@ For redesigns of existing blog or editorial surfaces:
 - keep the reading structure, taxonomy cues, and scan path recognizable unless the user asks for a bigger editorial rethink
 - vary the direction through type system, card/article treatment, imagery, density, and framing rather than by disrupting the reading flow
 
-Pair this with [carousel-ux](../../frontend-design/reference/carousel-ux.md) when the surface includes related-content rails, swipe galleries, or editorial carousels.
+Pair this with [carousel-ux](../../../frontend-design/reference/carousel-ux.md) when the surface includes related-content rails, swipe galleries, or editorial carousels.

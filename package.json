@@ -1,6 +1,6 @@
 {
   "name": "better-react-web-ui",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "private": true,
   "type": "module",
   "description": "Opinionated React and Tailwind frontend design Agent Skills package for AI coding agents.",
@@ -25,6 +25,7 @@
     "node": ">=24.14.1 <25"
   },
   "scripts": {
+    "test": "node --test scripts/*.test.mjs",
     "check:node-version": "node ./scripts/check-node-version.mjs",
     "lint": "oxlint --deny-warnings scripts",
     "generate:wrappers": "node ./scripts/generate-wrappers.mjs",
@@ -38,7 +39,7 @@
     "check:compatibility-matrix": "node ./scripts/check-compatibility-matrix-drift.mjs",
     "check:reference-index": "node ./scripts/check-reference-index.mjs",
     "check:skill-routing-fixtures": "node ./scripts/check-skill-routing-fixtures.mjs",
-    "verify": "npm run check:node-version && npm run lint && npm run generate:wrappers && npm run check:wrapper-drift && npm run validate && npm run check:skill-descriptions && npm run check:compatibility-matrix && npm run check:reference-index && npm run check:skill-routing-fixtures && npm run smoke:list && npm run smoke:install",
+    "verify": "npm run check:node-version && npm run lint && npm test && npm run check:wrapper-drift && npm run validate && npm run check:skill-descriptions && npm run check:compatibility-matrix && npm run check:reference-index && npm run check:skill-routing-fixtures && npm run smoke:list && npm run smoke:install",
     "release:check": "npm run verify"
   },
   "devDependencies": {

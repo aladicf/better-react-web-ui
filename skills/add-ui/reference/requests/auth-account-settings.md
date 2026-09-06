@@ -24,8 +24,8 @@ For redesigns of existing auth surfaces:
 - preserve task order, field expectations, and recovery paths unless the current flow is demonstrably broken
 - explore differences through trust tone, copy clarity, typography, color, spacing, and support content more than through novel interaction patterns
 
-Pair this with [authentication-and-account-recovery](../../frontend-design/reference/authentication-and-account-recovery.md) when the work touches sign-in, sign-up, reset password, magic links, social sign-in, two-factor flows, or access recovery.
-Pair this with [disabled-buttons-ux](../../frontend-design/reference/disabled-buttons-ux.md) when the work depends on blocked `Continue` / `Verify` / `Create account` actions, unavailable states, or in-progress button locking.
-Pair this with [language-and-locale-selection](../../frontend-design/reference/language-and-locale-selection.md) when the work touches language selectors, region pickers, currency preferences, or locale settings.
-Pair this with [information-architecture-ux](../../frontend-design/reference/information-architecture-ux.md) when the work depends on settings structure, role-based grouping, or keeping account and organization scope clear.
-Pair this with [responsive-design](../../frontend-design/reference/responsive-design.md) when settings navigation, authentication forms, or account-management layouts need different structures across narrow, wide, and split-screen contexts.
+Pair this with [authentication-and-account-recovery](../../../frontend-design/reference/authentication-and-account-recovery.md) when the work touches sign-in, sign-up, reset password, magic links, social sign-in, two-factor flows, or access recovery.
+Pair this with [disabled-buttons-ux](../../../frontend-design/reference/disabled-buttons-ux.md) when the work depends on blocked `Continue` / `Verify` / `Create account` actions, unavailable states, or in-progress button locking.
+Pair this with [language-and-locale-selection](../../../frontend-design/reference/language-and-locale-selection.md) when the work touches language selectors, region pickers, currency preferences, or locale settings.
+Pair this with [information-architecture-ux](../../../frontend-design/reference/information-architecture-ux.md) when the work depends on settings structure, role-based grouping, or keeping account and organization scope clear.
+Pair this with [responsive-design](../../../frontend-design/reference/responsive-design.md) when settings navigation, authentication forms, or account-management layouts need different structures across narrow, wide, and split-screen contexts.

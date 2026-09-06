@@ -1,6 +1,6 @@
 ## Request mapping heuristics
 
-Use this reference to shape the five directions for common request types.
+Use this reference to shape the requested directions for common request types.
 
 When React-based fallback defaults are relevant, pair this with [component library integration](./component-library-integration.md) so you decide not just *what* artifact is being requested, but also whether that artifact should be led by primitives, reusable patterns, or block accelerators.
 

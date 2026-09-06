@@ -15,7 +15,7 @@ Consult the [legacy modernization](../frontend-design/reference/legacy-moderniza
 
 ## MANDATORY PREPARATION
 
-Users start this workflow with `/normalize`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first.
+Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps.
 
 ---
 

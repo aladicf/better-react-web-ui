@@ -19,6 +19,15 @@
 - prompt: "create five pricing table directions"
   should_trigger: [add-ui]
   should_not_trigger: [animate, arrange]
+- prompt: "implement one landing page directly in our existing React and Tailwind project, without alternatives"
+  should_trigger: [add-ui]
+  should_not_trigger: [setup, showcase]
+- prompt: "show exactly two hero section alternatives using our existing brand"
+  should_trigger: [add-ui]
+  should_not_trigger: [setup, animate]
+- prompt: "fix this menu's keyboard activation without changing its appearance or asking about our brand"
+  should_trigger: [a11y]
+  should_not_trigger: [setup, add-ui]
 - prompt: "add a new dashboard shell with variations"
   should_trigger: [add-ui]
   should_not_trigger: [animate, arrange]

@@ -11,7 +11,7 @@ This skill is specifically for zero-data and no-content surfaces. Use `onboard` 
 
 ## MANDATORY PREPARATION
 
-Users start this workflow with `/empty-state`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first. Additionally gather: the value users should reach from this surface.
+Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps. Additionally gather: the value users should reach from this surface.
 
 ---
 

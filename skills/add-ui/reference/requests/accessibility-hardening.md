@@ -18,6 +18,6 @@ Also:
 - document hidden-content rules, accessible names, and expected keyboard behavior when handing complex components to engineering
 - test third-party components with skepticism; ARIA-complete does not automatically mean user-friendly or assistive-tech safe
 
-Pair this with [component-accessibility](../../frontend-design/reference/component-accessibility.md) when the request involves accessible components, focus indicators, skip links, modal focus handling, hidden content, or vetting third-party component accessibility.
-Pair this with [colorblindness-ux](../../frontend-design/reference/colorblindness-ux.md) when the work depends on semantic color, chart palettes, active-state cues, or non-color-only differentiation.
-Pair this with [micro-failures-and-perceived-quality](../../frontend-design/reference/micro-failures-and-perceived-quality.md) when the interface feels unreliable because of repeated small papercuts, hover traps, weak acknowledgments, or brittle state continuity.
+Pair this with [component-accessibility](../../../frontend-design/reference/component-accessibility.md) when the request involves accessible components, focus indicators, skip links, modal focus handling, hidden content, or vetting third-party component accessibility.
+Pair this with [colorblindness-ux](../../../frontend-design/reference/colorblindness-ux.md) when the work depends on semantic color, chart palettes, active-state cues, or non-color-only differentiation.
+Pair this with [micro-failures-and-perceived-quality](../../../frontend-design/reference/micro-failures-and-perceived-quality.md) when the interface feels unreliable because of repeated small papercuts, hover traps, weak acknowledgments, or brittle state continuity.

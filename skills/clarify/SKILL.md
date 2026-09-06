@@ -9,7 +9,7 @@ Identify and improve unclear, confusing, or poorly written product text to make 
 
 ## MANDATORY PREPARATION
 
-Users start this workflow with `/clarify`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first. Additionally gather: audience technical level, users' mental state in context, and whether you are writing new copy or editing existing copy.
+Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps. Additionally gather: audience technical level, users' mental state in context, and whether you are writing new copy or editing existing copy.
 
 Consult the [ux-writing reference](../frontend-design/reference/ux-writing.md) for labels, errors, empty states, confirmations, and interface microcopy.
 Consult the [interface honesty](../frontend-design/reference/interface-honesty.md) reference when the copy problem involves manipulative friendliness, evasive progress language, consent wording, cancellation language, upgrade pressure, or any surface that should sound more assertive and truthful.

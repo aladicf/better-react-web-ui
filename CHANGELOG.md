@@ -6,6 +6,28 @@ Format follows [Keep a Changelog](https://keepachangelog.com/) with Added / Chan
 
 ## [Unreleased]
 
+## [3.3.0] - 2026-09-06
+
+### Added
+
+- Recursive canonical Markdown link validation and a regression check for nested references and missing companion skills.
+- A repeatable manual evaluation procedure with four React fixtures and an evidence template for real agent and browser runs.
+- Before-and-after review examples for brand preservation, hero loading, and reduced-motion content.
+
+### Changed
+
+- `add-ui` implements directly by default and explores alternatives only when requested, honoring the requested count.
+- The core frontend skill now routes to focused references instead of repeating the full design doctrine.
+- Context gathering reuses prior answers and delegated choices. Focused repairs no longer require a brand interview or setup file.
+- Visual preferences no longer override approved fonts, colors, or brand constraints.
+- Full-library installation is the supported contract. The install smoke test verifies all skills and their local references.
+
+### Fixed
+
+- Corrected 75 broken shared-reference links across 27 request guides.
+- Release checks detect wrapper drift before regeneration can hide it, with a regression test for that behavior.
+- Performance guidance distinguishes visible hero images from lazy-loaded media and requires evidence before memoization or `will-change` changes.
+
 ## [3.2.0] - 2026-05-12
 
 ### Added

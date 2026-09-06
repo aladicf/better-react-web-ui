@@ -85,4 +85,4 @@ Report what you inspected and any untested states. Sampled screenshots cannot pr
 
 ## Source
 
-This workflow adapts ideas from [Scroll Craft](https://github.com/nateherkai/scroll-craft/tree/0b816225945e45380397d6a0487efa3c98916858/plugins/nateherk-design/skills/scroll-craft), including its structure, hero-depth, and verification references. See [NOTICE.md](../../../NOTICE.md) for attribution. It uses this library's React and Tailwind workflow without requiring Scroll Craft's engine, generation provider, or effect quotas.
+This workflow adapts ideas from [Scroll Craft](https://github.com/nateherkai/scroll-craft/tree/0b816225945e45380397d6a0487efa3c98916858/plugins/nateherk-design/skills/scroll-craft), including its structure, hero-depth, and verification references. See [NOTICE.md](https://github.com/aladicf/better-react-web-ui/blob/main/NOTICE.md) for attribution. It uses this library's React and Tailwind workflow without requiring Scroll Craft's engine, generation provider, or effect quotas.

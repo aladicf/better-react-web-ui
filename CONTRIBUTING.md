@@ -34,6 +34,7 @@ See [`DEVELOPMENT.md` → Quick start](DEVELOPMENT.md#quick-start) and [`DEVELOP
 - [ ] `npm run smoke:install` passes locally when install or discovery behavior changed
 - [ ] `README.md` was updated when discoverability or maintainer guidance changed
 - [ ] New or changed skills still describe both what they do and when to use them
+- [ ] Workflow changes include relevant [behavioral evaluation](evaluations/README.md) evidence, or explicitly identify which cases remain untested
 - [ ] Attribution in [`NOTICE.md`](NOTICE.md) remains accurate
 
 ## Quality bar for skills

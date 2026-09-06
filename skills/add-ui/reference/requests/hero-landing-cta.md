@@ -35,7 +35,7 @@ For redesigns of an existing hero, landing page, blog page, login/signup page, o
 - push distinction through typography, palette, copywriting tone, proof styling, imagery direction, spacing rhythm, and detail language before changing the information architecture
 - if you offer a stretch direction, label it clearly as the bolder structural departure instead of treating it as the default
 
-Pair this with [marketing-copywriting](../../frontend-design/reference/marketing-copywriting.md) when the artifact depends on headline quality, section sequencing, CTA strategy, or conversion-aware copy structure.
-Pair this with [social-proof-patterns](../../frontend-design/reference/social-proof-patterns.md) when credibility depends on testimonials, trust badges, customer logos, case studies, or proof placement near the CTA.
-Pair this with [hero-sections-ux](../../frontend-design/reference/hero-sections-ux.md) when the work depends on above-the-fold clarity, hero-image restraint, or choosing a stronger first-screen alternative to a decorative banner.
-Pair this with [carousel-ux](../../frontend-design/reference/carousel-ux.md) when the artifact includes a carousel, swipe gallery, or auto-advancing hero.
+Pair this with [marketing-copywriting](../../../frontend-design/reference/marketing-copywriting.md) when the artifact depends on headline quality, section sequencing, CTA strategy, or conversion-aware copy structure.
+Pair this with [social-proof-patterns](../../../frontend-design/reference/social-proof-patterns.md) when credibility depends on testimonials, trust badges, customer logos, case studies, or proof placement near the CTA.
+Pair this with [hero-sections-ux](../../../frontend-design/reference/hero-sections-ux.md) when the work depends on above-the-fold clarity, hero-image restraint, or choosing a stronger first-screen alternative to a decorative banner.
+Pair this with [carousel-ux](../../../frontend-design/reference/carousel-ux.md) when the artifact includes a carousel, swipe gallery, or auto-advancing hero.

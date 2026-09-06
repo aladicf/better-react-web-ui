@@ -17,6 +17,6 @@ Also:
 - allow filtering, snapshot, or pause controls when the stream can outpace human comprehension
 - personalize prominence, alerting, or defaults by role when the same dashboard serves different decision-makers
 
-Pair this with [complex-table-ux](../../frontend-design/reference/complex-table-ux.md) when the dashboard includes dense operational tables, editable grids, pinned columns, header filters, or row-command toolbars rather than lightweight summary widgets alone.
-Pair this with [loading-feedback-and-perceived-performance](../../frontend-design/reference/loading-feedback-and-perceived-performance.md) when the surface depends on freshness, stale-data cues, streaming updates, or honest feedback during live refresh and slow data work.
-Pair this with [predictive-and-intent-ui](../../frontend-design/reference/predictive-and-intent-ui.md) when the surface depends on suggested next actions, role-aware prioritization, or resume/recommendation patterns layered on top of a clear dashboard structure.
+Pair this with [complex-table-ux](../../../frontend-design/reference/complex-table-ux.md) when the dashboard includes dense operational tables, editable grids, pinned columns, header filters, or row-command toolbars rather than lightweight summary widgets alone.
+Pair this with [loading-feedback-and-perceived-performance](../../../frontend-design/reference/loading-feedback-and-perceived-performance.md) when the surface depends on freshness, stale-data cues, streaming updates, or honest feedback during live refresh and slow data work.
+Pair this with [predictive-and-intent-ui](../../../frontend-design/reference/predictive-and-intent-ui.md) when the surface depends on suggested next actions, role-aware prioritization, or resume/recommendation patterns layered on top of a clear dashboard structure.

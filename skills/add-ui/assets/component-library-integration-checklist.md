@@ -23,7 +23,7 @@ Use this checklist when `add-ui` is working in a React/Tailwind project where `s
 - the project already has strong local patterns
 - the artifact is dense, operational, or state-heavy
 - the block would need major restructuring to fit the product
-- five directions would become five cosmetic remixes of the same scaffold
+- alternatives would become cosmetic remixes of the same scaffold
 
 ## If using a block
 

@@ -165,7 +165,7 @@ Dark mode is not light mode with inverted colors. Build a paired theme with sema
 
 Good defaults:
 
-- avoid pure black backgrounds and pure white body text; use near-black surfaces and off-white text
+- consider near-black surfaces and off-white body text for an open dark palette. Preserve approved black and white tokens and verify contrast
 - reduce chroma for accent and semantic colors on dark surfaces so buttons, badges, and links do not vibrate
 - use regular or medium body text weights; very thin type gets weak fast on dark backgrounds
 - create separate tokens for `background`, `surface`, `surface-raised`, `border`, `muted`, `foreground`, `muted-foreground`, `primary`, and semantic states
@@ -277,9 +277,9 @@ These commonly fail contrast or cause readability issues:
 - Yellow text on white (almost always fails)
 - Thin light text on images (unpredictable contrast)
 
-### Never Use Pure Gray or Pure Black
+### Choose neutral colors for the brand
 
-Pure gray (`oklch(50% 0 0)`) and pure black (`#000`) don't exist in nature—real shadows and surfaces always have a color cast. Even a chroma of 0.005-0.01 is enough to feel natural without being obviously tinted. (See tinted neutrals example above.)
+Pure gray, black, and white are valid choices. Preserve them when the brand requires them. For an open palette, subtle tinting can connect neutral surfaces to a brand hue. Verify text and control contrast against the actual backgrounds.
 
 ### Testing
 
@@ -302,7 +302,7 @@ You can't just swap colors. Dark mode requires different design decisions:
 | Shadows for depth | Lighter surfaces for depth (no shadows) |
 | Dark text on light | Light text on dark (reduce font weight) |
 | Vibrant accents | Desaturate accents slightly |
-| White backgrounds | Never pure black—use dark gray (oklch 12-18%) |
+| White backgrounds | Consider dark gray, such as oklch 12-18%, when the palette is open |
 
 ```css
 /* Dark mode depth via surface color, not shadow */
@@ -467,4 +467,4 @@ Heavy use of transparency (rgba, hsla) usually means an incomplete palette. Alph
 
 ---
 
-**Avoid**: Relying on color alone to convey information. Creating palettes without clear roles for each color. Using pure black (#000) for large areas. Skipping color blindness testing (8% of men affected).
+**Avoid**: Relying on color alone to convey information. Creating palettes without clear roles for each color. Skipping color blindness testing (8% of men affected).

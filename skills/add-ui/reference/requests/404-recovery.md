@@ -15,4 +15,4 @@ Also:
 - make the recovery actions stronger than the illustration or novelty treatment
 - if the site is large, add search or a curated list of likely destinations
 
-Pair this with [empty-state-patterns](../../frontend-design/reference/empty-state-patterns.md) when the work is specifically about not-found, no-results, permission, or error recovery surfaces.
+Pair this with [empty-state-patterns](../../../frontend-design/reference/empty-state-patterns.md) when the work is specifically about not-found, no-results, permission, or error recovery surfaces.

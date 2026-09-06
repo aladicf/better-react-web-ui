@@ -1,4 +1,6 @@
-## Recommended naming scheme for generated variants
+# Recommended naming scheme for generated variants
+
+Use these naming examples only for exploration, with one number per requested option. For direct implementation, use the target project's normal filenames without a variation suffix.
 
 Use stable, deterministic names so previews, file paths, and user choices stay aligned.
 

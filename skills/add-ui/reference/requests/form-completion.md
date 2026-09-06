@@ -15,6 +15,6 @@ Also:
 - use default selections, alternative actions, or support/notify-me paths when those keep users moving more honestly than a blocked CTA
 - if a disabled state is necessary, keep keyboard and assistive-technology discoverability in mind instead of turning the control into a silent dead zone
 
-Pair this with [disabled-buttons-ux](../../frontend-design/reference/disabled-buttons-ux.md) when the request involves disabled submit buttons, blocked progress, unavailable actions, or deciding whether the CTA should stay enabled and explain errors on click.
-Pair this with [live-validation-ux](../../frontend-design/reference/live-validation-ux.md) when the blocked state depends on inline validation timing or structured-field feedback.
-Pair this with [error-recovery](../../frontend-design/reference/error-recovery.md) when the work depends on summaries, jump-links, or field-level recovery after submit.
+Pair this with [disabled-buttons-ux](../../../frontend-design/reference/disabled-buttons-ux.md) when the request involves disabled submit buttons, blocked progress, unavailable actions, or deciding whether the CTA should stay enabled and explain errors on click.
+Pair this with [live-validation-ux](../../../frontend-design/reference/live-validation-ux.md) when the blocked state depends on inline validation timing or structured-field feedback.
+Pair this with [error-recovery](../../../frontend-design/reference/error-recovery.md) when the work depends on summaries, jump-links, or field-level recovery after submit.

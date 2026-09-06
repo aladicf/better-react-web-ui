@@ -17,4 +17,4 @@ Also:
 - use a persistent compare bar or shortlist surface instead of interruptive lightboxes after every add action
 - in narrow layouts, prefer a focused two-item or stepper-based comparison over a squeezed wide-layout clone
 
-Pair this with [feature-comparison-ux](../../frontend-design/reference/feature-comparison-ux.md) when the request involves side-by-side product comparison, shortlist compare UX, compare bars, difference highlighting, or responsive feature-comparison behavior.
+Pair this with [feature-comparison-ux](../../../frontend-design/reference/feature-comparison-ux.md) when the request involves side-by-side product comparison, shortlist compare UX, compare bars, difference highlighting, or responsive feature-comparison behavior.

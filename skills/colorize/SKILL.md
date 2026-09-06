@@ -9,7 +9,7 @@ Strategically introduce color to designs that are too monochromatic, gray, or la
 
 ## MANDATORY PREPARATION
 
-Users start this workflow with `/colorize`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first. Additionally gather: existing brand colors.
+Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps. Additionally gather: existing brand colors.
 
 ---
 
@@ -170,8 +170,7 @@ Then verify the actual result against the product's audience and tone instead of
 - Apply color randomly without semantic meaning
 - Put gray text on colored backgrounds—it looks washed out; use a darker shade of the background color or transparency instead
 - Build shades on the fly with ad-hoc lighten/darken helpers and call it a system
-- Use pure gray for neutrals—add subtle color tint (warm or cool) for sophistication
-- Use pure black (`#000`) or pure white (`#fff`) for large areas
+- Replace approved neutral, black, or white tokens solely because a tinted palette is your preference
 - Violate WCAG contrast requirements
 - Use color as the only indicator (accessibility issue)
 - Make everything colorful (defeats the purpose)

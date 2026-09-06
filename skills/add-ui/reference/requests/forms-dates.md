@@ -24,7 +24,7 @@ Also:
 - make date-range selection feel like one coordinated interaction instead of two disconnected calendars
 - use quick presets, mini-steppers, or flexible-date shortcuts when near-term or fuzzy scheduling is common
 
-Pair this with [date-input-ux](../../frontend-design/reference/date-input-ux.md) when the request involves date of birth, memorable dates, calendar widgets, typed date entry, or date-specific form-field redesign.
-Pair this with [date-time-picker-ux](../../frontend-design/reference/date-time-picker-ux.md) when the request involves booking calendars, date-range pickers, flexible dates, time-slot selection, or combined date-and-time scheduling flows.
-Pair this with [live-validation-ux](../../frontend-design/reference/live-validation-ux.md) when the work depends on inline validation timing, field-level feedback strategy, severe-error interrupts, copy-paste-heavy structured input, or validator overrides.
-Pair this with [error-recovery](../../frontend-design/reference/error-recovery.md) when the work depends on clear date validation, incomplete-field handling, or recoverable error messaging.
+Pair this with [date-input-ux](../../../frontend-design/reference/date-input-ux.md) when the request involves date of birth, memorable dates, calendar widgets, typed date entry, or date-specific form-field redesign.
+Pair this with [date-time-picker-ux](../../../frontend-design/reference/date-time-picker-ux.md) when the request involves booking calendars, date-range pickers, flexible dates, time-slot selection, or combined date-and-time scheduling flows.
+Pair this with [live-validation-ux](../../../frontend-design/reference/live-validation-ux.md) when the work depends on inline validation timing, field-level feedback strategy, severe-error interrupts, copy-paste-heavy structured input, or validator overrides.
+Pair this with [error-recovery](../../../frontend-design/reference/error-recovery.md) when the work depends on clear date validation, incomplete-field handling, or recoverable error messaging.

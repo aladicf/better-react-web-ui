@@ -17,4 +17,4 @@ Also:
 - keep plan headers available in dense comparison views so users do not lose orientation
 - avoid raw horizontal-scroll pricing tables in narrow layouts when tabs, stacked comparisons, or two-plan compare patterns would work better
 
-Pair this with [pricing-and-packaging](../../frontend-design/reference/pricing-and-packaging.md) when the work touches packaging logic, billing clarity, or pricing-page strategy.
+Pair this with [pricing-and-packaging](../../../frontend-design/reference/pricing-and-packaging.md) when the work touches packaging logic, billing clarity, or pricing-page strategy.

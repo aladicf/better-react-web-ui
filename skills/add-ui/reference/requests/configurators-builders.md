@@ -19,6 +19,6 @@ Also:
 - make save, share, resume, undo, and reset paths feel trustworthy for long consideration flows
 - rethink the interaction in narrow layouts instead of shrinking wide-layout navigation into tiny controls or deep drawers
 
-Pair this with [configurator-ux](../../frontend-design/reference/configurator-ux.md) when the work involves product builders, customizers, step-based option flows, real-time previews, dependency-heavy selection, or save-and-resume configuration.
-Pair this with [slider-ux](../../frontend-design/reference/slider-ux.md) when the flow depends on range sliders, calculators, dual-handle controls, or slider-driven package exploration.
-Pair this with [responsive-design](../../frontend-design/reference/responsive-design.md) when the builder must re-balance previews, controls, summaries, and steps across narrow, medium, and wide layouts.
+Pair this with [configurator-ux](../../../frontend-design/reference/configurator-ux.md) when the work involves product builders, customizers, step-based option flows, real-time previews, dependency-heavy selection, or save-and-resume configuration.
+Pair this with [slider-ux](../../../frontend-design/reference/slider-ux.md) when the flow depends on range sliders, calculators, dual-handle controls, or slider-driven package exploration.
+Pair this with [responsive-design](../../../frontend-design/reference/responsive-design.md) when the builder must re-balance previews, controls, summaries, and steps across narrow, medium, and wide layouts.

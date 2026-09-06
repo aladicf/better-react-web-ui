@@ -62,37 +62,36 @@ When a React project already has an established setup, agents should match it fi
 Install from GitHub:
 
 ```bash
-npx skills add aladicf/better-react-web-ui --agent codex --agent cursor --agent github-copilot --agent opencode
+npx skills add aladicf/better-react-web-ui --skill '*' --agent codex --agent cursor --agent github-copilot --agent opencode
 ```
 
 Do **not** use `--all` unless you explicitly want **all skills installed to all agents**. 
 
 ### Recommended install target
 
+Install the complete skill set into the same scope. Skills share references and workflows, so individual skill folders are not standalone packages. `--skill '*'` selects every skill while the explicit `--agent` flags limit installation to your chosen agents. The installer does not resolve companion skills automatically.
+
+If you previously installed only `add-ui` or another individual skill, rerun the complete-set command above for your chosen agent. Use `-g` only when repairing a global installation.
+
 If you want one predictable install target, use one explicit upstream `--agent` flag:
 
 | Supported target | Upstream `--agent` value | Project path the upstream CLI uses | Exact install command |
 | --- | --- | --- | --- |
-| GitHub Copilot / VS Code | `github-copilot` | `.agents/skills/` | `npx skills add aladicf/better-react-web-ui --agent github-copilot` |
-| Codex | `codex` | `.agents/skills/` | `npx skills add aladicf/better-react-web-ui --agent codex` |
-| Cursor | `cursor` | `.agents/skills/` | `npx skills add aladicf/better-react-web-ui --agent cursor` |
-| OpenCode | `opencode` | `.agents/skills/` | `npx skills add aladicf/better-react-web-ui --agent opencode` |
+| GitHub Copilot / VS Code | `github-copilot` | `.agents/skills/` | `npx skills add aladicf/better-react-web-ui --skill '*' --agent github-copilot` |
+| Codex | `codex` | `.agents/skills/` | `npx skills add aladicf/better-react-web-ui --skill '*' --agent codex` |
+| Cursor | `cursor` | `.agents/skills/` | `npx skills add aladicf/better-react-web-ui --skill '*' --agent cursor` |
+| OpenCode | `opencode` | `.agents/skills/` | `npx skills add aladicf/better-react-web-ui --skill '*' --agent opencode` |
 
 If you want a global install instead of a project-scoped install, add `-g` to the same command:
 
 ```bash
-npx skills add aladicf/better-react-web-ui --agent github-copilot -g
-npx skills add aladicf/better-react-web-ui --agent codex -g
-npx skills add aladicf/better-react-web-ui --agent opencode -g
+npx skills add aladicf/better-react-web-ui --skill '*' --agent github-copilot -g
+npx skills add aladicf/better-react-web-ui --skill '*' --agent codex -g
+npx skills add aladicf/better-react-web-ui --skill '*' --agent opencode -g
 ```
 ## First thing to do after installing
 
-Run `/setup` first. Yes, before you go off and build the thing.
-
-- **Starting a new project?** Run `/setup` so the skill learns your React framework, Tailwind setup, component library, and visual direction instead of hallucinating a stack with confidence.
-- **Installing into an existing or older project?** Run `/setup` so the skill learns what is already there, or tell it explicitly which React framework, Tailwind setup, and component library it should preserve.
-
-`/setup` writes that context to `.better-react-web-ui.md`, so later sessions can keep your project-specific setup instead of guessing.
+Use `/setup` when you want to record reusable audience, brand, and stack decisions in `.better-react-web-ui.md`. Existing instructions and documented context also work. A focused repair can proceed without a context file or a brand interview.
 
 ## Upgrading from older installs
 
@@ -201,7 +200,7 @@ For a maintainer-oriented doctrine map and validation workflow, use [`DEVELOPMEN
 
 ### Execution skills
 
-- `add-ui` — generate 5 distinct UI directions for a requested new or existing section, page, flow, shell, or component, then help preview and apply one
+- `add-ui` — implement a new or existing section, page, flow, shell, or component directly, or explore distinct alternatives at the requested count
 - `adapt` — responsive and context-aware adaptation
 - `animate` — motion, transitions, gestures, and micro-interactions
 - `arrange` — layout composition, grouping, and spacing rhythm

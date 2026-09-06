@@ -15,5 +15,5 @@ Also:
 - vary ratio or orientation only when it adds meaning, emphasis, or a clearer content distinction
 - keep action placement, metadata order, and interaction language consistent when the card family changes orientation across contexts
 
-Pair this with [aspect-ratio-and-card-orientation](../../frontend-design/reference/aspect-ratio-and-card-orientation.md) when the request depends on browse-vs-evaluate cards, media crops, responsive orientation changes, or ratio-driven rhythm.
-Pair this with [component-anatomy](../../frontend-design/reference/component-anatomy.md) when the work also depends on reusable card structure, action placement, and primitive anatomy.
+Pair this with [aspect-ratio-and-card-orientation](../../../frontend-design/reference/aspect-ratio-and-card-orientation.md) when the request depends on browse-vs-evaluate cards, media crops, responsive orientation changes, or ratio-driven rhythm.
+Pair this with [component-anatomy](../../../frontend-design/reference/component-anatomy.md) when the work also depends on reusable card structure, action placement, and primitive anatomy.

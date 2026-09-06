@@ -17,7 +17,7 @@ Consult the [loading feedback and perceived performance](../frontend-design/refe
 
 ## MANDATORY PREPARATION
 
-Users start this workflow with `/test`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first. Additionally gather: the most common UI bugs currently escaping to production, the team's tolerance for test maintenance, and which parts of the UI change most frequently.
+Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps. Additionally gather: the most common UI bugs currently escaping to production, the team's tolerance for test maintenance, and which parts of the UI change most frequently.
 
 ## Assess Testing Needs
 

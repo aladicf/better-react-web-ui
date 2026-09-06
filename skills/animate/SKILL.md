@@ -9,7 +9,7 @@ Analyze a feature and add motion that improves clarity, feedback, perceived perf
 
 ## MANDATORY PREPARATION
 
-Users start this workflow with `/animate`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first. Additionally gather: performance constraints.
+Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps. Additionally gather: performance constraints.
 
 Consult the [motion reference](../frontend-design/reference/motion-design.md) for timing, easing, choreography, and reduced-motion handling.
 Consult the [animate reference index](reference/README.md) when you need to browse the deeper motion library by use case instead of guessing filenames.

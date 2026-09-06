@@ -36,7 +36,7 @@ When a user says something broad like `create 5 landing pages for my product ide
 
 Instead:
 
-1. infer the likely brand promise, audience, and trust level from the company / product idea
+1. reuse the documented brand promise, audience, and trust requirements; label assumptions when the user delegates unspecified choices
 2. choose directions from the approved list in this file
 3. make the directions meaningfully different in structure and personality, not just color swaps
 4. explain why each direction fits that specific company / product idea

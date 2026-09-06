@@ -25,9 +25,9 @@ Also:
 - match variant controls to the attribute being chosen: swatches for visual choices, buttons/chips for short textual sets, and richer dropdown/list patterns when options are longer or carry metadata
 - show unavailable or out-of-stock variant options clearly before the user reaches the final action so the flow feels honest rather than bait-and-switch
 
-Pair this with [breadcrumb-ux](../../frontend-design/reference/breadcrumb-ux.md) when category depth, product-family navigation, or documentation-like wayfinding is part of the brief.
-Pair this with [accordion-ux](../../frontend-design/reference/accordion-ux.md) when the brief depends on product-detail accordions, FAQ stacks, collapsible shipping/returns/spec sections, or long filter groups.
-Pair this with [collection-browsing-and-filtering](../../frontend-design/reference/collection-browsing-and-filtering.md) when the brief hinges on filters, sorting, result browsing, `Load more`, pagination, infinite scroll, or return-to-list behavior.
-Pair this with [ecommerce-ux](../../frontend-design/reference/ecommerce-ux.md) when the brief spans merchandising, trust, product understanding, cart/checkout flow, support-widget restraint, or commerce-specific responsive behavior across more than one commerce surface.
-Pair this with [reviews-and-ratings](../../frontend-design/reference/reviews-and-ratings.md) when reviews, recommendations, rating distributions, or customer-photo credibility cues materially affect the purchase decision.
-Pair this with [social-proof-patterns](../../frontend-design/reference/social-proof-patterns.md) when testimonials, customer logos, certifications, badges, or case-study proof need to support the buying decision beyond product-review mechanics alone.
+Pair this with [breadcrumb-ux](../../../frontend-design/reference/breadcrumb-ux.md) when category depth, product-family navigation, or documentation-like wayfinding is part of the brief.
+Pair this with [accordion-ux](../../../frontend-design/reference/accordion-ux.md) when the brief depends on product-detail accordions, FAQ stacks, collapsible shipping/returns/spec sections, or long filter groups.
+Pair this with [collection-browsing-and-filtering](../../../frontend-design/reference/collection-browsing-and-filtering.md) when the brief hinges on filters, sorting, result browsing, `Load more`, pagination, infinite scroll, or return-to-list behavior.
+Pair this with [ecommerce-ux](../../../frontend-design/reference/ecommerce-ux.md) when the brief spans merchandising, trust, product understanding, cart/checkout flow, support-widget restraint, or commerce-specific responsive behavior across more than one commerce surface.
+Pair this with [reviews-and-ratings](../../../frontend-design/reference/reviews-and-ratings.md) when reviews, recommendations, rating distributions, or customer-photo credibility cues materially affect the purchase decision.
+Pair this with [social-proof-patterns](../../../frontend-design/reference/social-proof-patterns.md) when testimonials, customer logos, certifications, badges, or case-study proof need to support the buying decision beyond product-review mechanics alone.

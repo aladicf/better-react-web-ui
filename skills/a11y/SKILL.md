@@ -11,7 +11,7 @@ This skill focuses on remediation and implementation, not just scoring. It compl
 
 ## MANDATORY PREPARATION
 
-Users start this workflow with `/a11y`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first.
+Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps.
 
 Consult the [accessibility testing reference](../frontend-design/reference/accessibility-testing.md) for automated tool integration (axe, WAVE, Pa11y) and CI workflow guidance.
 Consult the [colorblindness UX reference](../frontend-design/reference/colorblindness-ux.md) when color is carrying meaning in states, charts, or validation.

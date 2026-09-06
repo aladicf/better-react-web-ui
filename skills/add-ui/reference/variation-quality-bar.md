@@ -1,6 +1,6 @@
 ## Variation quality bar
 
-Use this reference to ensure the five directions are genuinely different and equally reviewable.
+Use this reference to ensure the requested directions are genuinely different and equally reviewable.
 
 ## What counts as a distinct variation
 

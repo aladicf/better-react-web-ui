@@ -16,4 +16,4 @@ Also:
 - decide deliberately whether multiple sections should stay open for comparison, reference, or long filter/settings workflows
 - avoid auto-scrolling users after expansion; let them keep control of the reading position
 
-Pair this with [accordion-ux](../../frontend-design/reference/accordion-ux.md) when the request involves accordions, FAQ groups, expandable policy/spec sections, schedule rows, filter groups, or disclosure-heavy settings surfaces.
+Pair this with [accordion-ux](../../../frontend-design/reference/accordion-ux.md) when the request involves accordions, FAQ groups, expandable policy/spec sections, schedule rows, filter groups, or disclosure-heavy settings surfaces.

@@ -13,7 +13,7 @@ Consult the [complex table UX](../frontend-design/reference/complex-table-ux.md)
 
 ## MANDATORY PREPARATION
 
-Users start this workflow with `/data-viz`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first. Additionally gather: what question the user is trying to answer with the data, who the audience is, and whether the data updates in real time or is static.
+Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps. Additionally gather: what question the user is trying to answer with the data, who the audience is, and whether the data updates in real time or is static.
 
 ## Assess Visualization Needs
 

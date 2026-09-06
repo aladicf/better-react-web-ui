@@ -14,7 +14,7 @@ Consult the [predictive and intent-driven UI](../frontend-design/reference/predi
 
 ## MANDATORY PREPARATION
 
-Users start this workflow with `/search`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first. Additionally gather: what users typically search for, what common queries fail, and how large the searchable dataset is.
+Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps. Additionally gather: what users typically search for, what common queries fail, and how large the searchable dataset is.
 
 ## Assess Search Needs
 

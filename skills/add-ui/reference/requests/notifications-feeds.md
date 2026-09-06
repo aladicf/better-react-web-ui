@@ -15,5 +15,5 @@ Also:
 - keep human-originated or awaited messages more prominent than generic automated chatter
 - make feed rows easy to scan by source, object, urgency, and recency
 
-Pair this with [status-communication](../../frontend-design/reference/status-communication.md) when the work involves notification centers, reminder settings, badges, push prompts, digest preferences, or activity feeds.
-Pair this with [interface-honesty](../../frontend-design/reference/interface-honesty.md) when the messaging should become more direct, less apologetic, or more trustworthy under interruptions, failures, or reminders.
+Pair this with [status-communication](../../../frontend-design/reference/status-communication.md) when the work involves notification centers, reminder settings, badges, push prompts, digest preferences, or activity feeds.
+Pair this with [interface-honesty](../../../frontend-design/reference/interface-honesty.md) when the messaging should become more direct, less apologetic, or more trustworthy under interruptions, failures, or reminders.

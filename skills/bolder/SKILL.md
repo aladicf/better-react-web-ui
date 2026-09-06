@@ -9,7 +9,7 @@ Increase visual impact and personality in designs that are too safe, generic, or
 
 ## MANDATORY PREPARATION
 
-Users start this workflow with `/bolder`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first.
+Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps.
 
 ---
 

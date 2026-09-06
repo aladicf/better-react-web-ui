@@ -16,7 +16,7 @@ Push an interface past conventional limits. This isn't just about visual effects
 
 ## MANDATORY PREPARATION
 
-Users start this workflow with `/showcase`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first.
+Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps.
 
 Consult the [motion reference](../frontend-design/reference/motion-design.md) for timing, easing, choreography, and reduced-motion expectations.
 Consult the [elevation system](../frontend-design/reference/elevation-system.md) when ambitious effects depend on convincing depth, layering, or state transitions.
@@ -24,15 +24,11 @@ Consult the [ai slop detection](../frontend-design/reference/ai-slop-detection.m
 
 **EXTRA IMPORTANT FOR THIS SKILL**: Context determines what "extraordinary" means. A particle system on a creative portfolio is impressive. The same particle system on a settings page is embarrassing. But a settings page with instant optimistic saves and animated state transitions? That's extraordinary too. Understand the project's personality and goals before deciding what's appropriate.
 
-### Propose Before Building
+### Resolve consequential choices before implementation
 
-This skill has the highest potential to misfire. Do NOT jump straight into implementation. You MUST:
+Reuse a direction the user already selected. If the user delegates creative direction, choose a suitable approach and proceed within that scope.
 
-1. **Think through 2-3 different directions** — consider different techniques, levels of ambition, and aesthetic approaches. For each direction, briefly describe what the result would look and feel like.
-2. **ask the user directly to clarify what you cannot infer.** to present these directions and get the user's pick before writing any code. Explain trade-offs (browser support, performance cost, complexity).
-3. Only proceed with the direction the user confirms.
-
-Skipping this step risks building something embarrassing that needs to be thrown away.
+When the direction is still unresolved and alternatives materially differ in behavior, accessibility, performance cost, or scope, present a few concrete options and ask for the missing decision. Continue independent preparation while waiting. Do not repeat an approval the user already gave.
 
 ### Iterate with Browser Automation
 

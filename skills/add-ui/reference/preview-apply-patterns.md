@@ -1,6 +1,8 @@
-## Preview and apply patterns
+# Preview and apply patterns
 
-Use this reference when deciding how to present the five generated directions and how to integrate the chosen one.
+For direct implementation, use the target page itself as the preview. Do not create a picker or alternative files. Honor prior selection or delegated authority when applying a direction.
+
+Use this reference when deciding how to present the requested directions and how to integrate the chosen one.
 
 ## Prefer source-based previews
 
@@ -19,7 +21,7 @@ Use it.
 
 Best pattern:
 
-1. generate five labeled variants
+1. generate the requested number of labeled variants
 2. render them inside a preview surface
 3. let the user switch among them quickly
 4. preserve a clean mapping from preview label to source files
@@ -28,7 +30,7 @@ Best pattern:
 
 Still structure the result for comparison:
 
-- label each variation clearly (`1` through `5`)
+- label each variation clearly with consecutive numbers
 - provide a concise comparison table
 - use stable filenames
 - explain how to preview the files locally

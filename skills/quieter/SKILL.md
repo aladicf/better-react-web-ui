@@ -9,7 +9,7 @@ Reduce visual intensity in designs that are too bold, aggressive, or overstimula
 
 ## MANDATORY PREPARATION
 
-Users start this workflow with `/quieter`. Once this skill is active, load $frontend-design — it contains design principles, anti-patterns, and the **Context Gathering Protocol**. Follow that protocol before proceeding — if no design context exists yet, you MUST load $setup first.
+Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps.
 
 Consult the [hierarchy checklist](../frontend-design/reference/hierarchy-checklist.md) when quieting the design depends on de-emphasis, grayscale hierarchy, or clearer action priority.
 Consult the [spacing system](../frontend-design/reference/spacing-system.md) when calmness should come from better grouping and rhythm rather than just less saturation.
