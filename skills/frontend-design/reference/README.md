@@ -62,6 +62,7 @@ If you only open a few files first, make them these:
 
 ## Structure and layout
 
+- [landing-page storytelling](./landing-page-storytelling.md) connects visitor questions to page structure, optional hero depth, and scroll-state verification.
 - [spatial design](./spatial-design.md)
 - [spacing system](./spacing-system.md)
 - [aspect ratio and card orientation](./aspect-ratio-and-card-orientation.md)

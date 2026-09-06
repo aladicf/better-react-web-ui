@@ -98,6 +98,8 @@ Avoid:
 
 ## Performance is part of the hero decision
 
+When the chosen direction needs layered depth, use [landing-page storytelling](./landing-page-storytelling.md#prepare-layered-heroes-only-when-depth-helps) for asset separation, shared contact points, phone composition, and static fallbacks. Depth is optional, and the headline and primary action must remain readable throughout motion.
+
 Above-the-fold media often becomes the largest contentful paint bottleneck.
 
 That means hero design is a performance decision, not just a visual one.

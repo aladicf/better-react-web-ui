@@ -108,6 +108,8 @@ Then implement working code that is:
 
 ## Frontend Aesthetics Guidelines
 
+For landing pages and marketing sites, use [landing-page storytelling](reference/landing-page-storytelling.md) to plan the visitor journey, compare page structures, prepare layered heroes when appropriate, and verify scroll states.
+
 ### Typography
 → *Consult [typography reference](reference/typography.md) for scales, pairing, loading strategies, and font-selection heuristics. Use [text hierarchy and readability](reference/text-hierarchy-and-readability.md) for line length, line-height, baseline alignment, label/value treatment, link emphasis, numeric alignment, and semantic vs visual hierarchy.*
 

@@ -187,6 +187,8 @@ Some skills also carry focused reference indexes, such as [`skills/add-ui/refere
 
 If you want the map of the map, start with the [frontend-design reference index](skills/frontend-design/reference/README.md).
 
+For landing and marketing pages, use [landing-page storytelling](skills/frontend-design/reference/landing-page-storytelling.md) with `frontend-design` or `add-ui`. It covers visitor-led section order, structural variety, optional layered heroes, and browser checks across scroll states. Use `showcase` when the brief calls for more ambitious effects.
+
 
 For a maintainer-oriented doctrine map and validation workflow, use [`DEVELOPMENT.md`](DEVELOPMENT.md).
 

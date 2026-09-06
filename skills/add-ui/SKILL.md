@@ -15,6 +15,8 @@ When the request is for a brand-new landing page, marketing page, or several dis
 
 When working inside an existing project with an established visual system, preserve that system first and make the options feel distinct without quietly rebranding the product.
 
+For landing-page variants, use [landing-page storytelling](../frontend-design/reference/landing-page-storytelling.md) to compare openings, navigation, evidence order, and endings within the user's structural constraints.
+
 Also gather the smallest set of implementation details needed to generate usable code:
 
 - React framework / runtime (React, Next.js, React Router, TanStack Start, Vite React, or Astro with React islands)

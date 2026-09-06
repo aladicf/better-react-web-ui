@@ -47,6 +47,8 @@ The right kind of technical ambition depends entirely on what you're working wit
 ### For visual/marketing surfaces
 Pages, hero sections, landing pages, portfolios — the "wow" is often sensory: a scroll-driven reveal, a shader background, a cinematic page transition, generative art that responds to the cursor.
 
+Use [landing-page storytelling](../frontend-design/reference/landing-page-storytelling.md) for visitor-led structure, layered hero preparation, mobile composition, and verification across scroll states. Tie the main visual moment to the offer and keep the final action reachable.
+
 ### For functional UI
 Tables, forms, dialogs, navigation — the "wow" is in how it FEELS: a dialog that morphs from the button that triggered it via View Transitions, a data table that renders 100k rows at 60fps via virtual scrolling, a form with streaming validation that feels instant, drag-and-drop with spring physics.
 

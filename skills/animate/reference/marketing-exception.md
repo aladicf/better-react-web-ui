@@ -17,3 +17,5 @@ Rough guideline:
 - **onboarding** → can be more playful when it teaches or guides
 
 This is an exception, not a loophole for making ordinary app UI feel slow.
+
+For scroll-driven marketing pages, follow [landing-page storytelling](../../frontend-design/reference/landing-page-storytelling.md). Plan what each sequence communicates, remove unnecessary pinned travel, and inspect intermediate frames, keyboard focus, and reduced-motion content access.
