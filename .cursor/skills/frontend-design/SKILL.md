@@ -1,6 +1,6 @@
 ---
 name: frontend-design
-description: Create distinctive, production-grade React and Tailwind interfaces with strong hierarchy, thoughtful systems, and polished implementation that avoid generic AI aesthetics. Use when the user wants to build or redesign web pages, flows, components, or full app surfaces, or when another better-react-web-ui skill needs shared project design context before other better-react-web-ui skills.
+description: Create distinctive React and Tailwind interfaces with strong hierarchy and polished implementation. Use when building or redesigning pages, flows, or components, or when another better-react-web-ui skill needs shared design guidance. Pair with add-ui for direct implementation or requested alternatives.
 license: Apache 2.0. Based on Anthropic's frontend-design skill. See NOTICE.md for attribution.
 metadata:
   argument-hint: "[page, flow, or component]"

@@ -1,6 +1,6 @@
 ---
 name: frontend-design
-description: Create distinctive, production-grade React and Tailwind interfaces with strong hierarchy, thoughtful systems, and polished implementation that avoid generic AI aesthetics. Use when the user wants to build or redesign web pages, flows, components, or full app surfaces, or when another better-react-web-ui skill needs shared project design context before other better-react-web-ui skills.
+description: Create distinctive React and Tailwind interfaces with strong hierarchy and polished implementation. Use when building or redesigning pages, flows, or components, or when another better-react-web-ui skill needs shared design guidance. Pair with add-ui for direct implementation or requested alternatives.
 license: Apache 2.0. Based on Anthropic's frontend-design skill. See NOTICE.md for attribution.
 metadata:
   argument-hint: "[page, flow, or component]"
@@ -8,12 +8,16 @@ metadata:
 
 Create working React and Tailwind interfaces that fit the product, preserve explicit constraints, and make the primary task clear. Read only the references relevant to the requested work.
 
+## Match the requested scope
+
+For advice, comparison of workflows, or questions about which skill to use, answer without executing those skills. Do not edit files, persist context, create reports, or start an interview. For an explicit review, inspect and report. Implement fixes only when the user requests them or has already authorized them. Reuse prior authorization within its scope.
+
 ## Context Gathering Protocol
 
 Gather only the context needed for the requested decision. Use this order:
 
 1. Reuse the user's current instructions, prior answers, and any direction or creative authority already granted.
-2. Read the project's documented context in `.better-react-web-ui.md`, README, brand guidance, and applicable instructions. If the canonical context file is absent, check `.better-web-ui.md`, `.better-ui.md`, then `.impeccable.md` as migration inputs.
+2. Resolve the target application's context using [project context](reference/project-context.md). Read its `.better-react-web-ui.md`, applicable parent defaults, matching page brief, and existing design documents. Legacy files are fallback inputs within the same scope.
 3. Inspect the affected code, callers, assets, and existing design system. Treat observed implementation as evidence of the current system, not proof of unstated audience needs.
 4. Ask only about missing facts that materially change the work. Label reasonable assumptions and proceed with reversible choices within the authorized scope.
 
@@ -48,9 +52,9 @@ In Astro projects, add React islands only for interactions that need them. Keep 
 
 ## Implement the requested result
 
-1. Identify the target page, flow, or component and the primary user task. Preserve fixed content, section order, and interaction behavior.
+1. Identify the target page, flow, or component and the visitor's task on that page. Preserve fixed content, section order, and interaction behavior. For substantial work, reuse or prepare the optional page brief described in [project context](reference/project-context.md).
 2. Choose a direction within the user's authority. For one requested artifact, implement directly. Use $add-ui for comparison when the user asks for alternatives, honoring the requested count. Do not add a selection checkpoint after the user has chosen or delegated a direction.
-3. Build the smallest complete version with real source files and working actions. Establish a constrained spacing, type, color, radius, and elevation system before decorative details.
+3. Build the smallest complete version with real source files and working actions. Establish a constrained spacing, type, color, radius, and elevation system before decorative details. When following an approved visual reference, use [reference fidelity](reference/reference-fidelity.md).
 4. Cover relevant loading, empty, error, success, and responsive states. Use optimistic updates only when failures can be recovered without misleading the user or losing data.
 5. Verify the result in the target project. Report what changed, the checks performed, and any untested behavior.
 
@@ -74,6 +78,8 @@ For substantial missing context, use [design process](reference/design-process.m
 Use the [reference index](reference/README.md) for specialized topics such as authentication, commerce, data visualization, onboarding, permissions, and localization. Do not load the entire reference library for every task.
 
 ## Verify before delivery
+
+Follow [visual verification](reference/visual-verification.md) for evidence, fix status, and unavailable-tool handling. Scale the following checks to the affected feature.
 
 - Check that the primary action is clear and functional. Keep labels and content truthful.
 - Check desktop and phone layouts, long content, and zoom for clipping, overflow, and lost functionality.

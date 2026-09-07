@@ -267,7 +267,9 @@ If you need to assert that a specific install root is present while reproducing 
 
 ## Validation coverage
 
-Use [behavioral evaluations](evaluations/README.md) to compare actual agent routing, questions, implementation scope, and rendered results across library revisions. The existing routing-fixture check validates the prompt data only. Repository checks do not run an agent or certify visual quality.
+Use [behavioral evaluations](evaluations/README.md) to compare actual agent routing, questions, implementation scope, and rendered results across library revisions. Routing fixtures label primary workflows. Multiple positive labels allow cooperating skills, and loading shared guidance does not count as selecting a negative workflow. The existing routing-fixture check validates the prompt data only. Repository checks do not run an agent or certify visual quality.
+
+For 4.0 evaluation, compare the nine [documented cases](evaluations/README.md) against 3.3.0 and the candidate. Save tool traces and file inventories as well as diffs. Run fresh agent sessions only with the user's authorization for that execution method. Keep pending live evaluations separate from passing repository validation.
 
 `npm run validate` currently checks:
 

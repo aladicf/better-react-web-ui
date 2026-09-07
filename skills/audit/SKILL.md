@@ -13,6 +13,8 @@ Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathe
 
 Run systematic **technical** quality checks and generate a comprehensive report. Don't fix issues — document them for other commands to address.
 
+Use [visual verification](../frontend-design/reference/visual-verification.md) for evidence provenance, unavailable tools, and reusable findings. Do not save a report unless requested or already included in the authorized workflow. A question about audit is advice, not authorization to execute it.
+
 This is a code-level audit, not a design critique. Check what's measurable and verifiable in the implementation.
 
 Consult the [hierarchy checklist](../frontend-design/reference/hierarchy-checklist.md) when reviewing grayscale hierarchy, action priority, section-title restraint, and label/value treatment.
@@ -24,7 +26,7 @@ Consult the [image treatment](../frontend-design/reference/image-treatment.md) w
 Consult the [accessibility testing](../frontend-design/reference/accessibility-testing.md) when integrating automated checks (axe, WAVE, Pa11y) into the audit workflow or CI pipeline.
 Consult the [React and Tailwind implementation review](../frontend-design/reference/react-tailwind-implementation-review.md) when checking code-level accessibility, focus states, forms, motion, content resilience, navigation state, safe areas, localization, and hydration safety.
 
-Still, when the implementation clearly violates the shared design system or obvious Refactoring UI principles — weak hierarchy, arbitrary spacing, gray text on color, every button styled as primary — call it out as an implementation issue, not a matter of taste.
+Report concrete violations of the applicable design system and task requirements, such as unreadable text or competing primary actions. Explain the observed impact instead of treating a stylistic preference as an implementation defect.
 
 ## Diagnostic Scan
 
@@ -67,6 +69,8 @@ Measure load and interaction behavior before recommending optimizations. Missing
 
 ### 3. Theming
 
+Evaluate themes the project actually supports. A light-only product does not need dark mode to pass. Judge token consistency against the existing system and scope; do not introduce a token architecture solely to improve this score.
+
 **Check for**:
 - **Hard-coded colors**: Colors not using design tokens
 - **Broken dark mode**: Missing dark mode variants, poor contrast in dark theme
@@ -75,7 +79,7 @@ Measure load and interaction behavior before recommending optimizations. Missing
 - **Missing color ramps**: Ad-hoc one-off shades instead of a defined palette
 - **Too many shades without system**: Slightly different blues/greys everywhere with no clear ramp
 
-**Score 0-4**: 0=No theming (hard-coded everything), 1=Minimal tokens (mostly hard-coded), 2=Partial (tokens exist but inconsistently used), 3=Good (tokens used, minor hard-coded values), 4=Excellent (full token system, dark mode works perfectly)
+**Score 0-4**: 0=Theme defects obstruct the task, 1=Major system inconsistencies, 2=Some inconsistent states or tokens, 3=Minor deviations, 4=Consistent behavior across the supported themes and tested states.
 
 ### 4. Responsive Design
 
@@ -121,6 +125,8 @@ Also run these implementation-level hierarchy checks:
 
 ### Audit Health Score
 
+Score only inspected dimensions with adequate evidence. Mark the others untested or not applicable. Omit the total and rating band unless all five dimensions were evaluated. An aggregate score never overrides a material finding or establishes release readiness.
+
 | # | Dimension | Score | Key Finding |
 |---|-----------|-------|-------------|
 | 1 | Accessibility | ? | [most critical a11y issue or none] |
@@ -132,13 +138,12 @@ Also run these implementation-level hierarchy checks:
 
 **Rating bands**: 18-20 Excellent (minor polish), 14-17 Good (address weak dimensions), 10-13 Acceptable (significant work needed), 6-9 Poor (major overhaul), 0-5 Critical (fundamental issues)
 
-### Anti-Patterns Verdict
-**Start here.** Pass/fail: Does this look AI-generated? List specific tells. Be brutally honest.
+### Composition verdict
 
-Include a one-line hierarchy verdict as part of this section: either the screen has clear hierarchy, or the main ambiguity you observed.
+State whether the observed hierarchy and visual system support the task. Name concrete readability, interaction, or brand-fit problems. Do not infer authorship or fail a design for an approved font, color, or familiar layout.
 
 ### Executive Summary
-- Audit Health Score: **??/20** ([rating band])
+- Audit Health Score when coverage supports it, otherwise list inspected and untested dimensions
 - Total issues found (count by severity: P0/P1/P2/P3)
 - Top 3-5 critical issues
 - Recommended next steps

@@ -8,6 +8,8 @@
 - Started and finished:
 - Observed skill selection, or unobserved:
 - Transcript and source diff paths:
+- File inventory before and after, including untracked files:
+- Context paths actually read:
 - Desktop, phone, keyboard, and reduced-motion evidence paths:
 
 | Criterion | Pass, fail, or untested | Evidence |

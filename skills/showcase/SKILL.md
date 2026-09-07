@@ -134,6 +134,8 @@ The gap between "cool" and "extraordinary" is in the last 20% of refinement: the
 
 ## Verify the Result
 
+Follow [visual verification](../frontend-design/reference/visual-verification.md) for current captures, interaction evidence, and unavailable-tool limits. When there is an approved reference, use [reference fidelity](../frontend-design/reference/reference-fidelity.md). Do not require a second reviewer or physical device when unavailable.
+
 - **The wow test**: Show it to someone who hasn't seen it. Do they react?
 - **The removal test**: Take it away. Does the experience feel diminished, or does nobody notice?
 - **The device test**: Run it in a narrow browser, a medium-width browser, and a wide precise-pointer browser. Still smooth?

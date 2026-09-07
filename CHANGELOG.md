@@ -6,6 +6,27 @@ Format follows [Keep a Changelog](https://keepachangelog.com/) with Added / Chan
 
 ## [Unreleased]
 
+## [4.0.0] - 2026-09-07
+
+### Added
+
+- Shared procedures for application-scoped context, optional page briefs, visual verification, and preserving approved references.
+- Reusable review records with finding IDs, scoped exceptions, and explicit fix-verification status.
+- Five behavioral evaluation cases for advice-only requests, monorepo context, reference preservation, review continuation, and page-brief persistence.
+
+### Changed
+
+- Setup, testing, data visualization, motion, and core design descriptions clarify request boundaries. Routing fixtures cover nearby requests and allow core design to cooperate with add-ui.
+- Core, setup, add-ui, audit, critique, imagery, normalize, and polish workflows use the shared context and verification procedures.
+- Critique prioritizes evidence and brand fit, qualifies heuristic scores and persona risks, and asks only about consequential unresolved decisions.
+- Polish reuses current review findings, preserves intentional brand choices and code conventions, and reports unavailable verification.
+
+### Fixed
+
+- Advice-only requests no longer imply authorization to execute a referenced skill, write context, or create reports.
+- Focused polish no longer requires unrelated type cleanup, removal of useful TODOs, physical devices, or another reviewer.
+- Audit and critique report templates no longer infer authorship, require unsupported themes, or imply release readiness from aggregate scores. Stale review findings can be marked not reproduced without claiming a fix.
+
 ## [3.3.0] - 2026-09-06
 
 ### Added

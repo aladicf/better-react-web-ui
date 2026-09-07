@@ -17,6 +17,8 @@ Polish should make existing hierarchy and systems more precise. It should not be
 
 Consult the `empty-state` skill when zero-data surfaces themselves need design work. Use `onboard` when the broader activation flow, aha moment, or first-run strategy is the real issue.
 
+Use [visual verification](../frontend-design/reference/visual-verification.md) for evidence, reusable findings, and final status. Reuse a matching critique from the conversation or an authorized saved report. Verify its target and baseline before acting; do not blindly apply stale findings or another route's exceptions.
+
 ## Pre-Polish Assessment
 
 Understand the current state and goals:
@@ -87,13 +89,13 @@ Consult the [finishing touches](../frontend-design/reference/finishing-touches.m
 - **Theme consistency**: Works in all theme variants
 - **Color meaning**: Same colors mean same things throughout
 - **Accessible focus**: Focus indicators visible with sufficient contrast
-- **Tinted neutrals**: No pure gray or pure black—add subtle color tint (0.01 chroma)
-- **Gray on color**: Never put gray text on colored backgrounds—use a shade of that color or transparency
+- **Brand neutrals**: Preserve approved gray, black, and white tokens. Consider tinting only when the palette is open.
+- **Text on color**: Check the rendered contrast and emphasis against the actual background.
 - **Palette discipline**: Surfaces and accents use defined ramps, not improvised one-off shades
 
 ### Interaction States
 
-Every interactive element needs all states:
+Check the states relevant to each control. Do not add unused loading, error, or success behavior to a simple navigation link:
 
 - **Default**: Resting state
 - **Hover**: Subtle feedback (color, scale, shadow)
@@ -110,9 +112,9 @@ Make sure action hierarchy remains intact across states: the primary action shou
 
 ### Micro-interactions & Transitions
 
-- **Smooth transitions**: All state changes animated appropriately (150-300ms)
-- **Consistent easing**: Use ease-out-quart/quint/expo for natural deceleration. Never bounce or elastic—they feel dated.
-- **No jank**: 60fps animations, only animate transform and opacity
+- **Transitions**: Animate state changes only when motion clarifies feedback. Match the existing motion system.
+- **Consistent easing**: Preserve purposeful project motion and remove distracting overshoot when it impedes the task.
+- **No jank**: Measure problematic motion before optimizing it. Prefer transform and opacity when they fit the effect.
 - **Appropriate motion**: Motion serves purpose, not decoration
 - **Reduced motion**: Respects `prefers-reduced-motion`
 
@@ -129,7 +131,7 @@ Make sure action hierarchy remains intact across states: the primary action shou
 - **Consistent style**: All icons from same family or matching style
 - **Appropriate sizing**: Icons sized consistently for context
 - **Proper alignment**: Icons align with adjacent text optically
-- **Alt text**: All images have descriptive alt text
+- **Alt text**: Informative images have useful text alternatives. Decorative images use empty alt text.
 - **Loading states**: Images don't cause layout shift, proper aspect ratios
 - **Retina support**: 2x assets for high-DPI screens
 - **Screenshot legibility**: Screenshots are not scaled so small that their structure becomes useless
@@ -160,7 +162,7 @@ Make sure action hierarchy remains intact across states: the primary action shou
 - **All breakpoints**: Test narrow, medium, and wide layouts
 - **Pointer targets**: 44x44px minimum for coarse-pointer contexts
 - **Readable text**: No text smaller than 14px in compact layouts
-- **No horizontal scroll**: Content fits viewport
+- **Overflow**: Avoid accidental page overflow. Keep intentional tables or galleries scrollable and usable.
 - **Appropriate reflow**: Content adapts logically
 
 ### Performance
@@ -171,24 +173,22 @@ Make sure action hierarchy remains intact across states: the primary action shou
 - **Optimized images**: Appropriate formats and sizes
 - **Lazy loading**: Off-screen content loads lazily
 
-### Code Quality
+### Code quality
 
-- **Remove console logs**: No debug logging in production
-- **Remove commented code**: Clean up dead code
-- **Remove unused imports**: Clean up unused dependencies
-- **Consistent naming**: Variables and functions follow conventions
-- **Type safety**: No TypeScript `any` or ignored errors
-- **Accessibility**: Proper ARIA labels and semantic HTML
+- Fix errors introduced by the change and run the project's relevant existing checks.
+- Remove unused imports and temporary debugging introduced by this work. Preserve intentional logging and useful TODOs.
+- Address unsafe typing when it affects the changed behavior. Do not rewrite unrelated types or dependencies to satisfy a blanket ban.
+- Preserve semantic HTML, accessible names, and error handling.
 
 ## Polish Checklist
 
 Go through systematically:
 
-- [ ] Visual alignment perfect at all breakpoints
+- [ ] Alignment checked at the relevant viewport sizes
 - [ ] Spacing uses design tokens consistently
 - [ ] Typography hierarchy consistent
-- [ ] All interactive states implemented
-- [ ] All transitions smooth (60fps)
+- [ ] Relevant interactive states implemented and checked
+- [ ] Relevant transitions checked; performance claims supported by measurement
 - [ ] Copy is consistent and polished
 - [ ] Icons are consistent and properly sized
 - [ ] All forms properly labeled and validated
@@ -201,9 +201,9 @@ Go through systematically:
 - [ ] Focus indicators visible
 - [ ] No console errors or warnings
 - [ ] No layout shift on load
-- [ ] Works in all supported browsers
+- [ ] Tested browsers named; remaining browser coverage reported
 - [ ] Respects reduced motion preference
-- [ ] Code is clean (no TODOs, console.logs, commented code)
+- [ ] No unrelated cleanup; intentional TODOs and logging preserved
 
 **IMPORTANT**: Polish is about details. Zoom in. Squint at it. Use it yourself. The little things add up.
 
@@ -216,14 +216,10 @@ Go through systematically:
 - Use borders, shadows, or color flourishes to hide unresolved hierarchy problems
 - Use bright link color, border clutter, or decorative overlap where quieter separation would work better
 
-## Final Verification
+## Final verification
 
-Before marking as done:
+Follow [visual verification](../frontend-design/reference/visual-verification.md). Recheck changed interactions and recapture relevant visual states. For each carried finding, report resolved, partial, unresolved, or unverified with current evidence.
 
-- **Use it yourself**: Actually interact with the feature
-- **Test on real devices**: Not just browser DevTools
-- **Ask someone else to review**: Fresh eyes catch things
-- **Compare to design**: Match intended design
-- **Check all states**: Don't just test happy path
+Use real devices or an additional reviewer when available and appropriate to the task. Otherwise state the verification limit. Do not require another person or a subagent to complete authorized work.
 
-Remember: You have impeccable attention to detail and exquisite taste. Polish until it feels effortless, looks intentional, and works flawlessly. Sweat the details - they matter.
+Report implemented changes, performed checks, and remaining material findings. Do not claim whole-application verification from a focused polish pass.

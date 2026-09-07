@@ -1,3 +1,6 @@
+# Labels describe primary workflows, not shared references loaded by those workflows.
+# Multiple should_trigger entries are acceptable cooperating workflows.
+# The fixture checker validates data and coverage; it does not run an agent.
 - prompt: "make this component keyboard accessible"
   should_trigger: [a11y]
   should_not_trigger: [adapt, add-ui]
@@ -334,7 +337,7 @@
 - prompt: "make this page layout easier to scan"
   should_trigger: [arrange]
   should_not_trigger: [critique, typeset]
-- prompt: "produce a P0 to P3 report for this UI"
+- prompt: "produce a P0 to P3 technical report on measured accessibility and performance issues in this UI"
   should_trigger: [audit]
   should_not_trigger: [critique, polish]
 - prompt: "check this page for anti-patterns and responsive failures"
@@ -367,7 +370,7 @@
 - prompt: "select the right graph for retention cohorts"
   should_trigger: [data-viz]
   should_not_trigger: [colorize, search]
-- prompt: "make this metrics table easier to interpret"
+- prompt: "make the units and comparisons in this metrics table easier to interpret without changing its layout"
   should_trigger: [data-viz]
   should_not_trigger: [arrange, hierarchy]
 - prompt: "add a satisfying completion moment after export"
@@ -391,7 +394,7 @@
 - prompt: "design the blank state before users add projects"
   should_trigger: [empty-state]
   should_not_trigger: [onboard, add-ui]
-- prompt: "make the no permission state useful"
+- prompt: "design a no-permission empty state with a request-access CTA using the existing permission flow"
   should_trigger: [empty-state]
   should_not_trigger: [security-ux, harden]
 - prompt: "turn repeated form rows into a shared component"
@@ -407,8 +410,8 @@
   should_trigger: [forms]
   should_not_trigger: [quieter, clarify]
 - prompt: "design a React Tailwind surface for this admin workflow"
-  should_trigger: [frontend-design]
-  should_not_trigger: [add-ui, normalize]
+  should_trigger: [frontend-design, add-ui]
+  should_not_trigger: [setup, normalize]
 - prompt: "build a polished web UI for this product concept"
   should_trigger: [frontend-design]
   should_not_trigger: [showcase, bolder]
@@ -481,7 +484,7 @@
 - prompt: "write the project design context file"
   should_trigger: [setup]
   should_not_trigger: [frontend-design, add-ui]
-- prompt: "establish the brand tone and component defaults"
+- prompt: "establish and save the brand tone and component defaults for future design work"
   should_trigger: [setup]
   should_not_trigger: [normalize, extract]
 - prompt: "create a flagship interactive product demo"
@@ -502,3 +505,33 @@
 - prompt: "make the label and value typography easier to compare"
   should_trigger: [typeset]
   should_not_trigger: [data-viz, hierarchy]
+- prompt: "start a new React landing page using the supplied brand guide and implement one direction"
+  should_trigger: [add-ui, frontend-design]
+  should_not_trigger: [setup, showcase]
+- prompt: "save our agreed audience and brand rules in the project design context for later sessions"
+  should_trigger: [setup]
+  should_not_trigger: [onboard, add-ui]
+- prompt: "check the finished page in the browser and fix its final spacing details without adding tests"
+  should_trigger: [polish]
+  should_not_trigger: [test, setup]
+- prompt: "add an automated regression test for keyboard focus returning to the dialog trigger"
+  should_trigger: [test]
+  should_not_trigger: [animate, audit]
+- prompt: "build a dashboard sidebar and shell around the existing unchanged charts"
+  should_trigger: [add-ui]
+  should_not_trigger: [data-viz, setup]
+- prompt: "choose a chart and accessible data table to compare monthly revenue across regions"
+  should_trigger: [data-viz]
+  should_not_trigger: [arrange, hierarchy]
+- prompt: "fix the drawer focus trap and Escape handling while keeping its existing motion"
+  should_trigger: [a11y]
+  should_not_trigger: [animate, add-ui]
+- prompt: "rewrite the toast error text so users know how to retry"
+  should_trigger: [clarify]
+  should_not_trigger: [animate, delight]
+- prompt: "make the drawer exit faster and keep its reduced-motion fallback usable"
+  should_trigger: [animate]
+  should_not_trigger: [depth, showcase]
+- prompt: "make the static hover color meet contrast requirements without changing animation"
+  should_trigger: [a11y]
+  should_not_trigger: [animate, bolder]

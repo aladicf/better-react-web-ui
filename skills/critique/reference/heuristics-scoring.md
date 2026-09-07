@@ -2,6 +2,8 @@
 
 Score each of Nielsen's 10 Usability Heuristics on a 0–4 scale. Be honest — a 4 means genuinely excellent, not "good enough."
 
+These scores are qualitative judgments about inspected behavior. Mark missing evidence as untested and irrelevant criteria as not applicable. Do not manufacture a total or rating band when coverage is incomplete. Interpret each criterion within the requested task rather than requiring every possible feature.
+
 ## Nielsen's 10 Heuristics
 
 ### 1. Visibility of System Status
@@ -210,13 +212,15 @@ Even if the system is usable without docs, help should be easy to find, task-foc
 
 **Total possible**: 40 points (10 heuristics × 4 max)
 
+Use this summary only when all ten heuristics were applicable and inspected. These bands describe the review, not user satisfaction or permission to ship. A blocking finding remains blocking regardless of the total.
+
 | Score Range | Rating | What It Means |
 |-------------|--------|---------------|
-| 36–40 | Excellent | Minor polish only — ship it |
+| 36–40 | Excellent | Strong results across the inspected heuristics |
 | 28–35 | Good | Address weak areas, strong foundation |
-| 20–27 | Acceptable | Significant improvements needed before users are happy |
-| 12–19 | Poor | Major UX overhaul required — core experience broken |
-| 0–11 | Critical | Redesign needed — unusable in current state |
+| 20–27 | Mixed | Prioritize the weakest inspected areas |
+| 12–19 | Poor | Several inspected areas need substantial correction |
+| 0–11 | Critical | Widespread problems in the inspected scope |
 
 ---
 
@@ -231,4 +235,4 @@ Tag each individual issue found during scoring with a priority level:
 | **P2** | Minor | Annoyance, but workaround exists | Fix in next pass |
 | **P3** | Polish | Nice-to-fix, no real user impact | Fix if time permits |
 
-**Tip**: If you're unsure between two levels, ask: "Would a user contact support about this?" If yes, it's at least P1.
+Assign severity from the observed task impact, available workaround, and affected users. Label uncertain impact as a risk; do not infer severity solely from a hypothetical support request.

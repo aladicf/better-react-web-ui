@@ -1,6 +1,6 @@
 ---
 name: animate
-description: Improve or implement purposeful motion systems, micro-interactions, gestures, and transition behavior for production-grade UI. Use when the user mentions animation, motion, transitions, micro-interactions, hover states, drawers, toasts, gestures, or making the UI feel more alive.
+description: Implement or refine UI motion, gestures, and transitions. Use when the user asks for animation, hover or press motion, drag or swipe behavior, transition timing, or reduced-motion alternatives. Mentioning a drawer, toast, or hover state alone does not request animation.
 metadata:
   argument-hint: "[component, state, or interaction]"
 ---

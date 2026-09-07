@@ -16,6 +16,8 @@ It ships:
 
 This is **not** a generic skills starter, **not** a Vercel deployment repo, and **not** a broad UI package. Keep docs, examples, and contribution guidance specific to React-based projects using Tailwind CSS.
 
+Keep the product skill-based. Use existing host tools for implementation and browser verification. Do not add a consumer runtime, detector engine, browser editor, extension, custom installer, or automatic hooks. Repository validation and wrapper-generation scripts remain maintainer tooling.
+
 ## Source of truth
 
 The canonical source of truth is always:

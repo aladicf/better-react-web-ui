@@ -1,6 +1,6 @@
 ---
 name: critique
-description: Evaluate an interface from a UX perspective, assessing hierarchy, information architecture, emotional resonance, cognitive load, and overall quality with quantitative scoring and actionable feedback. Use when the user wants an overall design or UX review—not when the main need is measurable accessibility/performance diagnosis, or final micro-detail polish.
+description: Evaluate an interface from a UX perspective, assessing hierarchy, information architecture, emotional resonance, cognitive load, and overall quality with evidence-linked judgments and actionable feedback. Use when the user wants an overall design or UX review—not when the main need is measurable accessibility/performance diagnosis, or final micro-detail polish.
 metadata:
   argument-hint: "[area (feature, page, component...)]"
 ---
@@ -29,17 +29,15 @@ Treat the shared frontend-design references as canonical for hierarchy, readabil
 
 When empty states are relevant, evaluate the zero-data surface itself through `empty-state` thinking, and evaluate broader activation, aha moments, and first-run education through `onboard` thinking.
 
+Use [visual verification](../frontend-design/reference/visual-verification.md) for captures, evidence limits, and reusable finding records. Review and report by default. Fix issues only within explicit or prior implementation authorization. Do not create a saved report unless requested or already part of that workflow.
+
 ## Phase 1: Design Critique
 
 Evaluate the interface across these dimensions:
 
-### 1. AI Slop Detection (CRITICAL)
+### 1. Product and brand fit
 
-**This is the most important check.** Does this look like every other AI-generated interface from 2024-2025?
-
-Review the design against ALL the **DON'T** guidelines in the frontend-design skill and the [ai slop detection](../frontend-design/reference/ai-slop-detection.md) reference — they are the fingerprints of AI-generated work. Check for the AI color palette, gradient text, dark mode with glowing accents, glassmorphism, hero metric layouts, identical card grids, generic fonts, and all other tells.
-
-**The test**: If you showed this to someone and said "AI made this," would they believe you immediately? If yes, that's the problem.
+Assess whether the composition supports this audience and task. Use [AI slop detection](../frontend-design/reference/ai-slop-detection.md) as diagnostic prompts, not automatic bans. Preserve approved fonts, colors, and familiar patterns. Report specific hierarchy, readability, or brand-fit problems rather than guessing whether a page was AI-generated.
 
 ### 2. Visual Hierarchy
 - Does the eye flow to the most important element first?
@@ -57,7 +55,7 @@ Review the design against ALL the **DON'T** guidelines in the frontend-design sk
 - Is related content grouped logically?
 - Do common patterns behave the way users already expect? Check navigation, search, tables, filters, forms, tabs, dropdowns, pagination, and settings for unnecessary novelty.
 - Is avoidable complexity pushed into the system through defaults, prefills, and guidance, or dumped on the user to manage manually? (Tesler's Law)
-- Are there too many choices at once? Count visible options at each decision point — if >4, flag it
+- Do the visible choices make the decision harder? Assess grouping, familiarity, and task complexity rather than using a universal option-count limit.
 - Is the navigation clear and predictable?
 - If search is present, does it understand intent, synonyms, typos, and likely destinations, or does it punish users for not knowing internal vocabulary?
 - In mixed legacy/modern flows, does one fragile step make the entire product feel unreliable or inconsistent?
@@ -133,7 +131,7 @@ Structure your feedback as a design director would:
 ### Design Health Score
 > *Consult [heuristics-scoring](reference/heuristics-scoring.md)*
 
-Score each of Nielsen's 10 heuristics 0–4. Present as a table:
+Score inspected, relevant heuristics from 0 to 4 using the reference criteria. Mark others untested or not applicable. Present the available evidence beside each judgment:
 
 | # | Heuristic | Score | Key Issue |
 |---|-----------|-------|-----------|
@@ -149,12 +147,11 @@ Score each of Nielsen's 10 heuristics 0–4. Present as a table:
 | 10 | Help and Documentation | ? | |
 | **Total** | | **??/40** | **[Rating band]** |
 
-Be honest with scores. A 4 means genuinely excellent. Most real interfaces score 20–32.
+Scores describe the reviewed scope, not measured user outcomes. Show a total out of 40 only when all ten heuristics were relevant and inspected. Otherwise omit the total and rating band.
 
-### Anti-Patterns Verdict
-**Start here.** Pass/fail: Does this look AI-generated? List specific tells from the skill's Anti-Patterns section. Be brutally honest.
+### Composition verdict
 
-Include a one-line hierarchy verdict immediately after the pass/fail statement.
+State whether the hierarchy and visual system support the task. Name concrete defects and preserve explicit constraints. A font or palette alone is not a failure.
 
 ### Overall Impression
 A brief gut reaction — what works, what doesn't, and the single biggest opportunity.
@@ -163,7 +160,7 @@ A brief gut reaction — what works, what doesn't, and the single biggest opport
 Highlight 2–3 things done well. Be specific about why they work.
 
 ### Priority Issues
-The 3–5 most impactful design problems, ordered by importance.
+Report up to five material design problems, ordered by impact. Report fewer when the evidence supports fewer; do not invent findings to fill a quota.
 
 For each issue, tag with **P0–P3 severity** (consult [heuristics-scoring](reference/heuristics-scoring.md) for severity definitions):
 - **[P?] What**: Name the problem clearly
@@ -178,13 +175,13 @@ When relevant, explicitly call out: too many borders, ambiguous grouping, too ma
 ### Persona Red Flags
 > *Consult [personas](reference/personas.md)*
 
-Auto-select 2–3 personas most relevant to this interface type (use the selection table in the reference). If `AGENTS.md` contains a `## Design Context` section from `setup`, also generate 1–2 project-specific personas from the audience/brand info.
+Select relevant hypothetical personas from the reference or confirmed audience context. Label the walkthrough as a heuristic assessment, not user research.
 
 For each selected persona, walk through the primary user action and list specific red flags found:
 
-**Alex (Power User)**: No keyboard shortcuts detected. Form requires 8 clicks for primary action. Forced modal onboarding. ⚠️ High abandonment risk.
+**Power-user walkthrough:** The tested primary action requires eight clicks and offers no observed shortcut. Consider a shorter path if this is a frequent task.
 
-**Jordan (First-Timer)**: Icon-only nav in sidebar. Technical jargon in error messages ("404 Not Found"). No visible help. ⚠️ Will abandon at step 2.
+**First-time-user walkthrough:** The sidebar icons have no visible labels. This may hinder discovery; confirm with a task-based usability test. Do not predict abandonment without evidence.
 
 Be specific — name the exact elements and interactions that fail each persona. Don't write generic persona descriptions; write what broke for them.
 
@@ -199,50 +196,10 @@ Quick notes on smaller issues worth addressing.
 - Prioritize ruthlessly — if everything is important, nothing is
 - Don't soften criticism — developers need honest feedback to ship great design
 
-## Phase 3: Ask the User
+## Phase 3: Recommend the next action
 
-**After presenting findings**, use targeted questions based on what was actually found. ask the user directly to clarify what you cannot infer. These answers will shape the action plan.
+Present findings and a prioritized action plan in the same response. Reuse known priorities, scope, and delegated choices. Ask only about an unresolved decision that materially changes the proposed work; do not make a questionnaire a required closing step.
 
-Ask questions along these lines (adapt to the specific findings — do NOT ask generic questions):
+Map each material finding to an appropriate installed skill, such as `a11y`, `arrange`, `clarify`, `normalize`, or `polish`. Include enough target and evidence detail for the fix to continue. Skip commands with no relevant finding. Recommend polish only if finishing work remains.
 
-1. **Priority direction**: Based on the issues found, ask which category matters most to the user right now. For example: "I found problems with visual hierarchy, color usage, and information overload. Which area should we tackle first?" Offer the top 2–3 issue categories as options.
-
-2. **Design intent**: If the critique found a tonal mismatch, ask whether it was intentional. For example: "The interface feels clinical and corporate. Is that the intended tone, or should it feel warmer, bolder, or more playful?" Offer 2–3 tonal directions as options based on what would fix the issues found.
-
-3. **Scope**: Ask how much the user wants to take on. For example: "I found N issues. Want to address everything, or focus on the top 3?" Offer scope options like "Top 3 only", "All issues", "Critical issues only".
-
-4. **Constraints** (optional — only ask if relevant): If the findings touch many areas, ask if anything is off-limits. For example: "Should any sections stay as-is?" This prevents the plan from touching things the user considers done.
-
-**Rules for questions**:
-- Every question must reference specific findings from Phase 2 — never ask generic "who is your audience?" questions
-- Keep it to 2–4 questions maximum — respect the user's time
-- Offer concrete options, not open-ended prompts
-- If findings are straightforward (e.g., only 1–2 clear issues), skip questions and go directly to Phase 4
-
-## Phase 4: Recommended Actions
-
-**After receiving the user's answers**, present a prioritized action summary reflecting the user's priorities and scope from Phase 3.
-
-### Action Summary
-
-List recommended commands in priority order, based on the user's answers:
-
-1. **`/command-name`** — Brief description of what to fix (specific context from critique findings)
-2. **`/command-name`** — Brief description (specific context)
-...
-
-**Rules for recommendations**:
-- Only recommend commands from: /animate, /arrange, /critique, /extract, /polish, /optimize, /audit, /typeset, /bolder, /clarify, /delight, /adapt, /colorize, /quieter, /harden, /distill, /onboard, /normalize, /showcase
-- Order by the user's stated priorities first, then by impact
-- Each item's description should carry enough context that the command knows what to focus on
-- Map each Priority Issue to the appropriate command
-- Skip commands that would address zero issues
-- If the user chose a limited scope, only include items within that scope
-- If the user marked areas as off-limits, exclude commands that would touch those areas
-- End with `/polish` as the final step if any fixes were recommended
-
-After presenting the summary, tell the user:
-
-> You can ask me to run these one at a time, all at once, or in any order you prefer.
->
-> Re-run `/critique` after fixes to see your score improve.
+If fixes are already authorized, continue within that scope rather than asking again. Otherwise leave implementation as a recommendation. A later review must use current evidence, not promise a higher score.

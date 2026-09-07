@@ -70,6 +70,8 @@ If a useful selector or demo changes the offer, carry that selection into the ne
 
 ## Verify the rendered journey
 
+Use [visual verification](visual-verification.md) to record the target, evidence, and status of fixes. These scroll-specific checks extend that procedure.
+
 Use the project's existing browser tools against the actual page and assets. Confirm the URL serves the intended revision before trusting screenshots.
 
 1. Capture each animated section at entry, intermediate positions, exit, and its handoff to the next section. Add samples around fades, overlaps, and reported defects.

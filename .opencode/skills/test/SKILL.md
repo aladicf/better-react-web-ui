@@ -1,6 +1,6 @@
 ---
 name: test
-description: Build or improve a UI testing strategy covering visual regression, interaction testing, and accessibility assertions. Use when the user asks to add tests, set up testing, fix flaky tests, improve test coverage, validate UI behavior, catch visual bugs, or establish confidence in shipping frontend changes.
+description: Build or improve UI test coverage for visual regression, interactions, and accessibility. Use when the user asks for a test strategy, automated tests, testing setup, or fixes to flaky UI tests. A one-time browser inspection or visual review does not require a new test suite.
 metadata:
   argument-hint: "[flow, component, or test gap]"
 ---

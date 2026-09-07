@@ -10,6 +10,8 @@ This project was inspired by and builds on **Impeccable**, created by **Paul Bak
 **Original repository:** https://github.com/pbakaus/impeccable
 **Creator:** Paul Bakaus
 
+The planned 4.0 workflow also adapts ideas reviewed in Impeccable's changelog and source at commit `831cabee8b4bc1a2b66e5ae22003e9a19b57d464`: application-scoped context, page decisions, evidence-based finish reviews, reference fidelity, and behavioral evaluation. These are original skill instructions adapted to this library's React and Tailwind scope. No Impeccable runtime, detector, browser editor, or extension is included.
+
 ## Anthropic better-web-ui / frontend-design lineage
 
 The `frontend-design` lineage in this project builds on Anthropic's upstream better-web-ui plugin work.

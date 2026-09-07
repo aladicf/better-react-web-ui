@@ -1,6 +1,6 @@
 ---
 name: setup
-description: Gather and persist project design context such as audience, brand personality, UX goals, React framework, Tailwind setup, and component defaults for future better-react-web-ui work. Use when starting a project, defining UI direction, or establishing reusable design guidance before other better-react-web-ui skills.
+description: Gather and persist audience, brand, UX goals, React framework, Tailwind setup, and component defaults for future design work. Use when the user asks to establish or update reusable project design guidance. A request to build UI can proceed with existing context without running setup.
 metadata:
   argument-hint: "[project or product]"
 ---
@@ -8,6 +8,8 @@ metadata:
 Gather design context for this project, then persist it for all future sessions.
 
 `setup` writes to `.better-react-web-ui.md` as the canonical destination. Older files such as `.better-web-ui.md`, `.better-ui.md`, and `.impeccable.md` are legacy migration inputs only, not the place new work should keep using.
+
+Follow [project context](../frontend-design/reference/project-context.md) to resolve the owning application and inherited defaults before writing. Existing `DESIGN.md` files remain design-system inputs. Link to their tokens instead of copying them into a competing inventory.
 
 Consult [design principles](../frontend-design/reference/design-principles.md) when turning product values, tone, and repeated tradeoffs into durable design principles that later work can reuse without reopening the same debates.
 Consult [ux strategy](../frontend-design/reference/ux-strategy.md) when the project needs a clearer strategic frame for target outcomes, user focus, priorities, feasibility, or major risks.
@@ -109,7 +111,7 @@ Derive the principles from concrete levers, not vague aspirations. Prefer things
 
 The strongest principles explain both what to do and what to avoid. Treat them as default decisions with judgment, not as decorative slogans.
 
-Write this section to `.better-react-web-ui.md` in the project root. If that file already exists, update the Design Context section in place. If a legacy `.better-web-ui.md`, `.better-ui.md`, or `.impeccable.md` file exists, migrate or mirror the Design Context section into `.better-react-web-ui.md` so better-react-web-ui has a single canonical project context file going forward.
+Write this section to `.better-react-web-ui.md` in the owning application's root. For a single-app repository, this is the repository root. Update an existing Design Context section in place and preserve unrelated sections. Migrate relevant legacy context from the same application scope without deleting the original. Keep shared defaults at the repository root and application-specific differences in the child file.
 
 Legacy files are fallback inputs for migration only. New work should keep `.better-react-web-ui.md` as the canonical destination.
 
@@ -123,6 +125,6 @@ When the distinction matters for React-oriented component ecosystems, also recor
 
 If shadcn-specific project configuration exists, record it as part of the baseline instead of letting later sessions assume the generic fallback defaults.
 
-Use `.better-react-web-ui.md` as the single persisted source. Update `AGENTS.md` only when the user requests it, and prefer a pointer to the context file over duplicating the section.
+Use `.better-react-web-ui.md` as the context entry point for its application. Preserve links to existing authoritative design documents. Add optional page briefs only for requested persistent page decisions. Update `AGENTS.md` only when requested, using a pointer instead of duplicating context.
 
 Confirm completion and summarize the key design principles that will now guide all future work.

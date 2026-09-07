@@ -17,6 +17,8 @@ Consult the [legacy modernization](../frontend-design/reference/legacy-moderniza
 
 Read [frontend-design](../frontend-design/SKILL.md) and follow its Context Gathering Protocol. Reuse available context and ask only about consequential gaps.
 
+Resolve the owning application's system with [project context](../frontend-design/reference/project-context.md). When documentation and implementation disagree, identify which represents the requested target before changing either. Verify relevant changes with [visual verification](../frontend-design/reference/visual-verification.md).
+
 ---
 
 ## Plan
@@ -29,7 +31,7 @@ Before making changes, deeply understand the context:
    - Component patterns and conventions
    - Design tokens (colors, typography, spacing)
    
-   **CRITICAL**: If something isn't clear, ask. Don't guess at design system principles.
+   Ask only when missing or conflicting design decisions materially affect the requested normalization. Continue fixes supported by explicit constraints and the existing system.
 
 2. **Analyze the current feature**: Assess what works and what doesn't:
    - Where does it deviate from design system patterns?

@@ -27,11 +27,11 @@ It is generated automatically from canonical SKILL.md metadata and content refer
 
 ### Core Design
 
-- **frontend-design**: Create distinctive, production-grade React and Tailwind interfaces with strong hierarchy, thoughtful systems, and polish... Commonly used with: add-ui, hierarchy, setup.
+- **frontend-design**: Create distinctive React and Tailwind interfaces with strong hierarchy and polished implementation. Use when building or... Commonly used with: add-ui, hierarchy, setup.
 
 ### Data Viz
 
-- **data-viz**: Design or improve data visualizations, charts, and data presentation interfaces. Use when the user asks to add charts, b... Commonly used with: frontend-design.
+- **data-viz**: Design charts, metrics, and data tables that help users interpret and compare data. Use when the user asks to visualize ... Commonly used with: frontend-design.
 
 ### Delight
 
@@ -75,7 +75,7 @@ It is generated automatically from canonical SKILL.md metadata and content refer
 
 ### Motion
 
-- **animate**: Improve or implement purposeful motion systems, micro-interactions, gestures, and transition behavior for production-gra... Commonly used with: frontend-design.
+- **animate**: Implement or refine UI motion, gestures, and transitions. Use when the user asks for animation, hover or press motion, d... Commonly used with: frontend-design.
 
 ### Onboarding
 
@@ -111,7 +111,7 @@ It is generated automatically from canonical SKILL.md metadata and content refer
 
 ### Setup
 
-- **setup**: Gather and persist project design context such as audience, brand personality, UX goals, React framework, Tailwind setup... Commonly used with: frontend-design.
+- **setup**: Gather and persist audience, brand, UX goals, React framework, Tailwind setup, and component defaults for future design ... Commonly used with: frontend-design.
 
 ### Simplification
 
@@ -119,7 +119,7 @@ It is generated automatically from canonical SKILL.md metadata and content refer
 
 ### Testing
 
-- **test**: Build or improve a UI testing strategy covering visual regression, interaction testing, and accessibility assertions. Us... Commonly used with: frontend-design.
+- **test**: Build or improve UI test coverage for visual regression, interactions, and accessibility. Use when the user asks for a t... Commonly used with: frontend-design.
 
 ### Typography
 

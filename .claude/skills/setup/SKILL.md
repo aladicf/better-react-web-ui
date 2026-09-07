@@ -1,6 +1,6 @@
 ---
 name: setup
-description: Gather and persist project design context such as audience, brand personality, UX goals, React framework, Tailwind setup, and component defaults for future better-react-web-ui work. Use when starting a project, defining UI direction, or establishing reusable design guidance before other better-react-web-ui skills.
+description: Gather and persist audience, brand, UX goals, React framework, Tailwind setup, and component defaults for future design work. Use when the user asks to establish or update reusable project design guidance. A request to build UI can proceed with existing context without running setup.
 metadata:
   argument-hint: "[project or product]"
 ---

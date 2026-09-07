@@ -8,6 +8,10 @@ Important default: the more component-shaped references in this folder are mostl
 
 ## Start here
 
+- [Project context](./project-context.md) resolves application scope, existing design documents, and optional page briefs.
+- [Visual verification](./visual-verification.md) defines evidence, review records, and fix verification.
+- [Reference fidelity](./reference-fidelity.md) connects approved visual references to implementation and responsive checks.
+
 - [Before-and-after examples](./before-and-after-examples.md) show constraint-preserving hierarchy, visible hero loading, and reduced-motion fallback reviews.
 
 If you only open a few files first, make them these:

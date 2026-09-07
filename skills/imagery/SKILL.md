@@ -16,6 +16,8 @@ Consult the [semantic color](../frontend-design/reference/semantic-color.md) whe
 Consult the [image treatment](../frontend-design/reference/image-treatment.md) as the canonical shared source for overlays, screenshot sizing, icon scaling, media containment, and background bleed prevention.
 Consult the [surface separation](../frontend-design/reference/surface-separation.md) when images or media need cleaner separation from surrounding surfaces.
 
+When working from an approved visual reference, follow [reference fidelity](../frontend-design/reference/reference-fidelity.md). Preserve the subject and medium that make the reference meaningful, and report missing defining assets instead of silently substituting generic shapes.
+
 ---
 
 ## Assess Imagery Problems

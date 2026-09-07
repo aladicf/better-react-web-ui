@@ -93,6 +93,12 @@ npx skills add aladicf/better-react-web-ui --skill '*' --agent opencode -g
 
 Use `/setup` when you want to record reusable audience, brand, and stack decisions in `.better-react-web-ui.md`. Existing instructions and documented context also work. A focused repair can proceed without a context file or a brand interview.
 
+In monorepos, context belongs to the application being changed. Application-local decisions override shared design defaults, while repository instructions retain their scope. Existing `DESIGN.md` files remain inputs. Optional page briefs preserve route-specific decisions when persistent documentation is requested. See [project context](skills/frontend-design/reference/project-context.md).
+
+Implementation and review skills use the host's existing tools to verify results. Reports distinguish observed defects, inferred risks, and untested behavior. A saved critique can guide later fixes when its target and baseline still match. See [visual verification](skills/frontend-design/reference/visual-verification.md).
+
+The [4.0.0 changelog](CHANGELOG.md#400---2026-09-07) records these skill-only changes. The [evaluation guide](evaluations/README.md) defines live comparisons, which remain untested for this release.
+
 ## Upgrading from older installs
 
 To update an existing install, use the upstream CLI:
@@ -107,6 +113,8 @@ npx skills update -y
 Use `npx skills update` to update everything, or pass one or more skill names to update only those skills. Add `-g` for global installs, `-p` for project installs, and `-y` to skip the scope prompt.
 
 If you are upgrading from an older install, keep your project-specific context and re-run `/setup` if your React framework, Tailwind setup, or component preferences changed. The current canonical context file is `.better-react-web-ui.md`.
+
+The 4.0 workflow keeps existing skill names and single-app root context files. It does not require new context documents, saved reviews, or visual mocks for small repairs. Move application-specific decisions into a child context file only when the repository needs that separation. Advice-only questions remain read-only.
 
 ## Removing skills
 

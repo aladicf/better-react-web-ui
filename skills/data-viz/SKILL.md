@@ -1,6 +1,6 @@
 ---
 name: data-viz
-description: Design or improve data visualizations, charts, and data presentation interfaces. Use when the user asks to add charts, build dashboards, visualize data, choose chart types, make data accessible, or present metrics and analytics.
+description: Design charts, metrics, and data tables that help users interpret and compare data. Use when the user asks to visualize data, choose chart types, improve dashboard analytics, or make data presentation accessible. Dashboard navigation and shell layout alone belong to add-ui or arrange.
 metadata:
   argument-hint: "[chart, dashboard, or data surface]"
 ---

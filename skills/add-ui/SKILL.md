@@ -180,6 +180,8 @@ For redesigns of existing artifacts, also state:
 
 ### 3. Build real candidate artifacts
 
+For an approved mock or screenshot, follow [reference fidelity](../frontend-design/reference/reference-fidelity.md). For substantial page work, use the optional [page brief](../frontend-design/reference/project-context.md#record-a-page-brief-when-it-helps-continuation). A direct implementation request does not require either a mock or an extra selection round.
+
 For each direction, generate a real artifact package.
 
 Prefer:
@@ -242,6 +244,8 @@ When a reusable pattern emerges, apply the spirit of `extract` — but do not bu
 Use the [request mapping heuristics](./reference/request-mapping.md) for artifact-specific priorities such as hero sections, pricing, paywalls, auth, dashboards, commerce flows, and content surfaces.
 
 ## Output Contract
+
+Use [visual verification](../frontend-design/reference/visual-verification.md) before reporting the implemented result as checked. Keep implemented work distinct from unverified visual or behavioral claims.
 
 For direct implementation, report the implemented result, changed files, and verification. For exploration, present results in this order:
 
